@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PB의 하루 · 발표</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* 레이아웃: 1600×900 무대를 화면에 맞춰 확대·축소하는 16:9 슬라이드. 시세판처럼 숫자·시간은 고정폭 글꼴. */
+:root{
+  --paper:#F3F5F8;
+  --card:#FFFFFF;
+  --ink:#0D1B2E;
+  --muted:#5A6678;
+  --line:#D8DEE7;
+  --up:#D3263A;      /* 한국 시세판의 상승 빨강 — 강조색 */
+  --down:#1C5BD0;    /* 하락 파랑 — 보조색 */
+  --up-soft:#FBE9EB;
+  --down-soft:#E7EEFB;
+  --sans:"Pretendard","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"Consolas",monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{height:100%;margin:0;background:#0A1424;overflow:hidden}
+body{word-break:keep-all;font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+.stage{position:absolute;left:50%;top:50%;width:1600px;height:900px;transform-origin:center center;background:var(--paper);overflow:hidden}
+.slide{position:absolute;inset:0;padding:72px 96px 104px;display:none;flex-direction:column;gap:28px}
+.slide.on{display:flex}
+h1,h2,h3,p{margin:0}
+h1{font-size:76px;line-height:1.15;font-weight:800;letter-spacing:-0.02em;text-wrap:balance}
+h2{font-size:54px;line-height:1.2;font-weight:800;letter-spacing:-0.02em;text-wrap:balance}
+h3{font-size:32px;line-height:1.3;font-weight:700;letter-spacing:-0.01em}
+p,li{font-size:28px;line-height:1.55;color:var(--ink)}
+.muted{color:var(--muted)}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.kicker{font-family:var(--mono);font-size:22px;font-weight:600;color:var(--up);letter-spacing:.06em}
+.lead{font-size:32px;line-height:1.5;color:var(--muted);max-width:1200px}
+.grow{flex:1;min-height:0}
+
+/* 하단 바: 구간 이름 · 쪽수 · 경과 시간 */
+.foot{position:absolute;left:96px;right:96px;bottom:36px;height:36px;display:flex;align-items:center;justify-content:space-between;font-family:var(--mono);font-size:18px;color:var(--muted);border-top:1px solid var(--line)}
+.foot .part{display:flex;align-items:center;gap:12px;padding-top:2px}
+.foot .dot{width:8px;height:8px;border-radius:50%;background:var(--up)}
+.foot .right{display:flex;align-items:center;gap:28px;padding-top:2px}
+
+/* 공통 블록 */
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:32px 36px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.chip{display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 18px;border-radius:999px;font-size:20px;font-weight:700;line-height:1;white-space:nowrap}
+.chip.up{background:var(--up-soft);color:var(--up)}
+.chip.down{background:var(--down-soft);color:var(--down)}
+.chip.ink{background:var(--ink);color:#fff}
+.ex{display:inline-flex;align-items:center;height:30px;padding:0 12px;border:1.5px dashed var(--muted);border-radius:6px;font-size:16px;font-weight:600;color:var(--muted);line-height:1;vertical-align:middle}
+ul.clean{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px}
+ul.clean li{display:flex;gap:16px;align-items:baseline}
+ul.clean li::before{content:"";flex:none;width:10px;height:10px;border-radius:2px;background:var(--down);transform:translateY(-4px)}
+ul.bad li::before{background:var(--up)}
+
+/* 표지 */
+.cover{flex-direction:row;align-items:stretch;gap:64px;padding-bottom:72px}
+.cover .left{flex:1;display:flex;flex-direction:column;justify-content:center;gap:28px;min-width:0}
+.cover .ticker{display:flex;gap:28px;font-family:var(--mono);font-size:22px;color:var(--muted)}
+.cover .ticker b{color:var(--up);font-weight:600}
+.cover .ticker i{color:var(--down);font-style:normal;font-weight:600}
+.qrbox{width:430px;flex:none;background:var(--ink);color:#fff;border-radius:20px;padding:40px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px}
+.qrbox .qr{background:#fff;padding:18px;border-radius:12px;width:316px;height:316px;display:flex;align-items:center;justify-content:center}
+.qrbox .qr img,.qrbox .qr canvas{width:280px!important;height:280px!important}
+.qrbox p{color:#fff;text-align:center;font-size:26px;line-height:1.45}
+.qrbox .url{font-family:var(--mono);font-size:18px;color:#AFC0D8;word-break:break-all;text-align:center}
+
+/* 순서 */
+.agenda{display:flex;flex-direction:column;border-top:2px solid var(--ink)}
+.agenda .row{display:grid;grid-template-columns:120px 1fr 160px;align-items:center;min-height:104px;border-bottom:1px solid var(--line);gap:24px}
+.agenda .no{font-family:var(--mono);font-size:26px;color:var(--muted)}
+.agenda .what{display:flex;flex-direction:column;gap:6px}
+.agenda .what b{font-size:34px;font-weight:800}
+.agenda .what span{font-size:22px;color:var(--muted)}
+.agenda .min{font-family:var(--mono);font-size:30px;font-weight:600;text-align:right}
+.agenda .row.hl .min{color:var(--up)}
+
+/* 구간 표지 */
+.section{background:var(--ink);justify-content:center;gap:24px}
+.section .big{font-family:var(--mono);font-size:30px;color:#FF8090;font-weight:600;letter-spacing:.08em}
+.section h1{color:#fff;font-size:96px}
+.section .lead{color:#AFC0D8}
+.section .foot{border-top-color:#22324A;color:#7E8FA8}
+
+/* 직무 지도 */
+.map{display:grid;grid-template-columns:1.25fr 1fr;gap:28px}
+.map .col{border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:18px}
+.map .hq{background:var(--card);border:1px solid var(--line)}
+.map .br{background:var(--ink);color:#fff}
+.map .br p,.map .br h3{color:#fff}
+.map .cells{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.map .cell{border:1px solid var(--line);border-radius:10px;padding:18px 20px;display:flex;flex-direction:column;gap:4px}
+.map .cell b{font-size:26px}
+.map .cell span{font-size:20px;color:var(--muted);line-height:1.4}
+
+/* 하루 타임라인 */
+.timeline{display:flex;flex-direction:column;border-top:2px solid var(--ink)}
+.timeline .t{display:grid;grid-template-columns:130px 22px 1fr;align-items:center;gap:22px;height:66px;border-bottom:1px solid var(--line)}
+.timeline .t .h{font-family:var(--mono);font-size:26px;font-weight:600;font-variant-numeric:tabular-nums}
+.timeline .t .m{width:14px;height:14px;border-radius:50%;background:var(--down);justify-self:center}
+.timeline .t.k .m{background:var(--up)}
+.timeline .t .d{font-size:26px;display:flex;gap:16px;align-items:baseline;min-width:0}
+.timeline .t .d small{font-size:20px;color:var(--muted)}
+
+/* 역할 4칸 */
+.role .n{font-family:var(--mono);font-size:22px;color:var(--up);font-weight:600}
+.role p{font-size:23px;color:var(--muted);line-height:1.5}
+
+/* 불합격 인턴 */
+.fail .vs{display:grid;grid-template-columns:1fr 1fr;gap:28px;flex:1;min-height:0;align-content:start}
+.fail .side{border-radius:16px;padding:36px 40px;display:flex;flex-direction:column;gap:18px}
+.fail .bad{background:var(--up-soft)}
+.fail .good{background:var(--down-soft)}
+.fail .side p{font-size:30px;line-height:1.55}
+.fail .counter{display:flex;align-items:center;gap:16px}
+.fail .counter .bar{display:flex;gap:6px}
+.fail .counter .bar i{width:34px;height:8px;border-radius:4px;background:var(--line)}
+.fail .counter .bar i.on{background:var(--up)}
+
+/* 비교 문장 */
+.quote{border-radius:16px;padding:36px 40px;display:flex;flex-direction:column;gap:16px}
+.quote p{font-size:30px;line-height:1.6}
+.quote.bad{background:var(--card);border:1px solid var(--line)}
+.quote.good{background:var(--card);border:2px solid var(--down)}
+
+/* AI 차트 */
+.chart{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px 36px}
+.chart svg{display:block;width:100%;height:auto}
+
+/* 프롬프트 */
+.prompt{font-family:var(--mono);font-size:21px;line-height:1.55;background:var(--ink);color:#E6ECF5;border-radius:10px;padding:18px 22px}
+
+/* Q&A 보드 */
+.qa{flex-direction:row;gap:40px;padding-bottom:104px}
+.qa .main{flex:1;display:flex;flex-direction:column;gap:22px;min-width:0}
+.qa .head{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.qa .count{font-family:var(--mono);font-size:22px;color:var(--muted)}
+.qa .board{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:min-content;gap:16px;overflow:hidden;align-content:start}
+.qa .q{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 24px;display:flex;gap:18px;align-items:flex-start;cursor:pointer;text-align:left;font:inherit;color:inherit}
+.qa .q .likes{flex:none;width:64px;height:64px;border-radius:10px;background:var(--up-soft);color:var(--up);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--mono);font-weight:600;font-size:24px;line-height:1}
+.qa .q .likes small{font-family:var(--sans);font-size:14px;margin-top:6px;font-weight:600}
+.qa .q .txt{font-size:24px;line-height:1.45;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.qa .q.done{opacity:.4}
+.qa .q.now{border:2px solid var(--up);box-shadow:0 0 0 4px var(--up-soft)}
+.qa .empty{grid-column:1/-1;border:2px dashed var(--line);border-radius:14px;padding:60px;text-align:center;color:var(--muted);font-size:28px}
+.qa .side{width:330px;flex:none;background:var(--ink);border-radius:18px;padding:30px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px}
+.qa .side .qr{background:#fff;padding:14px;border-radius:10px;width:244px;height:244px;display:flex;align-items:center;justify-content:center}
+.qa .side .qr img,.qa .side .qr canvas{width:216px!important;height:216px!important}
+.qa .side p{color:#fff;text-align:center;font-size:22px;line-height:1.45}
+.demo{position:absolute;top:22px;right:96px;font-family:var(--mono);font-size:16px;color:var(--muted)}
+
+/* PB 정의 */
+.pbdef{display:grid;grid-template-columns:1fr 60px 1fr;gap:32px;align-items:center;align-content:center}
+.pbdef .who,.pbdef .what{display:flex;flex-direction:column;gap:20px}
+.pbdef .cust{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px 32px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.pbdef .cust p{font-size:26px;color:var(--muted)}
+.pbdef .do{background:var(--ink);border-radius:14px;padding:30px 34px;display:flex;flex-direction:column;gap:8px}
+.pbdef .do b{color:#fff;font-size:36px;font-weight:800}
+.pbdef .do span{color:#AFC0D8;font-size:24px;line-height:1.45}
+
+/* 하루 흐름 */
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:0;align-content:start;border-top:2px solid var(--ink)}
+.phases .ph{padding:32px 32px 0 0;display:flex;flex-direction:column;gap:16px;border-right:1px solid var(--line);margin-right:32px}
+.phases .ph:last-child{border-right:0;margin-right:0}
+.phases .when{font-size:28px;font-weight:600;color:var(--down)}
+.phases .ph.hot .when{color:var(--up)}
+.phases p{font-size:26px;color:var(--muted)}
+
+/* 큰 질문 카드 */
+.bigq .n{font-size:22px;font-weight:600;color:var(--up)}
+.bigq h3{font-size:38px;line-height:1.3}
+.bigq p{font-size:24px}
+
+/* 영상 */
+.video{display:flex}
+.video .screen{flex:1;background:#050B16;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;position:relative}
+.video .tag{position:absolute;top:26px;left:30px;font-size:18px;color:#7E8FA8}
+.video .vt{color:#fff;font-size:56px;font-weight:800}
+.video .play{display:inline-flex;align-items:center;justify-content:center;height:72px;padding:0 40px;border-radius:999px;background:var(--up);color:#fff;font-size:28px;font-weight:700;text-decoration:none;line-height:1}
+.video .vnote{color:#7E8FA8;font-size:22px}
+
+/* 게임 규칙 */
+.rules{display:grid;grid-template-columns:auto 1fr;gap:64px;align-items:center}
+.guests{display:grid;grid-template-columns:repeat(5,96px);gap:16px}
+.guests .g{width:96px;height:96px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:40px;font-weight:600;line-height:1}
+.guests .o{background:var(--down-soft);color:var(--down)}
+.guests .x{background:var(--up-soft);color:var(--up)}
+
+/* 단계 흐름 + 예시 표 */
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;flex:none}
+.flow .step{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 24px;display:grid;grid-template-columns:48px 1fr;column-gap:16px;row-gap:4px;align-items:center}
+.flow .step .n{grid-row:span 2;width:48px;height:48px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:600;line-height:1}
+.flow .step.hot{border:2px solid var(--up)}
+.flow .step.hot .n{background:var(--up)}
+.flow .step b{font-size:26px}
+.flow .step span{font-size:19px;color:var(--muted)}
+.ex-table{border-top:2px solid var(--ink)}
+.ex-table .r{display:grid;grid-template-columns:280px 1fr;gap:24px;align-items:center;min-height:62px;border-bottom:1px solid var(--line);font-size:24px}
+.ex-table .r span:first-child{font-weight:700}
+.ex-table .head{font-family:var(--mono);font-size:18px;color:var(--muted);min-height:44px}
+.ex-table .head span:first-child{font-weight:600}
+
+/* 질문 비교 */
+.asks{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-content:start}
+.asks .col{border-radius:16px;padding:30px 34px;display:flex;flex-direction:column;gap:16px}
+.asks .bad{background:var(--up-soft)}
+.asks .good{background:var(--down-soft)}
+.asks .lab{display:flex;align-items:center;gap:16px;margin-bottom:4px}
+.asks .sub{font-size:22px;color:var(--muted);font-weight:600}
+.asks .bubble{background:var(--card);border-radius:14px 14px 14px 4px;padding:18px 24px;font-size:27px;line-height:1.45;font-weight:600}
+.asks .bad .bubble{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(211,38,58,.5);text-decoration-thickness:2px}
+
+/* 화면 클릭 안내 */
+.help{position:fixed;left:16px;bottom:12px;font:13px var(--sans);color:#6F7F96;opacity:.8;user-select:none}
+@media (prefers-reduced-motion:no-preference){ .slide.on{animation:in .25s ease-out} @keyframes in{from{opacity:.4}to{opacity:1}} }
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+
+<!-- 1. 표지 -->
+<section class="slide cover" data-part="오프닝">
+  <div class="left">
+    <div class="ticker"><span>KOSPI <b>▲</b></span><span>KOSDAQ <i>▼</i></span><span>USD/KRW</span><span class="mono">08:00 시황회의</span></div>
+    <h1>증권사 PB의 하루,<br>그리고 불합격하는<br>인턴의 특징</h1>
+    <p class="lead">직무특강 · 증권사 지점 영업(PB) · 김다훈</p>
+  </div>
+  <div class="qrbox">
+    <div class="qr" data-qr></div>
+    <p>휴대폰으로 찍고 들어오세요<br><b>강의 자료 + 익명 질문</b></p>
+    <div class="url" data-url></div>
+  </div>
+</section>
+
+<!-- 2. 순서 -->
+<section class="slide" data-part="오프닝">
+  <div class="kicker">오늘의 순서 · 50분</div>
+  <h2>질문은 지금부터 언제든, 익명으로 남겨 주세요</h2>
+  <div class="agenda">
+    <div class="row"><span class="no">1부</span><div class="what"><b>PB의 하루</b><span>지점 영업은 하루 종일 무엇을 하나</span></div><span class="min">10분</span></div>
+    <div class="row"><span class="no">2부</span><div class="what"><b>취업 전략: 스펙보다 전략</b><span>스펙보다 전략 · 더 지니어스 홍진호 이야기</span></div><span class="min">10분</span></div>
+    <div class="row"><span class="no">3부</span><div class="what"><b>불합격하는 인턴의 특징</b><span>딱 한 가지: 질문을 들으면 보입니다</span></div><span class="min">8분</span></div>
+    <div class="row hl"><span class="no">4부</span><div class="what"><b>AI를 잘 쓰는 사람이 이긴다</b><span>제가 실제로 일하는 방법</span></div><span class="min">10분</span></div>
+    <div class="row"><span class="no">Q&amp;A</span><div class="what"><b>여러분의 질문</b><span>공감을 많이 받은 질문부터 답합니다</span></div><span class="min">10분</span></div>
+  </div>
+</section>
+
+<!-- 3. 1부 표지 -->
+<section class="slide section" data-part="1부 · PB의 하루">
+  <div class="big">PART 1 · 10분</div>
+  <h1>PB의 하루</h1>
+  <p class="lead">증권사 지점 PB는 하루 종일 무엇을 할까요?</p>
+</section>
+
+<!-- 4. PB란 -->
+<section class="slide" data-part="1부 · PB의 하루">
+  <div class="kicker">PB · 지점 영업이란</div>
+  <h2>리테일 고객의 자산을 관리하고, 상품을 세일즈하는 사람</h2>
+  <div class="pbdef grow">
+    <div class="who">
+      <div class="cust"><span class="chip down">개인 고객</span><p>예금·주식·연금 등 개인의 자산을 함께 관리합니다</p></div>
+      <div class="cust"><span class="chip down">법인 고객</span><p>회사 자금 운용, 임직원 퇴직연금까지 상담합니다</p></div>
+    </div>
+    <div class="arrow" aria-hidden="true"><svg viewBox="0 0 60 40" width="60" height="40"><path d="M2 20h48M38 6l14 14-14 14" fill="none" stroke="#0D1B2E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="what">
+      <div class="do"><b>자산 관리</b><span>시장이 움직이면 먼저 연락하고 계좌를 점검합니다</span></div>
+      <div class="do"><b>상품 세일즈</b><span>고객 상황에 맞는 상품을 제안하고 판매합니다</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. 하루 흐름 -->
+<section class="slide" data-part="1부 · PB의 하루">
+  <div class="kicker">PB의 하루 타임라인</div>
+  <h2>장이 열리기 전에 하루가 이미 시작됩니다</h2>
+  <div class="phases grow">
+    <div class="ph"><span class="when mono">출근길</span><h3>시장 공부</h3><p>텔레그램 채널과 네이버 프리미엄콘텐츠로 밤사이 시장 소식을 읽으며 출근합니다</p></div>
+    <div class="ph"><span class="when mono">출근 직후</span><h3>회의</h3><p>실적 회의와 시황 회의. 오늘 고객에게 무슨 이야기를 할지 정합니다</p></div>
+    <div class="ph hot"><span class="when mono">09:00 ~</span><h3>장 시작, 영업 시작</h3><p>고객 응대, 자산 섭외, 외부 영업까지. 다음 장에서 자세히 보겠습니다</p></div>
+  </div>
+</section>
+
+<!-- 6. 9시 이후 -->
+<section class="slide" data-part="1부 · PB의 하루">
+  <div class="kicker">09:00 장 시작 이후</div>
+  <h2>자리에서, 지점에서, 밖에서</h2>
+  <div class="grid3 grow" style="align-content:start">
+    <div class="card"><h3>자리에서</h3><ul class="clean"><li>주문 전화 받기</li><li>고객에게 시황 문자 보내기</li><li>자료·상품 제안서 만들기</li></ul></div>
+    <div class="card"><h3>지점에서</h3><ul class="clean"><li>내점 고객 응대</li><li>빠져나간 자산 다시 섭외하기</li><li>상품 세일즈</li></ul></div>
+    <div class="card" style="border:2px solid var(--up)"><h3>밖에서</h3><ul class="clean"><li>고객 외부 방문</li><li>퇴직연금: 법인에 직접 나가 상담</li><li>세미나 진행</li></ul></div>
+  </div>
+</section>
+
+<!-- 7. 하는 일 3가지 -->
+<section class="slide" data-part="1부 · PB의 하루">
+  <div class="kicker">PB가 하는 일</div>
+  <h2>결국 PB의 일은 세 가지로 모입니다</h2>
+  <div class="grid3 grow" style="align-content:start">
+    <div class="card role"><span class="n">01</span><h3>고객 자산 유치</h3><p>고객의 자산을 우리 회사로 모셔 옵니다. 빠져나간 자산을 되찾는 일도 포함됩니다.</p></div>
+    <div class="card role"><span class="n">02</span><h3>상품 섭외</h3><p>연금·펀드·채권 등 고객에게 맞는 상품을 제안하고 판매합니다.</p></div>
+    <div class="card role"><span class="n">03</span><h3>신규 고객 창출</h3><p>처음 만나는 개인과 법인을 고객으로 만듭니다.</p></div>
+  </div>
+</section>
+
+<!-- 8. 맞는 사람 -->
+<section class="slide" data-part="1부 · PB의 하루" style="justify-content:center">
+  <div class="kicker">이 일이 맞는 사람</div>
+  <h1>PB에게 가장 필요한 건<br><span style="color:var(--up)">거절에 익숙한 사람</span>입니다</h1>
+  <p class="lead">섭외 전화 열 통 중 대부분은 거절입니다. 거절을 듣고도 다음 전화를 걸 수 있는 사람이 결국 고객을 만듭니다.</p>
+</section>
+
+<!-- 9. 2부 표지 -->
+<section class="slide section" data-part="2부 · 취업 전략">
+  <div class="big">PART 2 · 10분</div>
+  <h1>스펙보다 전략</h1>
+  <p class="lead">취업 전략은 조금 다르게 이야기해 보겠습니다.</p>
+</section>
+
+<!-- 10. 두 가지 질문 -->
+<section class="slide" data-part="2부 · 취업 전략">
+  <div class="kicker">취업 전략의 출발점</div>
+  <h2>준비를 시작하기 전에 두 가지만 먼저 고민하세요</h2>
+  <div class="grid2 grow" style="align-content:start">
+    <div class="card bigq"><span class="n mono">질문 1</span><h3>이 직무가 요구하는 역량은 무엇인가?</h3><p class="muted">PB라면: 거절에 익숙함, 사람을 만나는 힘, 시장에 대한 관심</p></div>
+    <div class="card bigq" style="border:2px solid var(--up)"><span class="n mono">질문 2</span><h3>그 역량을 나는 어떻게 보여 줄 수 있는가?</h3><p class="muted">보여 줄 증거가 없다면, 지금부터 만들면 됩니다</p></div>
+  </div>
+  <p style="font-size:32px;font-weight:700">이 두 질문에 답하는 게 스펙 하나를 더 쌓는 것보다 중요합니다.</p>
+</section>
+
+<!-- 11. 영상 -->
+<section class="slide" data-part="2부 · 취업 전략">
+  <div class="kicker">영상 하나 보고 가겠습니다</div>
+  <h2>더 지니어스 시즌1 11화, 홍진호의 '5 대 5'</h2>
+  <div class="video grow">
+    <div class="screen">
+      <span class="mono tag">tvN · 2013. 7. 5. 방송</span>
+      <p class="vt">메인매치 '5 대 5'</p>
+      <a class="play" id="videoLink" href="#" target="_blank" rel="noopener" hidden>▶ 영상 열기</a>
+      <p class="vnote" id="videoNote">영상 링크를 config.js의 VIDEO_URL에 넣으면 여기에 재생 버튼이 생깁니다</p>
+    </div>
+  </div>
+</section>
+
+<!-- 12. 게임 규칙 -->
+<section class="slide" data-part="2부 · 취업 전략">
+  <div class="kicker">게임 규칙</div>
+  <h2>게스트 10명의 O/X 답이 정확히 5 대 5로 갈리는 문장을 내라</h2>
+  <div class="rules grow">
+    <div class="guests" aria-label="게스트 10명 중 5명 O, 5명 X">
+      <span class="g o">O</span><span class="g o">O</span><span class="g o">O</span><span class="g o">O</span><span class="g o">O</span>
+      <span class="g x">X</span><span class="g x">X</span><span class="g x">X</span><span class="g x">X</span><span class="g x">X</span>
+    </div>
+    <ul class="clean">
+      <li>처음 보는 게스트 10명을 1시간 동안 조사합니다</li>
+      <li>12글자 이내의 문장을 내고, 게스트 답이 5 대 5로 갈리면 1점</li>
+      <li>1라운드 3문제, 2라운드 5문제. 사이에 추가 조사 10분</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 13. 남들 vs 홍진호 -->
+<section class="slide" data-part="2부 · 취업 전략">
+  <div class="kicker">같은 게임, 다른 접근</div>
+  <h2>다른 사람은 정보를 캐냈고, 홍진호는 정보를 만들었습니다</h2>
+  <div class="grid2 grow" style="align-content:start">
+    <div class="card"><span class="chip ink" style="align-self:flex-start">다른 참가자</span>
+      <p>게스트의 이름, 옷차림, 생일 같은 <b>이미 있는 정보</b>를 알아내 문장을 만들었습니다.</p>
+      <p class="muted" style="font-size:24px">정보가 정확하지 않거나 해석이 갈리면 실패했습니다.</p></div>
+    <div class="card" style="border:2px solid var(--up)"><span class="chip up" style="align-self:flex-start">홍진호</span>
+      <p>추가 조사 10분 동안 게스트 <b>5명에게만</b> 자기 형의 이름을 알려 주고 손등을 맞댔습니다. 그리고 그 5명만 아는 문장을 냈습니다.</p>
+      <p style="font-size:24px;color:var(--up);font-weight:700">2라운드 5문제를 모두 성공, 메인매치 1위</p></div>
+  </div>
+</section>
+
+<!-- 14. 취업시장도 같다 -->
+<section class="slide" data-part="2부 · 취업 전략">
+  <div class="kicker">취업 시장도 같습니다</div>
+  <h2>답을 찾지 말고, 답이 나오는 판을 직접 만드세요</h2>
+  <div class="flow grow">
+    <div class="step"><span class="n mono">1</span><b>무엇을 요구하나?</b><span>회사가 이 직무에서 보고 싶은 역량</span></div>
+    <div class="step"><span class="n mono">2</span><b>내게 증거가 있나?</b><span>없다면 남들처럼 스펙을 더 쌓는 대신</span></div>
+    <div class="step hot"><span class="n mono">3</span><b>증거를 직접 만든다</b><span>그 역량을 보여 줄 경험을 내가 설계</span></div>
+  </div>
+  <div class="ex-table">
+    <div class="r head"><span>요구 역량</span><span>이렇게 만들 수 있습니다</span></div>
+    <div class="r"><span>거절에 익숙함</span><span>영업·판매 아르바이트에서 거절을 몇 번 듣고 몇 건을 성사시켰는지 기록</span></div>
+    <div class="r"><span>시장에 대한 관심</span><span>매일 시황 세 줄 요약을 100일 동안 블로그에 올리기</span></div>
+    <div class="r"><span>사람을 만나는 힘</span><span>동아리·모임을 직접 만들고 사람을 모아 본 경험</span></div>
+  </div>
+</section>
+
+<!-- 15. 3부 표지 -->
+<section class="slide section" data-part="3부 · 불합격 인턴">
+  <div class="big">PART 3 · 8분</div>
+  <h1>불합격하는 인턴의 특징</h1>
+  <p class="lead">딱 한 가지만 이야기하겠습니다.</p>
+</section>
+
+<!-- 16. 한 가지 -->
+<section class="slide" data-part="3부 · 불합격 인턴" style="justify-content:center">
+  <div class="kicker">불합격하는 인턴의 특징</div>
+  <h1>합격에 초점을 맞추는가,<br><span style="color:var(--up)">입사 후 성과</span>에 초점을 맞추는가</h1>
+  <p class="lead">그리고 이 차이는 인턴이 던지는 질문을 들어 보면 바로 보입니다.</p>
+</section>
+
+<!-- 17. 질문 비교 -->
+<section class="slide" data-part="3부 · 불합격 인턴">
+  <div class="kicker">인턴이 선배에게 하는 질문</div>
+  <h2>질문을 들으면 결과가 보입니다</h2>
+  <div class="asks grow">
+    <div class="col bad">
+      <div class="lab"><span class="chip up">불합격하는 인턴의 질문</span><span class="sub">관심이 '합격'에 있다</span></div>
+      <div class="bubble">주임님은 입사할 때 어떤 질문을 받으셨어요?</div>
+      <div class="bubble">면접 잘 보려면 어떻게 해야 돼요?</div>
+    </div>
+    <div class="col good">
+      <div class="lab"><span class="chip down">합격하는 인턴의 질문</span><span class="sub">관심이 '일'에 있다</span></div>
+      <div class="bubble">여기서 영업 잘하시는 분들은 어떻게 영업하세요?</div>
+      <div class="bubble">주임님만의 영업 아이디어나 필살기는 뭔가요?</div>
+      <div class="bubble">고객 자산은 어떻게 유치하세요?</div>
+    </div>
+  </div>
+</section>
+
+<!-- 18. 왜 -->
+<section class="slide" data-part="3부 · 불합격 인턴">
+  <div class="kicker">왜 이 차이가 결과를 가를까</div>
+  <h2>회사는 '붙을 사람'이 아니라 '일 잘할 사람'을 뽑습니다</h2>
+  <div class="grid2 grow" style="align-content:start">
+    <div class="card"><span class="chip up" style="align-self:flex-start">합격에 초점</span><p>인턴 기간을 시험 기간으로 봅니다. 질문도, 행동도 평가를 잘 받는 데 맞춰져 있습니다.</p></div>
+    <div class="card" style="border:2px solid var(--down)"><span class="chip down" style="align-self:flex-start">입사 후 성과에 초점</span><p>이미 이 회사 직원처럼 생각합니다. 들어가서 어떻게 고객을 모시고 실적을 낼지 고민합니다.</p></div>
+  </div>
+  <p style="font-size:32px;font-weight:700">선배들은 이 질문 하나로 "같이 일하고 싶은 사람"을 알아봅니다.</p>
+</section>
+
+<!-- 19. 정리 -->
+<section class="slide" data-part="3부 · 불합격 인턴" style="justify-content:center">
+  <div class="kicker">인턴을 앞둔 분들께</div>
+  <h1>"어떻게 붙어요?" 대신<br><span style="color:var(--down)">"어떻게 잘해요?"</span>를 물어보세요</h1>
+  <p class="lead">그 질문을 하는 순간, 이미 직원처럼 보이기 시작합니다.</p>
+</section>
+
+<!-- 25. 4부 표지 -->
+<section class="slide section" data-part="4부 · AI 활용">
+  <div class="big">PART 4 · 10분</div>
+  <h1>AI를 잘 쓰는 사람이 이긴다</h1>
+  <p class="lead">제가 실제로 일하는 방법을 그대로 보여 드립니다.</p>
+</section>
+
+<!-- 26. 같은 일 다른 결과 -->
+<section class="slide" data-part="4부 · AI 활용">
+  <div class="kicker">같은 일, 다른 결과</div>
+  <h2>같은 보고서를 두 사람이 만듭니다</h2>
+  <div class="grid2 grow" style="align-content:start">
+    <div class="card"><span class="chip ink" style="align-self:flex-start">A</span><h3>엑셀을 열고 숫자를 하나씩 옮겨 적습니다</h3><p class="muted">한 시간 뒤 보고서 완성. 오늘 고객 전화는 아직 못 했습니다.</p></div>
+    <div class="card" style="border:2px solid var(--up)"><span class="chip up" style="align-self:flex-start">B</span><h3>AI에게 정리를 맡기고 결과만 확인합니다</h3><p class="muted">10분 만에 끝. 남은 50분은 고객에게 씁니다.</p></div>
+  </div>
+  <p style="font-size:32px;font-weight:700">회사는 누구에게 더 큰 일을 맡길까요?</p>
+</section>
+
+<!-- 27. 실제 사례 차트 -->
+<section class="slide" data-part="4부 · AI 활용">
+  <div style="display:flex;align-items:center;gap:16px"><span class="kicker">제 실제 업무</span><span class="ex">시간은 예시 · 실제 수치로 교체</span></div>
+  <h2>AI를 쓰고 나서 줄어든 시간</h2>
+  <div class="chart grow"><svg id="aiChart" role="img" aria-label="업무별 소요 시간 비교"></svg></div>
+</section>
+
+<!-- 28. 이 화면도 -->
+<section class="slide" data-part="4부 · AI 활용" style="justify-content:center">
+  <div class="kicker">그리고 하나 더</div>
+  <h1>지금 보고 계신 이 슬라이드,<br>여러분 휴대폰의 강의 페이지,<br>익명 질문 게시판까지</h1>
+  <p class="lead" style="font-size:36px;color:var(--ink)"><b style="color:var(--up)">전부 AI와 대화하면서 만들었습니다.</b> 제가 한 일은 원하는 구성을 말로 설명하고, 결과를 보고 고쳐 달라고 한 것입니다.</p>
+</section>
+
+<!-- 29. 취업 준비에 쓰는 법 -->
+<section class="slide" data-part="4부 · AI 활용">
+  <div class="kicker">오늘 바로 써 보세요</div>
+  <h2>취업 준비에 AI를 쓰는 세 가지 방법</h2>
+  <div class="grid3 grow" style="align-content:start">
+    <div class="card"><h3>자소서 첨삭</h3><div class="prompt">증권사 PB 면접관 입장에서 이 자소서의 약점 3개만 지적해 줘.</div></div>
+    <div class="card"><h3>모의 면접</h3><div class="prompt">증권사 지점 PB 1차 면접관 역할로 질문을 하나씩 해 줘. 내 답마다 피드백도.</div></div>
+    <div class="card"><h3>시황 공부</h3><div class="prompt">오늘 미국 증시 소식을 대학생이 이해하게 3줄로. 출처 링크도 붙여 줘.</div></div>
+  </div>
+</section>
+
+<!-- 30. 주의 -->
+<section class="slide" data-part="4부 · AI 활용">
+  <div class="kicker">단, 이것만은 지키세요</div>
+  <h2>AI를 잘 쓰는 사람의 세 가지 습관</h2>
+  <div class="grid3 grow" style="align-content:start">
+    <div class="card"><span class="n mono" style="color:var(--up);font-size:22px">01</span><h3>숫자와 사실은 원문으로 확인</h3><p class="muted" style="font-size:24px">AI도 그럴듯하게 틀립니다. 금융에서는 숫자 하나가 신뢰입니다.</p></div>
+    <div class="card"><span class="n mono" style="color:var(--up);font-size:22px">02</span><h3>고객·회사 정보는 넣지 않기</h3><p class="muted" style="font-size:24px">이름, 계좌, 내부 자료는 AI 창에 붙여 넣지 않습니다.</p></div>
+    <div class="card"><span class="n mono" style="color:var(--up);font-size:22px">03</span><h3>초안은 AI, 마무리는 나</h3><p class="muted" style="font-size:24px">그대로 낸 자소서는 티가 납니다. 내 경험으로 고쳐 쓰세요.</p></div>
+  </div>
+</section>
+
+<!-- 31. 마무리 -->
+<section class="slide section" data-part="4부 · AI 활용">
+  <div class="big">마지막으로</div>
+  <h1 style="font-size:80px">AI가 내 자리를 뺏기 전에,<br>AI를 잘 쓰는 동료가<br>먼저 기회를 가져갑니다</h1>
+</section>
+
+<!-- 32. Q&A -->
+<section class="slide qa" data-part="Q&amp;A" id="qaSlide">
+  <span class="demo" id="demoNote" hidden>미리보기 모드 · 질문이 이 컴퓨터에만 저장됩니다</span>
+  <div class="main">
+    <div class="head"><h2>여러분의 질문</h2><span class="count" id="qaCount">불러오는 중…</span></div>
+    <p class="muted" style="font-size:22px">공감을 많이 받은 순서 · 질문을 클릭하면 '답변 중', 한 번 더 누르면 '답변 완료'</p>
+    <div class="board" id="board"></div>
+  </div>
+  <div class="side">
+    <div class="qr" data-qr></div>
+    <p>아직 질문할 수 있습니다<br><b>익명 · 로그인 없음</b></p>
+  </div>
+</section>
+
+<!-- 33. 감사 -->
+<section class="slide section" data-part="마무리">
+  <div class="big">THANK YOU</div>
+  <h1>감사합니다</h1>
+  <p class="lead">강의가 끝난 뒤에도 페이지에 질문을 남기면 답변을 달아 드리겠습니다.</p>
+</section>
+
+</div>
+<div class="help" id="help">← → 넘기기 · F 전체화면 · T 타이머 시작/멈춤</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="config.js"></script>
+<script src="qna.js"></script>
+<script>
+/* AI 사례 차트: 업무별로 '예전 시간'을 100으로 놓고 지금 걸리는 시간을 같은 축에 그립니다. */
+const AI_CASES = [ // [업무, 예전(분), 지금(분)] — 예시 수치
+  ['일일보고 · 직원별 자산 집계표', 60, 10],
+  ['연금(IRP·연금저축) 제안서 1건', 30, 5],
+  ['주간 투자레터 초안', 180, 60],
+  ['미스터리쇼핑 대비 상담 가이드', 480, 60]
+];
+(function drawChart() {
+  const svg = document.getElementById('aiChart');
+  const W = 1340, rowH = 118, top = 40, labelW = 430, barW = W - labelW - 170;
+  const H = top + rowH * AI_CASES.length + 10;
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  const fmt = m => m >= 60 ? (m % 60 ? `${Math.floor(m / 60)}시간 ${m % 60}분` : `${m / 60}시간`) : `${m}분`;
+  let out = `<text x="${labelW}" y="22" font-size="18" fill="#5A6678" font-family="IBM Plex Mono,monospace">예전 걸리던 시간 = 100</text>`;
+  [0, 25, 50, 75, 100].forEach(v => {
+    const x = labelW + barW * v / 100;
+    out += `<line x1="${x}" y1="${top}" x2="${x}" y2="${H - 10}" stroke="#E4E9F0" stroke-width="1"/>`;
+  });
+  AI_CASES.forEach(([name, before, after], i) => {
+    const y = top + i * rowH + 14;
+    const pct = after / before * 100;
+    const cut = Math.round((1 - after / before) * 100);
+    out += `<text x="0" y="${y + 26}" font-size="26" font-weight="700" fill="#0D1B2E" font-family="Pretendard,sans-serif">${name}</text>`;
+    out += `<text x="0" y="${y + 62}" font-size="20" fill="#5A6678" font-family="Pretendard,sans-serif">${fmt(before)} → ${fmt(after)}</text>`;
+    out += `<rect x="${labelW}" y="${y}" width="${barW}" height="34" rx="4" fill="#D8DEE7"/>`;
+    out += `<rect x="${labelW}" y="${y + 42}" width="${barW * pct / 100}" height="34" rx="4" fill="#D3263A"/>`;
+    out += `<text x="${labelW + barW + 24}" y="${y + 50}" font-size="34" font-weight="600" fill="#D3263A" font-family="IBM Plex Mono,monospace" dominant-baseline="middle">−${cut}%</text>`;
+  });
+  out += `<g font-family="Pretendard,sans-serif" font-size="18" fill="#5A6678"><rect x="${labelW}" y="${H - 6}" width="0" height="0"/></g>`;
+  svg.innerHTML = out;
+  svg.insertAdjacentHTML('afterend', `<div style="display:flex;gap:28px;margin-top:10px;font-size:20px;color:#5A6678;align-items:center"><span style="display:inline-flex;align-items:center;gap:10px"><i style="width:22px;height:14px;background:#D8DEE7;border-radius:3px"></i>AI 쓰기 전</span><span style="display:inline-flex;align-items:center;gap:10px"><i style="width:22px;height:14px;background:#D3263A;border-radius:3px"></i>AI 쓴 뒤</span></div>`);
+})();
+
+/* QR 코드 */
+const URL_ = window.LECTURE.STUDENT_URL;
+document.querySelectorAll('[data-url]').forEach(e => e.textContent = URL_.replace(/^https?:\/\//, ''));
+document.querySelectorAll('[data-qr]').forEach(el => {
+  new QRCode(el, { text: URL_, width: 512, height: 512, colorDark: '#0D1B2E', colorLight: '#FFFFFF', correctLevel: QRCode.CorrectLevel.M });
+});
+
+/* 영상 링크 */
+if (window.LECTURE.VIDEO_URL) {
+  const v = document.getElementById('videoLink');
+  v.href = window.LECTURE.VIDEO_URL; v.hidden = false;
+  document.getElementById('videoNote').hidden = true;
+}
+
+/* 슬라이드 넘기기 */
+const stage = document.getElementById('stage');
+const slides = [...stage.querySelectorAll('.slide')];
+let cur = 0, timerOn = false, elapsed = 0, lastTick = 0;
+slides.forEach((s, i) => {
+  s.insertAdjacentHTML('beforeend', `<div class="foot"><span class="part"><span class="dot"></span>${s.dataset.part || ''}</span><span class="right"><span class="clock">00:00</span><span>${String(i + 1).padStart(2, '0')} / ${slides.length}</span></span></div>`);
+});
+function fit() {
+  const s = Math.min(innerWidth / 1600, innerHeight / 900);
+  stage.style.transform = `translate(-50%,-50%) scale(${s})`;
+}
+function show(i) {
+  cur = Math.max(0, Math.min(slides.length - 1, i));
+  slides.forEach((s, k) => s.classList.toggle('on', k === cur));
+  history.replaceState(null, '', '#' + (cur + 1));
+  if (slides[cur].id === 'qaSlide') refreshQA();
+}
+addEventListener('resize', fit);
+addEventListener('keydown', e => {
+  if (['ArrowRight', 'PageDown', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); show(cur + 1); }
+  else if (['ArrowLeft', 'PageUp', 'Backspace'].includes(e.key)) { e.preventDefault(); show(cur - 1); }
+  else if (e.key === 'Home') show(0);
+  else if (e.key === 'End') show(slides.length - 1);
+  else if (e.key === 'f' || e.key === 'F') { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen?.().catch(() => {}); }
+  else if (e.key === 't' || e.key === 'T') { timerOn = !timerOn; lastTick = Date.now(); }
+});
+document.addEventListener('click', e => {
+  if (e.target.closest('.q, a, button')) return;
+  e.clientX > innerWidth / 3 ? show(cur + 1) : show(cur - 1);
+});
+setInterval(() => {
+  if (timerOn) { elapsed += Date.now() - lastTick; lastTick = Date.now(); }
+  const s = Math.floor(elapsed / 1000), t = `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`;
+  document.querySelectorAll('.clock').forEach(c => c.textContent = t);
+}, 500);
+setTimeout(() => document.getElementById('help').style.opacity = 0, 8000);
+
+/* Q&A 보드 */
+const board = document.getElementById('board');
+const state = (() => { try { return JSON.parse(localStorage.getItem('pb-lecture-qa-state')) || {}; } catch (e) { return {}; } })();
+function saveState() { try { localStorage.setItem('pb-lecture-qa-state', JSON.stringify(state)); } catch (e) {} }
+if (QNA.demo) document.getElementById('demoNote').hidden = false;
+function esc(s) { return s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+async function refreshQA() {
+  let list;
+  try { list = await QNA.list(); } catch (e) { document.getElementById('qaCount').textContent = '질문을 불러오지 못했습니다 · 인터넷 연결을 확인하세요'; return; }
+  const order = q => state[q.id] === 'done' ? 1 : 0;
+  list.sort((a, b) => order(a) - order(b) || b.likes - a.likes || a.t - b.t);
+  document.getElementById('qaCount').textContent = `질문 ${list.length}개 · 답변 완료 ${list.filter(q => state[q.id] === 'done').length}개`;
+  board.innerHTML = list.length ? list.map(q => `<button class="q ${state[q.id] || ''}" data-id="${esc(q.id)}"><span class="likes">${q.likes}<small>공감</small></span><span class="txt">${esc(q.text)}</span></button>`).join('')
+    : '<div class="empty">아직 질문이 없습니다. QR 코드로 들어와 첫 질문을 남겨 주세요.</div>';
+}
+board.addEventListener('click', e => {
+  const b = e.target.closest('.q'); if (!b) return;
+  const id = b.dataset.id;
+  state[id] = !state[id] ? 'now' : state[id] === 'now' ? 'done' : undefined;
+  if (state[id] === 'now') Object.keys(state).forEach(k => { if (k !== id && state[k] === 'now') state[k] = 'done'; });
+  saveState(); refreshQA();
+});
+setInterval(() => { if (slides[cur].id === 'qaSlide') refreshQA(); }, 5000);
+
+fit();
+show((parseInt(location.hash.slice(1), 10) || 1) - 1);
+</script>
+</body>
+</html>

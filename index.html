@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PB의 하루 · 직무특강</title>
+<meta name="description" content="증권사 지점 PB 직무특강 자료와 익명 질문 게시판">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* 레이아웃: 휴대폰 한 손 스크롤용 단일 칼럼. 구간마다 시세판 같은 고정폭 라벨, 질문하기 버튼은 화면 아래 고정. */
+:root{
+  --paper:#F3F5F8; --card:#FFFFFF; --ink:#0D1B2E; --muted:#5A6678; --line:#D8DEE7;
+  --up:#D3263A; --down:#1C5BD0; --up-soft:#FBE9EB; --down-soft:#E7EEFB; --inv:#0D1B2E; --inv-fg:#FFFFFF; --inv-muted:#AFC0D8;
+  --sans:"Pretendard","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#0B1320; --card:#121D2E; --ink:#E8EDF5; --muted:#93A1B5; --line:#24324A;
+  --up:#FF5A6A; --down:#6C9BFF; --up-soft:#3A1A22; --down-soft:#16264A; --inv:#1A2840; --inv-fg:#FFFFFF; --inv-muted:#AFC0D8;
+  color-scheme:dark;
+}}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;word-break:keep-all;overflow-wrap:break-word;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:680px;margin:0 auto;padding:0 18px calc(110px + env(safe-area-inset-bottom,0px))}
+h1,h2,h3,p{margin:0}
+h1{font-size:30px;line-height:1.3;font-weight:800;letter-spacing:-0.02em;text-wrap:balance}
+h2{font-size:24px;line-height:1.35;font-weight:800;letter-spacing:-0.01em;text-wrap:balance}
+h3{font-size:18px;line-height:1.4;font-weight:700}
+.muted{color:var(--muted)}
+.label{font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.06em;color:var(--up)}
+section{padding-block:40px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:18px}
+.stack{display:flex;flex-direction:column;gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.card.hl{border:2px solid var(--up)}
+.chip{display:inline-flex;align-items:center;justify-content:center;height:28px;padding:0 12px;border-radius:999px;font-size:13px;font-weight:700;line-height:1;align-self:flex-start}
+.chip.up{background:var(--up-soft);color:var(--up)}
+.chip.down{background:var(--down-soft);color:var(--down)}
+.chip.ink{background:var(--ink);color:var(--paper)}
+ul.clean{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+ul.clean li{display:flex;gap:10px;align-items:baseline}
+ul.clean li::before{content:"";flex:none;width:7px;height:7px;border-radius:2px;background:var(--down);transform:translateY(-2px)}
+
+/* 머리 */
+header{padding-block:36px 28px;display:flex;flex-direction:column;gap:14px;border-bottom:2px solid var(--ink)}
+.ticker{display:flex;flex-wrap:wrap;gap:14px;font-family:var(--mono);font-size:13px;color:var(--muted)}
+.ticker b{color:var(--up)} .ticker i{color:var(--down);font-style:normal}
+.toc{display:flex;flex-direction:column;margin-top:6px}
+.toc a{display:grid;grid-template-columns:52px 1fr auto;gap:10px;align-items:center;min-height:48px;border-bottom:1px solid var(--line);color:inherit;text-decoration:none}
+.toc .no{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.toc .min{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.toc b{font-weight:700}
+
+/* 하루 */
+.day{display:flex;flex-direction:column;border-left:2px solid var(--line);margin-left:6px}
+.day .t{position:relative;padding:0 0 20px 22px;display:flex;flex-direction:column;gap:4px}
+.day .t::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--down)}
+.day .t.hot::before{background:var(--up)}
+.day .when{font-family:var(--mono);font-size:14px;font-weight:600;color:var(--down)}
+.day .t.hot .when{color:var(--up)}
+
+/* 5대5 */
+.guests{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;max-width:320px}
+.guests span{aspect-ratio:1;max-width:100%;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:600;font-size:18px;line-height:1}
+.guests .o{background:var(--down-soft);color:var(--down)}
+.guests .x{background:var(--up-soft);color:var(--up)}
+.table{border-top:2px solid var(--ink)}
+.table .r{display:grid;grid-template-columns:110px 1fr;gap:12px;padding-block:12px;border-bottom:1px solid var(--line);font-size:15px}
+.table .r b{font-weight:700}
+
+/* 질문 비교 */
+.bubble{background:var(--card);border-radius:12px 12px 12px 4px;padding:12px 16px;font-weight:600}
+.asks-bad{background:var(--up-soft);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.asks-good{background:var(--down-soft);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.asks-bad .bubble{color:var(--muted)}
+.big-line{font-size:20px;font-weight:800;line-height:1.45}
+.big-line em{font-style:normal;color:var(--up)}
+.prompt{font-family:var(--mono);font-size:13.5px;line-height:1.6;background:var(--inv);color:#E6ECF5;border-radius:8px;padding:12px 14px;overflow-wrap:anywhere}
+
+/* Q&A */
+#qna{scroll-margin-top:12px}
+.composer{background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.composer textarea{width:100%;min-height:96px;resize:vertical;border:1px solid var(--line);border-radius:10px;padding:12px;font:inherit;font-size:16px;background:var(--paper);color:var(--ink)}
+.composer textarea:focus-visible{outline:2px solid var(--down);outline-offset:1px}
+.composer .row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.composer .cnt{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:46px;padding:0 22px;border:0;border-radius:999px;background:var(--up);color:#fff;font:inherit;font-weight:700;font-size:16px;line-height:1;cursor:pointer}
+.btn:disabled{opacity:.5;cursor:default}
+.btn:focus-visible,.like:focus-visible,.tabs button:focus-visible{outline:2px solid var(--down);outline-offset:2px}
+.msg{font-size:14px;min-height:20px}
+.msg.ok{color:var(--down)} .msg.err{color:var(--up)}
+.tabs{display:flex;gap:8px;align-items:center}
+.tabs button{height:34px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);font:inherit;font-size:14px;font-weight:600;cursor:pointer;line-height:1;display:inline-flex;align-items:center}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.tabs .n{margin-left:auto;font-family:var(--mono);font-size:13px;color:var(--muted)}
+.qlist{display:flex;flex-direction:column;gap:10px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start}
+.q .txt{overflow-wrap:anywhere;white-space:pre-wrap}
+.q .time{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:4px}
+.q .ans{grid-column:1/-1;background:var(--down-soft);border-radius:8px;padding:10px 12px;font-size:15px}
+.q .ans b{color:var(--down)}
+.like{width:56px;height:56px;border-radius:10px;border:1px solid var(--line);background:var(--paper);color:var(--muted);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font:inherit;cursor:pointer;line-height:1}
+.like .h{font-size:16px}
+.like .c{font-family:var(--mono);font-size:13px;font-weight:600}
+.like.on{background:var(--up-soft);border-color:var(--up);color:var(--up)}
+.empty{border:2px dashed var(--line);border-radius:12px;padding:28px;text-align:center;color:var(--muted)}
+.demo{font-size:13px;color:var(--muted);border:1px dashed var(--muted);border-radius:8px;padding:8px 12px}
+
+/* 하단 고정 버튼 */
+.fab{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:5;box-shadow:0 6px 20px rgba(13,27,46,.25);text-decoration:none}
+footer{padding-block:28px;font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="ticker"><span>KOSPI <b>▲</b></span><span>KOSDAQ <i>▼</i></span><span>USD/KRW</span></div>
+  <span class="label">직무특강 · 증권사 지점 영업(PB)</span>
+  <h1>증권사 PB의 하루, 그리고 불합격하는 인턴의 특징</h1>
+  <p class="muted">강사 김다훈 · 궁금한 점은 아래 <a href="#qna" style="color:var(--up);font-weight:700">익명 질문</a>에 언제든 남겨 주세요.</p>
+  <nav class="toc" aria-label="오늘의 순서">
+    <a href="#p1"><span class="no">1부</span><b>PB의 하루</b><span class="min">10분</span></a>
+    <a href="#p2"><span class="no">2부</span><b>스펙보다 전략</b><span class="min">10분</span></a>
+    <a href="#p3"><span class="no">3부</span><b>불합격하는 인턴의 특징</b><span class="min">8분</span></a>
+    <a href="#p4"><span class="no">4부</span><b>AI를 잘 쓰는 사람이 이긴다</b><span class="min">10분</span></a>
+    <a href="#qna"><span class="no">Q&amp;A</span><b>익명 질문</b><span class="min">10분</span></a>
+  </nav>
+</header>
+
+<section id="p1">
+  <span class="label">PART 1 · PB의 하루</span>
+  <h2>PB는 리테일 고객의 자산을 관리하고 상품을 세일즈합니다</h2>
+  <div class="stack">
+    <div class="card"><span class="chip down">개인 고객</span><p>예금·주식·연금 등 개인의 자산을 함께 관리합니다.</p></div>
+    <div class="card"><span class="chip down">법인 고객</span><p>회사 자금 운용, 임직원 퇴직연금까지 상담합니다.</p></div>
+  </div>
+  <h3 style="margin-top:8px">PB의 하루</h3>
+  <div class="day">
+    <div class="t"><span class="when">출근길</span><p>텔레그램 채널과 네이버 프리미엄콘텐츠로 밤사이 시장 소식을 읽습니다.</p></div>
+    <div class="t"><span class="when">출근 직후</span><p>실적 회의와 시황 회의. 오늘 고객에게 할 이야기를 정합니다.</p></div>
+    <div class="t hot"><span class="when">09:00 장 시작 이후</span>
+      <ul class="clean">
+        <li>주문 전화 받기, 고객에게 시황 문자 보내기</li>
+        <li>빠져나간 자산 다시 섭외하기, 상품 세일즈</li>
+        <li>자료와 상품 제안서 만들기</li>
+        <li>내점 고객 응대, 외부 방문</li>
+        <li>퇴직연금: 법인에 직접 나가 상담</li>
+        <li>세미나 진행</li>
+      </ul></div>
+  </div>
+  <h3>PB의 일은 세 가지로 모입니다</h3>
+  <div class="stack">
+    <div class="card"><span class="label">01</span><h3>고객 자산 유치</h3><p class="muted">고객의 자산을 회사로 모셔 오고, 빠져나간 자산을 되찾습니다.</p></div>
+    <div class="card"><span class="label">02</span><h3>상품 섭외</h3><p class="muted">고객에게 맞는 상품을 제안하고 판매합니다.</p></div>
+    <div class="card"><span class="label">03</span><h3>신규 고객 창출</h3><p class="muted">처음 만나는 개인과 법인을 고객으로 만듭니다.</p></div>
+  </div>
+  <p class="big-line">PB에게 가장 필요한 건 <em>거절에 익숙한 사람</em>입니다.</p>
+</section>
+
+<section id="p2">
+  <span class="label">PART 2 · 취업 전략</span>
+  <h2>스펙보다 전략</h2>
+  <div class="stack">
+    <div class="card"><span class="label">질문 1</span><h3>이 직무가 요구하는 역량은 무엇인가?</h3></div>
+    <div class="card hl"><span class="label">질문 2</span><h3>그 역량을 나는 어떻게 보여 줄 수 있는가?</h3><p class="muted">보여 줄 증거가 없다면 지금부터 만들면 됩니다.</p></div>
+  </div>
+
+  <h3 style="margin-top:8px">더 지니어스 시즌1 11화, 홍진호의 '5 대 5'</h3>
+  <p class="muted" style="font-size:14px">tvN · 2013년 7월 5일 방송 · 메인매치</p>
+  <p>처음 보는 게스트 10명을 조사한 뒤, <b>게스트들의 O/X 답이 정확히 5 대 5로 갈리는 12글자 이내 문장</b>을 내면 1점을 얻는 게임입니다.</p>
+  <div class="guests" aria-label="게스트 10명 중 5명 O, 5명 X"><span class="o">O</span><span class="o">O</span><span class="o">O</span><span class="o">O</span><span class="o">O</span><span class="x">X</span><span class="x">X</span><span class="x">X</span><span class="x">X</span><span class="x">X</span></div>
+  <div class="stack">
+    <div class="card"><span class="chip ink">다른 참가자</span><p>이름, 옷차림, 생일처럼 <b>이미 있는 정보</b>를 캐내 문장을 만들었습니다. 정보가 틀리거나 해석이 갈리면 실패했습니다.</p></div>
+    <div class="card hl"><span class="chip up">홍진호</span><p>추가 조사 10분 동안 게스트 <b>5명에게만</b> 자기 형의 이름을 알려 주고 손등을 맞댔습니다. 그리고 그 5명만 아는 문장을 냈습니다. <b style="color:var(--up)">2라운드 5문제를 모두 성공해 메인매치 1위.</b></p></div>
+  </div>
+  <p class="big-line">취업도 같습니다. 답을 찾지 말고, <em>답이 나오는 판을 직접 만드세요.</em></p>
+  <div class="table">
+    <div class="r"><b>요구 역량</b><span class="muted">이렇게 만들 수 있습니다</span></div>
+    <div class="r"><b>거절에 익숙함</b><span>영업·판매 아르바이트에서 거절을 몇 번 듣고 몇 건을 성사시켰는지 기록</span></div>
+    <div class="r"><b>시장에 대한 관심</b><span>매일 시황 세 줄 요약을 100일 동안 블로그에 올리기</span></div>
+    <div class="r"><b>사람을 만나는 힘</b><span>동아리·모임을 직접 만들고 사람을 모아 본 경험</span></div>
+  </div>
+</section>
+
+<section id="p3">
+  <span class="label">PART 3 · 불합격하는 인턴의 특징</span>
+  <h2>합격에 초점을 맞추는가, 입사 후 성과에 초점을 맞추는가</h2>
+  <p>이 차이는 인턴이 선배에게 던지는 질문을 들어 보면 바로 보입니다.</p>
+  <div class="asks-bad"><span class="chip up">불합격하는 인턴의 질문</span>
+    <div class="bubble">주임님은 입사할 때 어떤 질문을 받으셨어요?</div>
+    <div class="bubble">면접 잘 보려면 어떻게 해야 돼요?</div></div>
+  <div class="asks-good"><span class="chip down">합격하는 인턴의 질문</span>
+    <div class="bubble">여기서 영업 잘하시는 분들은 어떻게 영업하세요?</div>
+    <div class="bubble">주임님만의 영업 아이디어나 필살기는 뭔가요?</div>
+    <div class="bubble">고객 자산은 어떻게 유치하세요?</div></div>
+  <p class="big-line">"어떻게 붙어요?" 대신 <em>"어떻게 잘해요?"</em>를 물어보세요.</p>
+</section>
+
+<section id="p4">
+  <span class="label">PART 4 · AI 활용</span>
+  <h2>AI를 잘 쓰는 사람이 이긴다</h2>
+  <p>같은 보고서를 한 사람은 한 시간 동안 손으로, 다른 한 사람은 AI로 10분 만에 끝내고 남은 시간을 고객에게 씁니다. 회사는 누구에게 더 큰 일을 맡길까요?</p>
+  <p class="muted">이 강의 슬라이드와 이 페이지, 익명 질문 게시판도 모두 AI와 대화하면서 만들었습니다.</p>
+  <h3>오늘 바로 써 보세요</h3>
+  <div class="stack">
+    <div class="card"><h3>자소서 첨삭</h3><div class="prompt">증권사 PB 면접관 입장에서 이 자소서의 약점 3개만 지적해 줘.</div></div>
+    <div class="card"><h3>모의 면접</h3><div class="prompt">증권사 지점 PB 1차 면접관 역할로 질문을 하나씩 해 줘. 내 답마다 피드백도.</div></div>
+    <div class="card"><h3>시황 공부</h3><div class="prompt">오늘 미국 증시 소식을 대학생이 이해하게 3줄로. 출처 링크도 붙여 줘.</div></div>
+  </div>
+  <h3>단, 이것만은 지키세요</h3>
+  <ul class="clean">
+    <li>숫자와 사실은 원문으로 확인하기</li>
+    <li>고객·회사 정보는 AI에 넣지 않기</li>
+    <li>초안은 AI, 마무리는 내 경험으로</li>
+  </ul>
+</section>
+
+<section id="qna">
+  <span class="label">Q&amp;A · 익명</span>
+  <h2>궁금한 점을 남겨 주세요</h2>
+  <p class="muted">이름 없이 익명으로 올라갑니다. 다른 사람 질문에 공감을 누르면 많이 받은 질문부터 답합니다.</p>
+  <p class="demo" id="demoNote" hidden>미리보기 모드입니다. 질문이 이 기기에만 저장됩니다.</p>
+  <form class="composer" id="form">
+    <label for="qtext" class="label" style="color:var(--muted)">질문 쓰기</label>
+    <textarea id="qtext" maxlength="300" placeholder="예: 신입 PB는 첫 고객을 어떻게 만드나요?" required></textarea>
+    <div class="row"><span class="cnt" id="cnt">0 / 300</span><button class="btn" id="send" type="submit">질문 올리기</button></div>
+    <p class="msg" id="msg" role="status"></p>
+    <p class="muted" style="font-size:13px">이름·연락처 등 개인정보는 쓰지 마세요.</p>
+  </form>
+  <div class="tabs" role="group" aria-label="정렬">
+    <button type="button" data-sort="hot" aria-pressed="true">공감순</button>
+    <button type="button" data-sort="new" aria-pressed="false">최신순</button>
+    <span class="n" id="qn"></span>
+  </div>
+  <div class="qlist" id="list"><div class="empty">질문을 불러오는 중입니다…</div></div>
+</section>
+
+<footer>직무특강 · 증권사 지점 영업(PB) · 2026</footer>
+</div>
+
+<a class="btn fab" href="#qna" id="fab">익명으로 질문하기</a>
+
+<script src="config.js"></script>
+<script src="qna.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+const LIKED_KEY = 'pb-lecture-liked';
+let liked = (() => { try { return new Set(JSON.parse(localStorage.getItem(LIKED_KEY)) || []); } catch (e) { return new Set(); } })();
+let sort = 'hot', cache = [];
+if (QNA.demo) $('demoNote').hidden = false;
+
+const esc = s => s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const ago = t => { const m = Math.floor((Date.now() - t) / 60000); return m < 1 ? '방금' : m < 60 ? `${m}분 전` : m < 1440 ? `${Math.floor(m / 60)}시간 전` : `${Math.floor(m / 1440)}일 전`; };
+
+function render() {
+  const l = [...cache].sort(sort === 'hot' ? (a, b) => b.likes - a.likes || b.t - a.t : (a, b) => b.t - a.t);
+  $('qn').textContent = `질문 ${l.length}개`;
+  $('list').innerHTML = l.length ? l.map(q => `
+    <div class="q">
+      <div><p class="txt">${esc(q.text)}</p><p class="time">${ago(q.t)}</p></div>
+      <button type="button" class="like ${liked.has(q.id) ? 'on' : ''}" data-id="${esc(q.id)}" aria-label="공감 ${q.likes}개" ${liked.has(q.id) ? 'aria-pressed="true"' : ''}><span class="h">♥</span><span class="c">${q.likes}</span></button>
+      ${q.answer ? `<div class="ans"><b>답변</b> ${esc(q.answer)}</div>` : ''}
+    </div>`).join('') : '<div class="empty">아직 질문이 없습니다. 첫 질문을 남겨 주세요.</div>';
+}
+async function load() {
+  try { cache = await QNA.list(); render(); }
+  catch (e) { if (!cache.length) $('list').innerHTML = '<div class="empty">질문을 불러오지 못했습니다. 인터넷 연결을 확인하고 잠시 뒤 다시 열어 주세요.</div>'; }
+}
+
+$('qtext').addEventListener('input', e => $('cnt').textContent = `${e.target.value.length} / 300`);
+$('form').addEventListener('submit', async e => {
+  e.preventDefault();
+  const text = $('qtext').value.trim();
+  if (!text) { $('msg').className = 'msg err'; $('msg').textContent = '질문 내용을 입력해 주세요.'; return; }
+  $('send').disabled = true; $('msg').className = 'msg'; $('msg').textContent = '올리는 중…';
+  try {
+    await QNA.add(text);
+    $('qtext').value = ''; $('cnt').textContent = '0 / 300';
+    $('msg').className = 'msg ok'; $('msg').textContent = '질문이 올라갔습니다.';
+    sort = 'new'; document.querySelectorAll('.tabs button').forEach(b => b.setAttribute('aria-pressed', b.dataset.sort === sort));
+    await load();
+  } catch (err) {
+    $('msg').className = 'msg err'; $('msg').textContent = '올리지 못했습니다. 인터넷 연결을 확인하고 다시 눌러 주세요.';
+  } finally { $('send').disabled = false; }
+});
+$('list').addEventListener('click', async e => {
+  const b = e.target.closest('.like'); if (!b) return;
+  const id = b.dataset.id; if (liked.has(id)) return;
+  liked.add(id); try { localStorage.setItem(LIKED_KEY, JSON.stringify([...liked])); } catch (err) {}
+  const q = cache.find(x => x.id === id); if (q) q.likes++; render();
+  try { await QNA.like(id); } catch (err) {}
+});
+document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => {
+  sort = b.dataset.sort; document.querySelectorAll('.tabs button').forEach(x => x.setAttribute('aria-pressed', x === b)); render();
+}));
+// 질문 칸이 보이면 하단 버튼 숨기기
+new IntersectionObserver(([en]) => $('fab').hidden = en.isIntersecting).observe($('qna'));
+load(); setInterval(load, 10000);
+</script>
+</body>
+</html>
