@@ -51,7 +51,7 @@ function doPost(e) {
   try {
     const sh = sheet_();
     if (body.action === 'add') {
-      let text = String(body.text || '').replace(/\s+$/g, '').trim().slice(0, MAX_LEN);
+      let text = String(body.text || '').trim().slice(0, MAX_LEN);
       if (!text) return json_({ ok: false, error: 'empty' });
       // 수식으로 해석되지 않도록 막기
       if (/^[=+\-@]/.test(text)) text = "'" + text;
@@ -74,4 +74,9 @@ function doPost(e) {
   } finally {
     lock.releaseLock();
   }
+}
+
+// 처음 한 번 실행해 '질문' 시트를 만들고 권한을 승인합니다.
+function setup() {
+  sheet_();
 }
