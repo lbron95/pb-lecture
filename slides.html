@@ -389,6 +389,50 @@ ul.bad li::before{background:var(--up)}
 .botslide .phone .scr{position:relative;width:310px;height:620px}
 .hl-row{position:absolute;left:10px;right:10px;top:36px;height:32px;border:4px solid var(--up);border-radius:14px;box-shadow:0 0 0 9999px rgba(13,27,46,.35)}
 
+/* 영업직이란 */
+.frame{display:flex;align-items:center;justify-content:center}
+.frame svg{width:100%;max-height:100%}
+.myths{display:flex;flex-direction:column;gap:18px;justify-content:center}
+.myth{display:grid;grid-template-columns:130px 520px 60px 1fr;align-items:center;gap:20px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px 34px}
+.myth .no{font-size:24px;font-weight:700;color:var(--up)}
+.myth b{font-size:36px;font-weight:800}
+.myth .arrow{font-size:40px;color:var(--muted);text-align:center}
+.myth p{font-size:27px;color:var(--muted);line-height:1.45}
+.ceo{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto 1fr;gap:22px;align-content:center}
+.ceo .opt{display:flex;align-items:center;justify-content:center;gap:18px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:30px;font-size:40px;color:var(--muted)}
+.ceo .opt b{text-decoration:line-through;text-decoration-thickness:3px;text-decoration-color:rgba(211,38,58,.6)}
+.ceo .ans{grid-column:1/-1;display:flex;align-items:center;justify-content:center;gap:28px;background:var(--ink);border-radius:20px;color:#fff;font-size:64px;font-weight:800;padding:40px}
+.ceo .ans .ico{width:110px;height:110px;color:#FF8090}
+.quote-big{display:flex;flex-direction:column;justify-content:center;gap:24px;position:relative;padding-left:40px;border-left:8px solid var(--up)}
+.quote-big .qmark{position:absolute;left:30px;top:-30px;font-size:220px;line-height:1;color:var(--up-soft);font-weight:800;z-index:0}
+.quote-big .q1{font-size:58px;font-weight:800;line-height:1.3;position:relative}
+.quote-big .q2{font-size:72px;font-weight:800;line-height:1.25;position:relative}
+.deal{font-size:34px!important;color:var(--ink)}
+.deal b{color:var(--up)}
+.kk{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.people{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.pp2{display:flex;flex-direction:column;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:30px 12px}
+.pp2 .ico{width:96px;height:96px;color:var(--ink)}
+.pp2 b{font-size:32px}
+.pp2 span:not(.ico){font-size:20px;color:var(--muted)}
+.vs2{display:flex;flex-direction:column;gap:22px}
+.no2{display:flex;align-items:center;gap:16px;font-size:32px;color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(211,38,58,.6)}
+.yes2{display:flex;align-items:center;gap:22px;background:var(--ink);color:#fff;border-radius:18px;padding:30px 34px;font-size:48px}
+.yes2 .ico{width:80px;height:80px;color:#FF8090}
+.paytable{display:flex;flex-direction:column;justify-content:center;border-top:2px solid var(--ink)}
+.paytable .r{display:grid;grid-template-columns:70px 120px 300px 150px 1fr 330px;gap:16px;align-items:center;border-bottom:1px solid var(--line);font-size:24px;padding:0 6px}
+.paytable .r .rk{font-weight:800;color:var(--muted)}
+.paytable .r .nm{font-weight:800}
+.paytable .r .pay{font-weight:800;text-align:right}
+.paytable .r .bar{height:16px;border-radius:8px;background:var(--line);position:relative}
+.paytable .r .bar i{position:absolute;left:0;top:0;bottom:0;border-radius:8px;background:var(--up)}
+.paytable .r.unk .bar i{background:#AEB7C4}
+.paytable .r .tag{display:inline-flex;align-items:center;justify-content:center;height:36px;padding:0 14px;border-radius:999px;font-size:19px;font-weight:700;line-height:1;white-space:nowrap;justify-self:start}
+.tag.s{background:var(--up-soft);color:var(--up)}
+.tag.d{background:var(--down-soft);color:var(--down)}
+.tag.u{background:var(--paper);color:var(--muted);border:1px solid var(--line)}
+.src{font-size:17px;color:var(--muted);line-height:1.5}
+
 .help{position:fixed;left:16px;bottom:12px;font:13px var(--sans);color:#6F7F96;opacity:.8;user-select:none}
 @media (prefers-reduced-motion:no-preference){ .slide.on{animation:in .25s ease-out} @keyframes in{from{opacity:.4}to{opacity:1}} }
 </style>
@@ -494,6 +538,120 @@ ul.bad li::before{background:var(--up)}
     <div class="card role"><span class="ico xl" data-icon="doc"></span><span class="n">02</span><h3>상품 섭외</h3><p>연금·펀드·채권 등 고객에게 맞는 상품을 제안하고 판매합니다.</p></div>
     <div class="card role"><span class="ico xl" data-icon="userplus"></span><span class="n">03</span><h3>신규 고객 창출</h3><p>처음 만나는 개인과 법인을 고객으로 만듭니다.</p></div>
   </div>
+</section>
+
+<!-- 7-1. 영업직이란 -->
+<section class="slide" data-part="1부 · 영업직이란">
+  <div class="kicker">영업직이란?</div>
+  <h2>회사가 정한 테두리 안에서<br>고객을 넓히고 실적을 달성하는 일</h2>
+  <div class="frame grow">
+    <svg viewBox="0 0 1100 420" role="img" aria-label="테두리 안에서 고객을 넓히고 목표를 달성하는 그림">
+      <rect x="250" y="40" width="600" height="340" rx="22" fill="none" stroke="#0D1B2E" stroke-width="4" stroke-dasharray="14 12"/>
+      <text x="550" y="28" text-anchor="middle" font-size="22" font-weight="700" fill="#5A6678" font-family="Pretendard,sans-serif">회사가 정한 테두리 · 규정 · 상품 · 완전판매</text>
+      <circle cx="550" cy="210" r="46" fill="#0D1B2E"/>
+      <text x="550" y="219" text-anchor="middle" font-size="26" font-weight="800" fill="#FFFFFF" font-family="Pretendard,sans-serif">나</text>
+      <g fill="#1C5BD0">
+        <circle cx="400" cy="120" r="22"/><circle cx="360" cy="230" r="22"/><circle cx="420" cy="320" r="22"/>
+        <circle cx="700" cy="120" r="22"/><circle cx="745" cy="235" r="22"/><circle cx="680" cy="320" r="22"/>
+      </g>
+      <g stroke="#1C5BD0" stroke-width="3" stroke-dasharray="6 6">
+        <path d="M512 186 L420 130"/><path d="M505 214 L382 230"/><path d="M515 240 L438 306"/>
+        <path d="M588 186 L680 130"/><path d="M596 214 L722 233"/><path d="M585 240 L662 306"/>
+      </g>
+      <text x="300" y="400" font-size="22" fill="#1C5BD0" font-weight="700" font-family="Pretendard,sans-serif">고객 확장</text>
+      <g transform="translate(940 210)">
+        <circle r="80" fill="none" stroke="#D3263A" stroke-width="6"/><circle r="50" fill="none" stroke="#D3263A" stroke-width="6"/><circle r="18" fill="#D3263A"/>
+        <text y="122" text-anchor="middle" font-size="24" fill="#D3263A" font-weight="800" font-family="Pretendard,sans-serif">실적 달성</text>
+      </g>
+      <path d="M598 210 H840" stroke="#D3263A" stroke-width="5" marker-end="url(#ah)"/>
+      <defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#D3263A"/></marker></defs>
+    </svg>
+  </div>
+</section>
+
+<!-- 7-2. 영업직에 대한 오해 -->
+<section class="slide" data-part="1부 · 영업직이란">
+  <div class="kicker">영업직에 대한 오해</div>
+  <h2>영업이라고 하면 보통 이렇게 생각합니다</h2>
+  <div class="myths grow">
+    <div class="myth"><span class="no">오해 1</span><b>"영업은 말단이 하는 일"</b><span class="arrow">→</span><p>영업은 회사의 매출을 만드는 일입니다. 직급이 올라갈수록 더 큰 영업을 합니다.</p></div>
+    <div class="myth"><span class="no">오해 2</span><b>"물건을 떠넘기는 일"</b><span class="arrow">→</span><p>고객에게 필요한 것을 찾아 맞는 해법을 제안하는 일입니다. 정해진 규정 안에서요.</p></div>
+    <div class="myth"><span class="no">오해 3</span><b>"압박만 크고 남는 게 없다"</b><span class="arrow">→</span><p>성과가 보상으로 가장 직접 연결되는 직무입니다. 조금 뒤 숫자로 보여 드리겠습니다.</p></div>
+  </div>
+</section>
+
+<!-- 7-3. CEO는 뭐 하는 사람 -->
+<section class="slide" data-part="1부 · 영업직이란">
+  <div class="kicker">곰곰이 생각해 보세요</div>
+  <h2>우리나라에선 영업을 제일 말단이 한다고 생각합니다.<br>그럼 <span style="color:var(--up)">CEO</span>는 뭐 하는 사람일까요?</h2>
+  <div class="ceo grow">
+    <div class="opt"><span class="xmark">✕</span><b>의사결정?</b></div>
+    <div class="opt"><span class="xmark">✕</span><b>정책 결정?</b></div>
+    <div class="opt"><span class="xmark">✕</span><b>조직 관리?</b></div>
+    <div class="ans"><span class="ico" data-icon="handshake"></span><b>영업하는 사람입니다</b></div>
+  </div>
+</section>
+
+<!-- 7-4. 젠슨 황 -->
+<section class="slide" data-part="1부 · 영업직이란">
+  <div style="display:flex;align-items:center;gap:16px"><span class="kicker">엔비디아 CEO 젠슨 황</span><span class="ex">인터뷰 원문 출처 확인 필요</span></div>
+  <div class="quote-big grow">
+    <span class="qmark" aria-hidden="true">“</span>
+    <p class="q1">의사결정은 리더가 하는 일 중<br>아주 작은 일 중 하나입니다.</p>
+    <p class="q2">리더는 <span style="color:var(--up)">꿈을 꾸는 사람</span>입니다.</p>
+    <p class="muted" style="font-size:26px">그리고 그 꿈을 직원, 고객, 투자자에게 파는 사람입니다.</p>
+  </div>
+</section>
+
+<!-- 7-5. 회계법인·로펌 대표 -->
+<section class="slide" data-part="1부 · 영업직이란">
+  <div class="kicker">다른 업계의 대표들은?</div>
+  <h2>대표는 무엇을 하러 다닐까요?</h2>
+  <div class="grid2 grow" style="align-content:center">
+    <div class="card"><span class="ico xl" data-icon="doc"></span><h3>회계법인 대표</h3><p class="muted">직접 감사 나가고, 재무제표를 들여다볼까요?</p><p class="deal">아닙니다. <b>딜 따러 다닙니다.</b></p></div>
+    <div class="card"><span class="ico xl" data-icon="book"></span><h3>대형 로펌 대표</h3><p class="muted">직접 소송하고, 법정에 다닐까요?</p><p class="deal">아닙니다. <b>딜 따러 다닙니다.</b></p></div>
+  </div>
+</section>
+
+<!-- 7-6. 깐부회동 -->
+<section class="slide kkanbu" data-part="1부 · 영업직이란">
+  <div class="kicker">2025년 10월 30일 · 서울 삼성동 깐부치킨</div>
+  <h2>젠슨 황 · 이재용 · 정의선, '깐부 회동'</h2>
+  <div class="kk grow">
+    <div class="people">
+      <div class="pp2"><span class="ico" data-icon="person"></span><b>젠슨 황</b><span>엔비디아 CEO</span></div>
+      <div class="pp2"><span class="ico" data-icon="person"></span><b>이재용</b><span>삼성전자 회장</span></div>
+      <div class="pp2"><span class="ico" data-icon="person"></span><b>정의선</b><span>현대차그룹 회장</span></div>
+    </div>
+    <div class="vs2">
+      <p class="no2"><span class="xmark">✕</span>건전한 인류의 발전을 논하는 자리?</p>
+      <p class="yes2"><span class="ico" data-icon="handshake"></span><b>영업하는 자리입니다.</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- 7-7. 연봉 2024 -->
+<section class="slide" data-part="1부 · 영업직이란">
+  <div class="kicker">숫자로 보면</div>
+  <h2>2024년 증권사 보수 상위권, 현직 직원은 누구였을까</h2>
+  <div class="paytable grow" data-year="2024"></div>
+  <p class="src">출처: 한국금융신문 「메리츠, 상위권 싹쓸이 '최고 148억'…」 2025.4.3 · 2024년 사업보고서 기준 상위 10명 중 전직 임원 4명 제외 · 직무는 기사·공시 설명 기준</p>
+</section>
+
+<!-- 7-8. 연봉 2025 -->
+<section class="slide" data-part="1부 · 영업직이란">
+  <div class="kicker">숫자로 보면</div>
+  <h2>2025년 증권사 보수 상위 10명 (대표 제외)</h2>
+  <div class="paytable grow" data-year="2025"></div>
+  <p class="src">출처: 금융소비자뉴스 「작년 금융사 임직원보수 1위는 메리츠증권 윤창식 영업이사 89억」 2026.4.8 · 직무: 한국금융신문 2026.4.8, 뉴스스페이스 2026.8.30</p>
+</section>
+
+<!-- 7-9. 정리 -->
+<section class="slide stmt" data-part="1부 · 영업직이란" style="justify-content:center" data-stmt>
+  <div class="kicker">정리하면</div>
+  <h1>대표보다 많이 받는 사람들,<br>직무가 알려진 사람은<br><span style="color:var(--up)">모두 영업과 딜</span>이었습니다</h1>
+  <p class="lead">PB, 리테일, 채권 중개, 랩 운용, IB·PF. 고객을 모셔 오고 딜을 따 오는 사람이 가장 많이 법니다.</p>
+  <div class="deco" aria-hidden="true"><span class="ico" data-icon="inflow"></span></div>
 </section>
 
 <!-- 8. 영업력 -->
@@ -904,6 +1062,38 @@ document.querySelectorAll('.scr.reel img').forEach(img => {
   img.complete ? set() : img.addEventListener('load', set);
 });
 addEventListener('resize', () => document.querySelectorAll('.scr.reel img').forEach(i => i.dispatchEvent(new Event('load'))));
+
+/* 증권사 보수 상위권 표 (금액 단위: 억원, 기사 기준) */
+const PAY = {
+  2024: [
+    ['강정구', '삼성증권 수석', 93.24, 'PB 영업전문직', 's', 2],
+    ['이종석', '유안타증권 리테일전담이사', 83.32, '리테일 · 주식 위탁영업', 's', 4],
+    ['유지훈', '상상인증권 상무', 68.70, 'FICC본부장 · 채권 중개·기관 영업', 's', 5],
+    ['윤창식', '메리츠증권 영업이사', 46.45, '영업이사', 's', 7],
+    ['신승호', '유안타증권 차장', 41.80, '채권·CP 중개 영업', 's', 9],
+    ['진현수', '부국증권 차장', 41.38, '직무 비공개', 'u', 10]
+  ],
+  2025: [
+    ['윤창식', '메리츠증권 영업이사', 89.01, '지점형 랩 운용 (PB)', 's'],
+    ['이종석', '유안타증권 리테일전담이사', 74.32, '리테일 영업', 's'],
+    ['정원석', '부국증권 이사보', 60.16, '직무 비공개', 'u'],
+    ['이정란', '한국투자증권 차장', 40.27, '압구정PB센터 PB', 's'],
+    ['문필복', '메리츠증권 전무', 39.80, '직무 비공개', 'u'],
+    ['박신욱', '다올투자증권 수석매니저', 39.19, '직무 비공개', 'u'],
+    ['이세훈', '메리츠증권 부사장', 38.99, 'IB 딜 (IB사업본부장)', 'd'],
+    ['곽영권', '메리츠증권 부사장', 38.93, '직무 비공개', 'u'],
+    ['여은석', '메리츠증권 부사장', 38.08, 'PF 딜 (프로젝트금융본부장)', 'd'],
+    ['이정민', '신한투자증권 센터장', 34.29, '패밀리오피스 센터장 (PB)', 's']
+  ]
+};
+document.querySelectorAll('.paytable').forEach(el => {
+  const rows = PAY[el.dataset.year], max = Math.max(...rows.map(r => r[2]));
+  const h = Math.floor(560 / rows.length);
+  el.innerHTML = rows.map((r, i) => `<div class="r ${r[4] === 'u' ? 'unk' : ''}" style="height:${h}px">
+    <span class="rk">${r[5] || i + 1}위</span><span class="nm">${r[0]}</span><span class="muted" style="font-size:20px">${r[1]}</span>
+    <span class="pay">${r[2].toFixed(1)}억 원</span><span class="bar"><i style="width:${(r[2] / max * 100).toFixed(1)}%"></i></span>
+    <span class="tag ${r[4]}">${r[3]}</span></div>`).join('');
+});
 
 /* 방문한 지점 30곳 = 명함 30장 */
 document.querySelectorAll('.cards30').forEach(el => { el.innerHTML = '<i></i>'.repeat(30); });
