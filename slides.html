@@ -25,7 +25,8 @@
 [hidden]{display:none!important}
 html,body{height:100%;margin:0;background:#0A1424;overflow:hidden}
 body{word-break:keep-all;font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
-.stage{position:absolute;left:50%;top:50%;width:1600px;height:900px;transform-origin:center center;background:var(--paper);overflow:hidden}
+#vp{position:fixed;inset:0;overflow:hidden}
+.stage{position:absolute;left:0;top:0;width:1600px;height:900px;transform-origin:0 0;background:var(--paper);overflow:hidden}
 .slide{position:absolute;inset:0;padding:72px 96px 104px;display:none;flex-direction:column;gap:28px}
 .slide.on{display:flex}
 h1,h2,h3,p{margin:0}
@@ -438,7 +439,7 @@ ul.bad li::before{background:var(--up)}
 </style>
 </head>
 <body>
-<div class="stage" id="stage">
+<div id="vp"><div class="stage" id="stage">
 
 <!-- 1. 표지 -->
 <section class="slide cover" data-part="오프닝">
@@ -1012,7 +1013,7 @@ ul.bad li::before{background:var(--up)}
   <p class="lead">강의가 끝난 뒤에도 페이지에 질문을 남기면 답변을 달아 드리겠습니다.</p>
 </section>
 
-</div>
+</div></div>
 <div class="help" id="help">← → 넘기기 · F 전체화면</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
@@ -1162,8 +1163,10 @@ slides.forEach((s, i) => {
   s.insertAdjacentHTML('beforeend', `<div class="foot"><span class="part"><span class="dot"></span>${s.dataset.part || ''}</span><span class="right"><span>${String(i + 1).padStart(2, '0')} / ${slides.length}</span></span></div>`);
 });
 function fit() {
-  const s = Math.min(innerWidth / 1600, innerHeight / 900);
-  stage.style.transform = `translate(-50%,-50%) scale(${s})`;
+  const vp = document.getElementById('vp');
+  const W = vp.clientWidth, H = vp.clientHeight;
+  const s = Math.min(W / 1600, H / 900);
+  stage.style.transform = `translate(${(W - 1600 * s) / 2}px, ${(H - 900 * s) / 2}px) scale(${s})`;
 }
 function show(i) {
   cur = Math.max(0, Math.min(slides.length - 1, i));
@@ -1172,6 +1175,8 @@ function show(i) {
   if (slides[cur].id === 'qaSlide') refreshQA();
 }
 addEventListener('resize', fit);
+addEventListener('orientationchange', () => setTimeout(fit, 300));
+window.visualViewport?.addEventListener('resize', fit);
 addEventListener('keydown', e => {
   if (['ArrowRight', 'PageDown', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); show(cur + 1); }
   else if (['ArrowLeft', 'PageUp', 'Backspace'].includes(e.key)) { e.preventDefault(); show(cur - 1); }
