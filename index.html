@@ -6,14 +6,13 @@
 <title>PB의 하루 · 직무특강</title>
 <meta name="description" content="증권사 지점 PB 직무특강 자료와 익명 질문 게시판">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&display=swap">
 <style>
 /* 레이아웃: 휴대폰 한 손 스크롤용 단일 칼럼. 구간마다 시세판 같은 고정폭 라벨, 질문하기 버튼은 화면 아래 고정. */
 :root{
   --paper:#F3F5F8; --card:#FFFFFF; --ink:#0D1B2E; --muted:#5A6678; --line:#D8DEE7;
   --up:#D3263A; --down:#1C5BD0; --up-soft:#FBE9EB; --down-soft:#E7EEFB; --inv:#0D1B2E; --inv-fg:#FFFFFF; --inv-muted:#AFC0D8;
   --sans:"Pretendard","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --mono:var(--sans);
   color-scheme:light;
 }
 @media (prefers-color-scheme:dark){:root{
@@ -30,7 +29,7 @@ h1{font-size:30px;line-height:1.3;font-weight:800;letter-spacing:-0.02em;text-wr
 h2{font-size:24px;line-height:1.35;font-weight:800;letter-spacing:-0.01em;text-wrap:balance}
 h3{font-size:18px;line-height:1.4;font-weight:700}
 .muted{color:var(--muted)}
-.label{font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.06em;color:var(--up)}
+.label{font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.02em;color:var(--up)}
 section{padding-block:40px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:18px}
 .stack{display:flex;flex-direction:column;gap:12px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;display:flex;flex-direction:column;gap:8px;min-width:0}
@@ -48,7 +47,7 @@ header{padding-block:36px 28px;display:flex;flex-direction:column;gap:14px;borde
 .ticker{display:flex;flex-wrap:wrap;gap:14px;font-family:var(--mono);font-size:13px;color:var(--muted)}
 .ticker b{color:var(--up)} .ticker i{color:var(--down);font-style:normal}
 .toc{display:flex;flex-direction:column;margin-top:6px}
-.toc a{display:grid;grid-template-columns:52px 1fr auto;gap:10px;align-items:center;min-height:48px;border-bottom:1px solid var(--line);color:inherit;text-decoration:none}
+.toc a{display:grid;grid-template-columns:52px 1fr;gap:10px;align-items:center;min-height:48px;border-bottom:1px solid var(--line);color:inherit;text-decoration:none}
 .toc .no{font-family:var(--mono);font-size:13px;color:var(--muted)}
 .toc .min{font-family:var(--mono);font-size:13px;color:var(--muted)}
 .toc b{font-weight:700}
@@ -117,16 +116,15 @@ footer{padding-block:28px;font-size:13px;color:var(--muted)}
 <div class="wrap">
 
 <header>
-  <div class="ticker"><span>KOSPI <b>▲</b></span><span>KOSDAQ <i>▼</i></span><span>USD/KRW</span></div>
   <span class="label">직무특강 · 증권사 지점 영업(PB)</span>
   <h1>증권사 PB의 하루, 그리고 불합격하는 인턴의 특징</h1>
   <p class="muted">한국투자증권 PB 김다훈 · 궁금한 점은 아래 <a href="#qna" style="color:var(--up);font-weight:700">익명 질문</a>에 언제든 남겨 주세요.</p>
   <nav class="toc" aria-label="오늘의 순서">
-    <a href="#p1"><span class="no">1부</span><b>PB의 하루</b><span class="min">10분</span></a>
-    <a href="#p2"><span class="no">2부</span><b>스펙보다 전략</b><span class="min">10분</span></a>
-    <a href="#p3"><span class="no">3부</span><b>불합격하는 인턴의 특징</b><span class="min">8분</span></a>
-    <a href="#p4"><span class="no">4부</span><b>AI를 잘 쓰는 사람이 이긴다</b><span class="min">10분</span></a>
-    <a href="#qna"><span class="no">Q&amp;A</span><b>익명 질문</b><span class="min">10분</span></a>
+    <a href="#p1"><span class="no">1부</span><b>PB의 하루</b></a>
+    <a href="#p2"><span class="no">2부</span><b>스펙보다 전략</b></a>
+    <a href="#p3"><span class="no">3부</span><b>불합격하는 인턴의 특징</b></a>
+    <a href="#p4"><span class="no">4부</span><b>AI를 잘 쓰는 사람이 이긴다</b></a>
+    <a href="#qna"><span class="no">Q&amp;A</span><b>익명 질문</b></a>
   </nav>
 </header>
 
