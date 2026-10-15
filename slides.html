@@ -168,12 +168,13 @@ ul.bad li::before{background:var(--up)}
 .pbdef .do span{color:#AFC0D8;font-size:24px;line-height:1.45}
 
 /* 하루 흐름 */
-.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:0;align-content:start;border-top:2px solid var(--ink)}
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:0;align-content:center;border-top:2px solid var(--ink)}
 .phases .ph{padding:32px 32px 0 0;display:flex;flex-direction:column;gap:16px;border-right:1px solid var(--line);margin-right:32px}
 .phases .ph:last-child{border-right:0;margin-right:0}
 .phases .when{font-size:28px;font-weight:600;color:var(--down)}
 .phases .ph.hot .when{color:var(--up)}
-.phases p{font-size:26px;color:var(--muted)}
+.phases p{font-size:28px;color:var(--muted)}
+.phases .ph h3{font-size:40px}
 
 /* 큰 질문 카드 */
 .bigq .n{font-size:22px;font-weight:600;color:var(--up)}
@@ -219,6 +220,113 @@ ul.bad li::before{background:var(--up)}
 .asks .bubble{background:var(--card);border-radius:14px 14px 14px 4px;padding:18px 24px;font-size:27px;line-height:1.45;font-weight:600}
 .asks .bad .bubble{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(211,38,58,.5);text-decoration-thickness:2px}
 
+/* 아이콘 */
+.ico{display:inline-flex;align-items:center;justify-content:center;flex:none;color:var(--ink)}
+.ico svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ico.lg{width:52px;height:52px}
+.ico.xl{width:64px;height:64px}
+.ico.xxl{width:120px;height:120px}
+.ico.up{color:var(--up)}
+.ico.inv{color:#fff}
+.card .ico.xl,.ph .ico.xl{width:60px;height:60px;padding:12px;border-radius:14px;background:var(--down-soft);color:var(--down);box-sizing:border-box}
+.card .ico.xl.up,.ph .ico.xl.up{background:var(--up-soft);color:var(--up)}
+.pbdef .cust{flex-direction:row;align-items:center;gap:22px}
+.pbdef .cust>div{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.pbdef .cust .ico{color:var(--down)}
+.pbdef .do{flex-direction:row;align-items:center;gap:22px}
+.pbdef .do>div{display:flex;flex-direction:column;gap:8px}
+
+/* 출근길 */
+.commute{flex-direction:row;align-items:center;gap:56px}
+.commute .text{flex:1;display:flex;flex-direction:column;gap:26px;min-width:0}
+.commute .phones{display:flex;gap:36px;flex:none}
+.phone{margin:0;display:flex;flex-direction:column;align-items:center;gap:14px}
+.phone .scr{width:300px;height:620px;border-radius:40px;background:#0D1B2E;padding:14px;box-shadow:0 18px 40px rgba(13,27,46,.22);position:relative;overflow:hidden}
+.phone .scr img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:28px;display:block;background:#fff}
+.phone .scr .ph-miss{display:none}
+.phone .scr.missing img{display:none}
+.phone .scr.missing .ph-miss{position:absolute;inset:14px;border-radius:28px;border:2px dashed #5A6678;display:flex;align-items:center;justify-content:center;text-align:center;color:#AFC0D8;font-size:22px;line-height:1.5}
+.phone .scr.missing .ph-miss small{font-family:var(--mono);font-size:15px;color:#7E8FA8}
+.phone figcaption{font-family:var(--mono);font-size:18px;color:var(--muted)}
+
+/* 팀장님 메시지 */
+.chat{background:#B2C7D9;border-radius:20px;padding:44px 56px;display:flex;flex-direction:column;gap:30px;justify-content:center}
+.msgrow{display:flex;gap:18px;align-items:flex-start}
+.msgrow.me{justify-content:flex-end}
+.avatar{width:72px;height:72px;border-radius:24px;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;flex:none;line-height:1}
+.msgbox{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.msgbox .who{font-size:20px;color:#2C3E50}
+.bub{background:#fff;border-radius:6px 22px 22px 22px;padding:22px 30px;font-size:40px;font-weight:700;line-height:1.35;color:#0D1B2E}
+.bub b{color:var(--up)}
+.msgbox .tm{font-size:16px;color:#3E5266}
+.bub.typing{background:#FEE500;border-radius:22px 6px 22px 22px;display:flex;gap:10px;align-items:center;padding:26px 30px}
+.bub.typing i{width:14px;height:14px;border-radius:50%;background:#3C1E1E;opacity:.5}
+
+/* 마음을 얻는 일 */
+.heartflow{display:flex;align-items:center;justify-content:center;gap:12px}
+.heartflow .node{display:flex;flex-direction:column;align-items:center;gap:12px;font-size:30px}
+.heartflow .node .ico{width:150px;height:150px;padding:30px;border-radius:50%;background:var(--card);border:1px solid var(--line);color:var(--ink);box-sizing:border-box}
+.heartflow .link{width:520px;height:120px}
+
+/* 외적/내적 */
+.axes{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-content:start}
+.axis{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px 30px;display:flex;flex-direction:column;gap:20px}
+.axis.in{border:2px solid var(--up)}
+.axhead{display:flex;align-items:center;gap:16px;font-size:22px}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.tile{display:flex;align-items:center;gap:16px;background:var(--paper);border-radius:12px;padding:18px 20px;font-size:26px}
+.tile .ico{color:var(--down)}
+.tile .ico.up{color:var(--up)}
+
+/* 외향/내향 */
+.spectrum{display:flex;flex-direction:column;justify-content:center;gap:22px}
+.spectrum .bar{display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:center}
+.spectrum .end{font-size:30px;font-weight:800}
+.spectrum .track{position:relative;height:16px;border-radius:8px;background:linear-gradient(90deg,var(--down),var(--up))}
+.spectrum .track i{position:absolute;top:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:#fff;border:4px solid var(--ink)}
+.spectrum .cap{text-align:center;font-size:22px;color:var(--muted)}
+
+/* 홍진호 비교 미니 */
+.mini-guests{display:grid;grid-template-columns:repeat(10,1fr);gap:8px}
+.mini-guests i{aspect-ratio:1;border-radius:50%;background:var(--paper);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-style:normal;font-family:var(--mono);font-size:20px;font-weight:600;color:var(--muted);line-height:1}
+.mini-guests i.q{color:var(--muted)}
+.mini-guests i.k{background:var(--up-soft);border-color:var(--up);color:var(--up)}
+
+/* 제 이야기 */
+.have{display:flex;align-items:center;gap:18px;font-size:30px;padding:12px 0;border-bottom:1px solid var(--line)}
+.have .ico{color:var(--down)}
+.have.no{color:var(--muted)}
+.have.no b{text-decoration:line-through;text-decoration-thickness:2px}
+.xmark{width:52px;height:52px;border-radius:50%;background:var(--up-soft);color:var(--up);display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800;line-height:1;flex:none}
+.mission{display:grid;grid-template-columns:520px 1fr;gap:48px;align-items:center}
+.stats{display:flex;flex-direction:column;gap:22px}
+.stat{display:flex;align-items:center;gap:22px;font-size:28px}
+.stat .num{width:170px;height:96px;border-radius:14px;background:var(--card);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:56px;font-weight:600;line-height:1;flex:none}
+.stat .num small{font-family:var(--sans);font-size:26px;font-weight:700;margin-left:4px}
+.stat .num.up{color:var(--up);border:2px solid var(--up)}
+.stat .num .ico{color:var(--ink)}
+.cards30{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.cards30 i{aspect-ratio:1.75;border-radius:6px;background:var(--card);border:1px solid var(--line);position:relative;box-shadow:0 2px 0 var(--line)}
+.cards30 i::before{content:"";position:absolute;left:12%;top:20%;width:34%;height:12%;border-radius:2px;background:var(--up)}
+.cards30 i::after{content:"";position:absolute;left:12%;top:58%;width:62%;height:9%;border-radius:2px;background:var(--line)}
+.interview{display:grid;grid-template-columns:460px 1fr;gap:56px;align-items:center}
+.album{position:relative;display:flex;flex-direction:column;align-items:center;gap:12px}
+.album img{width:100%;border-radius:16px;display:block;box-shadow:0 18px 40px rgba(13,27,46,.2)}
+.album .album-ph,.album .album-cap{display:none}
+.album.missing img{display:none}
+.album.missing .album-ph{display:block;width:100%;height:auto}
+.album.missing .album-cap{display:block;font-size:18px;color:var(--muted)}
+.appeal{display:flex;flex-direction:column;gap:22px}
+.ap{display:flex;align-items:center;gap:22px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 26px}
+.ap>div{display:flex;flex-direction:column;gap:6px}
+.ap b{font-size:32px}
+.ap span:not(.ico){font-size:22px;color:var(--muted)}
+.flow.big3{align-content:center}
+.flow.big3 .step{padding:30px 28px}
+.flow.big3 .step b{font-size:32px}
+.flow.big3 .step span{font-size:22px}
+.video .screen iframe{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:18px}
+
 /* 화면 클릭 안내 */
 .help{position:fixed;left:16px;bottom:12px;font:13px var(--sans);color:#6F7F96;opacity:.8;user-select:none}
 @media (prefers-reduced-motion:no-preference){ .slide.on{animation:in .25s ease-out} @keyframes in{from{opacity:.4}to{opacity:1}} }
@@ -232,7 +340,7 @@ ul.bad li::before{background:var(--up)}
   <div class="left">
     <div class="ticker"><span>KOSPI <b>▲</b></span><span>KOSDAQ <i>▼</i></span><span>USD/KRW</span><span class="mono">08:00 시황회의</span></div>
     <h1>증권사 PB의 하루,<br>그리고 불합격하는<br>인턴의 특징</h1>
-    <p class="lead">직무특강 · 증권사 지점 영업(PB) · 김다훈</p>
+    <p class="lead">직무특강 · 한국투자증권 PB 김다훈</p>
   </div>
   <div class="qrbox">
     <div class="qr" data-qr></div>
@@ -267,13 +375,13 @@ ul.bad li::before{background:var(--up)}
   <h2>리테일 고객의 자산을 관리하고, 상품을 세일즈하는 사람</h2>
   <div class="pbdef grow">
     <div class="who">
-      <div class="cust"><span class="chip down">개인 고객</span><p>예금·주식·연금 등 개인의 자산을 함께 관리합니다</p></div>
-      <div class="cust"><span class="chip down">법인 고객</span><p>회사 자금 운용, 임직원 퇴직연금까지 상담합니다</p></div>
+      <div class="cust"><span class="ico lg" data-icon="person"></span><div><span class="chip down">개인 고객</span><p>예금·주식·연금 등 개인의 자산을 함께 관리합니다</p></div></div>
+      <div class="cust"><span class="ico lg" data-icon="building"></span><div><span class="chip down">법인 고객</span><p>회사 자금 운용, 임직원 퇴직연금까지 상담합니다</p></div></div>
     </div>
     <div class="arrow" aria-hidden="true"><svg viewBox="0 0 60 40" width="60" height="40"><path d="M2 20h48M38 6l14 14-14 14" fill="none" stroke="#0D1B2E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
     <div class="what">
-      <div class="do"><b>자산 관리</b><span>시장이 움직이면 먼저 연락하고 계좌를 점검합니다</span></div>
-      <div class="do"><b>상품 세일즈</b><span>고객 상황에 맞는 상품을 제안하고 판매합니다</span></div>
+      <div class="do"><span class="ico lg inv" data-icon="shield"></span><div><b>자산 관리</b><span>시장이 움직이면 먼저 연락하고 계좌를 점검합니다</span></div></div>
+      <div class="do"><span class="ico lg inv" data-icon="doc"></span><div><b>상품 세일즈</b><span>고객 상황에 맞는 상품을 제안하고 판매합니다</span></div></div>
     </div>
   </div>
 </section>
@@ -283,9 +391,26 @@ ul.bad li::before{background:var(--up)}
   <div class="kicker">PB의 하루 타임라인</div>
   <h2>장이 열리기 전에 하루가 이미 시작됩니다</h2>
   <div class="phases grow">
-    <div class="ph"><span class="when mono">출근길</span><h3>시장 공부</h3><p>텔레그램 채널과 네이버 프리미엄콘텐츠로 밤사이 시장 소식을 읽으며 출근합니다</p></div>
-    <div class="ph"><span class="when mono">출근 직후</span><h3>회의</h3><p>실적 회의와 시황 회의. 오늘 고객에게 무슨 이야기를 할지 정합니다</p></div>
-    <div class="ph hot"><span class="when mono">09:00 ~</span><h3>장 시작, 영업 시작</h3><p>고객 응대, 자산 섭외, 외부 영업까지. 다음 장에서 자세히 보겠습니다</p></div>
+    <div class="ph"><span class="ico xl" data-icon="phone"></span><span class="when mono">출근길</span><h3>시장 공부</h3><p>텔레그램 채널과 네이버 프리미엄콘텐츠로 밤사이 시장 소식을 읽으며 출근합니다</p></div>
+    <div class="ph"><span class="ico xl" data-icon="people"></span><span class="when mono">출근 직후</span><h3>회의</h3><p>실적 회의와 시황 회의. 오늘 고객에게 무슨 이야기를 할지 정합니다</p></div>
+    <div class="ph hot"><span class="ico xl up" data-icon="candle"></span><span class="when mono">09:00 ~</span><h3>장 시작, 영업 시작</h3><p>고객 응대, 자산 섭외, 외부 영업까지 이어집니다</p></div>
+  </div>
+</section>
+
+<!-- 5-1. 출근길 화면 -->
+<section class="slide commute" data-part="1부 · PB의 하루">
+  <div class="text">
+    <div class="kicker">출근길 07:00</div>
+    <h2>지하철에서 이미<br>시장 공부가 시작됩니다</h2>
+    <ul class="clean">
+      <li>텔레그램 채널로 밤사이 해외 증시와 뉴스 정리</li>
+      <li>버터대디 네이버 프리미엄콘텐츠로 시장 흐름 읽기</li>
+      <li>오늘 고객에게 보낼 시황 문자의 재료를 모읍니다</li>
+    </ul>
+  </div>
+  <div class="phones">
+    <figure class="phone"><div class="scr"><img src="images/telegram.png" alt="텔레그램 채널 화면" onerror="this.parentNode.classList.add('missing')"><span class="ph-miss">텔레그램 캡처<br><small>images/telegram.png</small></span></div><figcaption>텔레그램 채널</figcaption></figure>
+    <figure class="phone"><div class="scr"><img src="images/nepcon.png" alt="버터대디 네이버 프리미엄콘텐츠 화면" onerror="this.parentNode.classList.add('missing')"><span class="ph-miss">네프콘 캡처<br><small>images/nepcon.png</small></span></div><figcaption>버터대디 · 네프콘</figcaption></figure>
   </div>
 </section>
 
@@ -293,10 +418,10 @@ ul.bad li::before{background:var(--up)}
 <section class="slide" data-part="1부 · PB의 하루">
   <div class="kicker">09:00 장 시작 이후</div>
   <h2>자리에서, 지점에서, 밖에서</h2>
-  <div class="grid3 grow" style="align-content:start">
-    <div class="card"><h3>자리에서</h3><ul class="clean"><li>주문 전화 받기</li><li>고객에게 시황 문자 보내기</li><li>자료·상품 제안서 만들기</li></ul></div>
-    <div class="card"><h3>지점에서</h3><ul class="clean"><li>내점 고객 응대</li><li>빠져나간 자산 다시 섭외하기</li><li>상품 세일즈</li></ul></div>
-    <div class="card" style="border:2px solid var(--up)"><h3>밖에서</h3><ul class="clean"><li>고객 외부 방문</li><li>퇴직연금: 법인에 직접 나가 상담</li><li>세미나 진행</li></ul></div>
+  <div class="grid3 grow" style="align-content:center">
+    <div class="card place"><span class="ico xl" data-icon="headset"></span><h3>자리에서</h3><ul class="clean"><li>주문 전화 받기</li><li>고객에게 시황 문자 보내기</li><li>자료·상품 제안서 만들기</li></ul></div>
+    <div class="card place"><span class="ico xl" data-icon="building"></span><h3>지점에서</h3><ul class="clean"><li>내점 고객 응대</li><li>빠져나간 자산 다시 섭외하기</li><li>상품 세일즈</li></ul></div>
+    <div class="card place" style="border:2px solid var(--up)"><span class="ico xl up" data-icon="bag"></span><h3>밖에서</h3><ul class="clean"><li>고객 외부 방문</li><li>퇴직연금: 법인에 직접 나가 상담</li><li>세미나 진행</li></ul></div>
   </div>
 </section>
 
@@ -304,18 +429,81 @@ ul.bad li::before{background:var(--up)}
 <section class="slide" data-part="1부 · PB의 하루">
   <div class="kicker">PB가 하는 일</div>
   <h2>결국 PB의 일은 세 가지로 모입니다</h2>
-  <div class="grid3 grow" style="align-content:start">
-    <div class="card role"><span class="n">01</span><h3>고객 자산 유치</h3><p>고객의 자산을 우리 회사로 모셔 옵니다. 빠져나간 자산을 되찾는 일도 포함됩니다.</p></div>
-    <div class="card role"><span class="n">02</span><h3>상품 섭외</h3><p>연금·펀드·채권 등 고객에게 맞는 상품을 제안하고 판매합니다.</p></div>
-    <div class="card role"><span class="n">03</span><h3>신규 고객 창출</h3><p>처음 만나는 개인과 법인을 고객으로 만듭니다.</p></div>
+  <div class="grid3 grow" style="align-content:center">
+    <div class="card role"><span class="ico xl" data-icon="inflow"></span><span class="n">01</span><h3>고객 자산 유치</h3><p>고객의 자산을 우리 회사로 모셔 옵니다. 빠져나간 자산을 되찾는 일도 포함됩니다.</p></div>
+    <div class="card role"><span class="ico xl" data-icon="doc"></span><span class="n">02</span><h3>상품 섭외</h3><p>연금·펀드·채권 등 고객에게 맞는 상품을 제안하고 판매합니다.</p></div>
+    <div class="card role"><span class="ico xl" data-icon="userplus"></span><span class="n">03</span><h3>신규 고객 창출</h3><p>처음 만나는 개인과 법인을 고객으로 만듭니다.</p></div>
   </div>
 </section>
 
-<!-- 8. 맞는 사람 -->
+<!-- 8. 영업력 -->
 <section class="slide" data-part="1부 · PB의 하루" style="justify-content:center">
-  <div class="kicker">이 일이 맞는 사람</div>
-  <h1>PB에게 가장 필요한 건<br><span style="color:var(--up)">거절에 익숙한 사람</span>입니다</h1>
-  <p class="lead">섭외 전화 열 통 중 대부분은 거절입니다. 거절을 듣고도 다음 전화를 걸 수 있는 사람이 결국 고객을 만듭니다.</p>
+  <div class="kicker">이 일에 가장 필요한 것</div>
+  <h1>PB에게 가장 필요한 건<br><span style="color:var(--up)">영업력</span>입니다</h1>
+  <p class="lead">그럼 영업력이란 무엇일까요?</p>
+</section>
+
+<!-- 8-1. 팀장님 메시지 -->
+<section class="slide chatslide" data-part="1부 · PB의 하루">
+  <div class="kicker">영업력이란?</div>
+  <h2>어느 날 팀장님에게 메시지가 옵니다</h2>
+  <div class="chat grow">
+    <div class="msgrow"><span class="avatar">팀장</span><div class="msgbox"><span class="who">팀장님</span><div class="bub">다음 주까지 A펀드 <b>10억</b> 팔 수 있어?</div><span class="tm mono">오전 8:42</span></div></div>
+    <div class="msgrow me"><div class="msgbox"><div class="bub typing"><i></i><i></i><i></i></div></div></div>
+  </div>
+  <p style="font-size:32px;font-weight:700">여러분이라면 뭐라고 답하시겠어요?</p>
+</section>
+
+<!-- 8-2. 마음을 얻는 일 -->
+<section class="slide" data-part="1부 · PB의 하루">
+  <div class="kicker">영업력의 정의</div>
+  <h2>영업력은 상대의 마음을 얻는 일입니다</h2>
+  <div class="heartflow grow">
+    <div class="node"><span class="ico xxl" data-icon="person"></span><b>PB</b></div>
+    <svg class="link" viewBox="0 0 520 120" aria-hidden="true">
+      <path d="M10 60 H510" stroke="#D8DEE7" stroke-width="4" stroke-dasharray="10 12" fill="none"/>
+      <path d="M260 92 C 214 62, 214 22, 242 22 C 252 22, 258 30, 260 36 C 262 30, 268 22, 278 22 C 306 22, 306 62, 260 92 Z" fill="#D3263A"/>
+    </svg>
+    <div class="node"><span class="ico xxl" data-icon="person"></span><b>고객</b></div>
+  </div>
+  <p class="lead" style="color:var(--ink)">상품을 파는 게 아니라, 마음을 얻으면 자산은 따라옵니다. 그리고 마음을 얻으려면 <b>바깥과 안쪽</b>이 모두 중요합니다.</p>
+</section>
+
+<!-- 8-3. 외적 / 내적 -->
+<section class="slide" data-part="1부 · PB의 하루">
+  <div class="kicker">마음을 얻는 두 가지 축</div>
+  <h2>외적인 것도, 내적인 것도 둘 다 중요합니다</h2>
+  <div class="axes grow">
+    <div class="axis">
+      <div class="axhead"><span class="chip ink">외적</span><span class="muted">처음 3초에 보이는 것</span></div>
+      <div class="tiles">
+        <div class="tile"><span class="ico lg" data-icon="shirt"></span><b>외모 관리</b></div>
+        <div class="tile"><span class="ico lg" data-icon="speech"></span><b>호감을 얻는 말투</b></div>
+        <div class="tile"><span class="ico lg" data-icon="wave"></span><b>목소리 톤</b></div>
+        <div class="tile"><span class="ico lg" data-icon="type"></span><b>정제된 어휘</b></div>
+      </div>
+    </div>
+    <div class="axis in">
+      <div class="axhead"><span class="chip up">내적</span><span class="muted">만날수록 드러나는 것</span></div>
+      <div class="tiles">
+        <div class="tile"><span class="ico lg up" data-icon="target"></span><b>상대 니즈 파악</b></div>
+        <div class="tile"><span class="ico lg up" data-icon="eye"></span><b>눈치</b></div>
+        <div class="tile"><span class="ico lg up" data-icon="check"></span><b>디테일한 관리</b></div>
+        <div class="tile"><span class="ico lg up" data-icon="book"></span><b>전문성</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8-4. 외향 / 내향 -->
+<section class="slide" data-part="1부 · PB의 하루">
+  <div class="kicker">자주 받는 질문</div>
+  <h2>"저는 내향적인데 영업할 수 있을까요?"</h2>
+  <div class="spectrum grow">
+    <div class="bar"><span class="end">내향적</span><div class="track"><i style="left:12%"></i><i style="left:30%"></i><i style="left:47%"></i><i style="left:63%"></i><i style="left:81%"></i></div><span class="end">외향적</span></div>
+    <p class="cap mono">잘하는 PB는 이 축 어디에나 있습니다</p>
+  </div>
+  <p style="font-size:34px;font-weight:800;line-height:1.45">외향적이냐 내향적이냐는 <span style="color:var(--up)">중요한 요소가 아닐 수도</span> 있습니다.<br><span class="muted" style="font-weight:600;font-size:28px">중요한 건 상대의 마음을 얻는 방법을 가지고 있느냐입니다.</span></p>
 </section>
 
 <!-- 9. 2부 표지 -->
@@ -329,19 +517,19 @@ ul.bad li::before{background:var(--up)}
 <section class="slide" data-part="2부 · 취업 전략">
   <div class="kicker">취업 전략의 출발점</div>
   <h2>준비를 시작하기 전에 두 가지만 먼저 고민하세요</h2>
-  <div class="grid2 grow" style="align-content:start">
-    <div class="card bigq"><span class="n mono">질문 1</span><h3>이 직무가 요구하는 역량은 무엇인가?</h3><p class="muted">PB라면: 거절에 익숙함, 사람을 만나는 힘, 시장에 대한 관심</p></div>
-    <div class="card bigq" style="border:2px solid var(--up)"><span class="n mono">질문 2</span><h3>그 역량을 나는 어떻게 보여 줄 수 있는가?</h3><p class="muted">보여 줄 증거가 없다면, 지금부터 만들면 됩니다</p></div>
+  <div class="grid2 grow" style="align-content:center">
+    <div class="card bigq"><span class="ico xl" data-icon="target"></span><span class="n mono">질문 1</span><h3>이 직무가 요구하는 역량은 무엇인가?</h3><p class="muted">PB라면: 영업력, 상대의 마음을 얻는 힘</p></div>
+    <div class="card bigq" style="border:2px solid var(--up)"><span class="ico xl up" data-icon="spark"></span><span class="n mono">질문 2</span><h3>그 역량을 나는 어떻게 보여 줄 수 있는가?</h3><p class="muted">보여 줄 증거가 없다면, 지금부터 만들면 됩니다</p></div>
   </div>
   <p style="font-size:32px;font-weight:700">이 두 질문에 답하는 게 스펙 하나를 더 쌓는 것보다 중요합니다.</p>
 </section>
 
 <!-- 11. 영상 -->
 <section class="slide" data-part="2부 · 취업 전략">
-  <div class="kicker">영상 하나 보고 가겠습니다</div>
+  <div class="kicker">영상 하나 보고 가겠습니다 · 3분</div>
   <h2>더 지니어스 시즌1 11화, 홍진호의 '5 대 5'</h2>
   <div class="video grow">
-    <div class="screen">
+    <div class="screen" id="videoScreen">
       <span class="mono tag">tvN · 2013. 7. 5. 방송</span>
       <p class="vt">메인매치 '5 대 5'</p>
       <a class="play" id="videoLink" href="#" target="_blank" rel="noopener" hidden>▶ 영상 열기</a>
@@ -371,11 +559,13 @@ ul.bad li::before{background:var(--up)}
 <section class="slide" data-part="2부 · 취업 전략">
   <div class="kicker">같은 게임, 다른 접근</div>
   <h2>다른 사람은 정보를 캐냈고, 홍진호는 정보를 만들었습니다</h2>
-  <div class="grid2 grow" style="align-content:start">
+  <div class="grid2 grow" style="align-content:center">
     <div class="card"><span class="chip ink" style="align-self:flex-start">다른 참가자</span>
+      <div class="mini-guests"><i class="q">?</i><i class="q">?</i><i class="q">?</i><i class="q">?</i><i class="q">?</i><i class="q">?</i><i class="q">?</i><i class="q">?</i><i class="q">?</i><i class="q">?</i></div>
       <p>게스트의 이름, 옷차림, 생일 같은 <b>이미 있는 정보</b>를 알아내 문장을 만들었습니다.</p>
       <p class="muted" style="font-size:24px">정보가 정확하지 않거나 해석이 갈리면 실패했습니다.</p></div>
     <div class="card" style="border:2px solid var(--up)"><span class="chip up" style="align-self:flex-start">홍진호</span>
+      <div class="mini-guests"><i class="k">✓</i><i class="k">✓</i><i class="k">✓</i><i class="k">✓</i><i class="k">✓</i><i>·</i><i>·</i><i>·</i><i>·</i><i>·</i></div>
       <p>추가 조사 10분 동안 게스트 <b>5명에게만</b> 자기 형의 이름을 알려 주고 손등을 맞댔습니다. 그리고 그 5명만 아는 문장을 냈습니다.</p>
       <p style="font-size:24px;color:var(--up);font-weight:700">2라운드 5문제를 모두 성공, 메인매치 1위</p></div>
   </div>
@@ -385,16 +575,70 @@ ul.bad li::before{background:var(--up)}
 <section class="slide" data-part="2부 · 취업 전략">
   <div class="kicker">취업 시장도 같습니다</div>
   <h2>답을 찾지 말고, 답이 나오는 판을 직접 만드세요</h2>
-  <div class="flow grow">
+  <div class="flow big3 grow">
     <div class="step"><span class="n mono">1</span><b>무엇을 요구하나?</b><span>회사가 이 직무에서 보고 싶은 역량</span></div>
     <div class="step"><span class="n mono">2</span><b>내게 증거가 있나?</b><span>없다면 남들처럼 스펙을 더 쌓는 대신</span></div>
     <div class="step hot"><span class="n mono">3</span><b>증거를 직접 만든다</b><span>그 역량을 보여 줄 경험을 내가 설계</span></div>
   </div>
-  <div class="ex-table">
-    <div class="r head"><span>요구 역량</span><span>이렇게 만들 수 있습니다</span></div>
-    <div class="r"><span>거절에 익숙함</span><span>영업·판매 아르바이트에서 거절을 몇 번 듣고 몇 건을 성사시켰는지 기록</span></div>
-    <div class="r"><span>시장에 대한 관심</span><span>매일 시황 세 줄 요약을 100일 동안 블로그에 올리기</span></div>
-    <div class="r"><span>사람을 만나는 힘</span><span>동아리·모임을 직접 만들고 사람을 모아 본 경험</span></div>
+  <p style="font-size:32px;font-weight:700">제 이야기를 해 보겠습니다.</p>
+</section>
+
+<!-- 14-1. 어필할 게 없었다 -->
+<section class="slide" data-part="2부 · 제 이야기">
+  <div class="kicker">제 이야기 · 취업 준비 때</div>
+  <h2>영업력을 어필하고 싶은데, 어필할 게 없었습니다</h2>
+  <div class="grid2 grow" style="align-content:center">
+    <div class="card"><h3>제가 가진 것</h3>
+      <div class="have"><span class="ico lg" data-icon="music"></span><b>합창단 활동</b></div>
+      <div class="have"><span class="ico lg" data-icon="run"></span><b>러닝 크루 활동</b></div>
+      <div class="have"><span class="ico lg" data-icon="globe"></span><b>해외 봉사 활동</b></div>
+    </div>
+    <div class="card"><h3 class="muted">금융권 지원자에게 흔한 것</h3>
+      <div class="have no"><span class="xmark">✕</span><b>금융학회</b></div>
+      <div class="have no"><span class="xmark">✕</span><b>투자동아리</b></div>
+      <p class="muted" style="font-size:24px">영업력과 바로 이어지는 경험이 없었습니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 14-2. 지금 만들자 -->
+<section class="slide" data-part="2부 · 제 이야기">
+  <div class="kicker">발상의 전환</div>
+  <h2>없으면, 지금 만들자</h2>
+  <div class="mission grow">
+    <div class="stats">
+      <div class="stat"><span class="num mono">3<small>일</small></span><span>동안</span></div>
+      <div class="stat"><span class="num mono up">30<small>개</small></span><span>증권사 지점을 직접 방문해</span></div>
+      <div class="stat"><span class="num mono"><span class="ico xl" data-icon="card"></span></span><span>PB분들 명함을 받아 명함집으로</span></div>
+    </div>
+    <div class="cards30" aria-label="방문한 지점 30곳"></div>
+  </div>
+</section>
+
+<!-- 14-3. 면접장 -->
+<section class="slide" data-part="2부 · 제 이야기">
+  <div class="kicker">그리고 면접장에서</div>
+  <h2>명함집을 들고 가서, 1분 자기소개를 이 이야기로 시작했습니다</h2>
+  <div class="interview grow">
+    <div class="album">
+      <img src="images/cards.jpg" alt="실제 명함집 사진" onerror="this.parentNode.classList.add('missing')">
+      <svg class="album-ph" viewBox="0 0 360 260" aria-hidden="true">
+        <rect x="10" y="10" width="340" height="240" rx="16" fill="#0D1B2E"/>
+        <g fill="#FFFFFF" opacity=".95">
+          <rect x="40" y="40" width="130" height="78" rx="6"/><rect x="190" y="40" width="130" height="78" rx="6"/>
+          <rect x="40" y="140" width="130" height="78" rx="6"/><rect x="190" y="140" width="130" height="78" rx="6"/>
+        </g>
+        <g fill="#D3263A"><rect x="52" y="54" width="40" height="8" rx="2"/><rect x="202" y="54" width="40" height="8" rx="2"/><rect x="52" y="154" width="40" height="8" rx="2"/><rect x="202" y="154" width="40" height="8" rx="2"/></g>
+        <g fill="#D8DEE7"><rect x="52" y="90" width="80" height="6" rx="2"/><rect x="202" y="90" width="80" height="6" rx="2"/><rect x="52" y="190" width="80" height="6" rx="2"/><rect x="202" y="190" width="80" height="6" rx="2"/></g>
+      </svg>
+      <span class="album-cap mono">명함집</span>
+    </div>
+    <div class="appeal">
+      <p class="lead" style="color:var(--ink)">이 경험으로 보여 준 것</p>
+      <div class="ap"><span class="ico lg up" data-icon="pin"></span><div><b>현장에서 답을 찾는 능력</b><span>책상이 아니라 지점에서 PB를 직접 만났습니다</span></div></div>
+      <div class="ap"><span class="ico lg up" data-icon="flag"></span><div><b>목표 달성을 위한 집요함</b><span>3일, 30개 지점. 정한 목표를 끝까지 채웠습니다</span></div></div>
+      <p style="font-size:28px;font-weight:700">홍진호처럼, 답이 나오는 판을 직접 만든 겁니다.</p>
+    </div>
   </div>
 </section>
 
@@ -435,7 +679,7 @@ ul.bad li::before{background:var(--up)}
 <section class="slide" data-part="3부 · 불합격 인턴">
   <div class="kicker">왜 이 차이가 결과를 가를까</div>
   <h2>회사는 '붙을 사람'이 아니라 '일 잘할 사람'을 뽑습니다</h2>
-  <div class="grid2 grow" style="align-content:start">
+  <div class="grid2 grow" style="align-content:center">
     <div class="card"><span class="chip up" style="align-self:flex-start">합격에 초점</span><p>인턴 기간을 시험 기간으로 봅니다. 질문도, 행동도 평가를 잘 받는 데 맞춰져 있습니다.</p></div>
     <div class="card" style="border:2px solid var(--down)"><span class="chip down" style="align-self:flex-start">입사 후 성과에 초점</span><p>이미 이 회사 직원처럼 생각합니다. 들어가서 어떻게 고객을 모시고 실적을 낼지 고민합니다.</p></div>
   </div>
@@ -460,7 +704,7 @@ ul.bad li::before{background:var(--up)}
 <section class="slide" data-part="4부 · AI 활용">
   <div class="kicker">같은 일, 다른 결과</div>
   <h2>같은 보고서를 두 사람이 만듭니다</h2>
-  <div class="grid2 grow" style="align-content:start">
+  <div class="grid2 grow" style="align-content:center">
     <div class="card"><span class="chip ink" style="align-self:flex-start">A</span><h3>엑셀을 열고 숫자를 하나씩 옮겨 적습니다</h3><p class="muted">한 시간 뒤 보고서 완성. 오늘 고객 전화는 아직 못 했습니다.</p></div>
     <div class="card" style="border:2px solid var(--up)"><span class="chip up" style="align-self:flex-start">B</span><h3>AI에게 정리를 맡기고 결과만 확인합니다</h3><p class="muted">10분 만에 끝. 남은 50분은 고객에게 씁니다.</p></div>
   </div>
@@ -485,7 +729,7 @@ ul.bad li::before{background:var(--up)}
 <section class="slide" data-part="4부 · AI 활용">
   <div class="kicker">오늘 바로 써 보세요</div>
   <h2>취업 준비에 AI를 쓰는 세 가지 방법</h2>
-  <div class="grid3 grow" style="align-content:start">
+  <div class="grid3 grow" style="align-content:center">
     <div class="card"><h3>자소서 첨삭</h3><div class="prompt">증권사 PB 면접관 입장에서 이 자소서의 약점 3개만 지적해 줘.</div></div>
     <div class="card"><h3>모의 면접</h3><div class="prompt">증권사 지점 PB 1차 면접관 역할로 질문을 하나씩 해 줘. 내 답마다 피드백도.</div></div>
     <div class="card"><h3>시황 공부</h3><div class="prompt">오늘 미국 증시 소식을 대학생이 이해하게 3줄로. 출처 링크도 붙여 줘.</div></div>
@@ -496,7 +740,7 @@ ul.bad li::before{background:var(--up)}
 <section class="slide" data-part="4부 · AI 활용">
   <div class="kicker">단, 이것만은 지키세요</div>
   <h2>AI를 잘 쓰는 사람의 세 가지 습관</h2>
-  <div class="grid3 grow" style="align-content:start">
+  <div class="grid3 grow" style="align-content:center">
     <div class="card"><span class="n mono" style="color:var(--up);font-size:22px">01</span><h3>숫자와 사실은 원문으로 확인</h3><p class="muted" style="font-size:24px">AI도 그럴듯하게 틀립니다. 금융에서는 숫자 하나가 신뢰입니다.</p></div>
     <div class="card"><span class="n mono" style="color:var(--up);font-size:22px">02</span><h3>고객·회사 정보는 넣지 않기</h3><p class="muted" style="font-size:24px">이름, 계좌, 내부 자료는 AI 창에 붙여 넣지 않습니다.</p></div>
     <div class="card"><span class="n mono" style="color:var(--up);font-size:22px">03</span><h3>초안은 AI, 마무리는 나</h3><p class="muted" style="font-size:24px">그대로 낸 자소서는 티가 납니다. 내 경험으로 고쳐 쓰세요.</p></div>
@@ -537,6 +781,51 @@ ul.bad li::before{background:var(--up)}
 <script src="config.js"></script>
 <script src="qna.js"></script>
 <script>
+/* 아이콘 (24×24 선 아이콘) */
+const ICONS = {
+  person: '<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/>',
+  people: '<circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.6"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M15.5 14.2c3 .1 5.5 2.4 5.5 5.8"/>',
+  building: '<path d="M3 21h18"/><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/><path d="M9 10h.01M15 10h.01"/>',
+  shield: '<path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/>',
+  doc: '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/>',
+  phone: '<rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10.5 18h3"/>',
+  candle: '<path d="M6 3v18M12 3v18M18 3v18"/><rect x="4" y="8" width="4" height="7" rx="1" fill="currentColor"/><rect x="10" y="11" width="4" height="5" rx="1"/><rect x="16" y="5" width="4" height="9" rx="1" fill="currentColor"/>',
+  headset: '<path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/><path d="M19 20c0 1.1-1.8 2-4 2h-2"/>',
+  bag: '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/>',
+  inflow: '<path d="M12 3v11"/><path d="M7.5 9.5L12 14l4.5-4.5"/><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/>',
+  userplus: '<circle cx="10" cy="8" r="4"/><path d="M3 21c0-3.9 3.1-7 7-7 1.3 0 2.5.3 3.5.9"/><path d="M18 14v7M14.5 17.5h7"/>',
+  shirt: '<path d="M8 3L3 6l2 4 3-1v12h8V9l3 1 2-4-5-3c0 2-1.8 3.5-4 3.5S8 5 8 3z"/>',
+  speech: '<path d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M8 10h8"/>',
+  wave: '<path d="M2 12h2.5l2-5 3 10 3-14 3 12 2-6H22"/>',
+  type: '<path d="M3 20L8 6l5 14"/><path d="M5 15h6"/><path d="M15 12.5a2.8 2.8 0 0 1 5.5.5v7"/><path d="M20.5 16c-3 0-5.5.4-5.5 2.2 0 1.1.9 1.8 2.2 1.8 2 0 3.3-1.6 3.3-4"/>',
+  target: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/>',
+  eye: '<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+  check: '<path d="M10 6h10M10 12h10M10 18h10"/><path d="M3.5 6l1.5 1.5L7.5 5"/><path d="M3.5 12l1.5 1.5L7.5 11"/><path d="M3.5 18l1.5 1.5L7.5 17"/>',
+  book: '<path d="M3 5h6a3 3 0 0 1 3 3v12a2.5 2.5 0 0 0-2.5-2.5H3z"/><path d="M21 5h-6a3 3 0 0 0-3 3v12a2.5 2.5 0 0 1 2.5-2.5H21z"/>',
+  spark: '<path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/>',
+  music: '<path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/>',
+  run: '<circle cx="15" cy="4.5" r="2"/><path d="M5 21l4-6 3 2 1-5"/><path d="M8 9l4-2 4 3 3 1"/><path d="M13 12l3 3v6"/>',
+  globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.5 3.8 5.5 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.5-3.8-9S9.5 5.5 12 3z"/>',
+  card: '<rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="8" cy="12" r="2"/><path d="M13 10h5M13 14h3.5"/>',
+  pin: '<path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>',
+  flag: '<path d="M5 21V4"/><path d="M5 4h12l-2 4 2 4H5"/>'
+};
+document.querySelectorAll('[data-icon]').forEach(el => {
+  el.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true">${ICONS[el.dataset.icon] || ''}</svg>`;
+});
+
+/* 방문한 지점 30곳 = 명함 30장 */
+document.querySelectorAll('.cards30').forEach(el => { el.innerHTML = '<i></i>'.repeat(30); });
+
+/* 영상: 유튜브 링크면 슬라이드 안에서 바로 재생 */
+(function () {
+  const url = window.LECTURE.VIDEO_URL || '';
+  const m = url.match(/(?:youtu\.be\/|v=|embed\/)([\w-]{11})/);
+  if (!m) return;
+  const scr = document.getElementById('videoScreen');
+  scr.insertAdjacentHTML('beforeend', `<iframe src="https://www.youtube-nocookie.com/embed/${m[1]}?rel=0" title="더 지니어스 5 대 5" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`);
+})();
+
 /* AI 사례 차트: 업무별로 '예전 시간'을 100으로 놓고 지금 걸리는 시간을 같은 축에 그립니다. */
 const AI_CASES = [ // [업무, 예전(분), 지금(분)] — 예시 수치
   ['일일보고 · 직원별 자산 집계표', 60, 10],
