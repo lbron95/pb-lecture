@@ -421,10 +421,11 @@ ul.bad li::before{background:var(--up)}
 .yes2{display:flex;align-items:center;gap:22px;background:var(--ink);color:#fff;border-radius:18px;padding:30px 34px;font-size:48px}
 .yes2 .ico{width:80px;height:80px;color:#FF8090}
 .paytable{display:flex;flex-direction:column;justify-content:center;border-top:2px solid var(--ink)}
-.paytable .r{display:grid;grid-template-columns:70px 120px 300px 150px 1fr 330px;gap:16px;align-items:center;border-bottom:1px solid var(--line);font-size:24px;padding:0 6px}
+.paytable .r{display:grid;grid-template-columns:70px 160px 280px 150px 1fr 330px;gap:16px;align-items:center;border-bottom:1px solid var(--line);font-size:24px;padding:0 6px}
 .paytable .r .rk{font-weight:800;color:var(--muted)}
 .paytable .r .nm{font-weight:800}
-.paytable .r .pay{font-weight:800;text-align:right}
+.paytable .r .pay{font-weight:800;text-align:right;display:flex;flex-direction:column;align-items:flex-end;line-height:1.15}
+.paytable .r .pay small{font-size:15px;font-weight:600;color:var(--muted)}
 .paytable .r .bar{height:16px;border-radius:8px;background:var(--line);position:relative}
 .paytable .r .bar i{position:absolute;left:0;top:0;bottom:0;border-radius:8px;background:var(--up)}
 .paytable .r.unk .bar i{background:#AEB7C4}
@@ -634,24 +635,24 @@ ul.bad li::before{background:var(--up)}
 <!-- 7-7. 연봉 2024 -->
 <section class="slide" data-part="1부 · 영업직이란">
   <div class="kicker">숫자로 보면</div>
-  <h2>2024년 증권사 보수 상위권, 현직 직원은 누구였을까</h2>
+  <h2>2024년 증권사 보수 상위 10명 (대표·회장 제외)</h2>
   <div class="paytable grow" data-year="2024"></div>
-  <p class="src">출처: 한국금융신문 「메리츠, 상위권 싹쓸이 '최고 148억'…」 2025.4.3 · 2024년 사업보고서 기준 상위 10명 중 전직 임원 4명 제외 · 직무는 기사·공시 설명 기준</p>
+  <p class="src">출처: 증권사 25곳 2024년 사업보고서(DART) 「임원의 보수 등」 직접 집계 · 대표이사·회장·부회장·고문 제외, 퇴직자 포함 · 직무는 공시의 성과급 산정기준 설명 기준</p>
 </section>
 
 <!-- 7-8. 연봉 2025 -->
 <section class="slide" data-part="1부 · 영업직이란">
   <div class="kicker">숫자로 보면</div>
-  <h2>2025년 증권사 보수 상위 10명 (대표 제외)</h2>
+  <h2>2025년 증권사 보수 상위 10명 (대표·회장 제외)</h2>
   <div class="paytable grow" data-year="2025"></div>
-  <p class="src">출처: 금융소비자뉴스 「작년 금융사 임직원보수 1위는 메리츠증권 윤창식 영업이사 89억」 2026.4.8 · 직무: 한국금융신문 2026.4.8, 뉴스스페이스 2026.8.30</p>
+  <p class="src">출처: 증권사 25곳 2025년 사업보고서(DART) 「임원의 보수 등」 직접 집계 · 대표이사·회장·부회장·고문 제외, 퇴직자 포함 · * 이정란: 공시엔 직무 기재 없음, 언론 보도(뉴스스페이스 2026.8.30) 기준</p>
 </section>
 
 <!-- 7-9. 정리 -->
 <section class="slide stmt" data-part="1부 · 영업직이란" style="justify-content:center" data-stmt>
   <div class="kicker">정리하면</div>
-  <h1>대표보다 많이 받는 사람들,<br>직무가 알려진 사람은<br><span style="color:var(--up)">모두 영업과 딜</span>이었습니다</h1>
-  <p class="lead">PB, 리테일, 채권 중개, 랩 운용, IB·PF. 고객을 모셔 오고 딜을 따 오는 사람이 가장 많이 법니다.</p>
+  <h1>대표·회장을 뺀 보수 상위 10명,<br>2024년 <span style="color:var(--up)">10명</span>, 2025년 <span style="color:var(--up)">9명</span>이<br>영업과 딜 담당이었습니다</h1>
+  <p class="lead">PB, 리테일, 채권 중개, 지점장, IB·구조화 딜. 나머지 1명은 공시에 직무가 적혀 있지 않습니다.</p>
   <div class="deco" aria-hidden="true"><span class="ico" data-icon="inflow"></span></div>
 </section>
 
@@ -1065,34 +1066,38 @@ document.querySelectorAll('.scr.reel img').forEach(img => {
 addEventListener('resize', () => document.querySelectorAll('.scr.reel img').forEach(i => i.dispatchEvent(new Event('load'))));
 
 /* 증권사 보수 상위권 표 (금액 단위: 억원, 기사 기준) */
-const PAY = {
+const PAY = { // [이름, 회사·직위, 보수총액(억원), 직무(공시 산정기준 설명), 구분 s=영업 d=딜 u=미기재, 비고]
   2024: [
-    ['강정구', '삼성증권 수석', 93.24, 'PB 영업전문직', 's', 2],
-    ['이종석', '유안타증권 리테일전담이사', 83.32, '리테일 · 주식 위탁영업', 's', 4],
-    ['유지훈', '상상인증권 상무', 68.70, 'FICC본부장 · 채권 중개·기관 영업', 's', 5],
-    ['윤창식', '메리츠증권 영업이사', 46.45, '영업이사', 's', 7],
-    ['신승호', '유안타증권 차장', 41.80, '채권·CP 중개 영업', 's', 9],
-    ['진현수', '부국증권 차장', 41.38, '직무 비공개', 'u', 10]
+    ['강정구', '삼성증권 수석', 93.24, 'PB 영업전문직', 's'],
+    ['김경성', '메리츠증권 前부사장', 89.92, '자본시장본부 영업팀', 's', '퇴직금 42.5억 포함'],
+    ['이종석', '유안타증권 리테일전담이사', 83.32, '리테일 주식 위탁영업', 's'],
+    ['유지훈', '상상인증권 상무', 68.70, '채권 중개·기관 영업', 's'],
+    ['황태영', '메리츠증권 前부사장', 53.98, '구조화투자 딜·신규 고객 유치', 'd', '퇴직금 25.3억 포함'],
+    ['윤창식', '메리츠증권 영업이사', 46.45, '개인 영업실적', 's'],
+    ['칼 코쉬니스키', '메리츠증권 前전무', 42.06, '구조화상품 본부', 'd', '퇴직금 3.1억 포함'],
+    ['신승호', '유안타증권 차장', 41.80, '채권·CP 중개 영업', 's'],
+    ['진현수', '부국증권 차장', 41.38, '영업부서 개인 영업성과', 's'],
+    ['정원석', '부국증권 부장', 40.76, '영업부서 개인 영업성과', 's']
   ],
   2025: [
-    ['윤창식', '메리츠증권 영업이사', 89.01, '지점형 랩 운용 (PB)', 's'],
-    ['이종석', '유안타증권 리테일전담이사', 74.32, '리테일 영업', 's'],
-    ['정원석', '부국증권 이사보', 60.16, '직무 비공개', 'u'],
-    ['이정란', '한국투자증권 차장', 40.27, '압구정PB센터 PB', 's'],
-    ['문필복', '메리츠증권 전무', 39.80, '직무 비공개', 'u'],
-    ['박신욱', '다올투자증권 수석매니저', 39.19, '직무 비공개', 'u'],
-    ['이세훈', '메리츠증권 부사장', 38.99, 'IB 딜 (IB사업본부장)', 'd'],
-    ['곽영권', '메리츠증권 부사장', 38.93, '직무 비공개', 'u'],
-    ['여은석', '메리츠증권 부사장', 38.08, 'PF 딜 (프로젝트금융본부장)', 'd'],
-    ['이정민', '신한투자증권 센터장', 34.29, '패밀리오피스 센터장 (PB)', 's']
+    ['윤창식', '메리츠증권 영업이사', 89.01, '개인 영업실적', 's'],
+    ['이종석', '유안타증권 리테일전담이사', 74.32, '리테일 주식 위탁영업', 's'],
+    ['정원석', '부국증권 이사보', 60.16, '영업부서 개인 영업성과', 's'],
+    ['구기일', '유안타증권 리테일전담이사', 41.97, '리테일 금융상품 영업', 's'],
+    ['주용국', '미래에셋증권 前부사장', 41.08, '직무 미기재', 'u', '퇴직금 27.7억 포함'],
+    ['김철은', '유진투자증권 前부사장', 40.28, 'IB부문 총괄', 'd', '퇴직금 36.9억 포함'],
+    ['이정란', '한국투자증권 차장', 40.27, '압구정PB센터 PB *', 's'],
+    ['문필복', '메리츠증권 전무', 39.80, '광화문금융센터장 · 개인 영업실적', 's'],
+    ['박신욱', '다올투자증권 수석매니저', 39.19, '채권 영업', 's'],
+    ['이세훈', '메리츠증권 부사장', 38.99, 'IB사업본부', 'd']
   ]
 };
 document.querySelectorAll('.paytable').forEach(el => {
   const rows = PAY[el.dataset.year], max = Math.max(...rows.map(r => r[2]));
   const h = Math.floor(560 / rows.length);
   el.innerHTML = rows.map((r, i) => `<div class="r ${r[4] === 'u' ? 'unk' : ''}" style="height:${h}px">
-    <span class="rk">${r[5] || i + 1}위</span><span class="nm">${r[0]}</span><span class="muted" style="font-size:20px">${r[1]}</span>
-    <span class="pay">${r[2].toFixed(1)}억 원</span><span class="bar"><i style="width:${(r[2] / max * 100).toFixed(1)}%"></i></span>
+    <span class="rk">${i + 1}위</span><span class="nm">${r[0]}</span><span class="muted" style="font-size:20px">${r[1]}</span>
+    <span class="pay">${r[2].toFixed(1)}억 원${r[5] ? `<small>${r[5]}</small>` : ''}</span><span class="bar"><i style="width:${(r[2] / max * 100).toFixed(1)}%"></i></span>
     <span class="tag ${r[4]}">${r[3]}</span></div>`).join('');
 });
 
