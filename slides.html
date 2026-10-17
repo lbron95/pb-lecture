@@ -701,6 +701,13 @@ ul.bad li::before{background:var(--up)}
 .qs{display:flex;flex-direction:column;gap:16px}
 .qs .ap b{font-size:28px}
 
+.paytable .r.dim{font-size:20px;opacity:.72}
+.paytable .r.dim .nm{font-weight:600}
+.paytable .r.star{background:var(--up-soft);font-size:26px}
+.paytable .r.star .nm,.paytable .r.star .pay{color:var(--up)}
+.qq{font-size:21px;line-height:1.6;color:var(--muted);background:var(--paper);border-radius:10px;padding:12px 16px}
+.qq.good{color:var(--ink)}
+
 .help{position:fixed;left:16px;bottom:12px;font:13px var(--sans);color:#6F7F96;opacity:.8;user-select:none}
 @media (prefers-reduced-motion:no-preference){ .slide.on{animation:in .25s ease-out} @keyframes in{from{opacity:.4}to{opacity:1}} }
 </style>
@@ -979,57 +986,6 @@ ul.bad li::before{background:var(--up)}
   <h1>스펙보다 전략</h1>
   <p class="lead">마음을 얻을 수 있는 사람이라는 걸, 면접관에게 어떻게 증명할까요?</p>
 </section>
-<!-- 9-1. 전형·자격증 -->
-<section class="slide" data-part="2부 · 취업 전략">
-  <div class="kicker">먼저 현실부터: 증권사는 이렇게 뽑습니다 · 다음 공채 때 챙기세요</div>
-  <h2>예: 한국투자증권 2026년 하반기 신입 공채 (9월 공고, 10월 마감)</h2>
-  <div class="hire grow">
-    <svg viewBox="0 0 1400 170" role="img" aria-label="서류전형부터 최종면접까지 다섯 단계">
-      <g font-family="Pretendard,sans-serif" text-anchor="middle">
-        <rect x="10" y="40" width="230" height="90" rx="16" fill="#FFFFFF" stroke="#D8DEE7" stroke-width="2"/><text x="125" y="96" font-size="30" font-weight="800" fill="#0D1B2E">서류전형</text>
-        <rect x="300" y="40" width="250" height="90" rx="16" fill="#FFFFFF" stroke="#D8DEE7" stroke-width="2"/><text x="425" y="96" font-size="30" font-weight="800" fill="#0D1B2E">직무역량평가</text>
-        <rect x="610" y="40" width="200" height="90" rx="16" fill="#FFFFFF" stroke="#D8DEE7" stroke-width="2"/><text x="710" y="96" font-size="30" font-weight="800" fill="#0D1B2E">AI면접</text>
-        <rect x="870" y="40" width="230" height="90" rx="16" fill="#FFFFFF" stroke="#D8DEE7" stroke-width="2"/><text x="985" y="96" font-size="30" font-weight="800" fill="#0D1B2E">1·2차 면접</text>
-        <rect x="1160" y="40" width="230" height="90" rx="16" fill="#0D1B2E"/><text x="1275" y="96" font-size="30" font-weight="800" fill="#FFFFFF">최종면접</text>
-        <g fill="#AEB7C4"><path d="M250 85l36 0M276 73l12 12-12 12" stroke="#AEB7C4" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M560 85l36 0M586 73l12 12-12 12" stroke="#AEB7C4" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M820 85l36 0M846 73l12 12-12 12" stroke="#AEB7C4" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M1110 85l36 0M1136 73l12 12-12 12" stroke="#AEB7C4" stroke-width="5" fill="none" stroke-linecap="round"/></g>
-      </g>
-    </svg>
-    <div class="grid3">
-      <div class="card"><h3>지원 자격</h3><p class="muted">4년제 학사 이상(졸업예정 포함), <b style="color:var(--ink)">전공 무관</b>. PB·IB·리서치 등 전 부문 모집.</p></div>
-      <div class="card"><h3>작은 가점도 챙기기</h3><p class="muted">채용설명회 참석자에게 서류전형 가점. 정보는 현장에서 얻습니다.</p></div>
-      <div class="card"><h3>자격증 우선순위</h3><p class="muted">① 투자권유자문인력(고객에게 상품을 권하려면 필요) ② 여유 있으면 투자자산운용사 ③ 그 이상은 "증거 만들기"가 먼저</p></div>
-    </div>
-  </div>
-  <p class="src">출처: 파이낸셜뉴스·한국경제 2026.9.16 · AI면접은 4부의 모의 면접 방법으로 연습할 수 있습니다 · 회사·시기마다 전형이 다르니 공고문을 꼭 확인하세요</p>
-</section>
-<!-- 9-2. 비상경 -->
-<section class="slide" data-part="2부 · 취업 전략">
-  <div class="kicker">가장 많이 받는 질문</div>
-  <h2>"비상경인데, 정말 괜찮나요?"</h2>
-  <div class="nonbiz grow">
-    <div class="fact1"><span class="chip ink">공고 기준</span><b>전공 무관</b><span>한국투자증권 2026년 하반기 신입 공채 · PB 포함 전 부문</span></div>
-    <div class="grid4">
-      <div class="card"><span class="ico xl" data-icon="book"></span><h3>자격증은 기본 체크</h3><p class="muted">투자권유자문인력은 기본. 있으면 좋지만, 그것만으로 차별화되지는 않습니다.</p></div>
-      <div class="card"><span class="ico xl" data-icon="phone"></span><h3>시장 공부는 습관</h3><p class="muted">매일 시황 세 줄 요약. "요즘 시장"을 물으면 바로 답할 수 있게.</p></div>
-      <div class="card"><span class="ico xl" data-icon="spark"></span><h3>전공을 무기로</h3><p class="muted">공대생이면 반도체 산업을, 고객 언어로 쉽게 설명할 수 있습니다.</p></div>
-      <div class="card" style="border:2px solid var(--up)"><span class="ico xl up" data-icon="handshake"></span><h3>더 중요한 건 영업력</h3><p class="muted">사람을 만나 마음을 얻어 본 경험이 전공보다 강한 증거입니다.</p></div>
-    </div>
-  </div>
-  <p style="font-size:30px;font-weight:800">전공은 출발점일 뿐, <span style="color:var(--up)">증거는 지금부터 만들 수 있습니다.</span></p>
-</section>
-<!-- 9-3. 로드맵 -->
-<section class="slide" data-part="2부 · 취업 전략">
-  <div class="kicker">지금 몇 학년이세요?</div>
-  <h2>학년별로 지금 할 일</h2>
-  <div class="road grow">
-    <svg class="roadline" viewBox="0 0 1400 60" aria-hidden="true"><path d="M30 30H1370" stroke="#D8DEE7" stroke-width="8" stroke-linecap="round"/><circle cx="240" cy="30" r="16" fill="#1C5BD0"/><circle cx="700" cy="30" r="16" fill="#1C5BD0"/><circle cx="1160" cy="30" r="16" fill="#D3263A"/></svg>
-    <div class="grid3">
-      <div class="card"><span class="chip down" style="align-self:flex-start">1·2학년</span><ul class="clean"><li>경제 뉴스 읽는 습관</li><li>아르바이트·동아리에서 사람을 상대해 본 경험</li><li>"영업력" 증거가 될 경험을 일부러 만들기</li></ul></div>
-      <div class="card"><span class="chip down" style="align-self:flex-start">3학년</span><ul class="clean"><li>투자권유자문인력 등 기본 자격</li><li>채용설명회·현직자 커피챗에서 질문하기</li><li>채용연계형 인턴 지원</li></ul></div>
-      <div class="card" style="border:2px solid var(--up)"><span class="chip up" style="align-self:flex-start">4학년</span><ul class="clean"><li>만든 증거를 자소서 첫 문장으로</li><li>시황 1분 말하기 연습</li><li>모의 면접(4부의 AI 활용)</li></ul></div>
-    </div>
-  </div>
-</section>
 <!-- 11. 영상 -->
 <section class="slide" data-part="2부 · 취업 전략">
   <div class="kicker">영상 하나 보고 가겠습니다</div>
@@ -1152,34 +1108,66 @@ ul.bad li::before{background:var(--up)}
     <div class="ivq hot"><span class="qn">Q3</span><b>이 상품을 고객에게 팔아 보세요</b><p class="arr2">→ <b>고객부터 4단계</b></p><p class="muted">맞는 고객 찾기 → 위험까지 설명 → 결정은 고객이 → 안 맞으면 권하지 않기.</p></div>
   </div>
 </section>
+<!-- 9-1. 전형·자격증 -->
+<section class="slide" data-part="2부 · 취업 전략">
+  <div class="kicker">이제 현실 정보: 증권사는 이렇게 뽑습니다 · 다음 공채 때 챙기세요</div>
+  <h2>예: 한국투자증권 2026년 하반기 신입 공채 (9월 공고, 10월 마감)</h2>
+  <div class="hire grow">
+    <svg viewBox="0 0 1400 170" role="img" aria-label="서류전형부터 최종면접까지 다섯 단계">
+      <g font-family="Pretendard,sans-serif" text-anchor="middle">
+        <rect x="10" y="40" width="230" height="90" rx="16" fill="#FFFFFF" stroke="#D8DEE7" stroke-width="2"/><text x="125" y="96" font-size="30" font-weight="800" fill="#0D1B2E">서류전형</text>
+        <rect x="300" y="40" width="250" height="90" rx="16" fill="#FFFFFF" stroke="#D8DEE7" stroke-width="2"/><text x="425" y="96" font-size="30" font-weight="800" fill="#0D1B2E">직무역량평가</text>
+        <rect x="610" y="40" width="200" height="90" rx="16" fill="#FFFFFF" stroke="#D8DEE7" stroke-width="2"/><text x="710" y="96" font-size="30" font-weight="800" fill="#0D1B2E">AI면접</text>
+        <rect x="870" y="40" width="230" height="90" rx="16" fill="#FFFFFF" stroke="#D8DEE7" stroke-width="2"/><text x="985" y="96" font-size="30" font-weight="800" fill="#0D1B2E">1·2차 면접</text>
+        <rect x="1160" y="40" width="230" height="90" rx="16" fill="#0D1B2E"/><text x="1275" y="96" font-size="30" font-weight="800" fill="#FFFFFF">최종면접</text>
+        <g fill="#AEB7C4"><path d="M250 85l36 0M276 73l12 12-12 12" stroke="#AEB7C4" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M560 85l36 0M586 73l12 12-12 12" stroke="#AEB7C4" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M820 85l36 0M846 73l12 12-12 12" stroke="#AEB7C4" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M1110 85l36 0M1136 73l12 12-12 12" stroke="#AEB7C4" stroke-width="5" fill="none" stroke-linecap="round"/></g>
+      </g>
+    </svg>
+    <div class="grid3">
+      <div class="card"><h3>지원 자격</h3><p class="muted">4년제 학사 이상(졸업예정 포함), <b style="color:var(--ink)">전공 무관</b>. PB·IB·리서치 등 전 부문 모집.</p></div>
+      <div class="card"><h3>작은 가점도 챙기기</h3><p class="muted">채용설명회 참석자에게 서류전형 가점. 정보는 현장에서 얻습니다.</p></div>
+      <div class="card"><h3>자격증 우선순위</h3><p class="muted">① 투자권유자문인력(고객에게 상품을 권하려면 필요) ② 여유 있으면 투자자산운용사 ③ 그 이상은 "증거 만들기"가 먼저</p></div>
+    </div>
+  </div>
+  <p class="src">출처: 파이낸셜뉴스·한국경제 2026.9.16 · AI면접은 4부의 모의 면접 방법으로 연습할 수 있습니다 · 회사·시기마다 전형이 다르니 공고문을 꼭 확인하세요</p>
+</section>
+<!-- 9-2. 비상경 -->
+<section class="slide" data-part="2부 · 취업 전략">
+  <div class="kicker">가장 많이 받는 질문</div>
+  <h2>"비상경인데, 정말 괜찮나요?"</h2>
+  <div class="nonbiz grow">
+    <div class="fact1"><span class="chip ink">공고 기준</span><b>전공 무관</b><span>한국투자증권 2026년 하반기 신입 공채 · PB 포함 전 부문</span></div>
+    <div class="grid4">
+      <div class="card"><span class="ico xl" data-icon="book"></span><h3>자격증은 기본 체크</h3><p class="muted">투자권유자문인력은 기본. 있으면 좋지만, 그것만으로 차별화되지는 않습니다.</p></div>
+      <div class="card"><span class="ico xl" data-icon="phone"></span><h3>시장 공부는 습관</h3><p class="muted">매일 시황 세 줄 요약. "요즘 시장"을 물으면 바로 답할 수 있게.</p></div>
+      <div class="card"><span class="ico xl" data-icon="spark"></span><h3>전공을 무기로</h3><p class="muted">공대생이면 반도체 산업을, 고객 언어로 쉽게 설명할 수 있습니다.</p></div>
+      <div class="card" style="border:2px solid var(--up)"><span class="ico xl up" data-icon="handshake"></span><h3>더 중요한 건 영업력</h3><p class="muted">사람을 만나 마음을 얻어 본 경험이 전공보다 강한 증거입니다.</p></div>
+    </div>
+  </div>
+  <p style="font-size:30px;font-weight:800">전공은 출발점일 뿐, <span style="color:var(--up)">증거는 지금부터 만들 수 있습니다.</span></p>
+</section>
+<!-- 9-3. 로드맵 -->
+<section class="slide" data-part="2부 · 취업 전략">
+  <div class="kicker">지금 몇 학년이세요?</div>
+  <h2>학년별로 지금 할 일</h2>
+  <div class="road grow">
+    <svg class="roadline" viewBox="0 0 1400 60" aria-hidden="true"><path d="M30 30H1370" stroke="#D8DEE7" stroke-width="8" stroke-linecap="round"/><circle cx="240" cy="30" r="16" fill="#1C5BD0"/><circle cx="700" cy="30" r="16" fill="#1C5BD0"/><circle cx="1160" cy="30" r="16" fill="#D3263A"/></svg>
+    <div class="grid3">
+      <div class="card"><span class="chip down" style="align-self:flex-start">1·2학년</span><ul class="clean"><li>경제 뉴스 읽는 습관</li><li>아르바이트·동아리에서 사람을 상대해 본 경험</li><li>"영업력" 증거가 될 경험을 일부러 만들기</li></ul></div>
+      <div class="card"><span class="chip down" style="align-self:flex-start">3학년</span><ul class="clean"><li>투자권유자문인력 등 기본 자격</li><li>채용설명회·현직자 커피챗에서 질문하기</li><li>채용연계형 인턴 지원</li></ul></div>
+      <div class="card" style="border:2px solid var(--up)"><span class="chip up" style="align-self:flex-start">4학년</span><ul class="clean"><li>만든 증거를 자소서 첫 문장으로</li><li>시황 1분 말하기 연습</li><li>모의 면접(4부의 AI 활용)</li><li>3일 안에 만드는 작은 증거: 지인 3명에게 연금저축 설명해 보기</li></ul></div>
+    </div>
+  </div>
+</section>
 <!-- 15. 3부 표지 -->
 <section class="slide section" data-part="3부 · 불합격 인턴">
   <div class="big">PART 3</div>
   <h1>불합격하는 인턴의 특징</h1>
   <p class="lead">그렇게 증거를 만들어 인턴이 돼도, 떨어지는 사람이 있습니다. 딱 한 가지 차이입니다.</p>
 </section>
-<!-- 17. 질문 비교 -->
-<section class="slide" data-part="3부 · 불합격 인턴">
-  <div class="kicker">인턴이 선배에게 하는 질문 · 채용연계형 인턴이라면 인턴 기간 전체가 면접입니다</div>
-  <h2>질문을 들으면 어디를 보고 있는지 보입니다</h2>
-  <div class="asks grow">
-    <div class="col bad">
-      <div class="lab"><span class="chip up">면접을 기출문제처럼 푸는 인턴</span></div>
-      <div class="bubble">선배님들은 어떤 스펙이 있으셨어요?</div>
-      <div class="bubble">면접에서 어떤 질문을 받으셨어요?</div>
-      <div class="bubble">이런 과제를 받았는데, 어떻게 해야 점수를 잘 받을까요?</div>
-    </div>
-    <div class="col good">
-      <div class="lab"><span class="chip down">입사 후를 먼저 보는 인턴</span></div>
-      <div class="bubble">여기서 영업 잘하시는 분들은 어떻게 영업하세요?</div>
-      <div class="bubble">주임님만의 영업 아이디어나 필살기는 뭔가요?</div>
-      <div class="bubble">고객 자산은 어떻게 유치하세요?</div>
-    </div>
-  </div>
-</section>
 <!-- 17-1. 인턴 사례 -->
 <section class="slide" data-part="3부 · 불합격 인턴">
-  <div class="kicker">근태·보고·과제 완성도 같은 기본은 당연히 깔고, 그 위에서 갈리는 한 가지</div>
+  <div class="kicker">질문을 들으면 보입니다 · 근태·보고 같은 기본은 깔고, 그 위에서 갈리는 한 가지</div>
   <h2>당장 앞만 보는가, <span style="color:var(--up)">그 다음까지 보는가</span></h2>
   <div class="horizon grow">
     <svg viewBox="0 0 1400 230" role="img" aria-label="면접이라는 가까운 관문과 입사 후라는 먼 목표">
@@ -1194,8 +1182,8 @@ ul.bad li::before{background:var(--up)}
       <path d="M130 130C500 20 900 10 1238 60" fill="none" stroke="#D3263A" stroke-width="4" stroke-dasharray="10 10"/>
     </svg>
     <div class="grid2">
-      <div class="card"><span class="chip up" style="align-self:flex-start">불합격하는 인턴</span><p>면접이라는 전형을 <b>기출문제 풀이처럼</b> 접근합니다. 선배의 스펙, 면접 질문, 과제의 정답을 묻습니다.</p><p class="muted">→ 당장 앞에 있는 관문만 봅니다.</p></div>
-      <div class="card" style="border:2px solid var(--down)"><span class="chip down" style="align-self:flex-start">합격하는 인턴</span><p>회사 안에서 다들 어떻게 영업하고 일을 잘하는지 <b>관찰</b>합니다. 내가 여기서 어떻게 할 수 있을지, 무엇을 어필할지 먼저 고민합니다.</p><p class="muted">→ 그 다음까지 봅니다.</p></div>
+      <div class="card"><span class="chip up" style="align-self:flex-start">불합격하는 인턴</span><p>면접이라는 전형을 <b>기출문제 풀이처럼</b> 접근합니다.</p><div class="qq">"선배님들은 어떤 스펙이 있으셨어요?"<br>"면접에서 어떤 질문을 받으셨어요?"<br>"이 과제, 어떻게 해야 점수를 잘 받을까요?"</div><p class="muted">→ 당장 앞에 있는 관문만 봅니다.</p></div>
+      <div class="card" style="border:2px solid var(--down)"><span class="chip down" style="align-self:flex-start">합격하는 인턴</span><p>회사 안에서 다들 어떻게 영업하고 일을 잘하는지 <b>관찰</b>하고, 내가 무엇을 어필할지 먼저 고민합니다.</p><div class="qq good">"여기서 영업 잘하시는 분들은 어떻게 영업하세요?"<br>"주임님만의 영업 아이디어나 필살기는 뭔가요?"<br>"고객 자산은 어떻게 유치하세요?"</div><p class="muted">→ 그 다음까지 봅니다.</p></div>
     </div>
   </div>
 </section>
@@ -1396,7 +1384,7 @@ const PAY = { // [이름, 회사·직위, 보수총액(억원), 직무(공시 �
 document.querySelectorAll('.paytable').forEach(el => {
   const rows = PAY[el.dataset.year], max = Math.max(...rows.map(r => r[2]));
   const h = Math.floor(560 / rows.length);
-  el.innerHTML = rows.map((r, i) => `<div class="r ${r[4] === 'u' ? 'unk' : ''}" style="height:${h}px">
+  el.innerHTML = rows.map((r, i) => `<div class="r ${r[4] === 'u' ? 'unk' : ''} ${el.dataset.year === '2025' && (i === 0 || i === 6) ? 'star' : 'dim'}" style="height:${h}px">
     <span class="rk">${i + 1}위</span><span class="nm">${r[0]}</span><span class="muted" style="font-size:20px">${r[1]}</span>
     <span class="pay">${r[2].toFixed(1)}억 원${r[5] ? `<small>${r[5]}</small>` : ''}</span><span class="bar"><i style="width:${(r[2] / max * 100).toFixed(1)}%"></i></span>
     <span class="tag ${r[4]}">${r[3]}</span></div>`).join('');
