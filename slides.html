@@ -721,6 +721,23 @@ ul.bad li::before{background:var(--up)}
 .qs>p[style]{font-size:21px!important}
 .interview2{align-items:start}
 
+.turn{display:grid;grid-template-columns:1fr 60px 1fr 60px 1fr;align-items:stretch;gap:10px}
+.tn{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px;display:flex;flex-direction:column;gap:14px;justify-content:center}
+.tn.hot{border:2px solid var(--up)}
+.tn .sn{width:56px;height:56px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800;line-height:1}
+.tn.hot .sn{background:var(--up)}
+.tn b{font-size:34px}
+.tn p{font-size:24px;color:var(--muted);line-height:1.55}
+.tarrow{display:flex;align-items:center;justify-content:center;font-size:44px;color:var(--muted)}
+
+.formula{font-size:22px;line-height:1.5;background:var(--card);border-left:6px solid var(--down);border-radius:8px;padding:12px 18px}
+.formula b{color:var(--down);margin-right:10px}
+
+.hardest{display:flex;align-items:center;gap:20px;background:var(--ink);border-radius:14px;padding:18px 24px}
+.hardest p{color:#E6ECF5;font-size:23px;line-height:1.5}
+.hardest p b{color:#FF8090}
+.faq3 .fq3{padding:24px 22px}
+
 .help{position:fixed;left:16px;bottom:12px;font:13px var(--sans);color:#6F7F96;opacity:.8;user-select:none}
 @media (prefers-reduced-motion:no-preference){ .slide.on{animation:in .25s ease-out} @keyframes in{from{opacity:.4}to{opacity:1}} }
 </style>
@@ -897,10 +914,11 @@ ul.bad li::before{background:var(--up)}
   <h2>신입 PB의 현실, 솔직하게 답합니다</h2>
   <div class="faq3 grow">
     <div class="fq3"><span class="ico xl" data-icon="coins"></span><b>연봉과 성과급은?</b><p>기본급 + 성과급. 영업직 성과급은 내가 만든 수익에서 비용을 뺀 만큼에 지급률을 곱하는 곳이 많습니다. 숫자는 말로 드리겠습니다.</p></div>
-    <div class="fq3"><span class="ico xl" data-icon="target"></span><b>실적 목표를 못 채우면?</b><p>특별한 불이익은 없습니다. 다만 질타는 있습니다.</p></div>
+    <div class="fq3"><span class="ico xl" data-icon="target"></span><b>실적 목표를 못 채우면?</b><p>목표는 "월 신규 자산 ○억", "창출 수익 ○○○○만 원" 같은 단위로 받습니다. 못 채워도 특별한 불이익은 없지만, 질타는 있습니다.</p></div>
     <div class="fq3"><span class="ico xl" data-icon="moon"></span><b>퇴근과 주말은?</b><p>18:00~18:30 퇴근. 주말 출근은 한 번도 없었습니다. 주말 하루는 공부합니다(고객 주말 레터, 리포트, 요즘은 AI).</p></div>
     <div class="fq3"><span class="ico xl" data-icon="pin"></span><b>발령은?</b><p>보통 거주지 기준입니다. 서울에서 일하다 갑자기 지방으로 가는 경우는 거의 없고, 서울 안에서 돕니다.</p></div>
   </div>
+  <div class="hardest"><span class="chip up">가장 힘든 순간</span><p>저를 정말 좋아해 주시고 저도 좋아하는 고객께 주식이든 상품이든 <b>큰 손실이 났을 때</b>입니다. 최근처럼 시장이 빠지면 모든 고객이 함께 영향을 받아서, 그럴 때 정말 속상합니다.</p></div>
 </section>
 <!-- 6-2. 왜 지금 기회 -->
 <section class="slide" data-part="1부 · PB란">
@@ -1040,6 +1058,19 @@ ul.bad li::before{background:var(--up)}
   <p class="muted" style="font-size:22px">학회·동아리가 있다면: 리포트 개수가 아니라 "그 분석을 고객 1명에게 설명해 본 경험"으로 바꾸세요.<br>다른 직무라면: 마케팅은 SNS 계정 실험, 회계는 공시 분석 글 3편, IT는 작은 서비스 배포</p>
   <p style="font-size:32px;font-weight:700">기본 스펙 위에, 남들과 다른 증거를. 제 이야기를 해 보겠습니다.</p>
 </section>
+<!-- 14-0. 처음 자소서 -->
+<section class="slide" data-part="2부 · 제 이야기">
+  <div class="kicker">제 이야기 · 처음에는 저도 그랬습니다</div>
+  <h2>처음 자소서는 "내가 가진 것" 중에서 고르는 데서 시작했습니다</h2>
+  <div class="turn grow">
+    <div class="tn"><span class="sn">1</span><b>처음 자소서</b><p>내가 가진 것 중 무엇을 어필할까? 대학 시절 활동, 군대에서 있었던 일 위주로 썼습니다.</p></div>
+    <div class="tarrow" aria-hidden="true">→</div>
+    <div class="tn"><span class="sn">2</span><b>면접을 준비하다가</b><p>"방향을 바꿔야겠다." PB에게 필요한 영업력을 보여 줄 증거가 없다는 걸 알았습니다.</p></div>
+    <div class="tarrow" aria-hidden="true">→</div>
+    <div class="tn hot"><span class="sn">3</span><b>늦었지만 수정</b><p>가진 것에서 고르는 대신, 증거를 직접 만들러 나갔습니다. 그게 명함 수집입니다.</p></div>
+  </div>
+  <p style="font-size:28px;font-weight:800">늦었다고 생각해도 바꿀 수 있습니다. <span style="color:var(--up)">질문을 "무엇을 가졌나"에서 "무엇을 보여 줘야 하나"로.</span></p>
+</section>
 <!-- 14-1. 어필할 게 없었다 -->
 <section class="slide" data-part="2부 · 제 이야기">
   <div class="kicker">제 이야기 · 취업 준비 때</div>
@@ -1092,7 +1123,7 @@ ul.bad li::before{background:var(--up)}
   <h2>문전박대도 영업이었습니다</h2>
   <div class="reject grow">
     <div class="rj"><span class="chip ink">처음 생각</span><p>"취업 준비생이니까, 그래도 누군가는 도와주겠지."</p></div>
-    <div class="rj"><span class="chip down">실제로는</span><p>대부분은 흔쾌히 인터뷰해 주셨습니다. 하지만 일이 워낙 바쁘신 분들께는 <b>정말 매정하게 거절당한 적도 꽤 많습니다.</b></p></div>
+    <div class="rj"><span class="chip down">실제로는</span><p>대부분은 흔쾌히 인터뷰해 주셨습니다. 하지만 <b>30곳 중 5곳 정도</b>에서는 거절당했습니다. "바쁘다", <b>"네가 왜 그런 것까지 알려고 하냐"</b>며 하대를 받기도 했습니다.</p></div>
     <div class="rj hot"><span class="chip up">지나고 깨달은 것</span><p>거절은 이 일의 기본값입니다. <b>제안하고 거절받고, 또 제안하고 거절받고.</b> 그 문전박대까지 포함해서 전부 영업이었습니다.</p></div>
   </div>
 </section>
@@ -1110,7 +1141,7 @@ ul.bad li::before{background:var(--up)}
       <p style="font-size:24px;font-weight:700">직접 가서 본 것을 솔직하게 말하니, 질문은 <span style="color:var(--up)">제가 원하는 방향</span>으로 흘러갔습니다.</p>
     </div>
   </div>
-  <p class="muted" style="font-size:22px">면접관이 보는 건 명함 숫자가 아니라, 직접 가서 보고 느낀 것입니다. 그건 지어낼 수 없으니까요.</p>
+  <p class="formula"><b>따라 하는 공식</b> 내가 직접 본 사실 1개 + 그래서 끌린 점 + 내가 맞는 이유. 다른 회사를 깎아내리지 말고, 본 것만 말하기.</p>
 </section>
 <!-- 14-4. 면접 실전 -->
 <section class="slide" data-part="2부 · 취업 전략">
@@ -1118,8 +1149,8 @@ ul.bad li::before{background:var(--up)}
   <h2>내가 만든 증거로 질문을 내가 원하는 방향으로</h2>
   <div class="iv grow">
     <div class="ivq"><span class="qn">Q1</span><b>1분 자기소개</b><p class="arr2">→ <b>증거 + 숫자 + 배운 점</b></p><p class="muted">제 경우: 명함집을 펼치며 "준비하면서 만난 30여 명의 현직자분들입니다." 그 뒤엔 "느낀 점", "차이점" 질문이 따라왔습니다.</p></div>
-    <div class="ivq"><span class="qn">Q2</span><b>요즘 시장, 어떻게 보세요?</b><p class="arr2">→ <b>시황 세 줄</b></p><p class="muted">무슨 일 / 왜 / 내 고객에게는 어떻게 말할까. 매일 연습한 사람만 1분 안에 답합니다.</p></div>
-    <div class="ivq hot"><span class="qn">Q3</span><b>이 상품을 고객에게 팔아 보세요</b><p class="arr2">→ <b>고객부터 4단계</b></p><p class="muted">맞는 고객 찾기 → 위험까지 설명 → 결정은 고객이 → 안 맞으면 권하지 않기.</p></div>
+    <div class="ivq"><span class="qn">Q2</span><b>요즘 시장, 어떻게 보세요?</b><p class="arr2">→ <b>시황 세 줄</b></p><p class="muted">예시 답 틀: "이번 주 가장 큰 일은 ○○입니다(무슨 일). ○○ 때문입니다(왜). 그래서 은퇴를 앞둔 고객께는 한 번에 사기보다 나눠서 들어가시라고 말씀드리겠습니다(내 고객에게)."</p></div>
+    <div class="ivq hot"><span class="qn">Q3</span><b>이 상품을 고객에게 팔아 보세요</b><p class="arr2">→ <b>고객부터 4단계</b></p><p class="muted">예시 답: "연금저축펀드라면, 먼저 노후 준비 기간과 세액공제가 필요한 분인지 여쭙겠습니다. 맞는 분이면 위험까지 설명하고, 아니면 권하지 않겠습니다."</p></div>
   </div>
 </section>
 <!-- 9-1. 전형·자격증 -->
@@ -1167,8 +1198,8 @@ ul.bad li::before{background:var(--up)}
   <div class="road grow">
     <svg class="roadline" viewBox="0 0 1400 60" aria-hidden="true"><path d="M30 30H1370" stroke="#D8DEE7" stroke-width="8" stroke-linecap="round"/><circle cx="240" cy="30" r="16" fill="#1C5BD0"/><circle cx="700" cy="30" r="16" fill="#1C5BD0"/><circle cx="1160" cy="30" r="16" fill="#D3263A"/></svg>
     <div class="grid3">
-      <div class="card"><span class="chip down" style="align-self:flex-start">1·2학년</span><ul class="clean"><li>경제 뉴스 읽는 습관</li><li>아르바이트·동아리에서 사람을 상대해 본 경험</li><li>"영업력" 증거가 될 경험을 일부러 만들기</li></ul></div>
-      <div class="card"><span class="chip down" style="align-self:flex-start">3학년</span><ul class="clean"><li>투자권유자문인력 등 기본 자격</li><li>채용설명회·현직자 커피챗에서 질문하기</li><li>채용연계형 인턴 지원</li></ul></div>
+      <div class="card"><span class="chip down" style="align-self:flex-start">1·2학년</span><ul class="clean"><li>경제 뉴스 읽는 습관</li><li>아르바이트·동아리에서 사람을 상대해 본 경험</li><li>이번 학기 숫자 하나 만들기: 알바에서 재방문 고객 수 기록 등</li><li>시황 세 줄, 주 3회</li></ul></div>
+      <div class="card"><span class="chip down" style="align-self:flex-start">3학년</span><ul class="clean"><li>투자권유자문인력 등 기본 자격</li><li>채용설명회·현직자 커피챗에서 질문하기</li><li>채용연계형 인턴 지원: 자소서에 넣을 증거 1개를 먼저 정하기</li></ul></div>
       <div class="card" style="border:2px solid var(--up)"><span class="chip up" style="align-self:flex-start">4학년</span><ul class="clean"><li>만든 증거를 자소서 첫 문장으로</li><li>시황 1분 말하기 연습</li><li>모의 면접(4부의 AI 활용)</li><li>3일 안에 만드는 작은 증거: 지인 3명에게 연금저축 설명해 보기</li></ul></div>
     </div>
   </div>
@@ -1284,11 +1315,11 @@ ul.bad li::before{background:var(--up)}
 <!-- 31-1. 가져갈 3가지 -->
 <section class="slide" data-part="마무리">
   <div class="kicker">오늘 가져갈 것</div>
-  <h2>세 가지만 기억하고, 이번 주에 세 가지만 해 보세요</h2>
+  <h2>세 가지만 기억하고, 마감일을 정해서 해 보세요</h2>
   <div class="take grow">
-    <div class="tk"><span class="sn">1</span><b>영업은 마음을 얻는 일</b><p>맞는 고객을 고르는 것이 첫걸음입니다.</p><div class="todo">이번 주: 현직자 질문 1개 (학생 페이지 양식 ③)</div></div>
+    <div class="tk"><span class="sn">1</span><b>영업은 마음을 얻는 일</b><p>맞는 고객을 고르는 것이 첫걸음입니다.</p><div class="todo">이번 달: 현직자 1명에게 질문하기 (학생 페이지 양식 ③)</div></div>
     <div class="tk"><span class="sn">2</span><b>증거는 만드는 것</b><p>없으면 여러분 방식으로 지금 만듭니다.</p><div class="todo">이번 주: 자소서 첫 문장 고치기 (양식 ②)</div></div>
-    <div class="tk hot"><span class="sn">3</span><b>"어떻게 잘해요?"를 물어라</b><p>입사 후까지 보면 붙을 가능성이 높아집니다.</p><div class="todo">이번 주: 매일 시황 세 줄 (양식 ①)</div></div>
+    <div class="tk hot"><span class="sn">3</span><b>"어떻게 잘해요?"를 물어라</b><p>입사 후까지 보면 붙을 가능성이 높아집니다.</p><div class="todo">오늘 밤: 시황 세 줄 1회 (양식 ①)</div></div>
   </div>
 </section>
 <!-- 32. Q&A -->
