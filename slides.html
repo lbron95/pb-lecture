@@ -766,6 +766,20 @@ ul.bad li::before{background:var(--up)}
 .dayx .card.place h3{font-size:30px}
 .dayx .card.place li{font-size:24px;margin:4px 0}
 
+.funnel{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:20px}
+.funnel>div{display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 26px}
+.funnel>div.hot{border:2px solid var(--up)}
+.funnel b{font-size:40px;font-weight:800;line-height:1.1}
+.funnel .hot b{color:var(--up)}
+.funnel small{font-size:22px}
+.funnel span{font-size:20px;color:var(--muted)}
+.funnel i{font-style:normal;font-size:30px;color:var(--muted)}
+.funnel p{flex-basis:100%;font-size:22px;font-weight:700;margin:0}
+
+.try{display:inline-flex;align-self:flex-start;align-items:center;background:var(--up);color:#fff;border-radius:999px;padding:8px 18px;font-size:20px;font-weight:800;line-height:1;margin:0}
+
+.lcolw{display:flex;flex-direction:column;gap:0}
+
 .help{position:fixed;left:16px;bottom:12px;font:13px var(--sans);color:#6F7F96;opacity:.8;user-select:none}
 @media (prefers-reduced-motion:no-preference){ .slide.on{animation:in .25s ease-out} @keyframes in{from{opacity:.4}to{opacity:1}} }
 </style>
@@ -1059,8 +1073,8 @@ ul.bad li::before{background:var(--up)}
   <div class="kicker">인터넷에는 없는 이야기</div>
   <h2>입사하고 나서 알게 된 두 가지</h2>
   <div class="grid2 grow" style="align-content:center">
-    <div class="card"><span class="ico xl" data-icon="coins"></span><h3>문과가 갈 수 있으면서 높은 연봉을 받을 수 있는 곳, 금융권이 거의 유일하다</h3><p class="muted">제가 내린 결론입니다. 금융권, 좋습니다.</p></div>
-    <div class="card" style="border:2px solid var(--up)"><span class="ico xl up" data-icon="handshake"></span><h3>주식·분석에 미친 천재만 있는 곳이 아니다</h3><p class="muted">전문성은 당연히 기본입니다. 하지만 영업력 하나로 정말 잘하는 분들도 많습니다. 업에 대한 관심과 함께 <b style="color:var(--ink)">영업력을 어떻게 보여 줄지</b>를 고민해 보세요.</p></div>
+    <div class="card"><span class="ico xl" data-icon="coins"></span><h3>문과가 갈 수 있으면서 높은 연봉을 받을 수 있는 곳, 금융권이 거의 유일하다</h3><p class="muted">그리고 그 연봉은 학벌보다 <b style="color:var(--ink)">내가 만든 실적</b>에서 나옵니다. 제 작년 총보수는 말로 공개하겠습니다.</p></div>
+    <div class="card" style="border:2px solid var(--up)"><span class="ico xl up" data-icon="handshake"></span><h3>주식·분석에 미친 천재만 있는 곳이 아니다</h3><p class="muted">전문성은 기본입니다. 하지만 제 하루를 채우는 건 분석보다 연락입니다. <b style="color:var(--ink)">하루 30건 넘는 연락, 900명 중 실제로 함께 움직이는 150명.</b> 영업력 하나로 정말 잘하는 분들도 많습니다.</p></div>
   </div>
 </section>
 <!-- 9. 2부 표지 -->
@@ -1107,7 +1121,7 @@ ul.bad li::before{background:var(--up)}
     <div class="step"><span class="n mono">2</span><b>내게 증거가 있나?</b><span>없다면 자격증 하나 더로 끝내지 말고 →</span></div>
     <div class="step hot"><span class="n mono">3</span><b>증거를 직접 만든다</b><span>그 역량을 보여 줄 경험을 내가 설계</span></div>
   </div>
-  <p class="muted" style="font-size:22px">학회·동아리가 있다면: 리포트 개수가 아니라 "그 분석을 고객 1명에게 설명해 본 경험"으로 바꾸세요.<br>증권사 다른 직무라면: IB 지망은 공시 분석 글 3편, 리서치 지망은 기업 리포트 1편을 현직자에게 피드백받기</p>
+  <p class="muted" style="font-size:22px">학회·동아리가 있다면: 리포트 1편을 지인 5명에게 10분씩 설명하고, "더 알고 싶다"는 사람 수를 남기세요. 자소서에는 리포트 개수가 아니라 "설명 5회, 추가 질문 3명"이 들어갑니다.<br>증권사 다른 직무라면: IB 지망은 공시 분석 글 3편, 리서치 지망은 기업 리포트 1편을 현직자에게 피드백받기</p>
   <p style="font-size:32px;font-weight:700">기본 스펙 위에, 남들과 다른 증거를. 제 이야기를 해 보겠습니다.</p>
 </section>
 <!-- 14-0. 처음 자소서 -->
@@ -1145,7 +1159,7 @@ ul.bad li::before{background:var(--up)}
       <div class="cards30" aria-label="방문한 지점 30곳"></div>
     </div>
   </div>
-  <p class="tip">따라 하신다면 그대로가 아니라 여러분 방식으로: 미리 전화로 약속하거나, 동문 현직자·채용설명회·커피챗도 좋은 길입니다. 장 시작 직후처럼 바쁜 시간은 피하세요.</p>
+  <p class="tip">따라 하신다면 그대로가 아니라 여러분 방식으로: 미리 전화로 약속하거나, 동문 현직자·채용설명회·커피챗도 좋은 길입니다. 서울이 멀다면 우리 지역 지점과 커피챗을 합쳐 30명. 장 시작 직후처럼 바쁜 시간은 피하세요.</p>
 </section>
 <!-- 14-1b. 왜 30명 -->
 <section class="slide" data-part="2부 · 제 이야기">
@@ -1181,10 +1195,13 @@ ul.bad li::before{background:var(--up)}
 </section>
 <!-- 14-3. 면접장 -->
 <section class="slide" data-part="2부 · 제 이야기">
-  <div class="kicker">그리고 면접장에서 · 지금 회사 공채, 은행 공채 두 번 모두</div>
-  <h2>두 번의 공채 면접, 모두 명함집을 펼치며 시작했습니다</h2>
+  <div class="kicker">그리고 면접장에서 · 지금 회사 공채, 은행 공채</div>
+  <h2>면접 두 번, 모두 명함집을 펼치며 시작했고 둘 다 붙었습니다</h2>
   <div class="interview2 grow">
+    <div class="lcolw">
     <div class="opening"><span class="chip up">제 1분 자기소개 첫마디</span><p>(가슴속 명함집을 펼치며)<br><b>"이번 면접을 준비하면서 만난 30여 명의 현직자분들입니다."</b></p><p class="muted">목표를 달성하기 위한 전략, 그리고 발로 뛰는 실력이 있는 사람이라는 걸 보여 주고 싶었습니다.</p></div>
+    <div class="funnel"><div><b>6<small>곳</small></b><span>자소서 제출</span></div><i>→</i><div><b>2<small>곳</small></b><span>면접</span></div><i>→</i><div class="hot"><b>2<small>곳</small></b><span>최종 합격</span></div><p>서류는 4곳 떨어졌습니다. 면접까지 간 2곳은 모두 붙었습니다.</p></div>
+    </div>
     <div class="qs">
       <p class="lead" style="color:var(--ink);font-size:26px">면접관이 실제로 물은 것</p>
       <div class="ap"><span class="ico lg up" data-icon="speech"></span><div><b>"가서 느낀 점이 무엇인가요?"</b></div></div>
@@ -1201,7 +1218,7 @@ ul.bad li::before{background:var(--up)}
   <h2>내가 만든 증거로 질문을 내가 원하는 방향으로</h2>
   <div class="iv grow">
     <div class="ivq"><span class="qn">Q1</span><b>1분 자기소개</b><p class="arr2">→ <b>증거 + 숫자 + 배운 점</b></p><p class="muted">제 경우: 명함집을 펼치며 "준비하면서 만난 30여 명의 현직자분들입니다." 그 뒤엔 "느낀 점", "차이점" 질문이 따라왔습니다.</p></div>
-    <div class="ivq"><span class="qn">Q2</span><b>요즘 시장, 어떻게 보세요?</b><p class="arr2">→ <b>시황 세 줄</b></p><p class="muted">예시 답 틀: "이번 주 가장 큰 일은 ○○입니다(무슨 일). ○○ 때문입니다(왜). 그래서 은퇴를 앞둔 고객께는 한 번에 사기보다 나눠서 들어가시라고 말씀드리겠습니다(내 고객에게)."</p></div>
+    <div class="ivq"><span class="qn">Q2</span><b>요즘 시장, 어떻게 보세요?</b><p class="arr2">→ <b>시황 세 줄</b></p><p class="muted">예시 답 틀: "이번 주 가장 큰 일은 ○○입니다(무슨 일). ○○ 때문입니다(왜). 그래서 은퇴를 앞둔 고객께는 한 번에 사기보다 나눠서 들어가시라고 말씀드리겠습니다(내 고객에게)."</p><p class="try">지금 옆 사람에게 30초로 해 보세요</p></div>
     <div class="ivq hot"><span class="qn">Q3</span><b>이 상품을 고객에게 팔아 보세요</b><p class="arr2">→ <b>고객부터 4단계</b></p><p class="muted">예시 답: "연금저축펀드라면 ① 노후 준비 기간과 세액공제가 필요한 분인지 여쭙고 ② 지금 가진 상품부터 점검한 뒤 ③ 손실 가능성까지 설명드리고 ④ 맞지 않는 분이면 권하지 않겠습니다."</p></div>
   </div>
   <div class="ivmore"><span class="chip ink">이어서 자주 나오는 질문</span><p><b>"왜 PB, 왜 우리 회사?"</b> → 면접장 공식(직접 본 사실 + 끌린 점 + 내가 맞는 이유) · <b>"목표를 못 채우면?"</b> → "더 많은 고객을 만나되, 맞지 않는 분께 억지로 팔지는 않겠습니다"</p></div>
@@ -1251,9 +1268,9 @@ ul.bad li::before{background:var(--up)}
   <div class="road grow">
     <svg class="roadline" viewBox="0 0 1400 60" aria-hidden="true"><path d="M30 30H1370" stroke="#D8DEE7" stroke-width="8" stroke-linecap="round"/><circle cx="240" cy="30" r="16" fill="#1C5BD0"/><circle cx="700" cy="30" r="16" fill="#1C5BD0"/><circle cx="1160" cy="30" r="16" fill="#D3263A"/></svg>
     <div class="grid3">
-      <div class="card"><span class="chip down" style="align-self:flex-start">1·2학년</span><ul class="clean"><li>경제 뉴스 읽는 습관</li><li>아르바이트·동아리에서 사람을 상대해 본 경험</li><li>이번 학기 숫자 하나 만들기: 알바에서 재방문 고객 수 기록 등</li><li>시황 세 줄, 주 3회</li></ul></div>
+      <div class="card"><span class="chip down" style="align-self:flex-start">1·2학년</span><ul class="clean"><li>이번 방학: 설명회·지점에서 "어떻게 잘하세요?" 질문 1개</li><li>아르바이트·동아리에서 사람을 상대해 본 경험</li><li>이번 학기 숫자 하나 만들기: 알바에서 재방문 고객 수 기록 등</li><li>시황 세 줄, 주 3회</li></ul></div>
       <div class="card"><span class="chip down" style="align-self:flex-start">3학년</span><ul class="clean"><li>투자권유자문인력 등 기본 자격</li><li>채용설명회·현직자 커피챗에서 질문하기</li><li>채용연계형 인턴 지원: 자소서에 넣을 증거 1개를 먼저 정하기</li><li>이번 학기 3일 증거: 설명회·지점 5곳에서 현직자 질문하기</li></ul></div>
-      <div class="card" style="border:2px solid var(--up)"><span class="chip up" style="align-self:flex-start">4학년</span><ul class="clean"><li>만든 증거를 자소서 첫 문장으로</li><li>시황 1분 말하기 연습</li><li>모의 면접(4부의 AI 활용)</li><li>3일 안에 만드는 작은 증거: 지인 3명에게 연금저축 설명해 보기</li></ul></div>
+      <div class="card" style="border:2px solid var(--up)"><span class="chip up" style="align-self:flex-start">4학년</span><ul class="clean"><li>만든 증거를 자소서 첫 문장으로</li><li>이번 공채를 놓쳤다면: 다음 공고 전까지 지점 5곳 + 시황 1분 녹음 주 3회</li><li>모의 면접(4부의 AI 활용)</li><li>3일 안에 만드는 작은 증거: 지인 3명에게 연금저축 설명해 보기</li></ul></div>
     </div>
   </div>
 </section>
@@ -1370,9 +1387,9 @@ ul.bad li::before{background:var(--up)}
   <div class="kicker">오늘 가져갈 것</div>
   <h2>세 가지만 기억하고, 마감일을 정해서 해 보세요</h2>
   <div class="take grow">
-    <div class="tk"><span class="sn">1</span><b>영업은 마음을 얻는 일</b><p>맞는 고객을 고르는 것이 첫걸음입니다.</p><div class="todo">이번 달: 현직자 1명에게 질문하기 (학생 페이지 양식 ③)</div></div>
+    <div class="tk"><span class="sn">1</span><b>영업은 마음을 얻는 일</b><p>맞는 고객을 고르는 것이 첫걸음입니다.</p><div class="todo">오늘 밤: 시황 세 줄 1회, 고객에게 보낼 문자라고 생각하고 (양식 ①)</div></div>
     <div class="tk"><span class="sn">2</span><b>증거는 만드는 것</b><p>없으면 여러분 방식으로 지금 만듭니다.</p><div class="todo">이번 주: 자소서 첫 문장 고치기 (양식 ②)</div></div>
-    <div class="tk hot"><span class="sn">3</span><b>"어떻게 잘해요?"를 물어라</b><p>입사 후까지 보면 붙을 가능성이 높아집니다.</p><div class="todo">오늘 밤: 시황 세 줄 1회 (양식 ①)</div></div>
+    <div class="tk hot"><span class="sn">3</span><b>"어떻게 잘해요?"를 물어라</b><p>입사 후까지 보면 붙을 가능성이 높아집니다.</p><div class="todo">이번 달: 현직자 1명에게 "어떻게 잘하세요?" (양식 ③)</div></div>
   </div>
 </section>
 <!-- 32. Q&A -->
