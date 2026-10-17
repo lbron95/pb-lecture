@@ -780,6 +780,14 @@ ul.bad li::before{background:var(--up)}
 
 .lcolw{display:flex;flex-direction:column;gap:0}
 
+.ivq p.bad{font-size:19px;line-height:1.4;color:var(--up);font-weight:700;margin:0}
+.iv{min-height:0}
+.iv .ivq{padding:22px 26px;gap:10px}
+.iv .ivq>b{font-size:30px}
+.iv .ivq .arr2{font-size:25px}
+.iv .ivq p.muted{font-size:20px;line-height:1.45}
+.iv .try{font-size:18px;padding:7px 14px}
+
 .help{position:fixed;left:16px;bottom:12px;font:13px var(--sans);color:#6F7F96;opacity:.8;user-select:none}
 @media (prefers-reduced-motion:no-preference){ .slide.on{animation:in .25s ease-out} @keyframes in{from{opacity:.4}to{opacity:1}} }
 </style>
@@ -1067,6 +1075,7 @@ ul.bad li::before{background:var(--up)}
     <div class="ck"><span class="box"></span><b>매일 아침 시장 뉴스를 읽는 게 숙제처럼 느껴지지 않는다</b></div>
   </div>
   <p style="font-size:28px;font-weight:800">외향·내향은 체크 항목에 없습니다. <span style="color:var(--up)">마음을 얻는 방법이 있는지가 중요합니다.</span></p>
+  <p class="muted" style="font-size:22px">0~1개라면: 오늘 3부의 질문을 현직자 1명에게 해 보고 다시 체크해 보세요. PB 말고 본사(리서치·운용) 쪽이 맞을 수도 있습니다.</p>
 </section>
 <!-- 8-6. 입사 후 알게 된 것 -->
 <section class="slide" data-part="1부 · PB란">
@@ -1218,8 +1227,8 @@ ul.bad li::before{background:var(--up)}
   <h2>내가 만든 증거로 질문을 내가 원하는 방향으로</h2>
   <div class="iv grow">
     <div class="ivq"><span class="qn">Q1</span><b>1분 자기소개</b><p class="arr2">→ <b>증거 + 숫자 + 배운 점</b></p><p class="muted">제 경우: 명함집을 펼치며 "준비하면서 만난 30여 명의 현직자분들입니다." 그 뒤엔 "느낀 점", "차이점" 질문이 따라왔습니다.</p></div>
-    <div class="ivq"><span class="qn">Q2</span><b>요즘 시장, 어떻게 보세요?</b><p class="arr2">→ <b>시황 세 줄</b></p><p class="muted">예시 답 틀: "이번 주 가장 큰 일은 ○○입니다(무슨 일). ○○ 때문입니다(왜). 그래서 은퇴를 앞둔 고객께는 한 번에 사기보다 나눠서 들어가시라고 말씀드리겠습니다(내 고객에게)."</p><p class="try">지금 옆 사람에게 30초로 해 보세요</p></div>
-    <div class="ivq hot"><span class="qn">Q3</span><b>이 상품을 고객에게 팔아 보세요</b><p class="arr2">→ <b>고객부터 4단계</b></p><p class="muted">예시 답: "연금저축펀드라면 ① 노후 준비 기간과 세액공제가 필요한 분인지 여쭙고 ② 지금 가진 상품부터 점검한 뒤 ③ 손실 가능성까지 설명드리고 ④ 맞지 않는 분이면 권하지 않겠습니다."</p></div>
+    <div class="ivq"><span class="qn">Q2</span><b>요즘 시장, 어떻게 보세요?</b><p class="arr2">→ <b>시황 세 줄</b></p><p class="muted">예시 답 틀: "이번 주 가장 큰 일은 ○○입니다(무슨 일). ○○ 때문입니다(왜). 그래서 은퇴를 앞둔 고객께는 한 번에 사기보다 나눠서 들어가시라고 말씀드리겠습니다(내 고객에게)."</p><p class="bad">✕ 떨어지는 답: "금리 때문에 빠졌습니다." (고객 이야기가 없음)</p><p class="try">지금 옆 사람에게 30초로 해 보세요</p></div>
+    <div class="ivq hot"><span class="qn">Q3</span><b>이 상품을 고객에게 팔아 보세요</b><p class="arr2">→ <b>고객부터 4단계</b></p><p class="muted">예시 답: "연금저축펀드라면 ① 노후 준비 기간과 세액공제가 필요한 분인지 여쭙고 ② 지금 가진 상품부터 점검한 뒤 ③ 손실 가능성까지 설명드리고 ④ 맞지 않는 분이면 권하지 않겠습니다."</p><p class="bad">✕ 떨어지는 답: "수익률이 좋습니다. 꼭 가입하세요." (맞는 고객인지 확인이 없음)</p></div>
   </div>
   <div class="ivmore"><span class="chip ink">이어서 자주 나오는 질문</span><p><b>"왜 PB, 왜 우리 회사?"</b> → 면접장 공식(직접 본 사실 + 끌린 점 + 내가 맞는 이유) · <b>"목표를 못 채우면?"</b> → "더 많은 고객을 만나되, 맞지 않는 분께 억지로 팔지는 않겠습니다"</p></div>
 </section>
@@ -1388,7 +1397,7 @@ ul.bad li::before{background:var(--up)}
   <h2>세 가지만 기억하고, 마감일을 정해서 해 보세요</h2>
   <div class="take grow">
     <div class="tk"><span class="sn">1</span><b>영업은 마음을 얻는 일</b><p>맞는 고객을 고르는 것이 첫걸음입니다.</p><div class="todo">오늘 밤: 시황 세 줄 1회, 고객에게 보낼 문자라고 생각하고 (양식 ①)</div></div>
-    <div class="tk"><span class="sn">2</span><b>증거는 만드는 것</b><p>없으면 여러분 방식으로 지금 만듭니다.</p><div class="todo">이번 주: 자소서 첫 문장 고치기 (양식 ②)</div></div>
+    <div class="tk"><span class="sn">2</span><b>증거는 만드는 것</b><p>없으면 여러분 방식으로 지금 만듭니다.</p><div class="todo">이번 주: 자소서 첫 문장 고치기 (양식 ②) · 면접 대비로 손실 전화 연습 (양식 ④)</div></div>
     <div class="tk hot"><span class="sn">3</span><b>"어떻게 잘해요?"를 물어라</b><p>입사 후까지 보면 붙을 가능성이 높아집니다.</p><div class="todo">이번 달: 현직자 1명에게 "어떻게 잘하세요?" (양식 ③)</div></div>
   </div>
 </section>
