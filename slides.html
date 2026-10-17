@@ -851,6 +851,30 @@ ul.bad li::before{background:var(--up)}
 .faq3 .fq3 p{font-size:24px;line-height:1.6}
 .mythgrid .bossrow span{white-space:nowrap}
 
+.m23 .mc{justify-content:center}
+.m23 .mc b{font-size:34px}
+
+.dg{display:grid;grid-template-columns:560px 1fr;gap:40px;align-items:center}
+.dgl{display:flex;flex-direction:column;gap:20px}
+.dgset{display:flex;flex-direction:column;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 28px}
+.dgset .chip{align-self:flex-start}
+.dgset p{font-size:25px;line-height:1.5;margin:0}
+.dgask{background:var(--up);color:#fff;border-radius:20px 20px 4px 20px;padding:22px 26px;font-size:25px;line-height:1.5;font-weight:600}
+.dgask b{color:#FFE45C}
+.dgfun{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.dgfun .fs{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px 12px;text-align:center}
+.dgfun .fs.hot{border:2px solid var(--up)}
+.dgfun .fs b{font-size:64px;font-weight:800;line-height:1}
+.dgfun .fs.hot b{color:var(--up)}
+.dgfun .fs b small{font-size:28px;margin-left:2px}
+.dgfun .fs span{font-size:21px;color:var(--muted);line-height:1.4}
+.dgfun i{font-style:normal;font-size:40px;color:var(--muted)}
+
+.qa .q .body{display:flex;flex-direction:column;gap:8px;min-width:0}
+.qa .q .grp{align-self:flex-start;display:inline-flex;align-items:center;background:var(--up);color:#fff;border-radius:999px;padding:6px 14px;font-size:16px;font-weight:700;line-height:1}
+.qa .q .sim{font-size:17px;color:var(--muted);line-height:1.4;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.qa .q .sim::before{content:"· "}
+
 .help{position:fixed;left:16px;bottom:12px;font:13px var(--sans);color:#6F7F96;opacity:.8;user-select:none}
 @media (prefers-reduced-motion:no-preference){ .slide.on{animation:in .25s ease-out} @keyframes in{from{opacity:.4}to{opacity:1}} }
 </style>
@@ -932,12 +956,11 @@ ul.bad li::before{background:var(--up)}
   <h2>그런데 영업이라고 하면 보통 이렇게 생각합니다</h2>
   <div class="mythgrid grow">
     <div class="m23">
-      <div class="mc"><span class="no">오해 1</span><b>"고객에게 덤터기 씌우는 일"</b><p>원금 손실 가능성까지 정확히 설명해야 관계가 오래갑니다. 불완전판매 사태 이후 설명 규정은 더 엄격해졌습니다.</p></div>
-      <div class="mc"><span class="no">오해 2</span><b>"술 잘 마시고 굽신거려야 한다"</b><p>제 경우 저녁을 고객과 먹는 일은 거의 없고, 점심은 한 달에 두세 번, 그마저도 대부분 제가 먼저 청합니다. 접대를 원한 고객은 없었습니다.</p></div>
+      <div class="mc"><span class="no">오해 1</span><b>"고객에게 덤터기 씌우는 일"</b></div>
+      <div class="mc"><span class="no">오해 2</span><b>"술 잘 마시고 굽신거려야 한다"</b></div>
     </div>
     <div class="m1">
       <div class="mh"><span class="no">오해 3</span><b>"영업은 말단이 하는 일"</b></div>
-      <p class="ma">대표들도 결정하고 조직을 이끕니다.<br>그런데 가장 큰 일 중 하나는 <b>큰 딜을 따 오는 것</b>입니다.</p>
       <div class="bossrow"><span class="ico lg" data-icon="scale"></span><b>김앤장 대표 변호사</b><span>큰 사건과 딜을 따 옵니다</span></div>
       <div class="bossrow"><span class="ico lg" data-icon="doc"></span><b>삼일회계법인 대표 회계사</b><span>큰 고객사와 딜을 따 옵니다</span></div>
       <div class="bossrow hot"><span class="ico lg up" data-icon="chip"></span><b>엔비디아 CEO 젠슨 황</b><span>세계를 돌며 빅딜을 따 옵니다</span></div>
@@ -1448,18 +1471,22 @@ ul.bad li::before{background:var(--up)}
 </section>
 <!-- 26d. 당근마켓 -->
 <section class="slide" data-part="4부 · AI 활용">
-  <div class="kicker">일상에서도</div>
-  <h2>당근마켓에서 중고 컴퓨터를 사고 싶은데, <span style="color:var(--up)">스펙을 잘 모른다면?</span></h2>
-  <div class="chatd grow">
-    <div class="chatbox">
-      <div class="me"><span class="pic" aria-hidden="true"></span>당근에 올라온 이 컴퓨터, 사양 보고 시세보다 싼지 비싼지 알려 줘. 나는 컴퓨터를 잘 몰라.</div>
-      <div class="ai"><b>AI</b>부품별로 나눠 보면 CPU는 ○세대, 그래픽카드는 ○○급입니다. 부품별 중고 시세를 더하면 적정가는 ○○만 원 안팎이라, 이 가격은 조금 비싼 편입니다. 판매자에게 ○○를 확인해 보세요.</div>
+  <div class="kicker">일상에서도 · 당근마켓에서 컴퓨터를 살 때</div>
+  <h2>뭘 살지 몰라서, <span style="color:var(--up)">AI에게 휴대폰을 맡겼습니다</span></h2>
+  <div class="dg grow">
+    <div class="dgl">
+      <div class="dgset"><span class="chip ink">제가 한 일</span><p>휴대폰과 컴퓨터를 연결해서, AI가 당근마켓 앱을 직접 조작할 수 있게 했습니다.</p></div>
+      <div class="dgask">"근처 매물을 전부 보고, 싸면서 성능 괜찮고 믿을 만한 것만 <b>하트</b>를 눌러 줘."</div>
     </div>
-    <div class="chatside">
-      <p class="big2">싼지 비싼지 구별이 안 될 때, <b>얘한테 시킵니다.</b></p>
-      <p class="muted" style="font-size:24px">모르는 분야일수록 AI가 도움이 됩니다.<br>마지막 판단은 제가 합니다.</p>
+    <div class="dgfun">
+      <div class="fs"><b>550<small>개</small></b><span>글·사진을 모두 확인<br>판매자 매너온도까지</span></div>
+      <i aria-hidden="true">→</i>
+      <div class="fs"><b>10<small>개</small></b><span>AI가 하트를 누른 매물</span></div>
+      <i aria-hidden="true">→</i>
+      <div class="fs hot"><b>1<small>개</small></b><span>제가 골라서 구매</span></div>
     </div>
   </div>
+  <p style="font-size:30px;font-weight:800">하트를 누른 나머지 매물도 대부분 <span style="color:var(--up)">이틀 안에 다른 분들께 팔렸습니다.</span><br>그만큼 정확하게 골랐다는 뜻입니다.</p>
 </section>
 <!-- 26e. AI가 못 하는 것 -->
 <section class="slide" data-part="4부 · AI 활용">
@@ -1493,7 +1520,7 @@ ul.bad li::before{background:var(--up)}
   <span class="demo" id="demoNote" hidden>미리보기 모드 · 질문이 이 컴퓨터에만 저장됩니다</span>
   <div class="main">
     <div class="head"><h2>여러분의 질문</h2><span class="count" id="qaCount">불러오는 중…</span></div>
-    <p class="muted" style="font-size:22px">공감을 많이 받은 질문부터 답합니다</p>
+    <p class="muted" style="font-size:22px">비슷한 질문은 묶어서, 많이 모인 질문부터 답합니다</p>
     <div class="board" id="board"></div>
   </div>
   <div class="side">
@@ -1734,20 +1761,80 @@ const state = (() => { try { return JSON.parse(localStorage.getItem('pb-lecture-
 function saveState() { try { localStorage.setItem('pb-lecture-qa-state', JSON.stringify(state)); } catch (e) {} }
 if (QNA.demo) document.getElementById('demoNote').hidden = false;
 function esc(s) { return s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+/* 비슷한 질문 묶기 — 글자 조각 겹침 + 주제 키워드 */
+const QA_TOPICS = {
+  연봉: ['연봉', '초봉', '월급', '급여', '성과급', '보수', '인센', '돈 많이', '2.2억'],
+  자격증: ['자격증', '투운사', '투권', '투자권유', '투자자산운용사', 'cfa', 'afpk', '토익', '학점', '스펙'],
+  전공: ['비상경', '문과', '이과', '공대', '전공', '비전공'],
+  인턴: ['인턴'],
+  면접: ['면접', '면접관'],
+  자소서: ['자소서', '자기소개서', '서류'],
+  AI: ['ai', '인공지능', 'gpt', '챗gpt', '클로드', '제미나이'],
+  실적: ['실적', '목표', '압박', '질타'],
+  워라밸: ['퇴근', '야근', '주말', '워라밸', '근무시간'],
+  영업: ['영업', '고객', '첫 고객', '지인', '술'],
+  명함: ['명함', '30곳', '30명', '지점 방문'],
+  발령: ['발령', '지방', '지점 배치'],
+  준비: ['되려면', '준비해야', '준비를', '준비하면'],
+};
+const QA_STOP = new Set(['어떻게', '무엇', '뭐', '뭔가요', '있나요', '있을까요', '궁금합니다', '궁금해요', '하나요', '되나요', '선배님', '혹시', '정말', '진짜', '그리고', '그럼', '어떤', '많이', '질문', '하시나요', '인가요', '건가요', '좀']);
+function qaNorm(t) { return String(t || '').toLowerCase().replace(/[^0-9a-z가-힣\s.]/g, ' ').replace(/\s+/g, ' ').trim(); }
+function qaBigrams(t) {
+  const s = qaNorm(t).replace(/\s/g, ''); const set = new Set();
+  for (let i = 0; i < s.length - 1; i++) set.add(s.slice(i, i + 2));
+  return set;
+}
+function qaTokens(t) {
+  return new Set(qaNorm(t).split(' ').map(w => w.replace(/(은|는|이|가|을|를|에|의|도|로|으로|에서|이랑|랑|과|와|요|나요|까요|인가요|은요|는요)$/, ''))
+    .filter(w => w.length > 1 && !QA_STOP.has(w)));
+}
+function qaTopics(t) {
+  const n = qaNorm(t); const out = new Set();
+  for (const k in QA_TOPICS) if (QA_TOPICS[k].some(w => n.includes(w))) out.add(k);
+  return out;
+}
+function qaInter(a, b) { let c = 0; a.forEach(x => { if (b.has(x)) c++; }); return c; }
+function qaSimilar(x, y) {
+  const dice = (x.bg.size + y.bg.size) ? 2 * qaInter(x.bg, y.bg) / (x.bg.size + y.bg.size) : 0;
+  const tj = qaInter(x.tk, y.tk) / Math.max(1, new Set([...x.tk, ...y.tk]).size);
+  const tp = qaInter(x.tp, y.tp);
+  const tpSpecific = [...x.tp].some(k => k !== '영업' && y.tp.has(k));
+  return dice >= 0.42 || tpSpecific || (tp >= 1 && (dice >= 0.3 || tj >= 0.3));
+}
+function groupQuestions(list) {
+  const f = list.map(q => ({ q, bg: qaBigrams(q.text), tk: qaTokens(q.text), tp: qaTopics(q.text) }));
+  const parent = f.map((_, i) => i);
+  const find = i => parent[i] === i ? i : (parent[i] = find(parent[i]));
+  for (let i = 0; i < f.length; i++) for (let j = i + 1; j < f.length; j++)
+    if (find(i) !== find(j) && qaSimilar(f[i], f[j])) parent[find(j)] = find(i);
+  const m = new Map();
+  f.forEach((x, i) => { const r = find(i); if (!m.has(r)) m.set(r, []); m.get(r).push(x.q); });
+  return [...m.values()].map(items => {
+    items.sort((a, b) => b.likes - a.likes || a.t - b.t);
+    return { rep: items[0], items, size: items.length, likes: items.reduce((s, q) => s + (q.likes || 0), 0), t: Math.min(...items.map(q => q.t)) };
+  });
+}
 async function refreshQA() {
   let list;
   try { list = await QNA.list(); } catch (e) { document.getElementById('qaCount').textContent = '질문을 불러오지 못했습니다 · 인터넷 연결을 확인하세요'; return; }
-  const order = q => state[q.id] === 'done' ? 1 : 0;
-  list.sort((a, b) => order(a) - order(b) || b.likes - a.likes || a.t - b.t);
-  document.getElementById('qaCount').textContent = `질문 ${list.length}개 · 답변 완료 ${list.filter(q => state[q.id] === 'done').length}개`;
-  board.innerHTML = list.length ? list.map(q => `<button class="q ${state[q.id] || ''}" data-id="${esc(q.id)}"><span class="likes">${q.likes}<small>공감</small></span><span class="txt">${esc(q.text)}</span></button>`).join('')
+  const groups = groupQuestions(list);
+  const gState = g => g.items.every(q => state[q.id] === 'done') ? 'done' : g.items.some(q => state[q.id] === 'now') ? 'now' : '';
+  const order = g => gState(g) === 'done' ? 1 : 0;
+  groups.sort((a, b) => order(a) - order(b) || b.size - a.size || b.likes - a.likes || a.t - b.t);
+  document.getElementById('qaCount').textContent = `질문 ${list.length}개 · 묶음 ${groups.length}개`;
+  board.innerHTML = groups.length ? groups.map(g => {
+    const more = g.items.slice(1, 3).map(q => `<span class="sim">${esc(q.text)}</span>`).join('');
+    return `<button class="q ${gState(g)}" data-ids="${esc(g.items.map(q => q.id).join(','))}"><span class="likes">${g.size > 1 ? g.size : g.likes}<small>${g.size > 1 ? '질문' : '공감'}</small></span><span class="body"><span class="txt">${esc(g.rep.text)}</span>${g.size > 1 ? `<span class="grp">비슷한 질문 ${g.size}개 · 공감 ${g.likes}</span>${more}` : ''}</span></button>`;
+  }).join('')
     : '<div class="empty">아직 질문이 없습니다. QR 코드로 들어와 첫 질문을 남겨 주세요.</div>';
 }
 board.addEventListener('click', e => {
   const b = e.target.closest('.q'); if (!b) return;
-  const id = b.dataset.id;
-  state[id] = !state[id] ? 'now' : state[id] === 'now' ? 'done' : undefined;
-  if (state[id] === 'now') Object.keys(state).forEach(k => { if (k !== id && state[k] === 'now') state[k] = 'done'; });
+  const ids = b.dataset.ids.split(',');
+  const cur = ids.every(id => state[id] === 'done') ? 'done' : ids.some(id => state[id] === 'now') ? 'now' : '';
+  const next = !cur ? 'now' : cur === 'now' ? 'done' : undefined;
+  if (next === 'now') Object.keys(state).forEach(k => { if (state[k] === 'now') state[k] = 'done'; });
+  ids.forEach(id => { state[id] = next; });
   saveState(); refreshQA();
 });
 setInterval(() => { if (slides[cur].id === 'qaSlide') refreshQA(); }, 5000);
