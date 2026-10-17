@@ -435,13 +435,59 @@ ul.bad li::before{background:var(--up)}
 .tag.u{background:var(--paper);color:var(--muted);border:1px solid var(--line)}
 .src{font-size:17px;color:var(--muted);line-height:1.5}
 
+/* 오프닝 훅 */
+.secflow{display:grid;grid-template-columns:260px 1fr 260px;gap:24px;align-items:center}
+.end2{display:flex;flex-direction:column;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:34px 18px;text-align:center}
+.end2 .ico{width:96px;height:96px;color:var(--down)}
+.end2 b{font-size:34px}
+.end2 span:not(.ico){font-size:22px;color:var(--muted)}
+.secflow .mid{display:grid;grid-template-columns:90px 1fr 90px;align-items:center;gap:12px}
+.secflow .mid svg{width:90px}
+.hub{background:var(--ink);color:#fff;border-radius:20px;padding:30px 34px;display:flex;flex-direction:column;gap:16px}
+.hub b{font-size:40px;text-align:center}
+.hub ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.hub li{display:flex;align-items:center;gap:14px;font-size:24px;color:#E6ECF5}
+.hub li span{display:inline-flex;align-items:center;justify-content:center;min-width:76px;height:34px;border-radius:8px;background:#22324A;color:#FF8090;font-size:18px;font-weight:700;line-height:1}
+.gap{display:grid;grid-template-columns:220px 220px 1fr;gap:40px;align-items:end}
+.gcol{display:flex;flex-direction:column;align-items:center;gap:12px;height:100%}
+.gcol .gl{font-size:20px;color:var(--muted);text-align:center;min-height:56px;display:flex;align-items:center}
+.gbar{flex:1;width:120px;position:relative;background:var(--card);border:1px solid var(--line);border-radius:12px}
+.gbar i{position:absolute;left:0;right:0;bottom:0;background:#AEB7C4;border-radius:12px}
+.gcol.hot .gbar i{background:var(--up)}
+.gcol b{font-size:40px;font-weight:800}
+.gcol.hot b{color:var(--up)}
+.gtxt{display:flex;flex-direction:column;gap:22px;align-self:center}
+.gtxt .big{font-size:60px;font-weight:800;line-height:1.25}
+/* 젠슨 황 */
+.story{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-content:center}
+.st{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:30px;display:flex;flex-direction:column;gap:14px}
+.st.hot{border:2px solid var(--up)}
+.st .sn{width:56px;height:56px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800;line-height:1}
+.st.hot .sn{background:var(--up)}
+.st b{font-size:34px}
+.st p{font-size:25px;color:var(--muted);line-height:1.5}
+.lesson{display:flex;align-items:center;gap:22px;background:var(--ink);border-radius:16px;padding:26px 32px}
+.lesson p{color:#fff;font-size:30px;line-height:1.45}
+.lesson b{color:#FF8090}
+.inout{position:relative}
+.ring{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;display:flex;flex-direction:column;align-items:center;gap:10px}
+.ring.out{width:540px;height:540px;background:var(--down-soft);padding-top:30px}
+.ring.in{width:330px;height:330px;background:var(--up-soft);padding-top:30px}
+.ring .rl{font-size:24px;font-weight:800;color:var(--down)}
+.ring.in .rl{color:var(--up)}
+.ring p{font-size:20px;color:var(--muted);font-weight:600;margin:0}
+.tagsx{display:flex;gap:10px}
+.tagsx span{display:inline-flex;align-items:center;justify-content:center;height:36px;padding:0 16px;border-radius:999px;background:var(--card);font-size:20px;font-weight:700;line-height:1}
+.core{position:absolute;left:50%;top:50%;transform:translate(-50%,-10%);width:130px;height:130px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:36px}
+#avgChart{width:100%;height:100%}
+.chart:has(#avgChart){padding:18px 30px}
+
 .help{position:fixed;left:16px;bottom:12px;font:13px var(--sans);color:#6F7F96;opacity:.8;user-select:none}
 @media (prefers-reduced-motion:no-preference){ .slide.on{animation:in .25s ease-out} @keyframes in{from{opacity:.4}to{opacity:1}} }
 </style>
 </head>
 <body>
 <div id="vp"><div class="stage" id="stage">
-
 <!-- 1. 표지 -->
 <section class="slide cover" data-part="오프닝">
   <div class="left">
@@ -454,97 +500,76 @@ ul.bad li::before{background:var(--up)}
     <div class="url" data-url></div>
   </div>
 </section>
-
+<!-- 1-1. 훅 질문 -->
+<section class="slide stmt" data-part="오프닝" style="justify-content:center" data-stmt>
+  <div class="kicker">질문 하나로 시작하겠습니다</div>
+  <h1>증권사 다니면,<br><span style="color:var(--up)">진짜 돈 많이 벌어요?</span></h1>
+  <p class="lead">답하기 전에, 증권업이 뭘 하는 곳인지부터 짧게 보겠습니다.</p>
+  <div class="deco" aria-hidden="true"><span class="ico" data-icon="coins"></span></div>
+</section>
 <!-- 2. 순서 -->
 <section class="slide" data-part="오프닝">
   <div class="kicker">오늘의 순서</div>
   <h2>질문은 지금부터 언제든, 익명으로 남겨 주세요</h2>
   <div class="agenda">
-    <div class="row"><span class="no">1부</span><div class="what"><b>PB의 하루</b><span>지점 영업은 하루 종일 무엇을 하나</span></div></div>
+    <div class="row"><span class="no">1부</span><div class="what"><b>증권업 → 영업직 → PB</b><span>증권사는 무엇을 하고, 영업은 무엇이고, PB는 하루 종일 무엇을 하나</span></div></div>
     <div class="row"><span class="no">2부</span><div class="what"><b>취업 전략: 스펙보다 전략</b><span>더 지니어스 홍진호 이야기 · 제 취업 이야기</span></div></div>
     <div class="row"><span class="no">3부</span><div class="what"><b>불합격하는 인턴의 특징</b><span>딱 한 가지: 질문을 들으면 보입니다</span></div></div>
     <div class="row hl"><span class="no">4부</span><div class="what"><b>AI를 잘 쓰는 사람이 이긴다</b><span>제가 실제로 일하는 방법</span></div></div>
     <div class="row"><span class="no">Q&amp;A</span><div class="what"><b>여러분의 질문</b><span>공감을 많이 받은 질문부터 답합니다</span></div></div>
   </div>
 </section>
-
 <!-- 3. 1부 표지 -->
-<section class="slide section" data-part="1부 · PB의 하루">
+<section class="slide section" data-part="1부 · 증권업 → 영업직 → PB">
   <div class="big">PART 1</div>
-  <h1>PB의 하루</h1>
-  <p class="lead">증권사 지점 PB는 하루 종일 무엇을 할까요?</p>
+  <h1>증권업 → 영업직 → PB</h1>
+  <p class="lead">위에서부터 차례로 내려가 보겠습니다. 증권사는 무엇을 하고, 영업은 무엇이고, PB는 하루 종일 무엇을 할까요?</p>
 </section>
-
-<!-- 4. PB란 -->
-<section class="slide" data-part="1부 · PB의 하루">
-  <div class="kicker">PB · 지점 영업이란</div>
-  <h2>리테일 고객의 자산을 관리하고, 상품을 세일즈하는 사람</h2>
-  <div class="pbdef grow">
-    <div class="who">
-      <div class="cust"><span class="ico lg" data-icon="person"></span><div><span class="chip down">개인 고객</span><p>예금·주식·연금 등 개인의 자산을 함께 관리합니다</p></div></div>
-      <div class="cust"><span class="ico lg" data-icon="building"></span><div><span class="chip down">법인 고객</span><p>회사 자금 운용, 임직원 퇴직연금까지 상담합니다</p></div></div>
+<!-- 1-2. 증권업이란 -->
+<section class="slide" data-part="1부 · 증권업이란">
+  <div class="kicker">① 증권업이란?</div>
+  <h2>돈이 필요한 곳과 돈을 불리고 싶은 사람을 연결하는 일</h2>
+  <div class="secflow grow">
+    <div class="end2"><span class="ico" data-icon="building"></span><b>기업·정부</b><span>사업할 돈이 필요하다</span></div>
+    <div class="mid">
+      <svg viewBox="0 0 120 60" aria-hidden="true"><path d="M4 30H112M96 14l16 16-16 16" fill="none" stroke="#5A6678" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="hub"><b>증권사</b>
+        <ul>
+          <li><span>IB</span>주식·채권 발행을 돕고</li>
+          <li><span>중개</span>주식·채권 사고팔기를 잇고</li>
+          <li><span>WM</span>고객 자산을 관리하고</li>
+          <li><span>운용</span>회사 돈을 직접 굴립니다</li>
+        </ul>
+      </div>
+      <svg viewBox="0 0 120 60" aria-hidden="true"><path d="M116 30H8M24 14L8 30l16 16" fill="none" stroke="#5A6678" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
-    <div class="arrow" aria-hidden="true"><svg viewBox="0 0 60 40" width="60" height="40"><path d="M2 20h48M38 6l14 14-14 14" fill="none" stroke="#0D1B2E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-    <div class="what">
-      <div class="do"><span class="ico lg inv" data-icon="shield"></span><div><b>자산 관리</b><span>시장이 움직이면 먼저 연락하고 계좌를 점검합니다</span></div></div>
-      <div class="do"><span class="ico lg inv" data-icon="doc"></span><div><b>상품 세일즈</b><span>고객 상황에 맞는 상품을 제안하고 판매합니다</span></div></div>
+    <div class="end2"><span class="ico" data-icon="people"></span><b>투자자</b><span>내 돈을 불리고 싶다</span></div>
+  </div>
+  <p style="font-size:28px;font-weight:700">증권사는 이 연결의 대가로 수수료와 이자, 운용 수익을 법니다.</p>
+</section>
+<!-- 1-4. 평균 연봉 -->
+<section class="slide" data-part="1부 · 증권업이란">
+  <div class="kicker">그래서, 돈은 많이 벌까?</div>
+  <h2>2025년 증권사 직원 1인 평균 급여, 삼성전자와 비교하면</h2>
+  <div class="chart grow"><svg id="avgChart" role="img" aria-label="증권사별 직원 1인 평균 급여와 삼성전자 비교"></svg></div>
+  <p class="src">출처: 각 사 2025년 사업보고서(DART) 「직원 등의 현황」 1인 평균 급여액 · 성과급 포함 · 증권사 25곳 중 상위 12곳 표시, 25곳 중 9곳이 삼성전자보다 높음 (최저: IBK투자증권 1.09억)</p>
+</section>
+<!-- 1-5. 평균의 함정 -->
+<section class="slide" data-part="1부 · 증권업이란">
+  <div class="kicker">그런데 평균만 보면 안 됩니다</div>
+  <h2>같은 회사 안에서도 차이는 40배가 넘습니다</h2>
+  <div class="gap grow">
+    <div class="gcol"><span class="gl">메리츠증권 직원 평균</span><div class="gbar"><i style="height:2.4%"></i></div><b>2.2억</b></div>
+    <div class="gcol hot"><span class="gl">메리츠증권 보수 1위 (영업이사)</span><div class="gbar"><i style="height:100%"></i></div><b>89.0억</b></div>
+    <div class="gtxt">
+      <p class="big">차이를 만드는 건<br><span style="color:var(--up)">영업</span>입니다.</p>
+      <p class="muted" style="font-size:26px">2025년 사업보고서 기준. 89억 중 88.8억이 개인 영업실적에 따른 성과급이었습니다. 왜 그런지는 조금 뒤에 자세히 보겠습니다.</p>
     </div>
   </div>
 </section>
-
-<!-- 5. 하루 흐름 -->
-<section class="slide" data-part="1부 · PB의 하루">
-  <div class="kicker">PB의 하루 타임라인</div>
-  <h2>장이 열리기 전에 하루가 이미 시작됩니다</h2>
-  <div class="phases grow">
-    <div class="ph"><span class="ico xl" data-icon="phone"></span><span class="when mono">출근길</span><h3>시장 공부</h3><p>텔레그램 채널과 네이버 프리미엄콘텐츠로 밤사이 시장 소식을 읽으며 출근합니다</p></div>
-    <div class="ph"><span class="ico xl" data-icon="people"></span><span class="when mono">출근 직후</span><h3>회의</h3><p>실적 회의와 시황 회의. 오늘 고객에게 무슨 이야기를 할지 정합니다</p></div>
-    <div class="ph hot"><span class="ico xl up" data-icon="candle"></span><span class="when mono">09:00 ~</span><h3>장 시작, 영업 시작</h3><p>고객 응대, 자산 섭외, 외부 영업까지 이어집니다</p></div>
-  </div>
-</section>
-
-<!-- 5-1. 출근길 화면 -->
-<section class="slide commute" data-part="1부 · PB의 하루">
-  <div class="text">
-    <div class="kicker">출근길</div>
-    <h2>지하철에서 이미<br>시장 공부가<br>시작됩니다</h2>
-    <ul class="clean">
-      <li>구독 중인 텔레그램 채널 수십 곳에 밤사이 쌓인 메시지를 훑습니다</li>
-      <li>버터대디 네이버 프리미엄콘텐츠로 시장 흐름을 읽습니다</li>
-      <li>오늘 고객에게 보낼 시황 문자의 재료를 모읍니다</li>
-    </ul>
-  </div>
-  <div class="phones">
-    <figure class="phone"><div class="scr"><img src="images/telegram.png" alt="텔레그램 구독 채널 목록" onerror="this.parentNode.classList.add('missing')"><span class="ph-miss">텔레그램 캡처<br><small>images/telegram.png</small></span></div><figcaption>텔레그램 · 구독 채널 목록</figcaption></figure>
-    <figure class="phone"><div class="scr reel"><img src="images/nepcon.jpg" alt="버터대디 네이버 프리미엄콘텐츠 글 목록" onerror="this.parentNode.classList.add('missing')"><span class="ph-miss">네프콘 캡처<br><small>images/nepcon.jpg</small></span></div><figcaption>버터대디 · 네이버 프리미엄콘텐츠</figcaption></figure>
-  </div>
-</section>
-
-<!-- 6. 9시 이후 -->
-<section class="slide" data-part="1부 · PB의 하루">
-  <div class="kicker">09:00 장 시작 이후</div>
-  <h2>자리에서, 지점에서, 밖에서</h2>
-  <div class="grid3 grow" style="align-content:center">
-    <div class="card place"><span class="ico xl" data-icon="headset"></span><h3>자리에서</h3><ul class="clean"><li>주문 전화 받기</li><li>고객에게 시황 문자 보내기</li><li>자료·상품 제안서 만들기</li></ul></div>
-    <div class="card place"><span class="ico xl" data-icon="building"></span><h3>지점에서</h3><ul class="clean"><li>내점 고객 응대</li><li>빠져나간 자산 다시 섭외하기</li><li>상품 세일즈</li></ul></div>
-    <div class="card place" style="border:2px solid var(--up)"><span class="ico xl up" data-icon="bag"></span><h3>밖에서</h3><ul class="clean"><li>고객 외부 방문</li><li>퇴직연금: 법인에 직접 나가 상담</li><li>세미나 진행</li></ul></div>
-  </div>
-</section>
-
-<!-- 7. 하는 일 3가지 -->
-<section class="slide" data-part="1부 · PB의 하루">
-  <div class="kicker">PB가 하는 일</div>
-  <h2>결국 PB의 일은 세 가지로 모입니다</h2>
-  <div class="grid3 grow" style="align-content:center">
-    <div class="card role"><span class="ico xl" data-icon="inflow"></span><span class="n">01</span><h3>고객 자산 유치</h3><p>고객의 자산을 우리 회사로 모셔 옵니다. 빠져나간 자산을 되찾는 일도 포함됩니다.</p></div>
-    <div class="card role"><span class="ico xl" data-icon="doc"></span><span class="n">02</span><h3>상품 섭외</h3><p>연금·펀드·채권 등 고객에게 맞는 상품을 제안하고 판매합니다.</p></div>
-    <div class="card role"><span class="ico xl" data-icon="userplus"></span><span class="n">03</span><h3>신규 고객 창출</h3><p>처음 만나는 개인과 법인을 고객으로 만듭니다.</p></div>
-  </div>
-</section>
-
 <!-- 7-1. 영업직이란 -->
 <section class="slide" data-part="1부 · 영업직이란">
-  <div class="kicker">영업직이란?</div>
+  <div class="kicker">② 영업직이란?</div>
   <h2>회사가 정한 테두리 안에서<br>고객을 넓히고 실적을 달성하는 일</h2>
   <div class="frame grow">
     <svg viewBox="0 0 1100 420" role="img" aria-label="테두리 안에서 고객을 넓히고 목표를 달성하는 그림">
@@ -570,7 +595,6 @@ ul.bad li::before{background:var(--up)}
     </svg>
   </div>
 </section>
-
 <!-- 7-2. 영업직에 대한 오해 -->
 <section class="slide" data-part="1부 · 영업직이란">
   <div class="kicker">영업직에 대한 오해</div>
@@ -581,7 +605,6 @@ ul.bad li::before{background:var(--up)}
     <div class="myth"><span class="no">오해 3</span><b>"압박만 크고 남는 게 없다"</b><span class="arrow">→</span><p>성과가 보상으로 가장 직접 연결되는 직무입니다. 조금 뒤 숫자로 보여 드리겠습니다.</p></div>
   </div>
 </section>
-
 <!-- 7-3. CEO는 뭐 하는 사람 -->
 <section class="slide" data-part="1부 · 영업직이란">
   <div class="kicker">곰곰이 생각해 보세요</div>
@@ -593,18 +616,53 @@ ul.bad li::before{background:var(--up)}
     <div class="ans"><span class="ico" data-icon="handshake"></span><b>영업하는 사람입니다</b></div>
   </div>
 </section>
-
-<!-- 7-4. 젠슨 황 -->
+<!-- 7-4a. 젠슨 황: 밖으로 파는 영업 -->
 <section class="slide" data-part="1부 · 영업직이란">
-  <div style="display:flex;align-items:center;gap:16px"><span class="kicker">엔비디아 CEO 젠슨 황</span><span class="ex">인터뷰 원문 출처 확인 필요</span></div>
-  <div class="quote-big grow">
-    <span class="qmark" aria-hidden="true">“</span>
-    <p class="q1">의사결정은 리더가 하는 일 중<br>아주 작은 일 중 하나입니다.</p>
-    <p class="q2">리더는 <span style="color:var(--up)">꿈을 꾸는 사람</span>입니다.</p>
-    <p class="muted" style="font-size:26px">그리고 그 꿈을 직원, 고객, 투자자에게 파는 사람입니다.</p>
+  <div class="kicker">엔비디아 CEO 젠슨 황 · 스탠퍼드 경영대학원 대담 (2024)</div>
+  <h2>① 밖으로 파는 영업: 첫 투자를 받던 날</h2>
+  <div class="story grow">
+    <div class="st"><span class="sn">1</span><b>사업계획서 없이 찾아갔습니다</b><p>사업계획서 쓰는 법 책을 샀지만 450쪽이라 포기했습니다.</p></div>
+    <div class="st"><span class="sn">2</span><b>설명은 실패했습니다</b><p>전 직장 CEO는 "무슨 말인지 하나도 모르겠다, 최악의 엘리베이터 피치"라고 했습니다.</p></div>
+    <div class="st hot"><span class="sn">3</span><b>그래도 투자를 받았습니다</b><p>그 CEO가 세쿼이아의 돈 밸런타인에게 전화했습니다. "우리 회사 최고의 직원이었다. 돈을 줘라."</p></div>
   </div>
+  <div class="lesson"><span class="chip up">젠슨 황의 결론</span><p>면접은 잘 볼 수도, 망칠 수도 있습니다. 하지만 <b>과거에서는 도망칠 수 없습니다. 좋은 과거를 만드세요.</b></p></div>
 </section>
-
+<!-- 7-4b. 젠슨 황: 안으로 파는 영업 -->
+<section class="slide" data-part="1부 · 영업직이란">
+  <div class="kicker">엔비디아 CEO 젠슨 황 · 스탠퍼드 경영대학원 대담 (2024)</div>
+  <h2>② 안으로 파는 영업: 직원들에게 생각을 팝니다</h2>
+  <div class="grid3 grow" style="align-content:center">
+    <div class="card"><span class="ico xl" data-icon="speech"></span><h3>주가 80% 폭락, 그래도 앞에 섭니다</h3><p class="muted">스스로 내향적이고 대중 연설을 즐기지 않는다고 말합니다. 그래도 리더는 보여야 한다며 직원들 앞에서 직접 설명했습니다.</p></div>
+    <div class="card"><span class="ico xl" data-icon="people"></span><h3>생각하는 과정을 공개합니다</h3><p class="muted">사실, 가정, 모르는 것을 펼쳐 놓고 어떻게 추론하는지 보여 줍니다. 그래서 직원들이 매일 "내 대신" 현명한 결정을 내린다고 합니다.</p></div>
+    <div class="card" style="border:2px solid var(--up)"><span class="ico xl up" data-icon="spark"></span><h3>내 일은 조건을 만드는 것</h3><p class="muted">리더의 일은 직원들이 필생의 일을 할 수 있는 조건을 만드는 것이라고 말합니다.</p></div>
+  </div>
+  <p style="font-size:30px;font-weight:700">결정을 혼자 내리는 게 아니라, 생각을 팔아서 모두가 같은 방향으로 결정하게 만드는 것.</p>
+</section>
+<!-- 7-4c. 젠슨 황: 꿈을 판다 -->
+<section class="slide" data-part="1부 · 영업직이란">
+  <div class="kicker">엔비디아 CEO 젠슨 황 · 스탠퍼드 경영대학원 대담 (2024)</div>
+  <h2>③ 그리고 꿈을 팝니다</h2>
+  <div class="grid2 grow" style="align-content:center">
+    <div class="card"><span class="ico xl" data-icon="flag"></span><h3>미래로 먼저 가서, 거꾸로 봅니다</h3><p class="muted">지금에서 앞을 보는 게 아니라 미래의 끝 모습을 먼저 그리고, 거기서 뒤를 돌아보며 길을 거꾸로 짠다고 말합니다.</p></div>
+    <div class="card" style="border:2px solid var(--up)"><span class="ico xl up" data-icon="handshake"></span><h3>다른 회사를 통해 꿈을 이룹니다</h3><p class="muted">엔비디아는 플랫폼 회사라 혼자서는 시장을 못 만든다고 합니다. 파트너 회사들이 엔비디아의 꿈을 함께 이루도록 만드는 것, 그것이 바깥을 향한 영업입니다.</p></div>
+  </div>
+  <p style="font-size:30px;font-weight:700">깐부 회동도 그 꿈을 파는 자리였습니다.</p>
+</section>
+<!-- 7-4d. 정리: 안과 밖 -->
+<section class="slide" data-part="1부 · 영업직이란">
+  <div class="kicker">정리하면</div>
+  <h2>CEO는 안으로도, 밖으로도 영업하는 사람입니다</h2>
+  <div class="inout grow">
+    <div class="ring out"><span class="rl">밖으로 파는 영업 · 꿈과 신뢰</span>
+      <div class="tagsx"><span>투자자</span><span>고객</span><span>파트너</span></div>
+    </div>
+    <div class="ring in"><span class="rl">안으로 파는 영업 · 생각과 방향</span>
+      <div class="tagsx"><span>직원</span><span>경영진</span></div>
+    </div>
+    <div class="core"><b>CEO</b></div>
+  </div>
+  <p style="font-size:30px;font-weight:700">PB도 같습니다. 고객에게는 신뢰를, 회사 안에서는 내 아이디어를 팔아야 합니다.</p>
+</section>
 <!-- 7-5. 회계법인·로펌 대표 -->
 <section class="slide" data-part="1부 · 영업직이란">
   <div class="kicker">다른 업계의 대표들은?</div>
@@ -614,7 +672,6 @@ ul.bad li::before{background:var(--up)}
     <div class="card"><span class="ico xl" data-icon="book"></span><h3>대형 로펌 대표</h3><p class="muted">직접 소송하고, 법정에 다닐까요?</p><p class="deal">아닙니다. <b>딜 따러 다닙니다.</b></p></div>
   </div>
 </section>
-
 <!-- 7-6. 깐부회동 -->
 <section class="slide kkanbu" data-part="1부 · 영업직이란">
   <div class="kicker">2025년 10월 30일 · 서울 삼성동 깐부치킨</div>
@@ -631,7 +688,6 @@ ul.bad li::before{background:var(--up)}
     </div>
   </div>
 </section>
-
 <!-- 7-7. 연봉 2024 -->
 <section class="slide" data-part="1부 · 영업직이란">
   <div class="kicker">숫자로 보면</div>
@@ -639,7 +695,6 @@ ul.bad li::before{background:var(--up)}
   <div class="paytable grow" data-year="2024"></div>
   <p class="src">출처: 증권사 25곳 2024년 사업보고서(DART) 「임원의 보수 등」 직접 집계 · 대표이사·회장·부회장·고문 제외, 퇴직자 포함 · 직무는 공시의 성과급 산정기준 설명 기준</p>
 </section>
-
 <!-- 7-8. 연봉 2025 -->
 <section class="slide" data-part="1부 · 영업직이란">
   <div class="kicker">숫자로 보면</div>
@@ -647,7 +702,6 @@ ul.bad li::before{background:var(--up)}
   <div class="paytable grow" data-year="2025"></div>
   <p class="src">출처: 증권사 25곳 2025년 사업보고서(DART) 「임원의 보수 등」 직접 집계 · 대표이사·회장·부회장·고문 제외, 퇴직자 포함 · * 이정란: 공시엔 직무 기재 없음, 언론 보도(뉴스스페이스 2026.8.30) 기준</p>
 </section>
-
 <!-- 7-9. 정리 -->
 <section class="slide stmt" data-part="1부 · 영업직이란" style="justify-content:center" data-stmt>
   <div class="kicker">정리하면</div>
@@ -655,17 +709,99 @@ ul.bad li::before{background:var(--up)}
   <p class="lead">PB, 리테일, 채권 중개, 지점장, IB·구조화 딜. 나머지 1명은 공시에 직무가 적혀 있지 않습니다.</p>
   <div class="deco" aria-hidden="true"><span class="ico" data-icon="inflow"></span></div>
 </section>
-
+<!-- 1-3. PB의 위치 -->
+<section class="slide" data-part="1부 · PB란">
+  <div class="kicker">③ PB란? · 증권사 안에서 PB의 위치</div>
+  <h2>본사와 지점, 그중 고객을 직접 만나는 곳이 PB입니다</h2>
+  <div class="map grow">
+    <div class="col hq">
+      <h3>본사</h3>
+      <div class="cells">
+        <div class="cell"><b>IB</b><span>기업의 상장·자금 조달을 돕는 딜</span></div>
+        <div class="cell"><b>세일즈·트레이딩</b><span>기관 고객 영업, 회사 자금 운용</span></div>
+        <div class="cell"><b>리서치</b><span>기업·산업을 분석하는 애널리스트</span></div>
+        <div class="cell"><b>경영지원</b><span>리스크·준법·IT·인사</span></div>
+      </div>
+    </div>
+    <div class="col br">
+      <span class="chip up" style="align-self:flex-start">오늘의 주인공</span>
+      <h3>지점 · WM(자산관리)</h3>
+      <p style="font-size:32px;line-height:1.5"><b>PB</b>는 개인·법인 고객을 직접 만나 자산을 관리하고 상품을 제안합니다.</p>
+      <p style="font-size:24px;color:#AFC0D8">회사 매출의 출발점, 고객과 가장 가까운 자리</p>
+    </div>
+  </div>
+</section>
+<!-- 4. PB란 -->
+<section class="slide" data-part="1부 · PB란">
+  <div class="kicker">PB · 지점 영업이란</div>
+  <h2>리테일 고객의 자산을 관리하고, 상품을 세일즈하는 사람</h2>
+  <div class="pbdef grow">
+    <div class="who">
+      <div class="cust"><span class="ico lg" data-icon="person"></span><div><span class="chip down">개인 고객</span><p>예금·주식·연금 등 개인의 자산을 함께 관리합니다</p></div></div>
+      <div class="cust"><span class="ico lg" data-icon="building"></span><div><span class="chip down">법인 고객</span><p>회사 자금 운용, 임직원 퇴직연금까지 상담합니다</p></div></div>
+    </div>
+    <div class="arrow" aria-hidden="true"><svg viewBox="0 0 60 40" width="60" height="40"><path d="M2 20h48M38 6l14 14-14 14" fill="none" stroke="#0D1B2E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="what">
+      <div class="do"><span class="ico lg inv" data-icon="shield"></span><div><b>자산 관리</b><span>시장이 움직이면 먼저 연락하고 계좌를 점검합니다</span></div></div>
+      <div class="do"><span class="ico lg inv" data-icon="doc"></span><div><b>상품 세일즈</b><span>고객 상황에 맞는 상품을 제안하고 판매합니다</span></div></div>
+    </div>
+  </div>
+</section>
+<!-- 5. 하루 흐름 -->
+<section class="slide" data-part="1부 · PB란">
+  <div class="kicker">PB의 하루 타임라인</div>
+  <h2>장이 열리기 전에 하루가 이미 시작됩니다</h2>
+  <div class="phases grow">
+    <div class="ph"><span class="ico xl" data-icon="phone"></span><span class="when mono">출근길</span><h3>시장 공부</h3><p>텔레그램 채널과 네이버 프리미엄콘텐츠로 밤사이 시장 소식을 읽으며 출근합니다</p></div>
+    <div class="ph"><span class="ico xl" data-icon="people"></span><span class="when mono">출근 직후</span><h3>회의</h3><p>실적 회의와 시황 회의. 오늘 고객에게 무슨 이야기를 할지 정합니다</p></div>
+    <div class="ph hot"><span class="ico xl up" data-icon="candle"></span><span class="when mono">09:00 ~</span><h3>장 시작, 영업 시작</h3><p>고객 응대, 자산 섭외, 외부 영업까지 이어집니다</p></div>
+  </div>
+</section>
+<!-- 5-1. 출근길 화면 -->
+<section class="slide commute" data-part="1부 · PB란">
+  <div class="text">
+    <div class="kicker">출근길</div>
+    <h2>지하철에서 이미<br>시장 공부가<br>시작됩니다</h2>
+    <ul class="clean">
+      <li>구독 중인 텔레그램 채널 수십 곳에 밤사이 쌓인 메시지를 훑습니다</li>
+      <li>버터대디 네이버 프리미엄콘텐츠로 시장 흐름을 읽습니다</li>
+      <li>오늘 고객에게 보낼 시황 문자의 재료를 모읍니다</li>
+    </ul>
+  </div>
+  <div class="phones">
+    <figure class="phone"><div class="scr"><img src="images/telegram.png" alt="텔레그램 구독 채널 목록" onerror="this.parentNode.classList.add('missing')"><span class="ph-miss">텔레그램 캡처<br><small>images/telegram.png</small></span></div><figcaption>텔레그램 · 구독 채널 목록</figcaption></figure>
+    <figure class="phone"><div class="scr reel"><img src="images/nepcon.jpg" alt="버터대디 네이버 프리미엄콘텐츠 글 목록" onerror="this.parentNode.classList.add('missing')"><span class="ph-miss">네프콘 캡처<br><small>images/nepcon.jpg</small></span></div><figcaption>버터대디 · 네이버 프리미엄콘텐츠</figcaption></figure>
+  </div>
+</section>
+<!-- 6. 9시 이후 -->
+<section class="slide" data-part="1부 · PB란">
+  <div class="kicker">09:00 장 시작 이후</div>
+  <h2>자리에서, 지점에서, 밖에서</h2>
+  <div class="grid3 grow" style="align-content:center">
+    <div class="card place"><span class="ico xl" data-icon="headset"></span><h3>자리에서</h3><ul class="clean"><li>주문 전화 받기</li><li>고객에게 시황 문자 보내기</li><li>자료·상품 제안서 만들기</li></ul></div>
+    <div class="card place"><span class="ico xl" data-icon="building"></span><h3>지점에서</h3><ul class="clean"><li>내점 고객 응대</li><li>빠져나간 자산 다시 섭외하기</li><li>상품 세일즈</li></ul></div>
+    <div class="card place" style="border:2px solid var(--up)"><span class="ico xl up" data-icon="bag"></span><h3>밖에서</h3><ul class="clean"><li>고객 외부 방문</li><li>퇴직연금: 법인에 직접 나가 상담</li><li>세미나 진행</li></ul></div>
+  </div>
+</section>
+<!-- 7. 하는 일 3가지 -->
+<section class="slide" data-part="1부 · PB란">
+  <div class="kicker">PB가 하는 일</div>
+  <h2>결국 PB의 일은 세 가지로 모입니다</h2>
+  <div class="grid3 grow" style="align-content:center">
+    <div class="card role"><span class="ico xl" data-icon="inflow"></span><span class="n">01</span><h3>고객 자산 유치</h3><p>고객의 자산을 우리 회사로 모셔 옵니다. 빠져나간 자산을 되찾는 일도 포함됩니다.</p></div>
+    <div class="card role"><span class="ico xl" data-icon="doc"></span><span class="n">02</span><h3>상품 섭외</h3><p>연금·펀드·채권 등 고객에게 맞는 상품을 제안하고 판매합니다.</p></div>
+    <div class="card role"><span class="ico xl" data-icon="userplus"></span><span class="n">03</span><h3>신규 고객 창출</h3><p>처음 만나는 개인과 법인을 고객으로 만듭니다.</p></div>
+  </div>
+</section>
 <!-- 8. 영업력 -->
-<section class="slide stmt" data-part="1부 · PB의 하루" style="justify-content:center" data-stmt>
+<section class="slide stmt" data-part="1부 · PB란" style="justify-content:center" data-stmt>
   <div class="kicker">이 일에 가장 필요한 것</div>
   <h1>PB에게 가장 필요한 건<br><span style="color:var(--up)">영업력</span>입니다</h1>
   <p class="lead">그럼 영업력이란 무엇일까요?</p>
   <div class="deco" aria-hidden="true"><span class="ico" data-icon="handshake"></span></div>
 </section>
-
 <!-- 8-1. 팀장님 메시지 -->
-<section class="slide chatslide" data-part="1부 · PB의 하루">
+<section class="slide chatslide" data-part="1부 · PB란">
   <div class="kicker">영업력이란?</div>
   <h2>어느 날 팀장님에게 메시지가 옵니다</h2>
   <div class="chat grow">
@@ -674,9 +810,8 @@ ul.bad li::before{background:var(--up)}
   </div>
   <p style="font-size:32px;font-weight:700">여러분이라면 뭐라고 답하시겠어요?</p>
 </section>
-
 <!-- 8-2. 마음을 얻는 일 -->
-<section class="slide" data-part="1부 · PB의 하루">
+<section class="slide" data-part="1부 · PB란">
   <div class="kicker">영업력의 정의</div>
   <h2>영업력은 상대의 마음을 얻는 일입니다</h2>
   <div class="heartflow grow">
@@ -689,9 +824,8 @@ ul.bad li::before{background:var(--up)}
   </div>
   <p class="lead" style="color:var(--ink)">상품을 파는 게 아니라, 마음을 얻으면 자산은 따라옵니다. 그리고 마음을 얻으려면 <b>바깥과 안쪽</b>이 모두 중요합니다.</p>
 </section>
-
 <!-- 8-3. 외적 / 내적 -->
-<section class="slide" data-part="1부 · PB의 하루">
+<section class="slide" data-part="1부 · PB란">
   <div class="kicker">마음을 얻는 두 가지 축</div>
   <h2>외적인 것도, 내적인 것도 둘 다 중요합니다</h2>
   <div class="axes grow">
@@ -715,9 +849,8 @@ ul.bad li::before{background:var(--up)}
     </div>
   </div>
 </section>
-
 <!-- 8-4. 외향 / 내향 -->
-<section class="slide" data-part="1부 · PB의 하루">
+<section class="slide" data-part="1부 · PB란">
   <div class="kicker">자주 받는 질문</div>
   <h2>"저는 내향적인데 영업할 수 있을까요?"</h2>
   <div class="spectrum grow">
@@ -726,14 +859,12 @@ ul.bad li::before{background:var(--up)}
   </div>
   <p style="font-size:34px;font-weight:800;line-height:1.45">외향적이냐 내향적이냐는 <span style="color:var(--up)">중요한 요소가 아닐 수도</span> 있습니다.<br><span class="muted" style="font-weight:600;font-size:28px">중요한 건 상대의 마음을 얻는 방법을 가지고 있느냐입니다.</span></p>
 </section>
-
 <!-- 9. 2부 표지 -->
 <section class="slide section" data-part="2부 · 취업 전략">
   <div class="big">PART 2</div>
   <h1>스펙보다 전략</h1>
   <p class="lead">취업 전략은 조금 다르게 이야기해 보겠습니다.</p>
 </section>
-
 <!-- 10. 두 가지 질문 -->
 <section class="slide" data-part="2부 · 취업 전략">
   <div class="kicker">취업 전략의 출발점</div>
@@ -744,7 +875,6 @@ ul.bad li::before{background:var(--up)}
   </div>
   <p style="font-size:32px;font-weight:700">이 두 질문에 답하는 게 스펙 하나를 더 쌓는 것보다 중요합니다.</p>
 </section>
-
 <!-- 11. 영상 -->
 <section class="slide" data-part="2부 · 취업 전략">
   <div class="kicker">영상 하나 보고 가겠습니다</div>
@@ -758,7 +888,6 @@ ul.bad li::before{background:var(--up)}
     </div>
   </div>
 </section>
-
 <!-- 12. 게임 규칙 -->
 <section class="slide" data-part="2부 · 취업 전략">
   <div class="kicker">게임 규칙</div>
@@ -775,7 +904,6 @@ ul.bad li::before{background:var(--up)}
     </ul>
   </div>
 </section>
-
 <!-- 13. 남들 vs 홍진호 -->
 <section class="slide" data-part="2부 · 취업 전략">
   <div class="kicker">같은 게임, 다른 접근</div>
@@ -791,7 +919,6 @@ ul.bad li::before{background:var(--up)}
       <p style="font-size:24px;color:var(--up);font-weight:700">2라운드 5문제를 모두 성공, 메인매치 1위</p></div>
   </div>
 </section>
-
 <!-- 14. 취업시장도 같다 -->
 <section class="slide" data-part="2부 · 취업 전략">
   <div class="kicker">취업 시장도 같습니다</div>
@@ -803,7 +930,6 @@ ul.bad li::before{background:var(--up)}
   </div>
   <p style="font-size:32px;font-weight:700">제 이야기를 해 보겠습니다.</p>
 </section>
-
 <!-- 14-1. 어필할 게 없었다 -->
 <section class="slide" data-part="2부 · 제 이야기">
   <div class="kicker">제 이야기 · 취업 준비 때</div>
@@ -821,7 +947,6 @@ ul.bad li::before{background:var(--up)}
     </div>
   </div>
 </section>
-
 <!-- 14-2. 지금 만들자 -->
 <section class="slide" data-part="2부 · 제 이야기">
   <div class="kicker">발상의 전환</div>
@@ -835,7 +960,6 @@ ul.bad li::before{background:var(--up)}
     <div class="cards30" aria-label="방문한 지점 30곳"></div>
   </div>
 </section>
-
 <!-- 14-3. 면접장 -->
 <section class="slide" data-part="2부 · 제 이야기">
   <div class="kicker">그리고 면접장에서</div>
@@ -862,14 +986,12 @@ ul.bad li::before{background:var(--up)}
     </div>
   </div>
 </section>
-
 <!-- 15. 3부 표지 -->
 <section class="slide section" data-part="3부 · 불합격 인턴">
   <div class="big">PART 3</div>
   <h1>불합격하는 인턴의 특징</h1>
   <p class="lead">딱 한 가지만 이야기하겠습니다.</p>
 </section>
-
 <!-- 16. 한 가지 -->
 <section class="slide stmt" data-part="3부 · 불합격 인턴" style="justify-content:center" data-stmt>
   <div class="kicker">불합격하는 인턴의 특징</div>
@@ -877,7 +999,6 @@ ul.bad li::before{background:var(--up)}
   <p class="lead">그리고 이 차이는 인턴이 던지는 질문을 들어 보면 바로 보입니다.</p>
   <div class="deco" aria-hidden="true"><span class="ico" data-icon="fork"></span></div>
 </section>
-
 <!-- 17. 질문 비교 -->
 <section class="slide" data-part="3부 · 불합격 인턴">
   <div class="kicker">인턴이 선배에게 하는 질문</div>
@@ -896,7 +1017,6 @@ ul.bad li::before{background:var(--up)}
     </div>
   </div>
 </section>
-
 <!-- 18. 왜 -->
 <section class="slide" data-part="3부 · 불합격 인턴">
   <div class="kicker">왜 이 차이가 결과를 가를까</div>
@@ -907,7 +1027,6 @@ ul.bad li::before{background:var(--up)}
   </div>
   <p style="font-size:32px;font-weight:700">선배들은 이 질문 하나로 "같이 일하고 싶은 사람"을 알아봅니다.</p>
 </section>
-
 <!-- 19. 정리 -->
 <section class="slide stmt" data-part="3부 · 불합격 인턴" style="justify-content:center" data-stmt>
   <div class="kicker">인턴을 앞둔 분들께</div>
@@ -915,14 +1034,12 @@ ul.bad li::before{background:var(--up)}
   <p class="lead">그 질문을 하는 순간, 이미 직원처럼 보이기 시작합니다.</p>
   <div class="deco" aria-hidden="true"><span class="ico" data-icon="bubbles"></span></div>
 </section>
-
 <!-- 25. 4부 표지 -->
 <section class="slide section" data-part="4부 · AI 활용">
   <div class="big">PART 4</div>
   <h1>AI를 잘 쓰는 사람이 이긴다</h1>
   <p class="lead">제가 실제로 일하는 방법을 그대로 보여 드립니다.</p>
 </section>
-
 <!-- 26. 같은 일 다른 결과 -->
 <section class="slide" data-part="4부 · AI 활용">
   <div class="kicker">같은 일, 다른 결과</div>
@@ -933,14 +1050,12 @@ ul.bad li::before{background:var(--up)}
   </div>
   <p style="font-size:32px;font-weight:700">회사는 누구에게 더 큰 일을 맡길까요?</p>
 </section>
-
 <!-- 27. 실제 사례 차트 -->
 <section class="slide" data-part="4부 · AI 활용">
   <div style="display:flex;align-items:center;gap:16px"><span class="kicker">제 실제 업무</span><span class="ex">시간은 예시 · 실제 수치로 교체</span></div>
   <h2>AI를 쓰고 나서 줄어든 시간</h2>
   <div class="chart grow"><svg id="aiChart" role="img" aria-label="업무별 소요 시간 비교"></svg></div>
 </section>
-
 <!-- 27-1. 요약봇 -->
 <section class="slide botslide" data-part="4부 · AI 활용">
   <div class="left">
@@ -956,7 +1071,6 @@ ul.bad li::before{background:var(--up)}
   </div>
   <figure class="phone"><div class="scr"><img src="images/telegram.png" alt="텔레그램 목록 맨 위의 일일채널요약봇" onerror="this.parentNode.classList.add('missing')"><i class="hl-row"></i><span class="ph-miss">텔레그램 캡처</span></div><figcaption>맨 위 '일일채널요약봇'</figcaption></figure>
 </section>
-
 <!-- 28. 이 화면도 -->
 <section class="slide stmt" data-part="4부 · AI 활용" style="justify-content:center" data-stmt>
   <div class="kicker">그리고 하나 더</div>
@@ -964,7 +1078,6 @@ ul.bad li::before{background:var(--up)}
   <p class="lead" style="font-size:36px;color:var(--ink)"><b style="color:var(--up)">전부 AI와 대화하면서 만들었습니다.</b> 제가 한 일은 원하는 구성을 말로 설명하고, 결과를 보고 고쳐 달라고 한 것입니다.</p>
   <div class="deco" aria-hidden="true"><span class="ico" data-icon="devices"></span></div>
 </section>
-
 <!-- 29. 취업 준비에 쓰는 법 -->
 <section class="slide" data-part="4부 · AI 활용">
   <div class="kicker">오늘 바로 써 보세요</div>
@@ -975,7 +1088,6 @@ ul.bad li::before{background:var(--up)}
     <div class="card"><h3>시황 공부</h3><div class="prompt">오늘 미국 증시 소식을 대학생이 이해하게 3줄로. 출처 링크도 붙여 줘.</div></div>
   </div>
 </section>
-
 <!-- 30. 주의 -->
 <section class="slide" data-part="4부 · AI 활용">
   <div class="kicker">단, 이것만은 지키세요</div>
@@ -986,13 +1098,11 @@ ul.bad li::before{background:var(--up)}
     <div class="card"><span class="n mono" style="color:var(--up);font-size:22px">03</span><h3>초안은 AI, 마무리는 나</h3><p class="muted" style="font-size:24px">그대로 낸 자소서는 티가 납니다. 내 경험으로 고쳐 쓰세요.</p></div>
   </div>
 </section>
-
 <!-- 31. 마무리 -->
 <section class="slide section" data-part="4부 · AI 활용">
   <div class="big">마지막으로</div>
   <h1 style="font-size:80px">AI가 내 자리를 뺏기 전에,<br>AI를 잘 쓰는 동료가<br>먼저 기회를 가져갑니다</h1>
 </section>
-
 <!-- 32. Q&A -->
 <section class="slide qa" data-part="Q&amp;A" id="qaSlide">
   <span class="demo" id="demoNote" hidden>미리보기 모드 · 질문이 이 컴퓨터에만 저장됩니다</span>
@@ -1006,7 +1116,6 @@ ul.bad li::before{background:var(--up)}
     <p>아직 질문할 수 있습니다<br><b>익명 · 로그인 없음</b></p>
   </div>
 </section>
-
 <!-- 33. 감사 -->
 <section class="slide section" data-part="마무리">
   <div class="big">THANK YOU</div>
@@ -1049,6 +1158,7 @@ const ICONS = {
   card: '<rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="8" cy="12" r="2"/><path d="M13 10h5M13 14h3.5"/>',
   pin: '<path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>',
   flag: '<path d="M5 21V4"/><path d="M5 4h12l-2 4 2 4H5"/>',
+  coins: '<ellipse cx="9" cy="6" rx="6" ry="2.5"/><path d="M3 6v4c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5V6"/><path d="M3 10v4c0 1.4 2.7 2.5 6 2.5"/><ellipse cx="15" cy="15" rx="6" ry="2.5"/><path d="M9 15v4c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5v-4"/>',
   handshake: '<path d="M2 11l4-4 4 2 3-2 3 1 6 4"/><path d="M2 11l3 3"/><path d="M22 12l-3 3"/><path d="M8 14l2 2a1.4 1.4 0 0 0 2-2"/><path d="M10 12l3 3a1.4 1.4 0 0 0 2-2l-3-3"/><path d="M13 11l3 3a1.4 1.4 0 0 0 2-2l-3-3"/><path d="M5 14l3 3a1.4 1.4 0 0 0 2-2"/>',
   fork: '<circle cx="6" cy="19" r="2"/><circle cx="6" cy="5" r="2"/><circle cx="18" cy="7" r="2"/><path d="M6 7v10"/><path d="M18 9c0 5-12 3-12 8"/>',
   bubbles: '<path d="M3 4h12v8H8l-4 3v-3H3z"/><path d="M9 15v1h7l4 3v-3h1V8h-3"/>',
@@ -1100,6 +1210,25 @@ document.querySelectorAll('.paytable').forEach(el => {
     <span class="pay">${r[2].toFixed(1)}억 원${r[5] ? `<small>${r[5]}</small>` : ''}</span><span class="bar"><i style="width:${(r[2] / max * 100).toFixed(1)}%"></i></span>
     <span class="tag ${r[4]}">${r[3]}</span></div>`).join('');
 });
+
+/* 2025년 증권사 직원 1인 평균 급여 (억원, DART) */
+(function avgChart() {
+  const svg = document.getElementById('avgChart'); if (!svg) return;
+  const D = [['메리츠증권',2.175],['부국증권',2.155],['한양증권',1.96],['한국투자증권',1.932],['NH투자증권',1.84],['다올투자증권',1.76],['삼성증권',1.68],['KB증권',1.67],['키움증권',1.66],['삼성전자',1.58,1],['미래에셋증권',1.57],['교보증권',1.521],['신한투자증권',1.48]];
+  const W = 1380, rowH = 44, top = 10, lab = 230, bw = W - lab - 140, max = 2.4;
+  const H = top + D.length * rowH + 10;
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  const xr = lab + bw * 1.58 / max;
+  let o = '';
+  D.forEach(([n, v, ref], i) => {
+    const y = top + i * rowH;
+    o += `<text x="${lab - 16}" y="${y + 28}" text-anchor="end" font-size="22" font-weight="${ref ? 800 : 600}" fill="${ref ? '#1C5BD0' : '#0D1B2E'}" font-family="Pretendard,sans-serif">${n}</text>`;
+    o += `<rect x="${lab}" y="${y + 8}" width="${bw * v / max}" height="28" rx="5" fill="${ref ? '#1C5BD0' : (v > 1.58 ? '#D3263A' : '#AEB7C4')}"/>`;
+    o += `<text x="${lab + bw * v / max + 12}" y="${y + 30}" font-size="22" font-weight="800" fill="${ref ? '#1C5BD0' : '#0D1B2E'}" font-family="Pretendard,sans-serif">${v.toFixed(2)}억</text>`;
+  });
+  o += `<line x1="${xr}" y1="0" x2="${xr}" y2="${H}" stroke="#1C5BD0" stroke-width="2" stroke-dasharray="6 6"/>`;
+  svg.innerHTML = o;
+})();
 
 /* 방문한 지점 30곳 = 명함 30장 */
 document.querySelectorAll('.cards30').forEach(el => { el.innerHTML = '<i></i>'.repeat(30); });
