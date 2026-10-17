@@ -662,6 +662,22 @@ ul.bad li::before{background:var(--up)}
 .todo{margin-top:6px;background:var(--ink);color:#fff;border-radius:10px;padding:12px 16px;font-size:21px;font-weight:700;line-height:1.45}
 .tk.hot .todo{background:var(--up)}
 
+/* 4차 반영 */
+.check{display:flex;flex-direction:column;gap:20px;justify-content:center}
+.ck{display:flex;align-items:center;gap:26px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px 34px}
+.ck .box{width:52px;height:52px;border:4px solid var(--ink);border-radius:10px;flex:none}
+.ck b{font-size:38px}
+.pension{display:grid;grid-template-columns:560px 1fr;gap:40px;align-items:center}
+.pension svg{width:100%;height:auto}
+.iv{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-content:stretch}
+.ivq{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px;display:flex;flex-direction:column;gap:14px;justify-content:center}
+.ivq.hot{border:2px solid var(--up)}
+.ivq .qn{display:inline-flex;align-items:center;justify-content:center;width:64px;height:40px;border-radius:999px;background:var(--ink);color:#fff;font-size:20px;font-weight:800;line-height:1}
+.ivq.hot .qn{background:var(--up)}
+.ivq>b{font-size:34px;line-height:1.3}
+.ivq .arr2{font-size:28px;color:var(--up)}
+.ivq p.muted{font-size:23px;line-height:1.5}
+
 .help{position:fixed;left:16px;bottom:12px;font:13px var(--sans);color:#6F7F96;opacity:.8;user-select:none}
 @media (prefers-reduced-motion:no-preference){ .slide.on{animation:in .25s ease-out} @keyframes in{from{opacity:.4}to{opacity:1}} }
 </style>
@@ -737,39 +753,10 @@ ul.bad li::before{background:var(--up)}
   </div>
   <p class="src">출처: 각 사 2025년 사업보고서(DART) 「직원 등의 현황」 1인 평균 급여액(성과급 포함, 메리츠는 기재정정 보고서 기준 — 보도 기준에 따라 다를 수 있음) · 25곳 중 상위 9곳 표시, 모두 삼성전자보다 높음 · 89억은 같은 보고서 「임원의 보수 등」</p>
 </section>
-<!-- 7-1. 영업직이란 -->
-<section class="slide" data-part="1부 · 영업직이란">
-  <div class="kicker">② 영업직이란?</div>
-  <h2>회사가 정한 테두리 안에서<br>고객을 넓히고 실적을 달성하는 일</h2>
-  <div class="frame grow">
-    <svg viewBox="0 0 1100 420" role="img" aria-label="테두리 안에서 고객을 넓히고 목표를 달성하는 그림">
-      <rect x="250" y="40" width="600" height="340" rx="22" fill="none" stroke="#0D1B2E" stroke-width="4" stroke-dasharray="14 12"/>
-      <text x="550" y="28" text-anchor="middle" font-size="22" font-weight="700" fill="#5A6678" font-family="Pretendard,sans-serif">회사가 정한 테두리 · 규정 · 상품 · 완전판매</text>
-      <circle cx="550" cy="210" r="46" fill="#0D1B2E"/>
-      <text x="550" y="219" text-anchor="middle" font-size="26" font-weight="800" fill="#FFFFFF" font-family="Pretendard,sans-serif">나</text>
-      <g fill="#1C5BD0">
-        <circle cx="400" cy="120" r="22"/><circle cx="360" cy="230" r="22"/><circle cx="420" cy="320" r="22"/>
-        <circle cx="700" cy="120" r="22"/><circle cx="745" cy="235" r="22"/><circle cx="680" cy="320" r="22"/>
-      </g>
-      <g stroke="#1C5BD0" stroke-width="3" stroke-dasharray="6 6">
-        <path d="M512 186 L420 130"/><path d="M505 214 L382 230"/><path d="M515 240 L438 306"/>
-        <path d="M588 186 L680 130"/><path d="M596 214 L722 233"/><path d="M585 240 L662 306"/>
-      </g>
-      <text x="262" y="412" font-size="22" fill="#1C5BD0" font-weight="700" font-family="Pretendard,sans-serif">고객 확장</text>
-      <g transform="translate(940 210)">
-        <circle r="80" fill="none" stroke="#D3263A" stroke-width="6"/><circle r="50" fill="none" stroke="#D3263A" stroke-width="6"/><circle r="18" fill="#D3263A"/>
-        <text y="122" text-anchor="middle" font-size="24" fill="#D3263A" font-weight="800" font-family="Pretendard,sans-serif">실적 달성</text>
-      </g>
-      <path d="M598 210 H840" stroke="#D3263A" stroke-width="5" marker-end="url(#ah)"/>
-      <defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#D3263A"/></marker></defs>
-    </svg>
-  </div>
-  <p class="muted" style="font-size:24px">완전판매 = 고객이 상품과 위험을 충분히 이해하고 가입하도록 설명하는 것</p>
-</section>
 <!-- 7-2. 영업직에 대한 오해 -->
 <section class="slide" data-part="1부 · 영업직이란">
-  <div class="kicker">영업직에 대한 오해 3가지</div>
-  <h2>영업이라고 하면 보통 이렇게 생각합니다</h2>
+  <div class="kicker">② 영업직이란? 회사가 정한 테두리 안에서 고객을 넓히고 실적을 달성하는 일</div>
+  <h2>그런데 영업이라고 하면 보통 이렇게 생각합니다</h2>
   <div class="mythgrid grow">
     <div class="m1">
       <div class="mh"><span class="no">오해 1</span><b>"영업은 말단이 하는 일"</b></div>
@@ -873,6 +860,29 @@ ul.bad li::before{background:var(--up)}
     <div class="fq2"><span class="ico xl" data-icon="pin"></span><b>발령과 1~3년차는?</b></div>
   </div>
 </section>
+<!-- 6-2. 왜 지금 기회 -->
+<section class="slide" data-part="1부 · PB란">
+  <div class="kicker">왜 지금 신입 PB에게 기회일까?</div>
+  <h2>퇴직연금 501조 원, 1년 새 70조 원이 늘었습니다</h2>
+  <div class="pension grow">
+    <svg viewBox="0 0 560 360" role="img" aria-label="퇴직연금 적립금 2024년 431.7조에서 2025년 501.4조로 증가">
+      <g font-family="Pretendard,sans-serif" text-anchor="middle">
+        <rect x="90" y="96" width="150" height="214" rx="10" fill="#AEB7C4"/>
+        <rect x="320" y="62" width="150" height="248" rx="10" fill="#D3263A"/>
+        <text x="165" y="84" font-size="30" font-weight="800" fill="#5A6678">431.7조</text>
+        <text x="395" y="50" font-size="30" font-weight="800" fill="#D3263A">501.4조</text>
+        <text x="165" y="345" font-size="24" fill="#5A6678">2024년 말</text>
+        <text x="395" y="345" font-size="24" fill="#0D1B2E" font-weight="700">2025년 말</text>
+      </g>
+    </svg>
+    <div class="ctext">
+      <div class="ex2"><span class="chip up">+16.1%</span><p>제도 도입 이후 처음으로 500조 원을 넘었습니다.</p></div>
+      <div class="ex2"><span class="chip ink">75.4%</span><p>아직 대부분이 원리금보장형입니다. 어떻게 굴릴지 상담이 필요한 돈이 그만큼 많다는 뜻입니다.</p></div>
+      <div class="ex2"><span class="chip down">PB의 일</span><p>법인에 직접 나가 퇴직연금을 상담하는 일, 신입도 배우며 고객을 만들 수 있는 통로입니다.</p></div>
+    </div>
+  </div>
+  <p class="src">출처: 고용노동부·금융감독원 「2025년 퇴직연금 투자 백서」(2026.5.20 발표), 적립금 2024년 말 431.7조 → 2025년 말 501.4조, 원리금보장형 비중 75.4%</p>
+</section>
 <!-- 8-1. 팀장님 메시지 -->
 <section class="slide chatslide" data-part="1부 · PB란">
   <div class="kicker">영업력이란?</div>
@@ -921,6 +931,17 @@ ul.bad li::before{background:var(--up)}
     </div>
   </div>
 </section>
+<!-- 8-5. 적성 체크 -->
+<section class="slide" data-part="1부 · PB란">
+  <div class="kicker">나는 PB가 맞을까?</div>
+  <h2>30초 자가진단: 세 개 중 두 개 이상이면 진지하게 고민해 보세요</h2>
+  <div class="check grow">
+    <div class="ck"><span class="box"></span><b>거절을 듣고도 다음 날 다시 연락할 수 있다</b></div>
+    <div class="ck"><span class="box"></span><b>숫자로 평가받는 게 오히려 동기부여가 된다</b></div>
+    <div class="ck"><span class="box"></span><b>매일 아침 시장 뉴스를 읽는 게 숙제처럼 느껴지지 않는다</b></div>
+  </div>
+  <p style="font-size:28px;font-weight:800">외향·내향은 체크 항목에 없습니다. <span style="color:var(--up)">마음을 얻는 방법이 있는지가 중요합니다.</span></p>
+</section>
 <!-- 9. 2부 표지 -->
 <section class="slide section" data-part="2부 · 취업 전략">
   <div class="big">PART 2</div>
@@ -945,7 +966,7 @@ ul.bad li::before{background:var(--up)}
     <div class="grid3">
       <div class="card"><h3>지원 자격</h3><p class="muted">4년제 학사 이상(졸업예정 포함), <b style="color:var(--ink)">전공 무관</b>. PB·IB·리서치 등 전 부문 모집.</p></div>
       <div class="card"><h3>작은 가점도 챙기기</h3><p class="muted">채용설명회 참석자에게 서류전형 가점. 정보는 현장에서 얻습니다.</p></div>
-      <div class="card"><h3>자격증</h3><p class="muted">투자권유자문인력은 고객에게 상품을 권하려면 필요한 자격입니다. 입사 후에 따는 경우도 많으니, 공고마다 확인하세요.</p></div>
+      <div class="card"><h3>자격증 우선순위</h3><p class="muted">① 투자권유자문인력(고객에게 상품을 권하려면 필요) ② 여유 있으면 투자자산운용사 ③ 그 이상은 "증거 만들기"가 먼저</p></div>
     </div>
   </div>
   <p class="src">출처: 파이낸셜뉴스·한국경제 2026.9.16 · AI면접은 4부의 모의 면접 방법으로 연습할 수 있습니다 · 회사·시기마다 전형이 다르니 공고문을 꼭 확인하세요</p>
@@ -957,7 +978,7 @@ ul.bad li::before{background:var(--up)}
   <div class="nonbiz grow">
     <div class="fact1"><span class="chip ink">공고 기준</span><b>전공 무관</b><span>한국투자증권 2026년 하반기 신입 공채 · PB 포함 전 부문</span></div>
     <div class="grid4">
-      <div class="card"><span class="ico xl" data-icon="book"></span><h3>자격증은 기본 체크</h3><p class="muted">투자권유자문인력 등은 입사 후에도 필요한 기본입니다. 차별화는 아닙니다.</p></div>
+      <div class="card"><span class="ico xl" data-icon="book"></span><h3>자격증은 기본 체크</h3><p class="muted">투자권유자문인력은 기본. 있으면 좋지만, 그것만으로 차별화되지는 않습니다.</p></div>
       <div class="card"><span class="ico xl" data-icon="phone"></span><h3>시장 공부는 습관</h3><p class="muted">매일 시황 세 줄 요약. "요즘 시장"을 물으면 바로 답할 수 있게.</p></div>
       <div class="card"><span class="ico xl" data-icon="spark"></span><h3>전공을 무기로</h3><p class="muted">공대생이면 반도체 산업을, 고객 언어로 쉽게 설명할 수 있습니다.</p></div>
       <div class="card" style="border:2px solid var(--up)"><span class="ico xl up" data-icon="handshake"></span><h3>더 중요한 건 영업력</h3><p class="muted">사람을 만나 마음을 얻어 본 경험이 전공보다 강한 증거입니다.</p></div>
@@ -1016,7 +1037,7 @@ ul.bad li::before{background:var(--up)}
     <div class="step"><span class="n mono">2</span><b>내게 증거가 있나?</b><span>없다면 자격증 하나 더로 끝내지 말고 →</span></div>
     <div class="step hot"><span class="n mono">3</span><b>증거를 직접 만든다</b><span>그 역량을 보여 줄 경험을 내가 설계</span></div>
   </div>
-  <p class="muted" style="font-size:22px">다른 직무라면: 마케팅은 SNS 계정 실험, 회계는 공시 분석 글 3편, IT는 작은 서비스 배포</p>
+  <p class="muted" style="font-size:22px">학회·동아리가 있다면: 리포트 개수가 아니라 "그 분석을 고객 1명에게 설명해 본 경험"으로 바꾸세요.<br>다른 직무라면: 마케팅은 SNS 계정 실험, 회계는 공시 분석 글 3편, IT는 작은 서비스 배포</p>
   <p style="font-size:32px;font-weight:700">기본 스펙 위에, 남들과 다른 증거를. 제 이야기를 해 보겠습니다.</p>
 </section>
 <!-- 14-1. 어필할 게 없었다 -->
@@ -1068,6 +1089,16 @@ ul.bad li::before{background:var(--up)}
       <p style="font-size:26px;font-weight:700">홍진호처럼, 답이 나오는 판을 직접 만든 겁니다.</p>
       <p class="muted" style="font-size:22px">면접관이 보는 건 명함 숫자가 아니라, 그 과정에서 무엇을 배우고 바꿨는가입니다.</p>
     </div>
+  </div>
+</section>
+<!-- 14-4. 면접 실전 -->
+<section class="slide" data-part="2부 · 취업 전략">
+  <div class="kicker">면접 실전 · PB 면접에서 자주 나오는 유형</div>
+  <h2>세 가지 유형, 답의 뼈대는 오늘 강의 안에 있습니다</h2>
+  <div class="iv grow">
+    <div class="ivq"><span class="qn">Q1</span><b>1분 자기소개</b><p class="arr2">→ <b>증거 + 숫자 + 배운 점</b></p><p class="muted">"영업력을 보여 주려고 3일 동안 30개 지점을 찾아갔고, 그 과정에서 ○○를 배웠습니다."</p></div>
+    <div class="ivq"><span class="qn">Q2</span><b>요즘 시장, 어떻게 보세요?</b><p class="arr2">→ <b>시황 세 줄</b></p><p class="muted">무슨 일 / 왜 / 내 고객에게는 어떻게 말할까. 매일 연습한 사람만 1분 안에 답합니다.</p></div>
+    <div class="ivq hot"><span class="qn">Q3</span><b>이 상품을 고객에게 팔아 보세요</b><p class="arr2">→ <b>고객부터 4단계</b></p><p class="muted">맞는 고객 찾기 → 위험까지 설명 → 결정은 고객이 → 안 맞으면 권하지 않기.</p></div>
   </div>
 </section>
 <!-- 15. 3부 표지 -->
@@ -1126,14 +1157,7 @@ ul.bad li::before{background:var(--up)}
     <div class="s3"><span class="sn">2</span><b>질문하고 적용</b><p>"어떻게 잘해요?"를 묻고, 들은 답을 내 과제에 직접 써 봅니다.</p></div>
     <div class="s3 hot"><span class="sn">3</span><b>말하기</b><p>최종 평가에서 "관찰 → 적용 → 결과"로 이야기합니다.</p></div>
   </div>
-  <p style="font-size:26px;font-weight:700">인턴이 아니라면? 같은 질문을 <span style="color:var(--up)">채용설명회·현직자 커피챗</span>에서 하세요.</p>
-</section>
-<!-- 19. 정리 -->
-<section class="slide stmt" data-part="3부 · 불합격 인턴" style="justify-content:center" data-stmt>
-  <div class="kicker">인턴을 앞둔 분들께</div>
-  <h1>"어떻게 붙어요?" 대신<br><span style="color:var(--down)">"어떻게 잘해요?"</span>를 물어보세요</h1>
-  <p class="lead">제가 본 바로는, 그 질문을 하는 순간 이미 직원처럼 보이기 시작합니다.</p>
-  <div class="deco" aria-hidden="true"><span class="ico" data-icon="bubbles"></span></div>
+  <p style="font-size:28px;font-weight:800">"어떻게 붙어요?" 대신 <span style="color:var(--down)">"어떻게 잘해요?"</span> · 인턴이 아니라면 <span style="color:var(--up)">채용설명회·커피챗</span>에서 같은 질문을.</p>
 </section>
 <!-- 25. 4부 표지 -->
 <section class="slide section" data-part="4부 · AI 활용">
@@ -1207,11 +1231,11 @@ ul.bad li::before{background:var(--up)}
 <!-- 31-1. 가져갈 3가지 -->
 <section class="slide" data-part="마무리">
   <div class="kicker">오늘 가져갈 것</div>
-  <h2>세 가지만 기억하고, 내일 세 가지만 해 보세요</h2>
+  <h2>세 가지만 기억하고, 이번 주에 세 가지만 해 보세요</h2>
   <div class="take grow">
-    <div class="tk"><span class="sn">1</span><b>영업은 마음을 얻는 일</b><p>맞는 고객을 고르는 것이 첫걸음입니다.</p><div class="todo">내일: 현직자에게 "어떻게 잘해요?" 질문 1개 (설명회·커피챗)</div></div>
-    <div class="tk"><span class="sn">2</span><b>증거는 만드는 것</b><p>없으면 여러분 방식으로 지금 만듭니다.</p><div class="todo">내일: 자소서 첫 문장을 내가 만든 증거로</div></div>
-    <div class="tk hot"><span class="sn">3</span><b>"어떻게 잘해요?"를 물어라</b><p>입사 후까지 보면 붙을 가능성이 높아집니다.</p><div class="todo">내일: 시황 세 줄 — 무슨 일 / 왜 / 내 고객에게 어떻게 말할까</div></div>
+    <div class="tk"><span class="sn">1</span><b>영업은 마음을 얻는 일</b><p>맞는 고객을 고르는 것이 첫걸음입니다.</p><div class="todo">이번 주: 현직자 질문 1개 (학생 페이지 양식 ③)</div></div>
+    <div class="tk"><span class="sn">2</span><b>증거는 만드는 것</b><p>없으면 여러분 방식으로 지금 만듭니다.</p><div class="todo">이번 주: 자소서 첫 문장 고치기 (양식 ②)</div></div>
+    <div class="tk hot"><span class="sn">3</span><b>"어떻게 잘해요?"를 물어라</b><p>입사 후까지 보면 붙을 가능성이 높아집니다.</p><div class="todo">이번 주: 매일 시황 세 줄 (양식 ①)</div></div>
   </div>
 </section>
 <!-- 32. Q&A -->
