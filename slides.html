@@ -738,6 +738,11 @@ ul.bad li::before{background:var(--up)}
 .hardest p b{color:#FF8090}
 .faq3 .fq3{padding:24px 22px}
 
+/* 8차 반영 */
+.ivmore{display:flex;align-items:center;gap:18px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 24px}
+.ivmore .chip{flex:none}
+.ivmore p{font-size:22px;line-height:1.45;margin:0}
+
 .help{position:fixed;left:16px;bottom:12px;font:13px var(--sans);color:#6F7F96;opacity:.8;user-select:none}
 @media (prefers-reduced-motion:no-preference){ .slide.on{animation:in .25s ease-out} @keyframes in{from{opacity:.4}to{opacity:1}} }
 </style>
@@ -877,7 +882,7 @@ ul.bad li::before{background:var(--up)}
   <div class="phases four grow">
     <div class="ph"><span class="ico xl" data-icon="phone"></span><span class="when mono">출근길</span><h3>시장 공부</h3><p>텔레그램 채널과 네이버 프리미엄콘텐츠로 밤사이 시장 소식을 읽으며 출근합니다</p></div>
     <div class="ph"><span class="ico xl" data-icon="people"></span><span class="when mono">07:40 출근</span><h3>회의</h3><p>실적 회의와 시황 회의. 오늘 고객에게 무슨 이야기를 할지 정합니다</p></div>
-    <div class="ph hot"><span class="ico xl up" data-icon="candle"></span><span class="when mono">09:00 ~</span><h3>장 시작, 영업 시작</h3><p>고객 응대, 자산 섭외, 외부 영업까지 이어집니다</p></div>
+    <div class="ph hot"><span class="ico xl up" data-icon="candle"></span><span class="when mono">09:00 ~</span><h3>장 시작, 영업 시작</h3><p>고객 응대, 자산 섭외, 외부 방문·법인 퇴직연금 상담. 점심은 한 달 2~3번 고객과(대부분 제가 먼저 청합니다)</p></div>
     <div class="ph"><span class="ico xl" data-icon="moon"></span><span class="when mono">15:30 장 마감 후</span><h3>관리와 퇴근</h3><p>서류·녹취 점검, 일일보고, 고객 사후관리. 보통 <b>18:00~18:30 퇴근</b></p></div>
   </div>
 </section>
@@ -994,7 +999,7 @@ ul.bad li::before{background:var(--up)}
 <!-- 8-5. 적성 체크 -->
 <section class="slide" data-part="1부 · PB란">
   <div class="kicker">나는 PB가 맞을까?</div>
-  <h2>30초 자가진단: 세 개 중 두 개 이상이면 진지하게 고민해 보세요</h2>
+  <h2>30초 자가진단: 두 개 이상이면 손을 들어 보세요</h2>
   <div class="check grow">
     <div class="ck"><span class="box"></span><b>거절을 듣고도 다음 날 다시 연락할 수 있다</b></div>
     <div class="ck"><span class="box"></span><b>숫자로 평가받는 게 오히려 동기부여가 된다</b></div>
@@ -1055,7 +1060,7 @@ ul.bad li::before{background:var(--up)}
     <div class="step"><span class="n mono">2</span><b>내게 증거가 있나?</b><span>없다면 자격증 하나 더로 끝내지 말고 →</span></div>
     <div class="step hot"><span class="n mono">3</span><b>증거를 직접 만든다</b><span>그 역량을 보여 줄 경험을 내가 설계</span></div>
   </div>
-  <p class="muted" style="font-size:22px">학회·동아리가 있다면: 리포트 개수가 아니라 "그 분석을 고객 1명에게 설명해 본 경험"으로 바꾸세요.<br>다른 직무라면: 마케팅은 SNS 계정 실험, 회계는 공시 분석 글 3편, IT는 작은 서비스 배포</p>
+  <p class="muted" style="font-size:22px">학회·동아리가 있다면: 리포트 개수가 아니라 "그 분석을 고객 1명에게 설명해 본 경험"으로 바꾸세요.<br>증권사 다른 직무라면: IB 지망은 공시 분석 글 3편, 리서치 지망은 기업 리포트 1편을 현직자에게 피드백받기</p>
   <p style="font-size:32px;font-weight:700">기본 스펙 위에, 남들과 다른 증거를. 제 이야기를 해 보겠습니다.</p>
 </section>
 <!-- 14-0. 처음 자소서 -->
@@ -1150,8 +1155,9 @@ ul.bad li::before{background:var(--up)}
   <div class="iv grow">
     <div class="ivq"><span class="qn">Q1</span><b>1분 자기소개</b><p class="arr2">→ <b>증거 + 숫자 + 배운 점</b></p><p class="muted">제 경우: 명함집을 펼치며 "준비하면서 만난 30여 명의 현직자분들입니다." 그 뒤엔 "느낀 점", "차이점" 질문이 따라왔습니다.</p></div>
     <div class="ivq"><span class="qn">Q2</span><b>요즘 시장, 어떻게 보세요?</b><p class="arr2">→ <b>시황 세 줄</b></p><p class="muted">예시 답 틀: "이번 주 가장 큰 일은 ○○입니다(무슨 일). ○○ 때문입니다(왜). 그래서 은퇴를 앞둔 고객께는 한 번에 사기보다 나눠서 들어가시라고 말씀드리겠습니다(내 고객에게)."</p></div>
-    <div class="ivq hot"><span class="qn">Q3</span><b>이 상품을 고객에게 팔아 보세요</b><p class="arr2">→ <b>고객부터 4단계</b></p><p class="muted">예시 답: "연금저축펀드라면, 먼저 노후 준비 기간과 세액공제가 필요한 분인지 여쭙겠습니다. 맞는 분이면 위험까지 설명하고, 아니면 권하지 않겠습니다."</p></div>
+    <div class="ivq hot"><span class="qn">Q3</span><b>이 상품을 고객에게 팔아 보세요</b><p class="arr2">→ <b>고객부터 4단계</b></p><p class="muted">예시 답: "연금저축펀드라면 ① 노후 준비 기간과 세액공제가 필요한 분인지 여쭙고 ② 지금 가진 상품부터 점검한 뒤 ③ 손실 가능성까지 설명드리고 ④ 맞지 않는 분이면 권하지 않겠습니다."</p></div>
   </div>
+  <div class="ivmore"><span class="chip ink">이어서 자주 나오는 질문</span><p><b>"왜 PB, 왜 우리 회사?"</b> → 면접장 공식(직접 본 사실 + 끌린 점 + 내가 맞는 이유) · <b>"목표를 못 채우면?"</b> → "더 많은 고객을 만나되, 맞지 않는 분께 억지로 팔지는 않겠습니다"</p></div>
 </section>
 <!-- 9-1. 전형·자격증 -->
 <section class="slide" data-part="2부 · 취업 전략">
@@ -1171,7 +1177,7 @@ ul.bad li::before{background:var(--up)}
     <div class="grid3">
       <div class="card"><h3>지원 자격</h3><p class="muted">4년제 학사 이상(졸업예정 포함), <b style="color:var(--ink)">전공 무관</b>. PB·IB·리서치 등 전 부문 모집.</p></div>
       <div class="card"><h3>작은 가점도 챙기기</h3><p class="muted">채용설명회 참석자에게 서류전형 가점. 정보는 현장에서 얻습니다.</p></div>
-      <div class="card"><h3>자격증 우선순위</h3><p class="muted">① 투자권유자문인력(고객에게 상품을 권하려면 필요) ② 여유 있으면 투자자산운용사 ③ 그 이상은 "증거 만들기"가 먼저</p></div>
+      <div class="card"><h3>자격증 우선순위</h3><p class="muted">① 투자권유자문인력: 3학년 방학까지(상품을 권하려면 필요) ② 투자자산운용사: 서류 마감 전 여유가 있을 때만 ③ 그 이상보다 증거 1개가 먼저</p></div>
     </div>
   </div>
   <p class="src">출처: 파이낸셜뉴스·한국경제 2026.9.16 · AI면접은 4부의 모의 면접 방법으로 연습할 수 있습니다 · 회사·시기마다 전형이 다르니 공고문을 꼭 확인하세요</p>
@@ -1185,7 +1191,7 @@ ul.bad li::before{background:var(--up)}
     <div class="grid4">
       <div class="card"><span class="ico xl" data-icon="book"></span><h3>자격증은 기본 체크</h3><p class="muted">투자권유자문인력은 기본. 있으면 좋지만, 그것만으로 차별화되지는 않습니다.</p></div>
       <div class="card"><span class="ico xl" data-icon="phone"></span><h3>시장 공부는 습관</h3><p class="muted">매일 시황 세 줄 요약. "요즘 시장"을 물으면 바로 답할 수 있게.</p></div>
-      <div class="card"><span class="ico xl" data-icon="spark"></span><h3>전공을 무기로</h3><p class="muted">공대생이면 반도체 산업을, 고객 언어로 쉽게 설명할 수 있습니다.</p></div>
+      <div class="card"><span class="ico xl" data-icon="spark"></span><h3>전공을 무기로</h3><p class="muted">공대생이라면: "HBM이 뭐예요?" → "AI 서버 GPU 옆에 붙는 초고속 메모리라, AI 서버가 늘수록 메모리 회사 실적이 좋아집니다."</p></div>
       <div class="card" style="border:2px solid var(--up)"><span class="ico xl up" data-icon="handshake"></span><h3>더 중요한 건 영업력</h3><p class="muted">사람을 만나 마음을 얻어 본 경험이 전공보다 강한 증거입니다.</p></div>
     </div>
   </div>
@@ -1199,7 +1205,7 @@ ul.bad li::before{background:var(--up)}
     <svg class="roadline" viewBox="0 0 1400 60" aria-hidden="true"><path d="M30 30H1370" stroke="#D8DEE7" stroke-width="8" stroke-linecap="round"/><circle cx="240" cy="30" r="16" fill="#1C5BD0"/><circle cx="700" cy="30" r="16" fill="#1C5BD0"/><circle cx="1160" cy="30" r="16" fill="#D3263A"/></svg>
     <div class="grid3">
       <div class="card"><span class="chip down" style="align-self:flex-start">1·2학년</span><ul class="clean"><li>경제 뉴스 읽는 습관</li><li>아르바이트·동아리에서 사람을 상대해 본 경험</li><li>이번 학기 숫자 하나 만들기: 알바에서 재방문 고객 수 기록 등</li><li>시황 세 줄, 주 3회</li></ul></div>
-      <div class="card"><span class="chip down" style="align-self:flex-start">3학년</span><ul class="clean"><li>투자권유자문인력 등 기본 자격</li><li>채용설명회·현직자 커피챗에서 질문하기</li><li>채용연계형 인턴 지원: 자소서에 넣을 증거 1개를 먼저 정하기</li></ul></div>
+      <div class="card"><span class="chip down" style="align-self:flex-start">3학년</span><ul class="clean"><li>투자권유자문인력 등 기본 자격</li><li>채용설명회·현직자 커피챗에서 질문하기</li><li>채용연계형 인턴 지원: 자소서에 넣을 증거 1개를 먼저 정하기</li><li>이번 학기 3일 증거: 설명회·지점 5곳에서 현직자 질문하기</li></ul></div>
       <div class="card" style="border:2px solid var(--up)"><span class="chip up" style="align-self:flex-start">4학년</span><ul class="clean"><li>만든 증거를 자소서 첫 문장으로</li><li>시황 1분 말하기 연습</li><li>모의 면접(4부의 AI 활용)</li><li>3일 안에 만드는 작은 증거: 지인 3명에게 연금저축 설명해 보기</li></ul></div>
     </div>
   </div>
