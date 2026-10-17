@@ -508,6 +508,16 @@ ul.bad li::before{background:var(--up)}
 .tri{display:flex;align-items:center;justify-content:center}
 .tri svg{height:100%;width:auto;max-width:100%}
 
+/* 대표들 */
+.bosses{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-content:stretch}
+.boss{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px 24px;text-align:center}
+.boss.hot{border:2px solid var(--up)}
+.boss svg{width:120px;height:120px}
+.boss b{font-size:32px;font-weight:800}
+.boss .no3{font-size:24px;color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(211,38,58,.55);text-decoration-thickness:2px}
+.boss .yes3{font-size:24px;color:var(--muted);line-height:1.4}
+.boss .yes3 span{font-size:32px;font-weight:800;color:var(--up)}
+
 .help{position:fixed;left:16px;bottom:12px;font:13px var(--sans);color:#6F7F96;opacity:.8;user-select:none}
 @media (prefers-reduced-motion:no-preference){ .slide.on{animation:in .25s ease-out} @keyframes in{from{opacity:.4}to{opacity:1}} }
 </style>
@@ -627,8 +637,8 @@ ul.bad li::before{background:var(--up)}
   <h2>영업이라고 하면 보통 이렇게 생각합니다</h2>
   <div class="myths grow">
     <div class="myth"><span class="no">오해 1</span><b>"영업은 말단이 하는 일"</b><span class="arrow">→</span><p>영업은 회사의 매출을 만드는 일입니다. 직급이 올라갈수록 더 큰 영업을 합니다.</p></div>
-    <div class="myth"><span class="no">오해 2</span><b>"물건을 떠넘기는 일"</b><span class="arrow">→</span><p>고객에게 필요한 것을 찾아 맞는 해법을 제안하는 일입니다. 정해진 규정 안에서요.</p></div>
-    <div class="myth"><span class="no">오해 3</span><b>"압박만 크고 남는 게 없다"</b><span class="arrow">→</span><p>성과가 보상으로 가장 직접 연결되는 직무입니다. 조금 뒤 숫자로 보여 드리겠습니다.</p></div>
+    <div class="myth"><span class="no">오해 2</span><b>"고객에게 덤터기 씌우는 일"</b><span class="arrow">→</span><p>한 번 손해 본 고객은 다시 오지 않습니다. 영업은 오래 거래할 관계를 만드는 일이고, 정해진 규정 안에서 합니다.</p></div>
+    <div class="myth"><span class="no">오해 3</span><b>"술 잘 마시고 굽신거려야 한다"</b><span class="arrow">→</span><p>고객은 술자리가 아니라 전문성과 꾸준한 관리를 보고 자산을 맡깁니다. 필요한 건 비굴함이 아니라 신뢰입니다.</p></div>
   </div>
 </section>
 <!-- 7-3. CEO는 뭐 하는 사람 -->
@@ -642,152 +652,33 @@ ul.bad li::before{background:var(--up)}
     <div class="ans"><span class="ico" data-icon="handshake"></span><b>영업하는 사람입니다</b></div>
   </div>
 </section>
-<!-- 7-4a. 젠슨 황: 리더는 결정만 하는 사람이 아니다 -->
+<!-- 7-5. 대표들은 무엇을 하나 -->
 <section class="slide" data-part="1부 · 영업직이란">
-  <div class="kicker">엔비디아 CEO 젠슨 황이 말하는 리더</div>
-  <h2>리더는 결정만 내리는 사람이 아니라,<br>미래를 상상하고 조건을 만드는 사람입니다</h2>
-  <div class="vs3 grow">
-    <div class="vsl">
-      <svg viewBox="0 0 360 240" aria-hidden="true">
-        <rect x="70" y="40" width="220" height="160" rx="14" fill="#FFFFFF" stroke="#D8DEE7" stroke-width="3"/>
-        <path d="M100 85h160M100 115h160M100 145h100" stroke="#D8DEE7" stroke-width="10" stroke-linecap="round"/>
-        <g transform="rotate(-14 250 160)"><rect x="196" y="132" width="120" height="56" rx="8" fill="none" stroke="#AEB7C4" stroke-width="5"/><text x="256" y="170" text-anchor="middle" font-size="26" font-weight="800" fill="#AEB7C4" font-family="Pretendard,sans-serif">승인</text></g>
-      </svg>
-      <b>결정만 하는 리더</b><span>올라온 안건을 승인하거나 반려합니다</span>
+  <div class="kicker">각 분야의 최고 자리는 무엇을 할까?</div>
+  <h2>대표는 실무를 하는 사람이 아니라, 큰 딜을 따 오는 사람입니다</h2>
+  <div class="bosses grow">
+    <div class="boss">
+      <svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="56" fill="#E7EEFB"/><path d="M60 26v62M38 88h44M34 44h52M34 44l-12 26h24zM86 44l-12 26h24z" fill="none" stroke="#1C5BD0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <b>김앤장 대표 변호사</b>
+      <p class="no3">직접 소송하고 법정에 다닐까요?</p>
+      <p class="yes3">아니요.<br><span>큰 사건과 딜을 따 옵니다</span></p>
     </div>
-    <div class="vsarrow" aria-hidden="true">→</div>
-    <div class="vsr">
-      <svg viewBox="0 0 360 240" aria-hidden="true">
-        <path d="M20 210 C 120 210, 140 120, 230 110 S 330 60, 340 40" fill="none" stroke="#0D1B2E" stroke-width="10" stroke-linecap="round" stroke-dasharray="2 22"/>
-        <circle cx="40" cy="206" r="16" fill="#1C5BD0"/>
-        <path d="M330 72V18" stroke="#D3263A" stroke-width="6" stroke-linecap="round"/><path d="M330 18h-44l12 14-12 14h44" fill="#D3263A"/>
-        <text x="40" y="236" text-anchor="middle" font-size="18" fill="#5A6678" font-family="Pretendard,sans-serif">지금</text>
-        <text x="276" y="36" text-anchor="end" font-size="20" fill="#D3263A" font-weight="700" font-family="Pretendard,sans-serif">상상한 미래</text>
-      </svg>
-      <b>젠슨 황이 말하는 리더</b><span>미래를 먼저 그리고, 사람들이 거기까지 갈 조건을 만듭니다</span>
+    <div class="boss">
+      <svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="56" fill="#E7EEFB"/><rect x="34" y="26" width="52" height="68" rx="6" fill="none" stroke="#1C5BD0" stroke-width="5"/><path d="M44 44h32M44 58h32M44 72h18" stroke="#1C5BD0" stroke-width="5" stroke-linecap="round"/><circle cx="80" cy="82" r="12" fill="#E7EEFB" stroke="#1C5BD0" stroke-width="5"/><path d="M89 91l9 9" stroke="#1C5BD0" stroke-width="5" stroke-linecap="round"/></svg>
+      <b>삼일회계법인 대표 회계사</b>
+      <p class="no3">직접 감사 나가고 재무제표를 볼까요?</p>
+      <p class="yes3">아니요.<br><span>큰 고객사와 딜을 따 옵니다</span></p>
     </div>
-  </div>
-  <p class="src">출처: 스탠퍼드 경영대학원 View From The Top 대담(2024.3) · Acquired 팟캐스트 인터뷰 · 칼텍 졸업 축사(2024.6)</p>
-</section>
-
-<!-- 7-4b. ① 아직 없는 미래를 판다 -->
-<section class="slide" data-part="1부 · 영업직이란">
-  <div class="kicker">CEO의 영업 ① · 바깥을 향해</div>
-  <h2>아직 존재하지 않는 미래를 팝니다</h2>
-  <div class="corner grow">
-    <svg viewBox="0 0 640 520" role="img" aria-label="모퉁이 너머의 나무 밑에 미리 서 있는 회사">
-      <rect x="40" y="40" width="260" height="260" rx="10" fill="#E7EEFB"/>
-      <text x="170" y="178" text-anchor="middle" font-size="26" font-weight="700" fill="#1C5BD0" font-family="Pretendard,sans-serif">지금 보이는 시장</text>
-      <path d="M150 500 V 360 Q 150 320 190 320 H 560" fill="none" stroke="#D8DEE7" stroke-width="56" stroke-linecap="round"/>
-      <path d="M150 500 V 360 Q 150 320 190 320 H 560" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-dasharray="18 16"/>
-      <circle cx="510" cy="200" r="78" fill="#3F8F5A"/><rect x="500" y="250" width="20" height="70" fill="#7A5A3A"/>
-      <circle cx="470" cy="185" r="15" fill="#D3263A"/><circle cx="540" cy="170" r="15" fill="#D3263A"/>
-      <circle cx="505" cy="268" r="15" fill="#D3263A"/>
-      <path d="M505 288 v18" stroke="#D3263A" stroke-width="3" stroke-dasharray="4 4"/>
-      <circle cx="470" cy="320" r="24" fill="#0D1B2E"/><text x="470" y="328" text-anchor="middle" font-size="20" font-weight="800" fill="#FFFFFF" font-family="Pretendard,sans-serif">회사</text>
-      <text x="520" y="380" text-anchor="middle" font-size="22" font-weight="700" fill="#0D1B2E" font-family="Pretendard,sans-serif">모퉁이 너머, 나무 밑</text>
-      <text x="150" y="470" text-anchor="middle" font-size="20" fill="#5A6678" font-family="Pretendard,sans-serif">지금</text>
-    </svg>
-    <div class="ctext">
-      <div class="qline">"CEO의 일은 모퉁이 너머를 보고, 언젠가 기회가 생길 곳을 미리 내다보는 것. 사과가 떨어질 때 다이빙 캐치를 하려면 나무 밑 가까이 서 있어야 한다."<span>Acquired 팟캐스트 인터뷰 요지</span></div>
-      <div class="ex2"><span class="chip ink">1993 창업</span><p>3D 그래픽 + PC 게임, <b>아직 없던 시장</b>에 투자를 받았습니다.</p></div>
-      <div class="ex2"><span class="chip up">2006 CUDA</span><p>가속 컴퓨팅 시장이 없던 10년 동안에도 이 미래를 팔았습니다. 그 시장이 지금의 AI입니다.</p></div>
+    <div class="boss hot">
+      <svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="56" fill="#FBE9EB"/><rect x="34" y="34" width="52" height="52" rx="6" fill="none" stroke="#D3263A" stroke-width="5"/><rect x="48" y="48" width="24" height="24" rx="3" fill="#D3263A"/><path d="M44 34V24M60 34V24M76 34V24M44 96V86M60 96V86M76 96V86M34 44H24M34 60H24M34 76H24M96 44H86M96 60H86M96 76H86" stroke="#D3263A" stroke-width="4" stroke-linecap="round"/></svg>
+      <b>엔비디아 CEO 젠슨 황</b>
+      <p class="no3">직접 칩을 설계하고 있을까요?</p>
+      <p class="yes3">아니요.<br><span>전 세계를 돌며 빅딜을 따 옵니다</span></p>
     </div>
   </div>
+  <p style="font-size:32px;font-weight:800">직급이 올라갈수록 더 큰 딜을 따 옵니다. <span style="color:var(--up)">그게 영업입니다.</span></p>
 </section>
 
-<!-- 7-4c. ① 사례: 첫 투자 -->
-<section class="slide" data-part="1부 · 영업직이란">
-  <div class="kicker">CEO의 영업 ① · 사례: 첫 투자를 받던 날 (스탠퍼드 대담)</div>
-  <h2>설명은 망쳤는데, 투자는 받았습니다</h2>
-  <div class="story grow">
-    <div class="st"><span class="sn">1</span><b>사업계획서 없이 찾아갔습니다</b><p>사업계획서 쓰는 법 책을 샀지만 450쪽이라 포기했습니다.</p></div>
-    <div class="st"><span class="sn">2</span><b>설명은 실패했습니다</b><p>전 직장 CEO는 "무슨 말인지 하나도 모르겠다, 최악의 엘리베이터 피치"라고 했습니다.</p></div>
-    <div class="st hot"><span class="sn">3</span><b>그래도 투자를 받았습니다</b><p>그 CEO가 세쿼이아의 돈 밸런타인에게 전화했습니다. "우리 회사 최고의 직원이었다. 돈을 줘라."</p></div>
-  </div>
-  <div class="lesson"><span class="chip up">젠슨 황의 결론</span><p>면접은 망칠 수 있어도 <b>과거에서는 도망칠 수 없습니다. 좋은 과거를 만드세요.</b> 미래를 팔 때 담보가 되는 건 지금까지 쌓은 신뢰입니다.</p></div>
-</section>
-
-<!-- 7-4d. ② 안으로: 일생의 역작을 판다 -->
-<section class="slide" data-part="1부 · 영업직이란">
-  <div class="kicker">CEO의 영업 ② · 안을 향해</div>
-  <h2>최고의 인재에게 '일생의 역작'을 팝니다</h2>
-  <div class="talent grow">
-    <svg viewBox="0 0 560 460" role="img" aria-label="인재들이 하나의 꿈으로 모이는 그림">
-      <g stroke="#D8DEE7" stroke-width="3">
-        <path d="M280 230L80 80"/><path d="M280 230L280 40"/><path d="M280 230L480 80"/><path d="M280 230L60 260"/><path d="M280 230L500 260"/><path d="M280 230L130 420"/><path d="M280 230L430 420"/>
-      </g>
-      <g fill="#1C5BD0">
-        <circle cx="80" cy="80" r="26"/><circle cx="280" cy="40" r="26"/><circle cx="480" cy="80" r="26"/><circle cx="60" cy="260" r="26"/><circle cx="500" cy="260" r="26"/><circle cx="130" cy="420" r="26"/><circle cx="430" cy="420" r="26"/>
-      </g>
-      <circle cx="280" cy="230" r="86" fill="#D3263A"/>
-      <path d="M280 182l14 30 33 4-24 22 6 33-29-16-29 16 6-33-24-22 33-4z" fill="#FFFFFF"/>
-      <text x="280" y="294" text-anchor="middle" font-size="22" font-weight="800" fill="#FFFFFF" font-family="Pretendard,sans-serif">일생의 역작</text>
-    </svg>
-    <div class="ctext">
-      <div class="qline">"내 일은 아주 단순합니다. 여러분이 일생의 역작을 할 수 있는 조건을 만드는 것."<span>스탠퍼드 대담</span></div>
-      <p class="ptxt">최고의 엔지니어는 연봉만 보고 오지 않습니다. 인생을 걸 만한 꿈이 있는 곳으로 갑니다.</p>
-      <p class="ptxt">그래서 리더는 매일 회사의 꿈을 안으로 팔아야 합니다. 직원들이 그 꿈을 사는 순간, <b>매일 "내 대신" 똑똑한 결정</b>을 내리기 시작합니다.</p>
-    </div>
-  </div>
-</section>
-
-<!-- 7-4e. ③ 강요가 아니라 설득 -->
-<section class="slide" data-part="1부 · 영업직이란">
-  <div class="kicker">CEO의 영업 ③ · 방식</div>
-  <h2>결정을 강요하지 않고, 비전을 설득합니다</h2>
-  <div class="orgs grow">
-    <div class="org">
-      <svg viewBox="0 0 420 300" aria-hidden="true">
-        <circle cx="210" cy="40" r="22" fill="#AEB7C4"/>
-        <g stroke="#D8DEE7" stroke-width="3"><path d="M210 62L120 120M210 62L300 120M120 142L70 200M120 142L170 200M300 142L250 200M300 142L350 200M70 222L50 270M70 222L90 270M170 222L150 270M170 222L190 270M250 222L230 270M250 222L270 270M350 222L330 270M350 222L370 270"/></g>
-        <g fill="#AEB7C4"><circle cx="120" cy="130" r="16"/><circle cx="300" cy="130" r="16"/><circle cx="70" cy="210" r="13"/><circle cx="170" cy="210" r="13"/><circle cx="250" cy="210" r="13"/><circle cx="350" cy="210" r="13"/></g>
-        <g fill="#D8DEE7"><circle cx="50" cy="278" r="9"/><circle cx="90" cy="278" r="9"/><circle cx="150" cy="278" r="9"/><circle cx="190" cy="278" r="9"/><circle cx="230" cy="278" r="9"/><circle cx="270" cy="278" r="9"/><circle cx="330" cy="278" r="9"/><circle cx="370" cy="278" r="9"/></g>
-      </svg>
-      <b>지시하고 통제하는 조직</b><span>정보가 여러 층을 거치며 걸러집니다</span>
-    </div>
-    <div class="org hot">
-      <svg viewBox="0 0 420 300" aria-hidden="true" id="flatOrg"></svg>
-      <b>젠슨 황의 납작한 조직</b><span>직속 보고 약 50명, 생각하는 과정을 모두 앞에서 공개합니다</span>
-    </div>
-  </div>
-  <p style="font-size:28px;font-weight:700">주가가 80% 떨어졌을 때도 스스로 내향적이라는 그가 직원들 앞에 서서 설명했습니다. 설득은 리더가 직접 하는 영업입니다.</p>
-</section>
-
-<!-- 7-4f. 정리: 꿈꾸는 사람 = 최고의 영업사원 -->
-<section class="slide" data-part="1부 · 영업직이란">
-  <div class="kicker">정리하면</div>
-  <h2>꿈을 꾸는 사람과 최고의 영업사원은 같은 말입니다</h2>
-  <div class="tri grow">
-    <svg viewBox="0 0 1100 520" role="img" aria-label="CEO가 고객, 주주, 직원에게 각각 무엇을 파는지">
-      <g stroke="#D8DEE7" stroke-width="4"><path d="M550 270L180 110"/><path d="M550 270L920 110"/><path d="M550 270L550 470"/></g>
-      <circle cx="550" cy="270" r="84" fill="#0D1B2E"/>
-      <text x="550" y="282" text-anchor="middle" font-size="40" font-weight="800" fill="#FFFFFF" font-family="Pretendard,sans-serif">CEO</text>
-      <g font-family="Pretendard,sans-serif" text-anchor="middle">
-        <rect x="40" y="40" width="300" height="130" rx="18" fill="#FFFFFF" stroke="#D8DEE7" stroke-width="2"/>
-        <text x="190" y="92" font-size="32" font-weight="800" fill="#0D1B2E">고객에게</text>
-        <text x="190" y="136" font-size="24" fill="#D3263A" font-weight="700">아직 없는 미래의 가치</text>
-        <rect x="760" y="40" width="300" height="130" rx="18" fill="#FFFFFF" stroke="#D8DEE7" stroke-width="2"/>
-        <text x="910" y="92" font-size="32" font-weight="800" fill="#0D1B2E">주주에게</text>
-        <text x="910" y="136" font-size="24" fill="#D3263A" font-weight="700">불확실성을 감수할 비전</text>
-        <rect x="400" y="400" width="300" height="110" rx="18" fill="#FFFFFF" stroke="#D3263A" stroke-width="3"/>
-        <text x="550" y="446" font-size="32" font-weight="800" fill="#0D1B2E">직원에게</text>
-        <text x="550" y="488" font-size="24" fill="#D3263A" font-weight="700">인생을 걸 만한 꿈</text>
-      </g>
-    </svg>
-  </div>
-  <div class="lesson"><span class="chip up">칼텍 졸업 축사 (2024.6)</span><p>"관습적이지 않은, 아직 아무도 가 보지 않은 무언가를 믿으세요." <b>PB도 고객에게는 미래를, 회사 안에서는 내 아이디어를 팝니다.</b></p></div>
-</section>
-
-<!-- 7-5. 회계법인·로펌 대표 -->
-<section class="slide" data-part="1부 · 영업직이란">
-  <div class="kicker">다른 업계의 대표들은?</div>
-  <h2>대표는 무엇을 하러 다닐까요?</h2>
-  <div class="grid2 grow" style="align-content:center">
-    <div class="card"><span class="ico xl" data-icon="doc"></span><h3>회계법인 대표</h3><p class="muted">직접 감사 나가고, 재무제표를 들여다볼까요?</p><p class="deal">아닙니다. <b>딜 따러 다닙니다.</b></p></div>
-    <div class="card"><span class="ico xl" data-icon="book"></span><h3>대형 로펌 대표</h3><p class="muted">직접 소송하고, 법정에 다닐까요?</p><p class="deal">아닙니다. <b>딜 따러 다닙니다.</b></p></div>
-  </div>
-</section>
 <!-- 7-6. 깐부회동 -->
 <section class="slide kkanbu" data-part="1부 · 영업직이란">
   <div class="kicker">2025년 10월 30일 · 서울 삼성동 깐부치킨</div>
