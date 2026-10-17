@@ -841,6 +841,13 @@ ul.bad li::before{background:var(--up)}
 .big2{font-size:40px;font-weight:800;line-height:1.35;margin:0}
 .big2 b{color:var(--up)}
 
+.cant{display:grid;grid-template-columns:1fr 80px 1fr;gap:20px;align-items:stretch}
+.cw{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:34px 38px;display:flex;flex-direction:column;justify-content:center;gap:20px}
+.cw.hot{border:2px solid var(--up)}
+.cw .chip{align-self:flex-start}
+.cw li{font-size:30px;font-weight:700}
+.carrow{display:flex;align-items:center;justify-content:center;font-size:56px;color:var(--muted)}
+
 .help{position:fixed;left:16px;bottom:12px;font:13px var(--sans);color:#6F7F96;opacity:.8;user-select:none}
 @media (prefers-reduced-motion:no-preference){ .slide.on{animation:in .25s ease-out} @keyframes in{from{opacity:.4}to{opacity:1}} }
 </style>
@@ -1042,7 +1049,7 @@ ul.bad li::before{background:var(--up)}
       <p class="muted" style="font-size:22px">시장이 빠져서 빠진 건 고객도 다 이해하십니다. 고객이 기억하는 건 그때 누가 먼저 연락했는가입니다.</p>
     </div>
   </div>
-  <p style="font-size:30px;font-weight:800">다른 증권사 PB와의 차이는 <span style="color:var(--up)">손실 났을 때</span> 만들어집니다. 이게 고객 관리의 핵심입니다.</p>
+  <p style="font-size:30px;font-weight:800">다른 증권사 PB와의 차이는 <span style="color:var(--up)">손실 났을 때</span> 만들어집니다.<br>이게 고객 관리의 핵심입니다.</p>
 </section>
 <!-- 8-1. 팀장님 메시지 -->
 <section class="slide chatslide" data-part="1부 · PB란">
@@ -1064,7 +1071,7 @@ ul.bad li::before{background:var(--up)}
     <div class="s4"><span class="sn">3</span><b>신규 고객 찾기</b><p>개인이든 법인이든 새 고객을 만들 길을 찾아 접촉합니다.</p></div>
     <div class="s4 hot"><span class="sn">4</span><b>안 맞으면 권하지 않기</b><p>일부러 권하지 않는 경우도 당연히 많습니다.</p></div>
   </div>
-  <p style="font-size:28px;font-weight:800">맞는 고객을 고르고, 끊임없이 제안하고 설득하는 것. <span style="color:var(--up)">그게 마음을 얻는 첫걸음입니다.</span></p>
+  <p style="font-size:28px;font-weight:800">맞는 고객을 고르고, 끊임없이 제안하고 설득하는 것.<br><span style="color:var(--up)">그게 마음을 얻는 첫걸음입니다.</span></p>
 </section>
 <!-- 8-3. 외적 / 내적 -->
 <section class="slide" data-part="1부 · PB란">
@@ -1120,7 +1127,7 @@ ul.bad li::before{background:var(--up)}
       </g>
     </svg>
   </div>
-  <p style="font-size:30px;font-weight:800">그래서 지금 이 자리에 있습니다. 그런데 <span style="color:var(--up)">취업 시장은 정해진 길이 아닐 수 있습니다.</span></p>
+  <p style="font-size:30px;font-weight:800">그래서 지금 이 자리에 있습니다.<br>그런데 <span style="color:var(--up)">취업 시장은 정해진 길이 아닐 수 있습니다.</span></p>
 </section>
 <!-- 9b. 무기는 다 다르다 -->
 <section class="slide" data-part="2부 · 취업 전략">
@@ -1173,7 +1180,7 @@ ul.bad li::before{background:var(--up)}
       <div class="hq"><span class="n">3</span>이걸 어떻게 보여 줄 수 있지?</div>
     </div>
   </div>
-  <p style="font-size:30px;font-weight:800">추상적인 거 압니다. 그 추상적인 걸 <span style="color:var(--up)">미친 듯이 고민한 사람</span>과 안 한 사람은 크게 차이 납니다.</p>
+  <p style="font-size:30px;font-weight:800">추상적인 거 압니다.<br>그 추상적인 걸 <span style="color:var(--up)">미친 듯이 고민한 사람</span>과 안 한 사람은 크게 차이 납니다.</p>
 </section>
 <!-- 11. 영상 -->
 <section class="slide" data-part="2부 · 취업 전략">
@@ -1371,7 +1378,7 @@ ul.bad li::before{background:var(--up)}
     <div class="arbtext">
       <div class="when2"><span class="chip ink">몇 년 뒤</span><p>누구나 AI를 당연히 잘 씁니다. "이 자료를 10분 만에, 홈페이지를 5분 만에 만들었다"가 전혀 놀랍지 않습니다.</p></div>
       <div class="when2 hot"><span class="chip up">지금</span><p>아직은 놀라움을 주고, 그만큼 <b>인센티브를 얻는 구간</b>입니다.</p></div>
-      <p class="arbend">이 차익이 언제 사라질지는 모릅니다. <span style="color:var(--up)">그래서 지금, 정말 잘 써야 합니다.</span></p>
+      <p class="arbend">이 차익이 언제 사라질지는 모릅니다.<br><span style="color:var(--up)">그래서 지금, 정말 잘 써야 합니다.</span></p>
     </div>
   </div>
 </section>
@@ -1402,14 +1409,14 @@ ul.bad li::before{background:var(--up)}
       <p class="lead" style="color:var(--ink);font-size:30px;font-weight:800;margin:0">왜 그럴까요?</p>
       <div class="when2"><span class="chip ink">판단은 사람</span><p>AI로 리포트를 쓰고 자료를 만들 수는 있습니다. 하지만 그 결과물이 좋은지 아닌지 알아보는 능력은 사람이 가져야 합니다.</p></div>
       <div class="when2"><span class="chip ink">아직은 직관</span><p>AI에게 채점을 시킬 수도 있습니다. 그래도 아직 인간의 직관을 못 따라가는 영역이 있습니다.</p></div>
-      <p class="arbend">그래서 <span style="color:var(--up)">직관을 기르는 것</span>, 결국 내 지능을 높이는 것이 핵심입니다.</p>
+      <p class="arbend">그래서 <span style="color:var(--up)">직관을 기르는 것</span>,<br>결국 내 지능을 높이는 것이 핵심입니다.</p>
     </div>
   </div>
 </section>
 <!-- 26c. 저는 이렇게 -->
 <section class="slide" data-part="4부 · AI 활용">
   <div class="kicker">그럼 저는 어떻게 쓸까?</div>
-  <h2>고객에게 보내는 글은 <span style="color:var(--up)">전부 AI가 씁니다</span></h2>
+  <h2>고객에게 보내는 많은 글을 <span style="color:var(--up)">AI가 씁니다</span></h2>
   <div class="myai grow">
     <div class="aiw"><span class="ico xl" data-icon="speech"></span><b>고객 문자 코멘트</b></div>
     <div class="aiw"><span class="ico xl" data-icon="doc"></span><b>투자 제안서</b></div>
@@ -1418,7 +1425,7 @@ ul.bad li::before{background:var(--up)}
   </div>
   <div class="aiqa">
     <div class="q">"AI가 쓴 티 나지 않아요? 고객이 알아차리지 않을까요?"</div>
-    <div class="a"><span>그렇지 않습니다. <b>어떻게 쓰느냐에 따라</b> 얼마든지 보완할 수 있는 문제입니다.</span></div>
+    <div class="a"><span>그렇지 않습니다. <b>어떻게 쓰느냐에 따라</b> 얼마든지 보완할 수 있는 문제입니다.<br>그리고 숫자를 다루는 일이라, 옮기고 계산하는 건 AI가 저보다 실수가 적습니다.</span></div>
   </div>
 </section>
 <!-- 27-1. 요약봇 -->
@@ -1451,30 +1458,22 @@ ul.bad li::before{background:var(--up)}
     </div>
   </div>
 </section>
-<!-- 29. 취업 준비에 쓰는 법 -->
+<!-- 26e. AI가 못 하는 것 -->
 <section class="slide" data-part="4부 · AI 활용">
-  <div class="kicker">오늘 바로 써 보세요</div>
-  <h2>취업 준비에 AI를 쓰는 세 가지 방법</h2>
-  <div class="grid3 grow" style="align-content:center">
-    <div class="card"><h3>자소서 첨삭</h3><div class="prompt">증권사 PB 면접관 입장에서 이 자소서의 약점 3개만 지적해 줘.</div></div>
-    <div class="card"><h3>모의 면접</h3><div class="prompt">증권사 지점 PB 1차 면접관 역할로 질문을 하나씩 해 줘. 내 답마다 피드백도.</div></div>
-    <div class="card"><h3>시황 공부</h3><div class="prompt">오늘 미국 증시 소식을 대학생이 이해하게 3줄로. 출처 링크도 붙여 줘.</div></div>
+  <div class="kicker">그런데 AI가 대신 못 하는 것</div>
+  <h2>손실 난 고객에게 먼저 거는 전화는, <span style="color:var(--up)">AI가 대신 못 합니다</span></h2>
+  <div class="cant grow">
+    <div class="cw"><span class="chip ink">AI에게 맡기는 것</span><ul class="clean"><li>문자·제안서·레터 초안</li><li>밤사이 시장 정리</li><li>숫자 옮기기와 계산</li></ul></div>
+    <div class="carrow" aria-hidden="true">→</div>
+    <div class="cw hot"><span class="chip up">아낀 시간으로 제가 하는 것</span><ul class="clean"><li>고객에게 먼저 전화하기</li><li>얼굴 보고 상담하기</li><li>마음을 얻는 일</li></ul></div>
   </div>
-</section>
-<!-- 30. 주의 -->
-<section class="slide" data-part="4부 · AI 활용">
-  <div class="kicker">단, 이것만은 지키세요</div>
-  <h2>AI를 잘 쓰는 사람의 세 가지 습관</h2>
-  <div class="grid3 grow" style="align-content:center">
-    <div class="card"><span class="n mono" style="color:var(--up);font-size:22px">01</span><h3>숫자와 사실은 원문으로 확인</h3><p class="muted" style="font-size:24px">AI도 그럴듯하게 틀립니다. 금융에서는 숫자 하나가 신뢰입니다.</p></div>
-    <div class="card"><span class="n mono" style="color:var(--up);font-size:22px">02</span><h3>고객·회사 정보는 넣지 않기</h3><p class="muted" style="font-size:24px">이름, 계좌, 내부 자료는 AI 창에 붙여 넣지 않습니다.</p></div>
-    <div class="card"><span class="n mono" style="color:var(--up);font-size:22px">03</span><h3>초안은 AI, 마무리는 나</h3><p class="muted" style="font-size:24px">그대로 낸 자소서는 티가 납니다. 내 경험으로 고쳐 쓰세요.</p></div>
-  </div>
+  <p style="font-size:30px;font-weight:800">AI로 아낀 시간을, <span style="color:var(--up)">고객에게 씁니다.</span></p>
 </section>
 <!-- 31. 마무리 -->
 <section class="slide section" data-part="4부 · AI 활용">
   <div class="big">마지막으로</div>
-  <h1 style="font-size:80px">AI가 내 자리를 뺏기 전에,<br>AI를 잘 쓰는 동료가<br>먼저 기회를 가져갑니다</h1>
+  <h1 style="font-size:80px">몇 년 뒤엔<br>모두가 AI를 잘 씁니다</h1>
+  <p class="lead" style="font-size:40px">차익은 시한부입니다. <span style="color:#FF8090;font-weight:800">지금의 격차를 내 것으로 만드세요.</span></p>
 </section>
 <!-- 31-1. 가져갈 3가지 -->
 <section class="slide" data-part="마무리">
