@@ -562,10 +562,10 @@ ul.bad li::before{background:var(--up)}
 
 /* 2차 평가 반영 */
 .src{font-size:20px!important}
-.mythgrid{display:grid;grid-template-columns:1.15fr 1fr;gap:24px;align-content:stretch}
+.mythgrid{display:grid;grid-template-columns:1fr 1.15fr;gap:24px;align-content:stretch}
 .m1,.mc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 28px;display:flex;flex-direction:column;gap:12px;justify-content:center}
 .m23{display:grid;grid-template-rows:1fr 1fr;gap:20px}
-.mh{display:flex;align-items:baseline;gap:16px}
+.mh{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
 .m1 .no,.mc .no{font-size:22px;font-weight:700;color:var(--up)}
 .m1 b,.mc>b{font-size:32px;font-weight:800}
 .ma{font-size:24px;color:var(--muted);line-height:1.5}
@@ -744,7 +744,7 @@ ul.bad li::before{background:var(--up)}
 .ivmore p{font-size:22px;line-height:1.45;margin:0}
 
 /* 9차 반영 */
-.daynum{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.daynum{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .daynum>div{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 10px}
 .daynum>div.hot{border:2px solid var(--up)}
 .daynum b{font-size:40px;font-weight:800;line-height:1.1;color:var(--ink)}
@@ -894,16 +894,16 @@ ul.bad li::before{background:var(--up)}
   <div class="kicker">② 영업직이란? 회사가 정한 테두리 안에서 고객을 넓히고 실적을 달성하는 일</div>
   <h2>그런데 영업이라고 하면 보통 이렇게 생각합니다</h2>
   <div class="mythgrid grow">
+    <div class="m23">
+      <div class="mc"><span class="no">오해 1</span><b>"고객에게 덤터기 씌우는 일"</b><p>원금 손실 가능성까지 정확히 설명해야 관계가 오래갑니다. 불완전판매 사태 이후 설명 규정은 더 엄격해졌습니다.</p></div>
+      <div class="mc"><span class="no">오해 2</span><b>"술 잘 마시고 굽신거려야 한다"</b><p>제 경우 저녁을 고객과 먹는 일은 거의 없고, 점심은 한 달에 두세 번, 그마저도 대부분 제가 먼저 청합니다. 접대를 원한 고객은 없었습니다.</p></div>
+    </div>
     <div class="m1">
-      <div class="mh"><span class="no">오해 1</span><b>"영업은 말단이 하는 일"</b></div>
+      <div class="mh"><span class="no">오해 3</span><b>"영업은 말단이 하는 일"</b></div>
       <p class="ma">대표들도 결정하고 조직을 이끕니다. 그런데 가장 큰 일 중 하나는 <b>큰 딜을 따 오는 것</b>입니다.</p>
       <div class="bossrow"><span class="ico lg" data-icon="scale"></span><b>김앤장 대표 변호사</b><span>직접 소송보다 큰 사건과 딜을 따 옵니다</span></div>
       <div class="bossrow"><span class="ico lg" data-icon="doc"></span><b>삼일회계법인 대표 회계사</b><span>직접 감사보다 큰 고객사와 딜을 따 옵니다</span></div>
       <div class="bossrow hot"><span class="ico lg up" data-icon="chip"></span><b>엔비디아 CEO 젠슨 황</b><span>칩 설계보다 전 세계를 돌며 빅딜을 따 옵니다</span></div>
-    </div>
-    <div class="m23">
-      <div class="mc"><span class="no">오해 2</span><b>"고객에게 덤터기 씌우는 일"</b><p>원금 손실 가능성까지 정확히 설명해야 관계가 오래갑니다. 불완전판매 사태 이후 설명 규정은 더 엄격해졌습니다.</p></div>
-      <div class="mc"><span class="no">오해 3</span><b>"술 잘 마시고 굽신거려야 한다"</b><p>제 경우 저녁을 고객과 먹는 일은 거의 없고, 점심은 한 달에 두세 번, 그마저도 대부분 제가 먼저 청합니다. 접대를 원한 고객은 없었습니다.</p></div>
     </div>
   </div>
   <p style="font-size:30px;font-weight:800">보상이 큰 자리일수록 일은 <span style="color:var(--up)">영업에 가까워집니다.</span></p>
@@ -964,14 +964,13 @@ ul.bad li::before{background:var(--up)}
     <h2>지하철에서 이미<br>시장 공부가<br>시작됩니다</h2>
     <ul class="clean">
       <li>구독 중인 텔레그램 채널 수십 곳에 밤사이 쌓인 메시지를 훑습니다</li>
-      <li>버터대디 네이버 프리미엄콘텐츠로 시장 흐름을 읽습니다</li>
+      <li>구독 중인 네이버 프리미엄콘텐츠로 시장 흐름을 읽습니다</li>
       <li>오늘 고객에게 보낼 시황 문자의 재료를 모읍니다</li>
     </ul>
-    <p class="hint">그런데 이 화면에는 비밀이 하나 있습니다. 4부에서 공개합니다.</p>
   </div>
   <div class="phones">
     <figure class="phone"><div class="scr"><img src="images/telegram.png" alt="텔레그램 구독 채널 목록" onerror="this.parentNode.classList.add('missing')"><span class="ph-miss">텔레그램 캡처<br><small>images/telegram.png</small></span></div><figcaption>텔레그램 · 구독 채널 목록</figcaption></figure>
-    <figure class="phone"><div class="scr reel"><img src="images/nepcon.jpg" alt="버터대디 네이버 프리미엄콘텐츠 글 목록" onerror="this.parentNode.classList.add('missing')"><span class="ph-miss">네프콘 캡처<br><small>images/nepcon.jpg</small></span></div><figcaption>버터대디 · 네이버 프리미엄콘텐츠</figcaption></figure>
+    <figure class="phone"><div class="scr reel"><img src="images/nepcon.jpg" alt="네이버 프리미엄콘텐츠 글 목록" onerror="this.parentNode.classList.add('missing')"><span class="ph-miss">네프콘 캡처<br><small>images/nepcon.jpg</small></span></div><figcaption>네이버 프리미엄콘텐츠</figcaption></figure>
   </div>
 </section>
 <!-- 6. 9시 이후 -->
@@ -985,8 +984,7 @@ ul.bad li::before{background:var(--up)}
   </div>
   <div class="daynum">
     <div><b>30<small>건+</small></b><span>하루 고객 연락</span></div>
-    <div><b>900<small>명</small></b><span>관리 고객</span></div>
-    <div class="hot"><b>150<small>명</small></b><span>실제로 함께 움직이는 고객</span></div>
+    <div class="hot"><b>500<small>명+</small></b><span>관리 고객</span></div>
     <div><b>2~3<small>명</small></b><span>하루 내점 고객</span></div>
     <div><b>2<small>건</small></b><span>주당 외부 방문</span></div>
   </div>
@@ -996,10 +994,10 @@ ul.bad li::before{background:var(--up)}
   <div class="kicker">여러분이 진짜 궁금한 것 · 제 경우입니다</div>
   <h2>신입 PB의 현실, 솔직하게 답합니다</h2>
   <div class="faq3 grow">
-    <div class="fq3"><span class="ico xl" data-icon="coins"></span><b>연봉과 성과급은?</b><p>문과가 높은 연봉을 받을 수 있는 곳, 금융권이 거의 유일합니다. 기본급 + 성과급. 영업직 성과급은 내가 만든 수익에서 비용을 뺀 만큼에 지급률을 곱하는 곳이 많습니다. 숫자는 말로 드리겠습니다.</p></div>
+    <div class="fq3"><span class="ico xl" data-icon="coins"></span><b>연봉과 성과급은?</b><p>기본급 + 성과급. 성과급 비중이 훨씬 큰 구조입니다.</p></div>
     <div class="fq3"><span class="ico xl" data-icon="target"></span><b>실적 목표는?</b><p>목표는 "월 신규 자산 ○억", "창출 수익 ○○○○만 원" 같은 단위로 받습니다.</p></div>
     <div class="fq3"><span class="ico xl" data-icon="moon"></span><b>퇴근과 주말은?</b><p>18:00~18:30 퇴근. 주말 출근은 한 번도 없었습니다. 주말 하루는 공부합니다(고객 주말 레터, 리포트, 요즘은 AI).</p></div>
-    <div class="fq3"><span class="ico xl" data-icon="pin"></span><b>발령은?</b><p>보통 거주지 기준입니다. 서울에서 일하다 갑자기 지방으로 가는 경우는 거의 없고, 서울 안에서 돕니다.</p></div>
+    <div class="fq3"><span class="ico xl" data-icon="pin"></span><b>발령은?</b><p>보통 거주지 기준입니다.</p></div>
   </div>
   <div class="hardest"><span class="chip up">가장 힘든 순간</span><p>저를 정말 좋아해 주시고 저도 좋아하는 고객께 주식이든 상품이든 <b>큰 손실이 났을 때</b>입니다. 최근처럼 시장이 빠지면 모든 고객이 함께 영향을 받아서, 그럴 때 정말 속상합니다.</p></div>
 </section>
@@ -1037,9 +1035,9 @@ ul.bad li::before{background:var(--up)}
     <div class="s4"><span class="sn">1</span><b>고객 분류</b><p>가진 고객을 모두 다시 분류합니다. 이 상품이 맞을 투자 성향·목적·기간인지부터 봅니다.</p></div>
     <div class="s4"><span class="sn">2</span><b>보유 상품 점검</b><p>고객이 가진 상품 중 환매하거나 교체할 만한 것이 있는지 고민합니다.</p></div>
     <div class="s4"><span class="sn">3</span><b>신규 고객 찾기</b><p>개인이든 법인이든 새 고객을 만들 길을 찾아 접촉합니다.</p></div>
-    <div class="s4 hot"><span class="sn">4</span><b>안 맞으면 권하지 않기</b><p>위험까지 설명하고 결정은 고객이. 일부러 권하지 않는 경우도 당연히 많습니다.</p></div>
+    <div class="s4 hot"><span class="sn">4</span><b>안 맞으면 권하지 않기</b><p>일부러 권하지 않는 경우도 당연히 많습니다.</p></div>
   </div>
-  <p style="font-size:28px;font-weight:800">맞는 고객을 고르는 것, <span style="color:var(--up)">그게 마음을 얻는 첫걸음입니다.</span> <span class="muted" style="font-weight:600;font-size:22px">(금융소비자보호법: 적합성·설명의무)</span></p>
+  <p style="font-size:28px;font-weight:800">맞는 고객을 고르고, 끊임없이 제안하고 설득하는 것. <span style="color:var(--up)">그게 마음을 얻는 첫걸음입니다.</span></p>
 </section>
 <!-- 8-3. 외적 / 내적 -->
 <section class="slide" data-part="1부 · PB란">
