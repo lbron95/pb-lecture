@@ -523,6 +523,43 @@ ul.bad li::before{background:var(--up)}
 .kphoto img{width:100%;max-height:560px;object-fit:cover;border-radius:16px;display:block}
 .kphoto figcaption{font-size:16px;color:var(--muted)}
 
+/* 평가 반영 */
+.fill{border:2px dashed var(--up);border-radius:12px;padding:12px 16px;background:#FFF7F8;color:var(--up);font-size:21px;font-weight:600;line-height:1.45}
+.phases.four{grid-template-columns:repeat(4,1fr)}
+.phases.four .ph{margin-right:24px;padding-right:24px}
+.phases.four .ph p{font-size:24px}
+.phases.four .ph h3{font-size:34px}
+.pbjob{display:grid;grid-template-columns:360px 1fr;gap:28px;align-items:stretch}
+.custs{display:flex;flex-direction:column;gap:18px;justify-content:center}
+.cust2{display:flex;align-items:center;gap:18px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
+.cust2 .ico{color:var(--down)}
+.cust2>div{display:flex;flex-direction:column;gap:4px}
+.cust2 b{font-size:30px}
+.cust2 span:not(.ico){font-size:20px;color:var(--muted)}
+.roles3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.roles3 .card{justify-content:center;padding:30px 28px}
+.roles3 .card h3{font-size:34px}
+.roles3 .card p{font-size:24px;color:var(--muted)}
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-content:stretch}
+.fq{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 28px;display:flex;flex-direction:column;gap:12px;justify-content:center}
+.fq b{font-size:30px}
+.fq p{font-size:22px;color:var(--muted);line-height:1.5}
+.steps4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-content:stretch}
+.s4{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:14px;justify-content:center}
+.s4.hot{border:2px solid var(--up)}
+.s4 .sn{width:52px;height:52px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;line-height:1}
+.s4.hot .sn{background:var(--up)}
+.s4 b{font-size:30px}
+.hire{display:flex;flex-direction:column;gap:20px;justify-content:center}
+.hire svg{width:100%;height:auto}
+.hire .card h3{font-size:30px}
+.hire .card p{font-size:22px}
+.rule1{font-size:24px;color:var(--muted);background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 20px;margin-top:-8px}
+.have.none{color:var(--muted)}
+.have .dash{width:52px;height:52px;border-radius:50%;background:var(--paper);border:1px solid var(--line);color:var(--muted);display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800;line-height:1;flex:none}
+.have .nt{margin-left:auto;font-size:22px;color:var(--muted)}
+.no2q{font-size:32px;color:var(--muted);font-weight:700}
+
 .help{position:fixed;left:16px;bottom:12px;font:13px var(--sans);color:#6F7F96;opacity:.8;user-select:none}
 @media (prefers-reduced-motion:no-preference){ .slide.on{animation:in .25s ease-out} @keyframes in{from{opacity:.4}to{opacity:1}} }
 </style>
@@ -626,7 +663,7 @@ ul.bad li::before{background:var(--up)}
         <path d="M512 186 L420 130"/><path d="M505 214 L382 230"/><path d="M515 240 L438 306"/>
         <path d="M588 186 L680 130"/><path d="M596 214 L722 233"/><path d="M585 240 L662 306"/>
       </g>
-      <text x="300" y="400" font-size="22" fill="#1C5BD0" font-weight="700" font-family="Pretendard,sans-serif">고객 확장</text>
+      <text x="262" y="412" font-size="22" fill="#1C5BD0" font-weight="700" font-family="Pretendard,sans-serif">고객 확장</text>
       <g transform="translate(940 210)">
         <circle r="80" fill="none" stroke="#D3263A" stroke-width="6"/><circle r="50" fill="none" stroke="#D3263A" stroke-width="6"/><circle r="18" fill="#D3263A"/>
         <text y="122" text-anchor="middle" font-size="24" fill="#D3263A" font-weight="800" font-family="Pretendard,sans-serif">실적 달성</text>
@@ -646,44 +683,32 @@ ul.bad li::before{background:var(--up)}
     <div class="myth"><span class="no">오해 3</span><b>"술 잘 마시고 굽신거려야 한다"</b><span class="arrow">→</span><p>고객은 술자리가 아니라 전문성과 꾸준한 관리를 보고 자산을 맡깁니다. 필요한 건 비굴함이 아니라 신뢰입니다.</p></div>
   </div>
 </section>
-<!-- 7-3. CEO는 뭐 하는 사람 -->
-<section class="slide" data-part="1부 · 영업직이란">
-  <div class="kicker">곰곰이 생각해 보세요</div>
-  <h2>우리나라에선 영업을 제일 말단이 한다고 생각합니다.<br>그럼 <span style="color:var(--up)">CEO</span>는 뭐 하는 사람일까요?</h2>
-  <div class="ceo grow">
-    <div class="opt"><span class="xmark">✕</span><b>의사결정?</b></div>
-    <div class="opt"><span class="xmark">✕</span><b>정책 결정?</b></div>
-    <div class="opt"><span class="xmark">✕</span><b>조직 관리?</b></div>
-    <div class="ans"><span class="ico" data-icon="handshake"></span><b>영업하는 사람입니다</b></div>
-  </div>
-</section>
 <!-- 7-5. 대표들은 무엇을 하나 -->
 <section class="slide" data-part="1부 · 영업직이란">
-  <div class="kicker">각 분야의 최고 자리는 무엇을 할까?</div>
-  <h2>대표는 실무를 하는 사람이 아니라, 큰 딜을 따 오는 사람입니다</h2>
+  <div class="kicker">우리나라에선 영업을 말단이 한다고 생각합니다. 그럼 대표는?</div>
+  <h2>대표도 결정하고 조직을 이끕니다.<br>그런데 가장 큰 일 중 하나는 <span style="color:var(--up)">큰 딜을 따 오는 것</span>입니다</h2>
   <div class="bosses grow">
     <div class="boss">
       <svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="56" fill="#E7EEFB"/><path d="M60 26v62M38 88h44M34 44h52M34 44l-12 26h24zM86 44l-12 26h24z" fill="none" stroke="#1C5BD0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <b>김앤장 대표 변호사</b>
       <p class="no3">직접 소송하고 법정에 다닐까요?</p>
-      <p class="yes3">아니요.<br><span>큰 사건과 딜을 따 옵니다</span></p>
+      <p class="yes3">그보다 더 큰 일은<br><span>큰 사건과 딜을 따 옵니다</span></p>
     </div>
     <div class="boss">
       <svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="56" fill="#E7EEFB"/><rect x="34" y="26" width="52" height="68" rx="6" fill="none" stroke="#1C5BD0" stroke-width="5"/><path d="M44 44h32M44 58h32M44 72h18" stroke="#1C5BD0" stroke-width="5" stroke-linecap="round"/><circle cx="80" cy="82" r="12" fill="#E7EEFB" stroke="#1C5BD0" stroke-width="5"/><path d="M89 91l9 9" stroke="#1C5BD0" stroke-width="5" stroke-linecap="round"/></svg>
       <b>삼일회계법인 대표 회계사</b>
       <p class="no3">직접 감사 나가고 재무제표를 볼까요?</p>
-      <p class="yes3">아니요.<br><span>큰 고객사와 딜을 따 옵니다</span></p>
+      <p class="yes3">그보다 더 큰 일은<br><span>큰 고객사와 딜을 따 옵니다</span></p>
     </div>
     <div class="boss hot">
       <svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="56" fill="#FBE9EB"/><rect x="34" y="34" width="52" height="52" rx="6" fill="none" stroke="#D3263A" stroke-width="5"/><rect x="48" y="48" width="24" height="24" rx="3" fill="#D3263A"/><path d="M44 34V24M60 34V24M76 34V24M44 96V86M60 96V86M76 96V86M34 44H24M34 60H24M34 76H24M96 44H86M96 60H86M96 76H86" stroke="#D3263A" stroke-width="4" stroke-linecap="round"/></svg>
       <b>엔비디아 CEO 젠슨 황</b>
       <p class="no3">직접 칩을 설계하고 있을까요?</p>
-      <p class="yes3">아니요.<br><span>전 세계를 돌며 빅딜을 따 옵니다</span></p>
+      <p class="yes3">그보다 더 큰 일은<br><span>전 세계를 돌며 빅딜을 따 옵니다</span></p>
     </div>
   </div>
-  <p style="font-size:32px;font-weight:800">직급이 올라갈수록 더 큰 딜을 따 옵니다. <span style="color:var(--up)">그게 영업입니다.</span></p>
+  <p style="font-size:32px;font-weight:800">보상이 큰 자리일수록 일은 <span style="color:var(--up)">영업에 가까워집니다.</span></p>
 </section>
-
 <!-- 7-6. 깐부회동 -->
 <section class="slide kkanbu" data-part="1부 · 영업직이란">
   <div class="kicker">2025년 10월 30일 · 서울 삼성동 깐부치킨</div>
@@ -691,33 +716,18 @@ ul.bad li::before{background:var(--up)}
   <div class="kk2 grow">
     <figure class="kphoto"><img src="images/kkanbu.jpg" alt="깐부치킨에서 치킨과 맥주를 나누는 이재용 회장, 정의선 회장, 젠슨 황 CEO"><figcaption>왼쪽부터 이재용 삼성전자 회장, 정의선 현대차그룹 회장, 젠슨 황 엔비디아 CEO · 사진: 연합뉴스(코리아타임스 게재)</figcaption></figure>
     <div class="vs2">
-      <p class="no2"><span class="xmark">✕</span>건전한 인류의 발전을 논하는 자리?</p>
-      <p class="yes2"><span class="ico" data-icon="handshake"></span><b>영업하는 자리입니다.</b></p>
-      <p class="muted" style="font-size:24px;line-height:1.5">치킨집에서도 대표들은 빅딜을 만듭니다.</p>
+      <p class="no2q">그냥 치킨 먹는 친목 자리였을까요?</p>
+      <p class="yes2"><span class="ico" data-icon="handshake"></span><b>다음 날, 빅딜이 발표됐습니다</b></p>
+      <p style="font-size:26px;line-height:1.5">2025년 10월 31일, 엔비디아는 한국 정부·삼성·SK·현대차·네이버에 <b>GPU 약 26만 장(최대 약 14조 원)</b> 공급을 발표했습니다.</p><p class="muted" style="font-size:17px">출처: 머니투데이·뉴스토마토 2025.10.31</p>
     </div>
   </div>
-</section>
-
-<!-- 7-7. 연봉 2024 -->
-<section class="slide" data-part="1부 · 영업직이란">
-  <div class="kicker">숫자로 보면</div>
-  <h2>2024년 증권사 보수 상위 10명 (대표·회장 제외)</h2>
-  <div class="paytable grow" data-year="2024"></div>
-  <p class="src">출처: 증권사 25곳 2024년 사업보고서(DART) 「임원의 보수 등」 직접 집계 · 대표이사·회장·부회장·고문 제외, 퇴직자 포함 · 직무는 공시의 성과급 산정기준 설명 기준</p>
 </section>
 <!-- 7-8. 연봉 2025 -->
 <section class="slide" data-part="1부 · 영업직이란">
   <div class="kicker">숫자로 보면</div>
-  <h2>2025년 증권사 보수 상위 10명 (대표·회장 제외)</h2>
+  <h2>대표·회장을 뺀 증권사 보수 상위 10명, <span style="color:var(--up)">9명이 영업·딜 담당</span></h2>
   <div class="paytable grow" data-year="2025"></div>
-  <p class="src">출처: 증권사 25곳 2025년 사업보고서(DART) 「임원의 보수 등」 직접 집계 · 대표이사·회장·부회장·고문 제외, 퇴직자 포함 · * 이정란: 공시엔 직무 기재 없음, 언론 보도(뉴스스페이스 2026.8.30) 기준</p>
-</section>
-<!-- 7-9. 정리 -->
-<section class="slide stmt" data-part="1부 · 영업직이란" style="justify-content:center" data-stmt>
-  <div class="kicker">정리하면</div>
-  <h1>대표·회장을 뺀 보수 상위 10명,<br>2024년 <span style="color:var(--up)">10명</span>, 2025년 <span style="color:var(--up)">9명</span>이<br>영업과 딜 담당이었습니다</h1>
-  <p class="lead">PB, 리테일, 채권 중개, 지점장, IB·구조화 딜. 나머지 1명은 공시에 직무가 적혀 있지 않습니다.</p>
-  <div class="deco" aria-hidden="true"><span class="ico" data-icon="inflow"></span></div>
+  <p class="src">출처: 증권사 25곳 2025년 사업보고서(DART) 「임원의 보수 등」 직접 집계 · 대표이사·회장·부회장·고문 제외, 퇴직자 포함 · 개인정보 보호를 위해 이름은 가림 · 2024년에도 상위 10명 전원이 영업·딜 담당이었습니다.</p>
 </section>
 <!-- 1-3. PB의 위치 -->
 <section class="slide" data-part="1부 · PB란">
@@ -743,17 +753,17 @@ ul.bad li::before{background:var(--up)}
 </section>
 <!-- 4. PB란 -->
 <section class="slide" data-part="1부 · PB란">
-  <div class="kicker">PB · 지점 영업이란</div>
-  <h2>리테일 고객의 자산을 관리하고, 상품을 세일즈하는 사람</h2>
-  <div class="pbdef grow">
-    <div class="who">
-      <div class="cust"><span class="ico lg" data-icon="person"></span><div><span class="chip down">개인 고객</span><p>예금·주식·연금 등 개인의 자산을 함께 관리합니다</p></div></div>
-      <div class="cust"><span class="ico lg" data-icon="building"></span><div><span class="chip down">법인 고객</span><p>회사 자금 운용, 임직원 퇴직연금까지 상담합니다</p></div></div>
+  <div class="kicker">③ PB란?</div>
+  <h2>개인·법인 고객의 자산을 관리하고, 상품을 세일즈하는 사람</h2>
+  <div class="pbjob grow">
+    <div class="custs">
+      <div class="cust2"><span class="ico lg" data-icon="person"></span><div><b>개인 고객</b><span>예금·주식·연금 등 개인 자산</span></div></div>
+      <div class="cust2"><span class="ico lg" data-icon="building"></span><div><b>법인 고객</b><span>회사 자금, 임직원 퇴직연금</span></div></div>
     </div>
-    <div class="arrow" aria-hidden="true"><svg viewBox="0 0 60 40" width="60" height="40"><path d="M2 20h48M38 6l14 14-14 14" fill="none" stroke="#0D1B2E" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-    <div class="what">
-      <div class="do"><span class="ico lg inv" data-icon="shield"></span><div><b>자산 관리</b><span>시장이 움직이면 먼저 연락하고 계좌를 점검합니다</span></div></div>
-      <div class="do"><span class="ico lg inv" data-icon="doc"></span><div><b>상품 세일즈</b><span>고객 상황에 맞는 상품을 제안하고 판매합니다</span></div></div>
+    <div class="roles3">
+      <div class="card role"><span class="ico xl" data-icon="inflow"></span><span class="n">01</span><h3>고객 자산 유치</h3><p>고객의 자산을 회사로 모셔 오고, 빠져나간 자산을 되찾습니다.</p></div>
+      <div class="card role"><span class="ico xl" data-icon="doc"></span><span class="n">02</span><h3>상품 섭외</h3><p>연금·펀드·채권 등 고객에게 맞는 상품을 제안합니다.</p></div>
+      <div class="card role"><span class="ico xl" data-icon="userplus"></span><span class="n">03</span><h3>신규 고객 창출</h3><p>처음 만나는 개인과 법인을 고객으로 만듭니다.</p></div>
     </div>
   </div>
 </section>
@@ -761,10 +771,11 @@ ul.bad li::before{background:var(--up)}
 <section class="slide" data-part="1부 · PB란">
   <div class="kicker">PB의 하루 타임라인</div>
   <h2>장이 열리기 전에 하루가 이미 시작됩니다</h2>
-  <div class="phases grow">
+  <div class="phases four grow">
     <div class="ph"><span class="ico xl" data-icon="phone"></span><span class="when mono">출근길</span><h3>시장 공부</h3><p>텔레그램 채널과 네이버 프리미엄콘텐츠로 밤사이 시장 소식을 읽으며 출근합니다</p></div>
     <div class="ph"><span class="ico xl" data-icon="people"></span><span class="when mono">출근 직후</span><h3>회의</h3><p>실적 회의와 시황 회의. 오늘 고객에게 무슨 이야기를 할지 정합니다</p></div>
     <div class="ph hot"><span class="ico xl up" data-icon="candle"></span><span class="when mono">09:00 ~</span><h3>장 시작, 영업 시작</h3><p>고객 응대, 자산 섭외, 외부 영업까지 이어집니다</p></div>
+    <div class="ph"><span class="ico xl" data-icon="moon"></span><span class="when mono">15:30 장 마감 ~</span><h3>정리와 퇴근</h3><p>장 마감 후 계좌 점검, 제안서·보고서 정리</p><div class="fill">✎ 실제 퇴근 시간·주말 근무 여부</div></div>
   </div>
 </section>
 <!-- 5-1. 출근길 화면 -->
@@ -793,22 +804,16 @@ ul.bad li::before{background:var(--up)}
     <div class="card place" style="border:2px solid var(--up)"><span class="ico xl up" data-icon="bag"></span><h3>밖에서</h3><ul class="clean"><li>고객 외부 방문</li><li>퇴직연금: 법인에 직접 나가 상담</li><li>세미나 진행</li></ul></div>
   </div>
 </section>
-<!-- 7. 하는 일 3가지 -->
+<!-- 6-1. 신입 PB의 현실 -->
 <section class="slide" data-part="1부 · PB란">
-  <div class="kicker">PB가 하는 일</div>
-  <h2>결국 PB의 일은 세 가지로 모입니다</h2>
-  <div class="grid3 grow" style="align-content:center">
-    <div class="card role"><span class="ico xl" data-icon="inflow"></span><span class="n">01</span><h3>고객 자산 유치</h3><p>고객의 자산을 우리 회사로 모셔 옵니다. 빠져나간 자산을 되찾는 일도 포함됩니다.</p></div>
-    <div class="card role"><span class="ico xl" data-icon="doc"></span><span class="n">02</span><h3>상품 섭외</h3><p>연금·펀드·채권 등 고객에게 맞는 상품을 제안하고 판매합니다.</p></div>
-    <div class="card role"><span class="ico xl" data-icon="userplus"></span><span class="n">03</span><h3>신규 고객 창출</h3><p>처음 만나는 개인과 법인을 고객으로 만듭니다.</p></div>
+  <div class="kicker">여러분이 진짜 궁금한 것</div>
+  <h2>신입 PB의 현실, 솔직하게 답합니다</h2>
+  <div class="faq grow">
+    <div class="fq"><b>신입 연봉과 성과급은?</b><p>영업직 성과급은 "내가 만든 수익 − 비용(BEP)"에 지급률을 곱해 정합니다(각 사 사업보고서 공시 기준). 그래서 89억은 평균이 아니라 끝단입니다.</p><div class="fill">✎ 신입 초봉 수준, 성과급이 붙기 시작하는 시점</div></div>
+    <div class="fq"><b>실적 목표를 못 채우면? 지인 영업?</b><div class="fill">✎ 목표 구조, 못 채웠을 때 실제로 생기는 일, 지인 영업 여부</div></div>
+    <div class="fq"><b>퇴근과 주말은?</b><div class="fill">✎ 평소 퇴근 시간, 세미나·주말 일정</div></div>
+    <div class="fq"><b>지방 발령과 1~3년차 경로는?</b><div class="fill">✎ 첫 배치 방식, 1~3년차에 하는 일과 성장 경로</div></div>
   </div>
-</section>
-<!-- 8. 영업력 -->
-<section class="slide stmt" data-part="1부 · PB란" style="justify-content:center" data-stmt>
-  <div class="kicker">이 일에 가장 필요한 것</div>
-  <h1>PB에게 가장 필요한 건<br><span style="color:var(--up)">영업력</span>입니다</h1>
-  <p class="lead">그럼 영업력이란 무엇일까요?</p>
-  <div class="deco" aria-hidden="true"><span class="ico" data-icon="handshake"></span></div>
 </section>
 <!-- 8-1. 팀장님 메시지 -->
 <section class="slide chatslide" data-part="1부 · PB란">
@@ -820,9 +825,20 @@ ul.bad li::before{background:var(--up)}
   </div>
   <p style="font-size:32px;font-weight:700">여러분이라면 뭐라고 답하시겠어요?</p>
 </section>
+<!-- 8-1a. 제 답 -->
+<section class="slide" data-part="1부 · PB란">
+  <div class="kicker">그래서 저는 이렇게 답했습니다</div>
+  <h2>"다음 주까지 A펀드 10억", 실제로는 이렇게 팔았습니다</h2>
+  <div class="steps4 grow">
+    <div class="s4"><span class="sn">1</span><b>누구에게?</b><div class="fill">✎ 먼저 떠올린 고객과 그 이유</div></div>
+    <div class="s4"><span class="sn">2</span><b>어떻게 연락?</b><div class="fill">✎ 첫 연락 방법과 꺼낸 말</div></div>
+    <div class="s4"><span class="sn">3</span><b>고객의 반응은?</b><div class="fill">✎ 거절·질문과 대응</div></div>
+    <div class="s4 hot"><span class="sn">4</span><b>결과</b><div class="fill">✎ 최종 결과와 배운 점</div></div>
+  </div>
+</section>
 <!-- 8-2. 마음을 얻는 일 -->
 <section class="slide" data-part="1부 · PB란">
-  <div class="kicker">영업력의 정의</div>
+  <div class="kicker">PB에게 가장 필요한 건 영업력</div>
   <h2>영업력은 상대의 마음을 얻는 일입니다</h2>
   <div class="heartflow grow">
     <div class="node"><span class="ico xxl" data-icon="person"></span><b>PB</b></div>
@@ -842,7 +858,7 @@ ul.bad li::before{background:var(--up)}
     <div class="axis">
       <div class="axhead"><span class="chip ink">외적</span><span class="muted">처음 3초에 보이는 것</span></div>
       <div class="tiles">
-        <div class="tile"><span class="ico lg" data-icon="shirt"></span><b>외모 관리</b></div>
+        <div class="tile"><span class="ico lg" data-icon="shirt"></span><b>단정한 복장·첫인상</b></div>
         <div class="tile"><span class="ico lg" data-icon="speech"></span><b>호감을 얻는 말투</b></div>
         <div class="tile"><span class="ico lg" data-icon="wave"></span><b>목소리 톤</b></div>
         <div class="tile"><span class="ico lg" data-icon="type"></span><b>정제된 어휘</b></div>
@@ -875,6 +891,29 @@ ul.bad li::before{background:var(--up)}
   <h1>스펙보다 전략</h1>
   <p class="lead">취업 전략은 조금 다르게 이야기해 보겠습니다.</p>
 </section>
+<!-- 9-1. 전형·자격증 -->
+<section class="slide" data-part="2부 · 취업 전략">
+  <div class="kicker">먼저 현실부터: 증권사는 이렇게 뽑습니다</div>
+  <h2>예: 한국투자증권 2026년 하반기 신입 공채</h2>
+  <div class="hire grow">
+    <svg viewBox="0 0 1400 170" role="img" aria-label="서류전형부터 최종면접까지 다섯 단계">
+      <g font-family="Pretendard,sans-serif" text-anchor="middle">
+        <rect x="10" y="40" width="230" height="90" rx="16" fill="#FFFFFF" stroke="#D8DEE7" stroke-width="2"/><text x="125" y="96" font-size="30" font-weight="800" fill="#0D1B2E">서류전형</text>
+        <rect x="300" y="40" width="250" height="90" rx="16" fill="#FFFFFF" stroke="#D8DEE7" stroke-width="2"/><text x="425" y="96" font-size="30" font-weight="800" fill="#0D1B2E">직무역량평가</text>
+        <rect x="610" y="40" width="200" height="90" rx="16" fill="#FFFFFF" stroke="#D8DEE7" stroke-width="2"/><text x="710" y="96" font-size="30" font-weight="800" fill="#0D1B2E">AI면접</text>
+        <rect x="870" y="40" width="230" height="90" rx="16" fill="#FFFFFF" stroke="#D8DEE7" stroke-width="2"/><text x="985" y="96" font-size="30" font-weight="800" fill="#0D1B2E">1·2차 면접</text>
+        <rect x="1160" y="40" width="230" height="90" rx="16" fill="#0D1B2E"/><text x="1275" y="96" font-size="30" font-weight="800" fill="#FFFFFF">최종면접</text>
+        <g fill="#AEB7C4"><path d="M250 85l36 0M276 73l12 12-12 12" stroke="#AEB7C4" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M560 85l36 0M586 73l12 12-12 12" stroke="#AEB7C4" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M820 85l36 0M846 73l12 12-12 12" stroke="#AEB7C4" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M1110 85l36 0M1136 73l12 12-12 12" stroke="#AEB7C4" stroke-width="5" fill="none" stroke-linecap="round"/></g>
+      </g>
+    </svg>
+    <div class="grid3">
+      <div class="card"><h3>지원 자격</h3><p class="muted">4년제 학사 이상(졸업예정 포함), <b style="color:var(--ink)">전공 무관</b>. PB·IB·리서치 등 전 부문 모집.</p></div>
+      <div class="card"><h3>작은 가점도 챙기기</h3><p class="muted">채용설명회 참석자에게 서류전형 가점. 정보는 현장에서 얻습니다.</p></div>
+      <div class="card"><h3>자격증</h3><p class="muted">증권·펀드·파생상품 투자권유자문인력은 고객에게 상품을 권유하려면 필요한 자격입니다. 필수 여부는 공고마다 확인하세요.</p><div class="fill">✎ 입사 전에 따 두면 좋은지, 강사님 경험</div></div>
+    </div>
+  </div>
+  <p class="src">출처: 파이낸셜뉴스 「한국투자증권, 하반기 신입사원 공채」 2026.9.16 · 회사·시기마다 전형이 다르니 반드시 공고문을 확인하세요</p>
+</section>
 <!-- 10. 두 가지 질문 -->
 <section class="slide" data-part="2부 · 취업 전략">
   <div class="kicker">취업 전략의 출발점</div>
@@ -898,26 +937,11 @@ ul.bad li::before{background:var(--up)}
     </div>
   </div>
 </section>
-<!-- 12. 게임 규칙 -->
-<section class="slide" data-part="2부 · 취업 전략">
-  <div class="kicker">게임 규칙</div>
-  <h2>게스트 10명의 O/X 답이 정확히 5 대 5로 갈리는 문장을 내라</h2>
-  <div class="rules grow">
-    <div class="guests" aria-label="게스트 10명 중 5명 O, 5명 X">
-      <span class="g o">O</span><span class="g o">O</span><span class="g o">O</span><span class="g o">O</span><span class="g o">O</span>
-      <span class="g x">X</span><span class="g x">X</span><span class="g x">X</span><span class="g x">X</span><span class="g x">X</span>
-    </div>
-    <ul class="clean">
-      <li>처음 보는 게스트 10명을 1시간 동안 조사합니다</li>
-      <li>12글자 이내의 문장을 내고, 게스트 답이 5 대 5로 갈리면 1점</li>
-      <li>1라운드 3문제, 2라운드 5문제. 사이에 추가 조사 10분</li>
-    </ul>
-  </div>
-</section>
 <!-- 13. 남들 vs 홍진호 -->
 <section class="slide" data-part="2부 · 취업 전략">
   <div class="kicker">같은 게임, 다른 접근</div>
   <h2>다른 사람은 정보를 캐냈고, 홍진호는 정보를 만들었습니다</h2>
+  <p class="rule1">게임 규칙: 처음 보는 게스트 10명의 O/X 답이 <b>정확히 5 대 5로 갈리는</b> 12글자 이내 문장을 내면 1점</p>
   <div class="grid2 grow" style="align-content:center">
     <div class="card"><span class="chip ink" style="align-self:flex-start">다른 참가자</span>
       <div class="mini-guests"><i class="q">?</i><i class="q">?</i><i class="q">?</i><i class="q">?</i><i class="q">?</i><i class="q">?</i><i class="q">?</i><i class="q">?</i><i class="q">?</i><i class="q">?</i></div>
@@ -951,9 +975,9 @@ ul.bad li::before{background:var(--up)}
       <div class="have"><span class="ico lg" data-icon="globe"></span><b>해외 봉사 활동</b></div>
     </div>
     <div class="card"><h3 class="muted">금융권 지원자에게 흔한 것</h3>
-      <div class="have no"><span class="xmark">✕</span><b>금융학회</b></div>
-      <div class="have no"><span class="xmark">✕</span><b>투자동아리</b></div>
-      <p class="muted" style="font-size:24px">영업력과 바로 이어지는 경험이 없었습니다.</p>
+      <div class="have none"><span class="dash">–</span><b>금융학회</b><span class="nt">없었습니다</span></div>
+      <div class="have none"><span class="dash">–</span><b>투자동아리</b><span class="nt">없었습니다</span></div>
+      <p style="font-size:26px;font-weight:700">있으면 좋지만, <span style="color:var(--up)">없어도 됩니다.</span> 증거는 지금 만들 수 있습니다.</p>
     </div>
   </div>
 </section>
@@ -1026,16 +1050,16 @@ ul.bad li::before{background:var(--up)}
       <div class="bubble">고객 자산은 어떻게 유치하세요?</div>
     </div>
   </div>
+  <p style="font-size:26px;font-weight:700">면접 질문이 나쁜 게 아닙니다. 질문을 들으면 <span style="color:var(--up)">관심이 합격에 있는지, 일에 있는지</span>가 보입니다. 회사는 일 잘할 사람을 뽑습니다.</p>
 </section>
-<!-- 18. 왜 -->
+<!-- 17-1. 인턴 사례 -->
 <section class="slide" data-part="3부 · 불합격 인턴">
-  <div class="kicker">왜 이 차이가 결과를 가를까</div>
-  <h2>회사는 '붙을 사람'이 아니라 '일 잘할 사람'을 뽑습니다</h2>
+  <div class="kicker">제가 직접 본 인턴들 (실명·학교는 가렸습니다)</div>
+  <h2>같은 기간, 다른 결과</h2>
   <div class="grid2 grow" style="align-content:center">
-    <div class="card"><span class="chip up" style="align-self:flex-start">합격에 초점</span><p>인턴 기간을 시험 기간으로 봅니다. 질문도, 행동도 평가를 잘 받는 데 맞춰져 있습니다.</p></div>
-    <div class="card" style="border:2px solid var(--down)"><span class="chip down" style="align-self:flex-start">입사 후 성과에 초점</span><p>이미 이 회사 직원처럼 생각합니다. 들어가서 어떻게 고객을 모시고 실적을 낼지 고민합니다.</p></div>
+    <div class="card"><span class="chip up" style="align-self:flex-start">인턴 A · 전환 실패</span><div class="fill">✎ 어떤 질문을 했고, 어떻게 행동했는지</div></div>
+    <div class="card" style="border:2px solid var(--down)"><span class="chip down" style="align-self:flex-start">인턴 B · 전환 성공</span><div class="fill">✎ 어떤 질문을 했고, 무엇을 남겼는지</div></div>
   </div>
-  <p style="font-size:32px;font-weight:700">선배들은 이 질문 하나로 "같이 일하고 싶은 사람"을 알아봅니다.</p>
 </section>
 <!-- 19. 정리 -->
 <section class="slide stmt" data-part="3부 · 불합격 인턴" style="justify-content:center" data-stmt>
@@ -1168,6 +1192,7 @@ const ICONS = {
   card: '<rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="8" cy="12" r="2"/><path d="M13 10h5M13 14h3.5"/>',
   pin: '<path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>',
   flag: '<path d="M5 21V4"/><path d="M5 4h12l-2 4 2 4H5"/>',
+  moon: '<path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/>',
   coins: '<ellipse cx="9" cy="6" rx="6" ry="2.5"/><path d="M3 6v4c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5V6"/><path d="M3 10v4c0 1.4 2.7 2.5 6 2.5"/><ellipse cx="15" cy="15" rx="6" ry="2.5"/><path d="M9 15v4c0 1.4 2.7 2.5 6 2.5s6-1.1 6-2.5v-4"/>',
   handshake: '<path d="M2 11l4-4 4 2 3-2 3 1 6 4"/><path d="M2 11l3 3"/><path d="M22 12l-3 3"/><path d="M8 14l2 2a1.4 1.4 0 0 0 2-2"/><path d="M10 12l3 3a1.4 1.4 0 0 0 2-2l-3-3"/><path d="M13 11l3 3a1.4 1.4 0 0 0 2-2l-3-3"/><path d="M5 14l3 3a1.4 1.4 0 0 0 2-2"/>',
   fork: '<circle cx="6" cy="19" r="2"/><circle cx="6" cy="5" r="2"/><circle cx="18" cy="7" r="2"/><path d="M6 7v10"/><path d="M18 9c0 5-12 3-12 8"/>',
@@ -1188,28 +1213,28 @@ addEventListener('resize', () => document.querySelectorAll('.scr.reel img').forE
 /* 증권사 보수 상위권 표 (금액 단위: 억원, 기사 기준) */
 const PAY = { // [이름, 회사·직위, 보수총액(억원), 직무(공시 산정기준 설명), 구분 s=영업 d=딜 u=미기재, 비고]
   2024: [
-    ['강정구', '삼성증권 수석', 93.24, 'PB 영업전문직', 's'],
-    ['김경성', '메리츠증권 前부사장', 89.92, '자본시장본부 영업팀', 's', '퇴직금 42.5억 포함'],
-    ['이종석', '유안타증권 리테일전담이사', 83.32, '리테일 주식 위탁영업', 's'],
-    ['유지훈', '상상인증권 상무', 68.70, '채권 중개·기관 영업', 's'],
-    ['황태영', '메리츠증권 前부사장', 53.98, '구조화투자 딜·신규 고객 유치', 'd', '퇴직금 25.3억 포함'],
-    ['윤창식', '메리츠증권 영업이사', 46.45, '개인 영업실적', 's'],
-    ['칼 코쉬니스키', '메리츠증권 前전무', 42.06, '구조화상품 본부', 'd', '퇴직금 3.1억 포함'],
-    ['신승호', '유안타증권 차장', 41.80, '채권·CP 중개 영업', 's'],
-    ['진현수', '부국증권 차장', 41.38, '영업부서 개인 영업성과', 's'],
-    ['정원석', '부국증권 부장', 40.76, '영업부서 개인 영업성과', 's']
+    ['강○○', '삼성증권 수석', 93.24, 'PB 영업전문직', 's'],
+    ['김○○', '메리츠증권 前부사장', 89.92, '자본시장본부 영업팀', 's', '퇴직금 42.5억 포함'],
+    ['이○○', '유안타증권 리테일전담이사', 83.32, '리테일 주식 위탁영업', 's'],
+    ['유○○', '상상인증권 상무', 68.70, '채권 중개·기관 영업', 's'],
+    ['황○○', '메리츠증권 前부사장', 53.98, '구조화투자 딜·신규 고객 유치', 'd', '퇴직금 25.3억 포함'],
+    ['윤○○', '메리츠증권 영업이사', 46.45, '개인 영업실적', 's'],
+    ['칼 ○○○○', '메리츠증권 前전무', 42.06, '구조화상품 본부', 'd', '퇴직금 3.1억 포함'],
+    ['신○○', '유안타증권 차장', 41.80, '채권·CP 중개 영업', 's'],
+    ['진○○', '부국증권 차장', 41.38, '영업부서 개인 영업성과', 's'],
+    ['정○○', '부국증권 부장', 40.76, '영업부서 개인 영업성과', 's']
   ],
   2025: [
-    ['윤창식', '메리츠증권 영업이사', 89.01, '개인 영업실적', 's'],
-    ['이종석', '유안타증권 리테일전담이사', 74.32, '리테일 주식 위탁영업', 's'],
-    ['정원석', '부국증권 이사보', 60.16, '영업부서 개인 영업성과', 's'],
-    ['구기일', '유안타증권 리테일전담이사', 41.97, '리테일 금융상품 영업', 's'],
-    ['주용국', '미래에셋증권 前부사장', 41.08, '직무 미기재', 'u', '퇴직금 27.7억 포함'],
-    ['김철은', '유진투자증권 前부사장', 40.28, 'IB부문 총괄', 'd', '퇴직금 36.9억 포함'],
-    ['이정란', '한국투자증권 차장', 40.27, '압구정PB센터 PB *', 's'],
-    ['문필복', '메리츠증권 전무', 39.80, '광화문금융센터장 · 개인 영업실적', 's'],
-    ['박신욱', '다올투자증권 수석매니저', 39.19, '채권 영업', 's'],
-    ['이세훈', '메리츠증권 부사장', 38.99, 'IB사업본부', 'd']
+    ['윤○○', '메리츠증권 영업이사', 89.01, '개인 영업실적', 's'],
+    ['이○○', '유안타증권 리테일전담이사', 74.32, '리테일 주식 위탁영업', 's'],
+    ['정○○', '부국증권 이사보', 60.16, '영업부서 개인 영업성과', 's'],
+    ['구○○', '유안타증권 리테일전담이사', 41.97, '리테일 금융상품 영업', 's'],
+    ['주○○', '미래에셋증권 前부사장', 41.08, '직무 미기재', 'u', '퇴직금 27.7억 포함'],
+    ['김○○', '유진투자증권 前부사장', 40.28, 'IB부문 총괄', 'd', '퇴직금 36.9억 포함'],
+    ['이○○', '한국투자증권 차장', 40.27, '압구정PB센터 PB', 's'],
+    ['문○○', '메리츠증권 전무', 39.80, '광화문금융센터장 · 개인 영업실적', 's'],
+    ['박○○', '다올투자증권 수석매니저', 39.19, '채권 영업', 's'],
+    ['이○○', '메리츠증권 부사장', 38.99, 'IB사업본부', 'd']
   ]
 };
 document.querySelectorAll('.paytable').forEach(el => {
