@@ -518,6 +518,11 @@ ul.bad li::before{background:var(--up)}
 .boss .yes3{font-size:24px;color:var(--muted);line-height:1.4}
 .boss .yes3 span{font-size:32px;font-weight:800;color:var(--up)}
 
+.kk2{display:grid;grid-template-columns:1fr 520px;gap:44px;align-items:center}
+.kphoto{margin:0;display:flex;flex-direction:column;gap:10px;min-width:0}
+.kphoto img{width:100%;max-height:560px;object-fit:cover;border-radius:16px;display:block}
+.kphoto figcaption{font-size:16px;color:var(--muted)}
+
 .help{position:fixed;left:16px;bottom:12px;font:13px var(--sans);color:#6F7F96;opacity:.8;user-select:none}
 @media (prefers-reduced-motion:no-preference){ .slide.on{animation:in .25s ease-out} @keyframes in{from{opacity:.4}to{opacity:1}} }
 </style>
@@ -683,18 +688,16 @@ ul.bad li::before{background:var(--up)}
 <section class="slide kkanbu" data-part="1부 · 영업직이란">
   <div class="kicker">2025년 10월 30일 · 서울 삼성동 깐부치킨</div>
   <h2>젠슨 황 · 이재용 · 정의선, '깐부 회동'</h2>
-  <div class="kk grow">
-    <div class="people">
-      <div class="pp2"><span class="ico" data-icon="person"></span><b>젠슨 황</b><span>엔비디아 CEO</span></div>
-      <div class="pp2"><span class="ico" data-icon="person"></span><b>이재용</b><span>삼성전자 회장</span></div>
-      <div class="pp2"><span class="ico" data-icon="person"></span><b>정의선</b><span>현대차그룹 회장</span></div>
-    </div>
+  <div class="kk2 grow">
+    <figure class="kphoto"><img src="images/kkanbu.jpg" alt="깐부치킨에서 치킨과 맥주를 나누는 이재용 회장, 정의선 회장, 젠슨 황 CEO"><figcaption>왼쪽부터 이재용 삼성전자 회장, 정의선 현대차그룹 회장, 젠슨 황 엔비디아 CEO · 사진: 연합뉴스(코리아타임스 게재)</figcaption></figure>
     <div class="vs2">
       <p class="no2"><span class="xmark">✕</span>건전한 인류의 발전을 논하는 자리?</p>
       <p class="yes2"><span class="ico" data-icon="handshake"></span><b>영업하는 자리입니다.</b></p>
+      <p class="muted" style="font-size:24px;line-height:1.5">치킨집에서도 대표들은 빅딜을 만듭니다.</p>
     </div>
   </div>
 </section>
+
 <!-- 7-7. 연봉 2024 -->
 <section class="slide" data-part="1부 · 영업직이란">
   <div class="kicker">숫자로 보면</div>
