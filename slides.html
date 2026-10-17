@@ -545,7 +545,7 @@ ul.bad li::before{background:var(--up)}
 .fq b{font-size:30px}
 .fq p{font-size:22px;color:var(--muted);line-height:1.5}
 .steps4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-content:stretch}
-.s4{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;display:flex;flex-direction:column;gap:14px;justify-content:center}
+.s4{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:40px 26px 26px;display:flex;flex-direction:column;gap:14px;justify-content:flex-start}
 .s4.hot{border:2px solid var(--up)}
 .s4 .sn{width:52px;height:52px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;line-height:1}
 .s4.hot .sn{background:var(--up)}
@@ -613,7 +613,7 @@ ul.bad li::before{background:var(--up)}
 .horizon svg{width:100%;height:auto}
 .horizon .card p{font-size:26px;line-height:1.5}
 .take{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-content:stretch}
-.tk{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px;display:flex;flex-direction:column;gap:16px;justify-content:center}
+.tk{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:44px 30px 30px;display:flex;flex-direction:column;gap:16px;justify-content:flex-start}
 .tk.hot{border:2px solid var(--up)}
 .tk .sn{width:64px;height:64px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:800;line-height:1}
 .tk.hot .sn{background:var(--up)}
@@ -848,6 +848,9 @@ ul.bad li::before{background:var(--up)}
 .cw li{font-size:30px;font-weight:700}
 .carrow{display:flex;align-items:center;justify-content:center;font-size:56px;color:var(--muted)}
 
+.faq3 .fq3 p{font-size:24px;line-height:1.6}
+.mythgrid .bossrow span{white-space:nowrap}
+
 .help{position:fixed;left:16px;bottom:12px;font:13px var(--sans);color:#6F7F96;opacity:.8;user-select:none}
 @media (prefers-reduced-motion:no-preference){ .slide.on{animation:in .25s ease-out} @keyframes in{from{opacity:.4}to{opacity:1}} }
 </style>
@@ -890,7 +893,7 @@ ul.bad li::before{background:var(--up)}
 <section class="slide section" data-part="1부 · 증권업 → 영업직 → PB">
   <div class="big">PART 1</div>
   <h1>증권업 → 영업직 → PB</h1>
-  <p class="lead">위에서부터 차례로 내려가 보겠습니다. 증권사는 무엇을 하고, 영업은 무엇이고, PB는 하루 종일 무엇을 할까요?</p>
+  <p class="lead">위에서부터 차례로 내려가 보겠습니다.<br>증권사는 무엇을 하고, 영업은 무엇이고, PB는 하루 종일 무엇을 할까요?</p>
 </section>
 <!-- 1-2. 증권업이란 -->
 <section class="slide" data-part="1부 · 증권업이란">
@@ -919,7 +922,7 @@ ul.bad li::before{background:var(--up)}
   <div class="kicker">그래서, 돈은 많이 벌까?</div>
   <h2>2025년 증권사 직원 평균 급여, 삼성전자보다 높은 곳이 9곳</h2>
   <div class="avgwrap grow"><div class="chart"><svg id="avgChart" role="img" aria-label="증권사별 직원 1인 평균 급여와 삼성전자 비교"></svg></div>
-    <div class="trap"><span class="tl">그런데 평균만 보면 안 됩니다</span><div class="tbars"><div><i style="height:2.4%"></i><b>2.18억</b><span>메리츠 직원 평균</span></div><div class="hot"><i style="height:100%"></i><b>89.0억</b><span>같은 회사 보수 1위 영업이사</span></div></div><p>같은 회사 안에서 <b>40배</b>.<br>평균도 높지만, 개인 차는 <span>영업</span>이 만듭니다.</p></div>
+    <div class="trap"><span class="tl">그런데 평균만 보면 안 됩니다</span><div class="tbars"><div><i style="height:2.4%"></i><b>2.18억</b><span>메리츠 직원 평균</span></div><div class="hot"><i style="height:100%"></i><b>89.0억</b><span>같은 회사 보수 1위 영업이사</span></div></div><p>같은 회사 안에서 <b>40배</b>.<br>평균도 높지만,<br>개인 차는 <span>영업</span>이 만듭니다.</p></div>
   </div>
   <p class="src">출처: 각 사 2025년 사업보고서(DART) 「직원 등의 현황」 1인 평균 급여액(성과급 포함, 메리츠는 기재정정 보고서 기준 — 보도 기준에 따라 다를 수 있음) · 25곳 중 상위 9곳 표시, 모두 삼성전자보다 높음 · 89억은 같은 보고서 「임원의 보수 등」</p>
 </section>
@@ -934,10 +937,10 @@ ul.bad li::before{background:var(--up)}
     </div>
     <div class="m1">
       <div class="mh"><span class="no">오해 3</span><b>"영업은 말단이 하는 일"</b></div>
-      <p class="ma">대표들도 결정하고 조직을 이끕니다. 그런데 가장 큰 일 중 하나는 <b>큰 딜을 따 오는 것</b>입니다.</p>
-      <div class="bossrow"><span class="ico lg" data-icon="scale"></span><b>김앤장 대표 변호사</b><span>직접 소송보다 큰 사건과 딜을 따 옵니다</span></div>
-      <div class="bossrow"><span class="ico lg" data-icon="doc"></span><b>삼일회계법인 대표 회계사</b><span>직접 감사보다 큰 고객사와 딜을 따 옵니다</span></div>
-      <div class="bossrow hot"><span class="ico lg up" data-icon="chip"></span><b>엔비디아 CEO 젠슨 황</b><span>칩 설계보다 전 세계를 돌며 빅딜을 따 옵니다</span></div>
+      <p class="ma">대표들도 결정하고 조직을 이끕니다.<br>그런데 가장 큰 일 중 하나는 <b>큰 딜을 따 오는 것</b>입니다.</p>
+      <div class="bossrow"><span class="ico lg" data-icon="scale"></span><b>김앤장 대표 변호사</b><span>큰 사건과 딜을 따 옵니다</span></div>
+      <div class="bossrow"><span class="ico lg" data-icon="doc"></span><b>삼일회계법인 대표 회계사</b><span>큰 고객사와 딜을 따 옵니다</span></div>
+      <div class="bossrow hot"><span class="ico lg up" data-icon="chip"></span><b>엔비디아 CEO 젠슨 황</b><span>세계를 돌며 빅딜을 따 옵니다</span></div>
     </div>
   </div>
   <p style="font-size:30px;font-weight:800">보상이 큰 자리일수록 일은 <span style="color:var(--up)">영업에 가까워집니다.</span></p>
@@ -950,7 +953,7 @@ ul.bad li::before{background:var(--up)}
     <figure class="kphoto"><img src="images/kkanbu.jpg" alt="깐부치킨에서 치킨과 맥주를 나누는 이재용 회장, 정의선 회장, 젠슨 황 CEO"><figcaption>왼쪽부터 이재용 삼성전자 회장, 정의선 현대차그룹 회장, 젠슨 황 엔비디아 CEO · 사진: 연합뉴스(코리아타임스 게재)</figcaption></figure>
     <div class="vs2">
       <p class="no2q">그냥 치킨 먹는 친목 자리였을까요?</p>
-      <p class="yes2"><span class="ico" data-icon="handshake"></span><b>다음 날, APEC 무대에서 빅딜 발표</b></p>
+      <p class="yes2"><span class="ico" data-icon="handshake"></span><b>다음 날,<br>APEC 무대에서<br>빅딜 발표</b></p>
       <p style="font-size:26px;line-height:1.5">2025년 10월 31일 경주 APEC CEO 서밋 기간, 엔비디아는 한국 정부·삼성·SK·현대차·네이버에 <b>GPU 약 26만 장</b> 공급을 발표했습니다. 금액은 비공개, 언론 추정 약 14조 원.</p><p class="muted" style="font-size:17px">출처: 머니투데이·뉴스토마토 2025.10.31</p>
     </div>
   </div>
@@ -987,8 +990,8 @@ ul.bad li::before{background:var(--up)}
   <div class="phases four grow">
     <div class="ph"><span class="ico xl" data-icon="phone"></span><span class="when mono">출근길</span><h3>시장 공부</h3><p>텔레그램 채널과 네이버 프리미엄콘텐츠로 밤사이 시장 소식을 읽으며 출근합니다</p></div>
     <div class="ph"><span class="ico xl" data-icon="people"></span><span class="when mono">07:40 출근</span><h3>회의</h3><p>실적 회의와 시황 회의. 오늘 고객에게 무슨 이야기를 할지 정합니다</p></div>
-    <div class="ph hot"><span class="ico xl up" data-icon="candle"></span><span class="when mono">09:00 ~</span><h3>장 시작, 영업 시작</h3><p>고객 응대, 자산 섭외, 외부 방문·법인 퇴직연금 상담. 점심은 한 달 2~3번 고객과(대부분 제가 먼저 청합니다)</p></div>
-    <div class="ph"><span class="ico xl" data-icon="moon"></span><span class="when mono">15:30 장 마감 후</span><h3>관리와 퇴근</h3><p>서류·녹취 점검, 일일보고, 고객 사후관리. 보통 <b>18:00~18:30 퇴근</b></p></div>
+    <div class="ph hot"><span class="ico xl up" data-icon="candle"></span><span class="when mono">09:00 ~</span><h3>장 시작, 영업 시작</h3><p>고객 응대, 자산 섭외, 외부 방문, 법인 퇴직연금 상담.<br>점심은 한 달 2~3번 고객과(대부분 제가 먼저 청합니다)</p></div>
+    <div class="ph"><span class="ico xl" data-icon="moon"></span><span class="when mono">15:30 장 마감 후</span><h3>관리와 퇴근</h3><p>서류·녹취 점검, 일일보고, 고객 사후관리.<br>보통 <b>18:00~18:30 퇴근</b></p></div>
   </div>
 </section>
 <!-- 5-1. 출근길 화면 -->
@@ -1028,12 +1031,12 @@ ul.bad li::before{background:var(--up)}
   <div class="kicker">여러분이 진짜 궁금한 것 · 제 경우입니다</div>
   <h2>신입 PB의 현실, 솔직하게 답합니다</h2>
   <div class="faq3 grow">
-    <div class="fq3"><span class="ico xl" data-icon="coins"></span><b>연봉과 성과급은?</b><p>기본급 + 성과급. 성과급 비중이 훨씬 큰 구조입니다.</p></div>
-    <div class="fq3"><span class="ico xl" data-icon="target"></span><b>실적 목표는?</b><p>목표는 "월 신규 자산 ○억", "창출 수익 ○○○○만 원" 같은 단위로 받습니다.</p></div>
-    <div class="fq3"><span class="ico xl" data-icon="moon"></span><b>퇴근과 주말은?</b><p>18:00~18:30 퇴근. 주말 출근은 한 번도 없었습니다. 주말 하루는 공부합니다(고객 주말 레터, 리포트, 요즘은 AI).</p></div>
+    <div class="fq3"><span class="ico xl" data-icon="coins"></span><b>연봉과 성과급은?</b><p>기본급 + 성과급.<br>성과급 비중이 훨씬 큽니다.</p></div>
+    <div class="fq3"><span class="ico xl" data-icon="target"></span><b>실적 목표는?</b><p>"월 신규 자산 ○억"<br>"창출 수익 ○○○○만 원"<br>같은 단위로 받습니다.</p></div>
+    <div class="fq3"><span class="ico xl" data-icon="moon"></span><b>퇴근과 주말은?</b><p>18:00~18:30 퇴근.<br>주말 출근은 한 번도 없었습니다.<br>주말 하루는 공부합니다.<br>(고객 주말 레터, 리포트, 요즘은 AI)</p></div>
     <div class="fq3"><span class="ico xl" data-icon="pin"></span><b>발령은?</b><p>보통 거주지 기준입니다.</p></div>
   </div>
-  <div class="hardest"><span class="chip up">가장 힘든 순간</span><p>저를 정말 좋아해 주시고 저도 좋아하는 고객께 주식이든 상품이든 <b>큰 손실이 났을 때</b>입니다. 최근처럼 시장이 빠지면 모든 고객이 함께 영향을 받아서, 그럴 때 정말 속상합니다.</p></div>
+  <div class="hardest"><span class="chip up">가장 힘든 순간</span><p>저를 정말 좋아해 주시고 저도 좋아하는 고객께 주식이든 상품이든 <b>큰 손실이 났을 때</b>입니다.<br>최근처럼 시장이 빠지면 모든 고객이 함께 영향을 받아서, 그럴 때 정말 속상합니다.</p></div>
 </section>
 <!-- 6-1b. 손실 날 때 -->
 <section class="slide" data-part="1부 · PB란">
@@ -1064,7 +1067,7 @@ ul.bad li::before{background:var(--up)}
 <!-- 8-1a. 제 답 -->
 <section class="slide" data-part="1부 · PB란">
   <div class="kicker">그래서, 10억은 어떻게 팔까? · 실제로는 이렇게 합니다</div>
-  <h2>상품부터가 아니라 <span style="color:var(--up)">고객부터</span>. 30명, 50명, 때로는 100명에게 연락합니다</h2>
+  <h2>상품부터가 아니라 <span style="color:var(--up)">고객부터</span>.<br>30명, 50명, 때로는 100명에게 연락합니다</h2>
   <div class="steps4 grow">
     <div class="s4"><span class="sn">1</span><b>고객 분류</b><p>가진 고객을 모두 다시 분류합니다. 이 상품이 맞을 투자 성향·목적·기간인지부터 봅니다.</p></div>
     <div class="s4"><span class="sn">2</span><b>보유 상품 점검</b><p>고객이 가진 상품 중 환매하거나 교체할 만한 것이 있는지 고민합니다.</p></div>
@@ -1285,14 +1288,14 @@ ul.bad li::before{background:var(--up)}
   <h2>면접 두 번, 모두 명함집을 펼치며 시작했고 둘 다 붙었습니다</h2>
   <div class="interview2 grow">
     <div class="lcolw">
-    <div class="opening"><span class="chip up">제 1분 자기소개 첫마디</span><p>(가슴속 명함집을 펼치며)<br><b>"이번 면접을 준비하면서 만난 30여 명의 현직자분들입니다."</b></p><p class="muted">목표를 달성하기 위한 전략, 그리고 발로 뛰는 실력이 있는 사람이라는 걸 보여 주고 싶었습니다.</p></div>
+    <div class="opening"><span class="chip up">제 1분 자기소개 첫마디</span><p>(가슴속 명함집을 펼치며)<br><b>"이번 면접을 준비하면서 만난 30여 명의 현직자분들입니다."</b></p><p class="muted">목표를 달성하기 위한 전략, 그리고 발로 뛰는 실력이<br>있는 사람이라는 걸 보여 주고 싶었습니다.</p></div>
     <div class="funnel"><div><b>6<small>곳</small></b><span>자소서 제출</span></div><i>→</i><div><b>2<small>곳</small></b><span>면접</span></div><i>→</i><div class="hot"><b>2<small>곳</small></b><span>최종 합격</span></div><p>서류는 4곳 떨어졌습니다. 면접까지 간 2곳은 모두 붙었습니다.</p></div>
     </div>
     <div class="qs">
       <p class="lead" style="color:var(--ink);font-size:26px">면접관이 실제로 물은 것</p>
       <div class="ap"><span class="ico lg up" data-icon="speech"></span><div><b>"가서 느낀 점이 무엇인가요?"</b></div></div>
       <div class="ap"><span class="ico lg up" data-icon="building"></span><div><b>"다른 지점과 우리 회사의 차이는요?"</b></div></div>
-      <div class="myans"><span class="chip down">제 답</span><p>"한국투자증권은 확실히 젊은 직원 비율이 높고, 더 치열하고 공격적으로 영업한다고 느꼈습니다. 저는 그 점에 더 끌렸고, 제가 더 맞는 사람이라고 생각했습니다."</p></div>
+      <div class="myans"><span class="chip down">제 답</span><p>"한국투자증권은 확실히 젊은 직원 비율이 높고,<br>더 치열하고 공격적으로 영업한다고 느꼈습니다.<br>저는 그 점에 더 끌렸고, 제가 더 맞는 사람이라고 생각했습니다."</p></div>
       <p style="font-size:24px;font-weight:700">직접 가서 본 것을 솔직하게 말하니, 질문은 <span style="color:var(--up)">제가 원하는 방향</span>으로 흘러갔습니다.</p>
     </div>
   </div>
@@ -1386,7 +1389,7 @@ ul.bad li::before{background:var(--up)}
 <section class="slide stmt" data-part="4부 · AI 활용" style="justify-content:center" data-stmt>
   <div class="kicker">그리고 하나 더</div>
   <h1>지금 보고 계신 이 슬라이드,<br>여러분 휴대폰의 강의 페이지,<br>익명 질문 게시판까지</h1>
-  <p class="lead" style="font-size:36px;color:var(--ink)"><b style="color:var(--up)">전부 AI와 대화하면서 만들었습니다.</b> 제가 한 일은 원하는 구성을 말로 설명하고, 결과를 보고 고쳐 달라고 한 것입니다.</p>
+  <p class="lead" style="font-size:36px;color:var(--ink)"><b style="color:var(--up)">전부 AI와 대화하면서 만들었습니다.</b><br>제가 한 일은 원하는 구성을 말로 설명하고,<br>결과를 보고 고쳐 달라고 한 것입니다.</p>
   <div class="deco" aria-hidden="true"><span class="ico" data-icon="devices"></span></div>
 </section>
 <!-- 26b. 실력에 비례 -->
@@ -1425,7 +1428,7 @@ ul.bad li::before{background:var(--up)}
   </div>
   <div class="aiqa">
     <div class="q">"AI가 쓴 티 나지 않아요? 고객이 알아차리지 않을까요?"</div>
-    <div class="a"><span>그렇지 않습니다. <b>어떻게 쓰느냐에 따라</b> 얼마든지 보완할 수 있는 문제입니다.<br>그리고 숫자를 다루는 일이라, 옮기고 계산하는 건 AI가 저보다 실수가 적습니다.</span></div>
+    <div class="a"><span>그렇지 않습니다.<br><b>어떻게 쓰느냐에 따라</b> 얼마든지 보완할 수 있습니다.<br>그리고 숫자를 다루는 일이라,<br>옮기고 계산하는 건 AI가 저보다 실수가 적습니다.</span></div>
   </div>
 </section>
 <!-- 27-1. 요약봇 -->
@@ -1454,7 +1457,7 @@ ul.bad li::before{background:var(--up)}
     </div>
     <div class="chatside">
       <p class="big2">싼지 비싼지 구별이 안 될 때, <b>얘한테 시킵니다.</b></p>
-      <p class="muted" style="font-size:24px">모르는 분야일수록 AI가 도움이 됩니다. 마지막 판단은 제가 합니다.</p>
+      <p class="muted" style="font-size:24px">모르는 분야일수록 AI가 도움이 됩니다.<br>마지막 판단은 제가 합니다.</p>
     </div>
   </div>
 </section>
@@ -1481,8 +1484,8 @@ ul.bad li::before{background:var(--up)}
   <h2>세 가지만 기억하고, 나만의 판을 고민해 보세요</h2>
   <div class="take grow">
     <div class="tk"><span class="sn">1</span><b>영업은 마음을 얻는 일</b><p>맞는 고객을 고르는 것이 첫걸음입니다.</p><div class="todo">나는 누구의 마음을 얻어 본 적이 있나?</div></div>
-    <div class="tk"><span class="sn">2</span><b>증거는 만드는 것</b><p>없으면 여러분 방식으로 지금 만듭니다.</p><div class="todo">남들이 다 하는 것 말고, 나만 만들 수 있는 판은?</div></div>
-    <div class="tk hot"><span class="sn">3</span><b>"어떻게 잘해요?"를 물어라</b><p>입사 후까지 보면 붙을 가능성이 높아집니다.</p><div class="todo">현직자에게 "어떻게 붙어요?" 대신 "어떻게 잘해요?"</div></div>
+    <div class="tk"><span class="sn">2</span><b>증거는 만드는 것</b><p>없으면 여러분 방식으로 지금 만듭니다.</p><div class="todo">남들이 다 하는 것 말고,<br>나만 만들 수 있는 판은?</div></div>
+    <div class="tk hot"><span class="sn">3</span><b>"어떻게 잘해요?"를 물어라</b><p>입사 후까지 보면 붙을 가능성이 높아집니다.</p><div class="todo">현직자에게 "어떻게 붙어요?" 대신<br>"어떻게 잘해요?"</div></div>
   </div>
 </section>
 <!-- 32. Q&A -->
