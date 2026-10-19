@@ -875,6 +875,12 @@ ul.bad li::before{background:var(--up)}
 .qa .q .sim{font-size:17px;color:var(--muted);line-height:1.4;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .qa .q .sim::before{content:"· "}
 
+/* 아이폰 등에서 글꼴이 커져도 표가 넘치지 않게 */
+.paytable{justify-content:flex-start;flex:0 0 auto}
+.paytable .r{height:42px;line-height:1;flex:none}
+.paytable .r.star{height:46px}
+.paytable .r .tag{height:30px;font-size:18px}
+
 .help{position:fixed;left:16px;bottom:12px;font:13px var(--sans);color:#6F7F96;opacity:.8;user-select:none}
 @media (prefers-reduced-motion:no-preference){ .slide.on{animation:in .25s ease-out} @keyframes in{from{opacity:.4}to{opacity:1}} }
 </style>
@@ -986,8 +992,8 @@ ul.bad li::before{background:var(--up)}
   <div class="kicker">숫자로 보면</div>
   <h2>대표·회장을 뺀 증권사 보수 상위 10명, <span style="color:var(--up)">현직 8명 모두 영업·딜 담당</span></h2>
   <div class="paytable grow" data-year="2025"></div>
-  <p class="note7">← 7위가 오늘 이야기할 바로 그 직무, PB입니다. 상위권에는 개별 계약을 맺은 영업 전문직이 많아(공시 기준) 공채 신입과는 보상 구조가 다를 수 있습니다.</p>
-  <p class="src">출처: 증권사 25곳 2025년 사업보고서(DART) 「임원의 보수 등」 직접 집계 · 대표이사·회장·부회장·고문 제외 · 회색 2명은 퇴직자로 보수 대부분이 퇴직금 · 위탁영업 = 고객 주문을 받아 주식을 사고파는 영업</p>
+  <p class="note7">← 7위가 오늘 이야기할 바로 그 직무, PB입니다.</p>
+  <p class="src">출처: 증권사 25곳 2025년 사업보고서(DART) 「임원의 보수 등」 직접 집계 · 대표이사·회장·부회장·고문 제외 · 회색 2명은 퇴직자(보수 대부분이 퇴직금)</p>
 </section>
 <!-- 4. PB란 -->
 <section class="slide" data-part="1부 · PB란">
@@ -1621,10 +1627,9 @@ const PAY = { // [이름, 회사·직위, 보수총액(억원), 직무(공시 �
 };
 document.querySelectorAll('.paytable').forEach(el => {
   const rows = PAY[el.dataset.year], max = Math.max(...rows.map(r => r[2]));
-  const h = Math.floor(560 / rows.length);
-  el.innerHTML = rows.map((r, i) => `<div class="r ${r[4] === 'u' ? 'unk' : ''} ${el.dataset.year === '2025' && (i === 0 || i === 6) ? 'star' : 'dim'}" style="height:${h}px">
+  el.innerHTML = rows.map((r, i) => `<div class="r ${r[4] === 'u' ? 'unk' : ''} ${el.dataset.year === '2025' && (i === 0 || i === 6) ? 'star' : 'dim'}">
     <span class="rk">${i + 1}위</span><span class="nm">${r[0]}</span><span class="muted" style="font-size:20px">${r[1]}</span>
-    <span class="pay">${r[2].toFixed(1)}억 원${r[5] ? `<small>${r[5]}</small>` : ''}</span><span class="bar"><i style="width:${(r[2] / max * 100).toFixed(1)}%"></i></span>
+    <span class="pay">${r[2].toFixed(1)}억 원</span><span class="bar"><i style="width:${(r[2] / max * 100).toFixed(1)}%"></i></span>
     <span class="tag ${r[4]}">${r[3]}</span></div>`).join('');
 });
 
