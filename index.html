@@ -110,6 +110,7 @@ header{padding-block:36px 28px;display:flex;flex-direction:column;gap:14px;borde
 /* 하단 고정 버튼 */
 .fab{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:5;box-shadow:0 6px 20px rgba(13,27,46,.25);text-decoration:none}
 footer{padding-block:28px;font-size:13px;color:var(--muted)}
+.namecard{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line);box-shadow:0 6px 20px rgba(13,27,46,.08)}
 </style>
 </head>
 <body>
@@ -282,6 +283,12 @@ footer{padding-block:28px;font-size:13px;color:var(--muted)}
     <span class="n" id="qn"></span>
   </div>
   <div class="qlist" id="list"><div class="empty">질문을 불러오는 중입니다…</div></div>
+</section>
+
+<section id="contact">
+  <span class="label">강사 명함</span>
+  <h2>궁금한 게 생기면 연락 주세요</h2>
+  <img class="namecard" src="images/namecard.jpg" alt="한국투자증권 광화문센터 주임(PB) 김다훈 명함" loading="lazy">
 </section>
 
 <footer>직무특강 · 증권사 지점 영업(PB) · 2026</footer>
