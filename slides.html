@@ -884,6 +884,13 @@ ul.bad li::before{background:var(--up)}
 
 .help{position:fixed;left:16px;bottom:12px;font:13px var(--sans);color:#6F7F96;opacity:.8;user-select:none}
 @media (prefers-reduced-motion:no-preference){ .slide.on{animation:in .25s ease-out} @keyframes in{from{opacity:.4}to{opacity:1}} }
+
+/* 사전 질문 답변 */
+.preqa .pq{display:flex;flex-direction:column;gap:12px;margin-top:28px}
+.preqa .pr{display:grid;grid-template-columns:96px 380px 1fr;gap:20px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 24px;min-height:92px}
+.preqa .pr .no{font-weight:800;font-size:20px;color:var(--down);background:#E7EEFB;border-radius:8px;height:36px;display:flex;align-items:center;justify-content:center}
+.preqa .pr b{font-size:24px;line-height:1.35}
+.preqa .pr p{margin:0;font-size:22px;line-height:1.5;color:var(--ink)}
 </style>
 </head>
 <body>
@@ -1521,6 +1528,42 @@ ul.bad li::before{background:var(--up)}
     <div class="tk hot"><span class="sn">3</span><b>"어떻게 잘해요?"를 물어라</b><p>입사 후까지 보면 붙을 가능성이 높아집니다.</p><div class="todo">현직자에게 "어떻게 붙어요?" 대신<br>"어떻게 잘해요?"</div></div>
   </div>
 </section>
+<!-- 31-2. 사전 질문 1 -->
+<section class="slide preqa" data-part="Q&amp;A">
+  <div class="kicker">미리 받은 질문 · 짧게 답합니다 (1/3)</div>
+  <h2>사전 질문 ① 학점·스펙·준비</h2>
+  <div class="pq">
+    <div class="pr"><span class="no">Q1</span><b>학점 컷은?</b><p>제 동기 중 최저가 3.1/4.5 정도였습니다.</p></div>
+    <div class="pr"><span class="no">Q2·3</span><b>도움 되는 자격증은?</b><p>투운사만 따세요. 자격증보다 경험입니다. 비상경·자격증 0개로 붙은 동기도 있습니다.</p></div>
+    <div class="pr"><span class="no">Q4·5</span><b>최소 요건, 학기·방학 준비는?</b><p>영업 경험을 쌓으세요. 어디서든 내 생각을 팔아 본 경험이 중요합니다. 인턴은 이력보다 무엇을 배웠는지를 자소서에 녹여야 의미가 있습니다.</p></div>
+    <div class="pr"><span class="no">Q6</span><b>학년별 활동은?</b><p>강의 자료(2부 제 이야기)를 참고하세요.</p></div>
+    <div class="pr"><span class="no">Q7</span><b>무엇부터 준비할까?</b><p>영업 경험과 금융 관련 경험. 학회든 뭐든 들어가서 경험을 쌓으세요.</p></div>
+  </div>
+</section>
+<!-- 31-2. 사전 질문 2 -->
+<section class="slide preqa" data-part="Q&amp;A">
+  <div class="kicker">미리 받은 질문 · 짧게 답합니다 (2/3)</div>
+  <h2>사전 질문 ② 인턴·면접·PB 현장</h2>
+  <div class="pq">
+    <div class="pr"><span class="no">Q8·9</span><b>정직원 전환되는 인턴은?</b><p>적극성(모르는 걸 배우고 문제를 먼저 찾아 해결)과 책임감(맡은 일은 결과물까지).</p></div>
+    <div class="pr"><span class="no">Q10·11</span><b>합격을 가른 차별점은?</b><p>자소서는 솔직히 기억이 안 납니다. 차별화는 PB 명함 30장.</p></div>
+    <div class="pr"><span class="no">Q12·14</span><b>PB 역량, 신입에게 기대하는 것은?</b><p>꼼꼼하게, 실수 없이, 인사이트 하나 드리기. 역량은 경험으로 쌓고, 신입에겐 적극성과 책임감 정도를 봅니다.</p></div>
+    <div class="pr"><span class="no">Q13</span><b>고액 자산가 섭외는?</b><p>기회는 운으로 오고, 붙잡는 건 실력입니다.</p></div>
+    <div class="pr"><span class="no">Q15·16</span><b>맞는 성향, 영업 압박은?</b><p>자본에 관심 있고 부자가 되고 싶은 사람, 워라밸보다 성취가 중요한 사람. 영업 압박 많습니다. 공짜 돈은 없습니다.</p></div>
+  </div>
+</section>
+<!-- 31-2. 사전 질문 3 -->
+<section class="slide preqa" data-part="Q&amp;A">
+  <div class="kicker">미리 받은 질문 · 짧게 답합니다 (3/3)</div>
+  <h2>사전 질문 ③ 진로·투자</h2>
+  <div class="pq">
+    <div class="pr"><span class="no">Q17</span><b>은행 대신 증권사를 고른 이유는?</b><p>증권사가 더 공격적이고, 은행은 보수적입니다.</p></div>
+    <div class="pr"><span class="no">Q18</span><b>PB에서 IB로 갈 수 있나?</b><p>불가능하진 않지만 극히 어렵습니다. 하는 일이 다릅니다. IB를 생각하고 PB로 들어오지 마세요.</p></div>
+    <div class="pr"><span class="no">Q19·20</span><b>전공을 보나? 비전공자는?</b><p>PB는 전공이 중요하지만 필수는 아닙니다. 비전공자는 보험이든 스타트업이든 영업 경험을 쌓으세요.</p></div>
+    <div class="pr"><span class="no">Q21</span><b>고학번, 학회·대외활동 없음</b><p>비범한 경험이 없다면 현실적으로 쉽지 않습니다. 그래도 하고 싶다면 스펙 말고 경험으로 승부하세요. 일단 어디든 들어가 경험부터 쌓겠습니다.</p></div>
+    <div class="pr"><span class="no">Q22</span><b>투자 엣지는 어떻게 찾나?</b><p>결국 S&amp;P·나스닥(BM)을 이기는 싸움입니다. 책으로 간접 경험, 직투로 직접 경험을 쌓으면 그게 내러티브가 됩니다.</p></div>
+  </div>
+</section>
 <!-- 32. Q&A -->
 <section class="slide qa" data-part="Q&amp;A" id="qaSlide">
   <span class="demo" id="demoNote" hidden>미리보기 모드 · 질문이 이 컴퓨터에만 저장됩니다</span>
@@ -1538,7 +1581,6 @@ ul.bad li::before{background:var(--up)}
 <section class="slide section" data-part="마무리">
   <div class="big">THANK YOU</div>
   <h1>여러분의 증거를<br>오늘부터 만들어보세요.</h1>
-  <p class="lead">강의가 끝난 뒤에도 페이지에 질문을 남기면 답변을 달아 드리겠습니다.</p>
   <div class="thanksqr"><div class="qr" data-qr></div><span>질문은 여기로 · 익명</span></div>
 </section>
 

@@ -111,163 +111,95 @@ header{padding-block:36px 28px;display:flex;flex-direction:column;gap:14px;borde
 .fab{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:5;box-shadow:0 6px 20px rgba(13,27,46,.25);text-decoration:none}
 footer{padding-block:28px;font-size:13px;color:var(--muted)}
 .namecard{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--line);box-shadow:0 6px 20px rgba(13,27,46,.08)}
+
+/* 요약 목록 */
+ul.sum{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+ul.sum li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;line-height:1.6}
+ul.sum li b{color:var(--ink)}
+section{padding-block:28px}
+.precard{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--inv);color:var(--inv-fg);border-radius:14px;padding:16px 20px;text-decoration:none}
+.precard>span:first-child{display:flex;flex-direction:column;gap:4px}
+.precard .label{color:#FF8090}
+.precard b{font-size:18px}
+.precard .arr{font-size:22px;line-height:1}
 </style>
 </head>
 <body>
 <div class="wrap">
 
 <header>
-  <span class="label">직무특강 · 증권사 지점 영업(PB)</span>
+  <span class="label">직무특강 · 증권사 지점 영업(PB) · 요약본</span>
   <h1>증권사 PB의 하루, 그리고 불합격하는 인턴의 특징</h1>
-  <p class="muted">한국투자증권 PB 김다훈 · 궁금한 점은 아래 <a href="#qna" style="color:var(--up);font-weight:700">익명 질문</a>에 언제든 남겨 주세요.</p>
-  <nav class="toc" aria-label="오늘의 순서">
+  <p class="muted">한국투자증권 PB 김다훈 · 오늘 강의를 한 번에 훑어보는 요약입니다.</p>
+  <nav class="toc" aria-label="순서">
     <a href="#p1"><span class="no">1부</span><b>증권업 → 영업직 → PB</b></a>
     <a href="#p2"><span class="no">2부</span><b>스펙보다 전략</b></a>
     <a href="#p3"><span class="no">3부</span><b>불합격하는 인턴의 특징</b></a>
     <a href="#p4"><span class="no">4부</span><b>AI를 잘 쓰는 사람이 이긴다</b></a>
-    <a href="#qna"><span class="no">Q&amp;A</span><b>익명 질문</b></a>
+    <a href="#qna"><span class="no">Q&amp;A</span><b>사전 질문 답변 · 익명 질문</b></a>
   </nav>
 </header>
 
 <section id="p1">
-  <span class="label">PART 1 · 증권업 → 영업직 → PB</span>
-  <h2>① 증권업이란?</h2>
-  <p>돈이 필요한 곳(기업·정부)과 돈을 불리고 싶은 사람(투자자)을 연결하는 일입니다. 주식·채권 발행을 돕고(IB), 사고팔기를 잇고(중개), 고객 자산을 관리하고(WM), 회사 돈을 직접 굴립니다(운용).</p>
-  <p class="big-line">그래서, <em>진짜 돈 많이 벌까?</em></p>
-  <div class="table">
-    <div class="r"><b>메리츠증권</b><span>2.18억 원</span></div>
-    <div class="r"><b>부국증권</b><span>2.16억 원</span></div>
-    <div class="r"><b>한양증권</b><span>1.96억 원</span></div>
-    <div class="r"><b>한국투자증권</b><span>1.93억 원</span></div>
-    <div class="r"><b>삼성전자 (비교)</b><span>1.58억 원</span></div>
-  </div>
-  <p class="muted" style="font-size:13px">2025년 직원 1인 평균 급여(성과급 포함). 출처: 각 사 2025년 사업보고서(DART). 증권사 25곳 중 9곳이 삼성전자보다 높았습니다.</p>
-  <p>하지만 평균만 보면 안 됩니다. 메리츠증권 직원 평균은 2.18억이지만 보수 1위 영업이사는 89억으로 40배가 넘습니다. 평균도 높지만, 개인 차는 영업이 만듭니다.</p>
-  <h2 style="margin-top:12px">② 영업직이란?</h2>
-  <p><b>회사가 정한 테두리 안에서 고객을 넓히고 실적을 달성하는 일</b>입니다.</p>
-  <div class="stack">
-    <div class="card"><span class="label">오해 1</span><p><b>"고객에게 덤터기 씌우는 일"</b> → 원금 손실 가능성까지 정확히 설명해야 관계가 오래갑니다. 영업은 오래 거래할 관계를 만드는 일입니다.</p></div>
-    <div class="card"><span class="label">오해 2</span><p><b>"술 잘 마시고 굽신거려야 한다"</b> → 고객은 전문성과 꾸준한 관리를 보고 자산을 맡깁니다. 필요한 건 비굴함이 아니라 신뢰입니다.</p></div>
-    <div class="card"><span class="label">오해 3</span><p><b>"영업은 말단이 하는 일"</b> → 직급이 올라갈수록 더 큰 영업을 합니다. CEO는 영업하는 사람입니다.</p></div>
-  </div>
-  <p>참고로 대표·회장을 뺀 증권사 보수 상위 10명 중 <b>현직 8명 모두 영업·딜 담당</b>이었습니다(2025년).</p>
-  <p class="muted" style="font-size:13px">출처: 증권사 25곳 2024·2025년 사업보고서(DART) 직접 집계</p>
-  <div class="card hl"><span class="label">대표들은 무엇을 할까?</span><p>김앤장 대표 변호사, 삼일회계법인 대표 회계사, 엔비디아 CEO 젠슨 황. 모두 직접 실무를 하기보다 <b>큰 딜을 따 오는 사람</b>입니다. 직급이 올라갈수록 더 큰 딜을 따 옵니다. 그게 영업입니다.</p></div>
-  <h2 style="margin-top:12px">③ PB란?</h2>
-  <p><b>PB는 리테일 고객의 자산을 관리하고 상품을 세일즈합니다.</b> 증권사 본사(IB·세일즈·리서치·경영지원)와 달리 지점에서 고객을 직접 만나는 자리입니다.</p>
-  <div class="stack">
-    <div class="card"><span class="chip down">개인 고객</span><p>예금·주식·연금 등 개인의 자산을 함께 관리합니다.</p></div>
-    <div class="card"><span class="chip down">법인 고객</span><p>회사 자금 운용, 임직원 퇴직연금까지 상담합니다.</p></div>
-  </div>
-  <h3 style="margin-top:8px">PB의 하루</h3>
-  <div class="day">
-    <div class="t"><span class="when">출근길</span><p>텔레그램 채널과 네이버 프리미엄콘텐츠로 밤사이 시장 소식을 읽습니다.</p></div>
-    <div class="t"><span class="when">출근 직후</span><p>실적 회의와 시황 회의. 오늘 고객에게 할 이야기를 정합니다.</p></div>
-    <div class="t hot"><span class="when">09:00 장 시작 이후</span>
-      <ul class="clean">
-        <li>주문 전화 받기, 고객에게 시황 문자 보내기</li>
-        <li>빠져나간 자산 다시 섭외하기, 상품 세일즈</li>
-        <li>자료와 상품 제안서 만들기</li>
-        <li>상품 섭외, 타사 만기 자금 섭외</li>
-        <li>내점 고객 응대, 외부 방문</li>
-        <li>퇴직연금: 법인에 직접 나가 상담</li>
-        <li>세미나 진행</li>
-      </ul></div>
-  </div>
-  <h3>PB의 일은 세 가지로 모입니다</h3>
-  <div class="stack">
-    <div class="card"><span class="label">01</span><h3>고객 자산 유치</h3><p class="muted">고객의 자산을 회사로 모셔 오고, 빠져나간 자산을 되찾습니다.</p></div>
-    <div class="card"><span class="label">02</span><h3>상품 권유</h3><p class="muted">고객에게 맞는 상품을 제안하고 판매합니다.</p></div>
-    <div class="card"><span class="label">03</span><h3>신규 고객 창출</h3><p class="muted">처음 만나는 개인과 법인을 고객으로 만듭니다.</p></div>
-  </div>
-  <div class="card"><span class="label">신입 PB의 현실 (강사 경험)</span><p>07:40 출근, 18:00~18:30 퇴근, 주말 출근은 없었고 주말 하루는 공부합니다. 목표는 "월 신규 자산 ○억, 창출 수익 ○○○○만 원" 같은 단위로 받습니다. 연봉은 기본급 + 성과급이고, 성과급 비중이 훨씬 큰 구조입니다. 발령은 보통 거주지 기준입니다.</p><p><b>가장 힘든 순간:</b> 저를 믿어 주는 고객님의 주식·상품이 손실이 났을 때입니다.</p><p><b>그때 제가 하는 일:</b> 수익 날 때 전화는 쉽지만 손실 날 때는 어렵습니다. 죄송하고, 고객도 그 상황을 피하고 싶어 하시니까요. 그래서 오히려 더 먼저 연락합니다. "제가 보는 시장은 이렇습니다. 손절하시죠." 혹은 "이런 관점에서 버텨 보시죠." 시장 탓은 고객도 이해하십니다. 다른 PB와의 차이는 이때 만들어집니다.</p><p><b>제 하루 숫자:</b> 고객 연락 하루 30건 이상, 관리 고객 500명 이상, 하루 내점 2~3명, 외부 방문 주 2건.</p></div>
-  <p class="big-line">PB에게 가장 필요한 건 <em>영업력</em>입니다.</p>
-  <div class="bubble" style="background:var(--card);border:1px solid var(--line)">팀장님: "다음 주까지 A펀드 10억 팔 수 있어?"</div>
-  <p>영업력은 <b>상대의 마음을 얻는 일</b>입니다. 마음을 얻으려면 바깥과 안쪽이 모두 중요합니다.</p>
-  <div class="stack">
-    <div class="card"><span class="chip ink">외적</span><p>단정한 복장·첫인상 · 호감을 얻는 말투 · 목소리 톤 · 정제된 어휘</p></div>
-    <div class="card hl"><span class="chip up">내적</span><p>상대 니즈 파악 · 눈치 · 디테일한 관리 · 전문성</p></div>
-  </div>
-  <p class="muted">외향적이냐 내향적이냐는 중요한 요소가 아닐 수도 있습니다. 중요한 건 상대의 마음을 얻는 방법을 가지고 있느냐입니다.</p>
+  <span class="label">1부 · 증권업 → 영업직 → PB</span>
+  <ul class="sum">
+    <li><b>증권업?</b> 돈이 필요한 곳과 돈을 불리고 싶은 사람을 잇는 일. IB·중개·WM·운용.</li>
+    <li><b>돈 많이 벌까?</b> 2025년 평균 급여 메리츠 2.18억, 한투 1.93억, 삼성전자 1.58억. 증권사 25곳 중 9곳이 삼성전자보다 높습니다. 메리츠 보수 1위 영업이사는 89억(평균의 40배). 차이는 영업이 만듭니다.</li>
+    <li><b>영업직?</b> 회사가 정한 테두리 안에서 고객을 넓히고 실적을 내는 일.</li>
+    <li><b>오해 3가지.</b> 덤터기 씌우는 일 ✕ → 오래 갈 관계. 술·굽신 ✕ → 전문성과 신뢰. 말단의 일 ✕ → 올라갈수록 더 큰 영업.</li>
+    <li><b>대표들은 무엇을 할까?</b> 큰 딜을 따 오는 사람. 그게 영업입니다. 증권사 보수 상위 10명 중 현직 8명이 영업·딜 담당(2025년, DART).</li>
+    <li><b>PB?</b> 지점에서 개인·법인 고객의 자산을 관리하고 상품을 세일즈합니다. 일은 셋: 자산 유치, 상품 권유, 신규 고객 창출.</li>
+    <li><b>PB의 하루.</b> 출근길 시장 소식 → 실적·시황 회의 → 장중엔 주문 전화, 시황 문자, 제안서, 상품 섭외, 타사 만기 자금 섭외, 빠져나간 자산 섭외, 내점·외부 방문, 퇴직연금 법인 상담, 세미나.</li>
+    <li><b>신입 PB의 현실.</b> 07:40 출근, 18:00~18:30 퇴근, 주말 출근 없음(하루는 공부). 목표는 "월 신규 자산 ○억" 단위. 기본급보다 성과급 비중이 큼. 발령은 보통 거주지 기준. 하루 연락 30건+, 관리 고객 500명+.</li>
+    <li><b>가장 힘든 순간.</b> 저를 믿어 주는 고객님의 주식·상품이 손실이 났을 때. 그래서 손실 날 때 더 먼저 전화합니다. 차이는 이때 만들어집니다.</li>
+    <li><b>PB에게 가장 필요한 것은 영업력,</b> 곧 상대의 마음을 얻는 일. 외적(복장·말투·톤·어휘) + 내적(니즈 파악·눈치·디테일·전문성). 외향·내향은 핵심이 아닙니다.</li>
+  </ul>
 </section>
 
 <section id="p2">
-  <span class="label">PART 2 · 취업 전략</span>
-  <h2>스펙보다 전략</h2>
-  <p>중학교, 고등학교, 대학교까지는 정해진 범위를 열심히 공부하고 암기하면 좋은 성적을 받을 수 있었습니다. 여기 앉은 여러분은 <b>정해진 길을 따라가는 걸 정말 잘하는 분들</b>입니다. 그런데 취업 시장은 정해진 길이 아닐 수 있습니다.</p>
-  <p>회사는 결국 와서 잘해낼 사람을 뽑습니다. 직무마다, 회사마다 원하는 무기가 다 다릅니다. 그러니 "그게 무엇일까?", "내 무기는 무엇일까?"를 고민해야 합니다.</p>
-  <div class="stack">
-    <div class="card"><span class="chip ink">쉬운 길 · 정량</span><p>스펙은요? 자격증은요? 토익은요? 학점은요? 따라가기 쉬운 길입니다.</p></div>
-    <div class="card hl"><span class="chip up">어려운 길 · 정성</span><p>여기서는 어떤 사람을 원할까? 그럼 나는 어떤 사람이지? 이걸 어떻게 보여 줄 수 있지?</p></div>
-  </div>
-  <p class="big-line">추상적인 거 압니다. 그 추상적인 걸 <em>미친 듯이 고민한 사람</em>과 안 한 사람은 크게 차이 납니다.</p>
-  <div class="card"><span class="label">비상경, 정말 괜찮나요?</span><p>공대생이면 반도체 산업을 고객 언어로 설명할 수 있다는 것 자체가 남들과 다른 판입니다. PB에게 더 중요한 건 사람의 마음을 얻어 본 경험, 영업력입니다.</p></div>
-  <div class="stack">
-    <div class="card"><span class="label">질문 1</span><h3>이 직무가 요구하는 역량은 무엇인가?</h3></div>
-    <div class="card hl"><span class="label">질문 2</span><h3>그 역량을 나는 어떻게 보여 줄 수 있는가?</h3><p class="muted">보여 줄 증거가 없다면 지금부터 만들면 됩니다.</p></div>
-  </div>
-
-  <h3 style="margin-top:8px">더 지니어스 시즌1 11화, 홍진호의 '5 대 5'</h3>
-  <p class="muted" style="font-size:14px">tvN · 2013년 7월 5일 방송 · 메인매치</p>
-  <p>처음 보는 게스트 10명을 조사한 뒤, <b>게스트들의 O/X 답이 정확히 5 대 5로 갈리는 12글자 이내 문장</b>을 내면 1점을 얻는 게임입니다.</p>
-  <div class="guests" aria-label="게스트 10명 중 5명 O, 5명 X"><span class="o">O</span><span class="o">O</span><span class="o">O</span><span class="o">O</span><span class="o">O</span><span class="x">X</span><span class="x">X</span><span class="x">X</span><span class="x">X</span><span class="x">X</span></div>
-  <div class="stack">
-    <div class="card"><span class="chip ink">다른 참가자</span><p>이름, 옷차림, 생일처럼 <b>이미 있는 정보</b>를 캐내 문장을 만들었습니다. 정보가 틀리거나 해석이 갈리면 실패했습니다.</p></div>
-    <div class="card hl"><span class="chip up">홍진호</span><p>추가 조사 10분 동안 게스트 <b>5명에게만</b> 자기 형의 이름을 알려 주고 손등을 맞댔습니다. 그리고 그 5명만 아는 문장을 냈습니다. <b style="color:var(--up)">2라운드 5문제를 모두 성공해 메인매치 1위.</b></p></div>
-  </div>
-  <p class="big-line">취업도 같습니다. 답을 찾지 말고, <em>답이 나오는 판을 직접 만드세요.</em></p>
-  <h3 style="margin-top:8px">제 이야기</h3>
-  <p>영업력을 어필하고 싶었지만 어필할 게 없었습니다. 합창단, 러닝 크루, 해외 봉사 활동은 있었지만 금융학회도 투자동아리도 없었습니다. 있으면 좋지만, 없어도 됩니다.</p>
-  <p>처음 자소서는 대학 활동과 군대 경험 위주로 썼습니다. 면접을 준비하다 방향을 바꿔야겠다고 느꼈고, 늦었지만 수정했습니다.</p>
-  <p class="big-line">그래서 <em>지금 만들기로</em> 했습니다.</p>
-  <div class="table">
-    <div class="r"><b>3일 동안</b><span>증권사 30개 지점을 직접 방문</span></div>
-    <div class="r"><b>명함집</b><span>PB분들 명함을 받아 명함집으로 만들어 면접에 들고 감</span></div>
-    <div class="r"><b>1분 자기소개</b><span>이 이야기로 시작</span></div>
-  </div>
-  <p>보여 준 것: <b>현장에서 답을 찾는 능력</b>과 <b>목표 달성을 위한 집요함</b>.</p>
-  <p><b>왜 30명이었을까?</b> 유튜브만 봐도 "현직자를 꼭 만나 봐라"고 하니, 대부분 지원자는 한두 명은 만날 거라고 생각했습니다. 한두 명으로는 남들과 같아지니, 면접관이 "이 정도까지 한다고?" 싶을 만큼 만나기로 했습니다.</p>
-  <p><b>문전박대도 영업이었습니다.</b> 대부분은 흔쾌히 도와주셨지만 30곳 중 5곳 정도에서는 "바쁘다", "네가 왜 그런 것까지 알려고 하냐"며 거절당했습니다. 거절은 이 일의 기본값이고, 그것까지 포함해 전부 영업이었습니다.</p>
-  <p><b>면접 첫마디</b>(자소서 6곳 → 면접 2곳 → 최종 합격 2곳. 지금 회사와 은행 공채, 면접 두 번 모두 이렇게 시작했습니다)<b>:</b> 명함집을 펼치며 "이번 면접을 준비하면서 만난 30여 명의 현직자분들입니다." 면접관은 "가서 느낀 점", "다른 지점과 우리 회사의 차이"를 물었고, 질문은 제가 원하는 방향으로 흘러갔습니다.</p>
+  <span class="label">2부 · 스펙보다 전략</span>
+  <ul class="sum">
+    <li><b>취업은 정해진 길이 아닙니다.</b> 회사는 와서 잘할 사람을 뽑고, 원하는 무기는 회사·직무마다 다릅니다.</li>
+    <li><b>쉬운 길(정량)</b> 스펙·자격증·토익·학점 vs <b>어려운 길(정성)</b> 여기선 누굴 원하지? 나는 누구지? 어떻게 보여 주지? 이 추상적인 걸 미친 듯이 고민한 사람이 이깁니다.</li>
+    <li><b>비상경도 됩니다.</b> 공대생이 반도체를 고객 언어로 설명할 수 있다면 그게 다른 판입니다.</li>
+    <li><b>두 질문.</b> 이 직무가 요구하는 역량은? 나는 그걸 어떻게 보여 줄까? 증거가 없으면 지금 만드세요.</li>
+    <li><b>홍진호의 '5 대 5'(더 지니어스).</b> 남들이 있는 정보를 캘 때, 홍진호는 5명에게만 정보를 만들어 줘 1위. 답을 찾지 말고 답이 나오는 판을 만드세요.</li>
+    <li><b>제 이야기.</b> 금융학회·투자동아리 없음. 3일 동안 증권사 30개 지점을 돌아 PB 명함집을 만들었고, 면접 1분 자기소개를 그걸로 시작. 자소서 6곳 → 면접 2곳 → 합격 2곳.</li>
+    <li><b>왜 30명?</b> 다들 한두 명은 만나니까, "이 정도까지?" 싶게. 5곳쯤은 문전박대. 거절도 영업입니다.</li>
+  </ul>
 </section>
 
 <section id="p3">
-  <span class="label">PART 3 · 불합격하는 인턴의 특징</span>
-  <h2>당장 앞만 보는가, 그 다음까지 보는가</h2>
-  <div class="asks-bad"><span class="chip up">불합격하는 인턴: 면접을 기출문제처럼 푼다</span>
-    <div class="bubble">선배님들은 어떤 스펙이 있으셨어요?</div>
-    <div class="bubble">면접에서 어떤 질문을 받으셨어요?</div>
-    <div class="bubble">이런 과제를 받았는데, 어떻게 하면 좋을까요?</div></div>
-  <div class="asks-good"><span class="chip down">합격하는 인턴: 입사 후를 먼저 본다</span>
-    <div class="bubble">여기서 영업 잘하시는 분들은 어떻게 영업하세요?</div>
-    <div class="bubble">주임님만의 영업 아이디어나 필살기는 뭔가요?</div>
-    <div class="bubble">고객 자산은 어떻게 유치하세요?</div></div>
-  <p>합격하는 인턴은 회사 안에서 다들 어떻게 영업하고 일을 잘하는지 관찰하고, 내가 여기서 어떻게 할 수 있을지, 무엇을 어필할지 먼저 고민합니다.</p>
-  <p class="big-line">"어떻게 붙어요?" 대신 <em>"어떻게 잘해요?"</em>를 물어보세요.</p>
+  <span class="label">3부 · 불합격하는 인턴의 특징</span>
+  <ul class="sum">
+    <li><b>불합격하는 인턴</b>은 면접을 기출처럼 묻습니다. "어떤 스펙이셨어요?", "무슨 질문 받으셨어요?"</li>
+    <li><b>합격하는 인턴</b>은 입사 후를 묻습니다. "영업 잘하시는 분들은 어떻게 하세요?", "필살기가 뭔가요?"</li>
+    <li>"어떻게 붙어요?" 대신 <b>"어떻게 잘해요?"</b></li>
+  </ul>
 </section>
 
 <section id="p4">
-  <span class="label">PART 4 · AI 활용</span>
-  <h2>AI를 잘 쓰는 사람이 이긴다</h2>
-  <p><b>왜 지금일까요?</b> 기술은 빠르고 사람의 인식은 늦습니다. 그 격차에 차익이 있습니다. 몇 년 뒤엔 누구나 AI를 당연히 잘 써서 "이 자료를 10분 만에 만들었다"가 놀랍지 않겠지만, 지금은 아직 놀라움을 주고 인센티브를 얻는 구간입니다. 이 차익이 언제 사라질지 모르니, 지금 정말 잘 써야 합니다.</p>
-  <p class="muted">이 강의 슬라이드와 이 페이지, 익명 질문 게시판도 모두 AI와 대화하면서 만들었습니다.</p>
-  <p><b>AI는 쓰는 사람의 실력에 비례합니다.</b> 결과물이 좋은지 아닌지 알아보는 능력은 사람이 가져야 하고, AI에게 채점을 시켜도 아직 인간의 직관을 못 따라가는 영역이 있습니다. 그래서 직관을 기르는 것, 결국 내 지능을 높이는 것이 핵심입니다.</p>
-  <p><b>저는 이렇게 씁니다.</b> 고객 문자 코멘트, 투자 제안서, 밤사이 시장 정리, 주말 주간 레터처럼 고객에게 보내는 많은 글을 AI가 씁니다. AI가 쓴 티는 어떻게 쓰느냐에 따라 얼마든지 보완할 수 있습니다. 일상에서도 당근마켓 중고 컴퓨터가 싼지 비싼지 모를 때 AI에게 시킵니다.</p>
-  <p><b>그리고 숫자를 다루는 일이라,</b> 옮기고 계산하는 건 AI가 저보다 실수가 적습니다.</p>
-  <p><b>AI가 대신 못 하는 것:</b> 손실 난 고객에게 먼저 거는 전화, 얼굴 보고 하는 상담, 마음을 얻는 일. AI로 아낀 시간을 고객에게 씁니다.</p>
-  <p class="big-line">몇 년 뒤엔 모두가 AI를 잘 씁니다. 차익은 시한부입니다. <em>지금의 격차를 내 것으로 만드세요.</em></p>
+  <span class="label">4부 · AI 활용</span>
+  <ul class="sum">
+    <li><b>왜 지금?</b> 기술은 빠르고 인식은 느립니다. 그 격차가 차익이고, 차익은 시한부입니다.</li>
+    <li><b>AI는 쓰는 사람 실력에 비례.</b> 결과물을 알아보는 직관은 사람 몫입니다.</li>
+    <li><b>저는</b> 고객 문자, 제안서, 시장 정리, 주간 레터를 AI로 씁니다. 숫자 옮기고 계산하는 것도 AI가 실수가 적습니다. 이 강의 자료와 페이지도 AI와 만들었습니다.</li>
+    <li><b>AI가 못 하는 것.</b> 손실 난 고객에게 먼저 거는 전화, 얼굴 보는 상담, 마음을 얻는 일. 아낀 시간은 고객에게 씁니다.</li>
+  </ul>
 </section>
 
 <section id="kit">
   <span class="label">가져가는 질문</span>
-  <h2>정답 대신, 이 세 가지를 고민해 보세요</h2>
-  <div class="card"><h3>① 이 직무가 진짜 원하는 건 무엇인가?</h3><p class="muted">공고문의 단어가 아니라, 현장에서 일 잘하는 사람을 보고 답해 보세요.</p></div>
-  <div class="card"><h3>② 남들은 그걸 어떻게 증명하려 할까? 그럼 나는?</h3><p class="muted">모두가 가는 길에 목숨 걸지 말고, 답이 나오는 판을 직접 설계해 보세요.</p></div>
-  <div class="card"><h3>③ 입사 후 잘하는 사람은 어떻게 일하는가?</h3><p class="muted">현직자에게 "어떻게 붙어요?" 대신 "어떻게 잘해요?"를 물어보세요.</p></div>
+  <ul class="sum">
+    <li>이 직무가 진짜 원하는 건 무엇인가?</li>
+    <li>남들은 그걸 어떻게 증명하려 할까? 그럼 나는?</li>
+    <li>입사 후 잘하는 사람은 어떻게 일하는가?</li>
+  </ul>
 </section>
 
 <section id="qna">
-  <span class="label">Q&amp;A · 익명</span>
+  <a class="precard" href="pre.html"><span><span class="label">사전 질문 15개</span><b>사전 질문 답변 보기</b></span><span class="arr" aria-hidden="true">→</span></a>
+  <span class="label" style="margin-top:12px">Q&amp;A · 익명</span>
   <h2>궁금한 점을 남겨 주세요</h2>
   <p class="muted">이름 없이 익명으로 올라갑니다. 다른 사람 질문에 공감을 누르면 많이 받은 질문부터 답합니다.</p>
   <p class="demo" id="demoNote" hidden>미리보기 모드입니다. 질문이 이 기기에만 저장됩니다.</p>
