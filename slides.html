@@ -907,6 +907,37 @@ ul.bad li::before{background:var(--up)}
 .warn3 b{font-size:36px;min-height:2.6em;line-height:1.3;font-weight:800;letter-spacing:-0.02em}
 .warn3 p{margin:0;font-size:25px;line-height:1.55;color:var(--muted)}
 .warn3 p em{font-style:normal;font-weight:800;color:var(--ink)}
+/* 빈 공간 채우기 (2026-11-14) */
+.agenda.xfill{flex:1}
+.agenda.xfill .row{flex:1;min-height:0}
+.agenda.xfill .no{font-size:30px}
+.agenda.xfill .what{gap:10px}
+.agenda.xfill .what b{font-size:42px}
+.agenda.xfill .what span{font-size:26px}
+.warn3 .w{justify-content:center}
+.warn3 p{min-height:3.1em}
+.paytable.xfill .r{height:52px;font-size:27px}
+.paytable.xfill .r.star{height:58px;font-size:29px}
+.paytable.xfill .r.dim{font-size:23px}
+.paytable.xfill .r .bar{height:18px}
+.paytable.xfill .r .tag{height:34px;font-size:20px}
+.pbjob.xfill .custs{justify-content:stretch}
+.pbjob.xfill .cust2{flex:1;flex-direction:column;justify-content:center;gap:20px;padding:28px}
+.pbjob.xfill .cust2 .ico{width:72px;height:72px}
+.pbjob.xfill .cust2 b{font-size:36px}
+.pbjob.xfill .roles3 .card{gap:20px}
+.pbjob.xfill .roles3 .ico{width:96px;height:96px}
+.pbjob.xfill .roles3 .n{font-size:30px}
+.pbjob.xfill .roles3 h3{font-size:46px}
+.steps4.xfill .s4{padding:34px;gap:22px;justify-content:center}
+.steps4.xfill .s4 .sn{width:64px;height:64px;font-size:30px}
+.steps4.xfill .s4 b{font-size:38px}
+.steps4.xfill .s4 p{font-size:27px;min-height:4.6em;margin:0}
+.nonbiz.xfill .grid3{flex:1}
+.nonbiz.xfill .card{justify-content:center;gap:22px}
+.nonbiz.xfill .card .ico{width:104px;height:104px;padding:22px;border-radius:24px}
+.nonbiz.xfill .card h3{font-size:40px;min-height:2.6em;display:flex;align-items:flex-end}
+.nonbiz.xfill .card p{font-size:26px;min-height:3em;margin:0}
 </style>
 </head>
 <body>
@@ -935,7 +966,7 @@ ul.bad li::before{background:var(--up)}
 <section class="slide" data-part="오프닝">
   <div class="kicker">오늘의 순서</div>
   <h2>질문은 지금부터 언제든, 익명으로 남겨 주세요</h2>
-  <div class="agenda">
+  <div class="agenda xfill">
     <div class="row"><span class="no">1부</span><div class="what"><b>증권업 → 영업직 → PB</b><span>증권사는 무엇을 하고, 영업은 무엇이고, PB는 하루 종일 무엇을 하나</span></div></div>
     <div class="row"><span class="no">2부</span><div class="what"><b>취업 전략: 스펙보다 전략</b><span>더 지니어스 홍진호 이야기 · 제 취업 이야기</span></div></div>
     <div class="row"><span class="no">3부</span><div class="what"><b>불합격하는 인턴의 특징</b><span>딱 한 가지: 질문을 들으면 보입니다</span></div></div>
@@ -951,6 +982,7 @@ ul.bad li::before{background:var(--up)}
       <span class="wn">01</span>
       <div class="wq"><small>실제로 받은 질문</small><ul><li>"대외활동 없이 붙은 비결이 뭔가요?"</li><li>"하루 몇 시간씩 준비하셨어요?"</li><li>"합격 당시 스펙은 어느 정도였나요?"</li></ul></div>
       <b>제 방식을 그대로 따라 해도<br>붙는다는 보장은 없습니다</b>
+      <p aria-hidden="true"></p>
     </div>
     <div class="w">
       <span class="wn">02</span>
@@ -1038,7 +1070,7 @@ ul.bad li::before{background:var(--up)}
 <section class="slide" data-part="1부 · 영업직이란">
   <div class="kicker">숫자로 보면</div>
   <h2>대표·회장을 뺀 증권사 보수 상위 10명, <span style="color:var(--up)">현직 8명 모두 영업·딜 담당</span></h2>
-  <div class="paytable grow" data-year="2025"></div>
+  <div class="paytable grow xfill" data-year="2025"></div>
   <p class="src">출처: 증권사 25곳 2025년 사업보고서(DART) 「임원의 보수 등」 직접 집계</p>
 </section>
 <!-- 4. PB란 -->
@@ -1046,7 +1078,7 @@ ul.bad li::before{background:var(--up)}
   <div class="kicker">③ PB란? · 증권사에서 고객과 직접 만나는 자리</div>
   <h2>개인·법인 고객의 자산을 관리하고, 상품을 세일즈하는 사람</h2>
   <div class="orgbar"><span class="ob">본사</span><span class="ot">IB · 세일즈·트레이딩 · 리서치 · 경영지원</span><span class="ob hot">지점 · WM</span><span class="ot"><b>PB</b> = 고객 자산을 관리하는 자리</span></div>
-  <div class="pbjob grow">
+  <div class="pbjob grow xfill">
     <div class="custs">
       <div class="cust2"><span class="ico lg" data-icon="person"></span><div><b>개인 고객</b></div></div>
       <div class="cust2"><span class="ico lg" data-icon="building"></span><div><b>법인 고객</b></div></div>
@@ -1142,7 +1174,7 @@ ul.bad li::before{background:var(--up)}
 <section class="slide" data-part="1부 · PB란">
   <div class="kicker">그래서, 10억은 어떻게 팔까? · 실제로는 이렇게 합니다</div>
   <h2>상품부터가 아니라 <span style="color:var(--up)">고객부터</span>.<br>30명, 50명, 때로는 100명에게 연락합니다</h2>
-  <div class="steps4 grow" style="grid-template-columns:repeat(3,1fr)">
+  <div class="steps4 grow xfill" style="grid-template-columns:repeat(3,1fr)">
     <div class="s4"><span class="sn">1</span><b>고객 분류</b><p>가진 고객을 모두 다시 분류합니다. 이 상품이 맞을 투자 성향·목적·기간인지부터 봅니다.</p></div>
     <div class="s4"><span class="sn">2</span><b>보유 상품 점검</b><p>고객이 가진 상품 중 환매하거나 교체할 만한 것이 있는지 고민합니다.</p></div>
     <div class="s4"><span class="sn">3</span><b>신규 고객 찾기</b><p>개인이든 법인이든 새 고객을 만들 길을 찾아 접촉합니다.</p></div>
@@ -1375,10 +1407,10 @@ ul.bad li::before{background:var(--up)}
 <section class="slide" data-part="2부 · 취업 전략">
   <div class="kicker">가장 많이 받는 질문</div>
   <h2>"비상경인데, 정말 괜찮나요?"</h2>
-  <div class="nonbiz grow">
+  <div class="nonbiz grow xfill">
     <div class="grid3">
-      <div class="card"><span class="ico xl" data-icon="phone"></span><h3>시장 공부는 습관</h3></div>
-      <div class="card"><span class="ico xl" data-icon="spark"></span><h3>비전공자의 전공을 무기로</h3></div>
+      <div class="card"><span class="ico xl" data-icon="phone"></span><h3>시장 공부는 습관</h3><p class="muted" aria-hidden="true"></p></div>
+      <div class="card"><span class="ico xl" data-icon="spark"></span><h3>비전공자의 전공을 무기로</h3><p class="muted" aria-hidden="true"></p></div>
       <div class="card" style="border:2px solid var(--up)"><span class="ico xl up" data-icon="handshake"></span><h3>더 중요한 건 영업력</h3><p class="muted">사람을 만나 마음을 얻어 본 경험이 전공보다 강한 증거입니다.</p></div>
     </div>
   </div>
