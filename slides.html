@@ -149,6 +149,11 @@ ul.bad li::before{background:var(--up)}
 .qa .q .likes small{font-family:var(--sans);font-size:14px;margin-top:6px;font-weight:600}
 .qa .q .txt{font-size:24px;line-height:1.45;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
 .qa .q.done{opacity:.4}
+.qa .q{position:relative}
+.qa .q .hide{position:absolute;top:8px;right:8px;height:30px;min-width:30px;padding:0 8px;border-radius:8px;border:1px solid var(--line);background:var(--paper);color:var(--muted);font:inherit;font-size:15px;font-weight:700;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .15s}
+.qa .q:hover .hide,.qa .q .hide.arm{opacity:1}
+.qa .q .hide.arm{background:var(--up);border-color:var(--up);color:#fff}
+.qa .q .body{padding-right:28px}
 .qa .q.now{border:2px solid var(--up);box-shadow:0 0 0 4px var(--up-soft)}
 .qa .empty{grid-column:1/-1;border:2px dashed var(--line);border-radius:14px;padding:60px;text-align:center;color:var(--muted);font-size:28px}
 .qa .side{width:330px;flex:none;background:var(--ink);border-radius:18px;padding:30px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px}
@@ -1589,7 +1594,7 @@ ul.bad li::before{background:var(--up)}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="config.js?v=20261017"></script>
-<script src="qna.js?v=20261113"></script>
+<script src="qna.js?v=20261113b"></script>
 <script>
 /* 아이콘 (24×24 선 아이콘) */
 const ICONS = {
@@ -1870,11 +1875,36 @@ async function refreshQA() {
   document.getElementById('qaCount').textContent = `질문 ${list.length}개 · 묶음 ${groups.length}개`;
   board.innerHTML = groups.length ? groups.map(g => {
     const more = g.items.slice(1, 3).map(q => `<span class="sim">${esc(q.text)}</span>`).join('');
-    return `<button class="q ${gState(g)}" data-ids="${esc(g.items.map(q => q.id).join(','))}"><span class="likes">${g.size > 1 ? g.size : g.likes}<small>${g.size > 1 ? '질문' : '공감'}</small></span><span class="body"><span class="txt">${esc(g.rep.text)}</span>${g.size > 1 ? `<span class="grp">비슷한 질문 ${g.size}개 · 공감 ${g.likes}</span>${more}` : ''}</span></button>`;
+    return `<div class="q ${gState(g)}" role="button" tabindex="0" data-ids="${esc(g.items.map(q => q.id).join(','))}"><span class="hide" role="button" title="이 질문 숨기기">✕</span><span class="likes">${g.size > 1 ? g.size : g.likes}<small>${g.size > 1 ? '질문' : '공감'}</small></span><span class="body"><span class="txt">${esc(g.rep.text)}</span>${g.size > 1 ? `<span class="grp">비슷한 질문 ${g.size}개 · 공감 ${g.likes}</span>${more}` : ''}</span></div>`;
   }).join('')
     : '<div class="empty">아직 질문이 없습니다. QR 코드로 들어와 첫 질문을 남겨 주세요.</div>';
 }
+const ADMIN_KEY_STORE = 'pb-lecture-admin-key';
+async function hideGroup(btn, ids) {
+  // 첫 클릭은 확인 단계, 3초 안에 한 번 더 누르면 숨깁니다.
+  if (!btn.classList.contains('arm')) {
+    btn.classList.add('arm'); btn.textContent = '숨기기';
+    setTimeout(() => { btn.classList.remove('arm'); btn.textContent = '✕'; }, 3000);
+    return;
+  }
+  let key = ''; try { key = localStorage.getItem(ADMIN_KEY_STORE) || ''; } catch (e) {}
+  if (!key && !QNA.demo) {
+    key = (prompt('발표자 암호를 입력하세요 (이 컴퓨터에 한 번만 저장됩니다)') || '').trim();
+    if (!key) return;
+  }
+  btn.closest('.q').style.display = 'none';
+  try {
+    await QNA.hide(ids, key);
+    try { localStorage.setItem(ADMIN_KEY_STORE, key); } catch (e) {}
+  } catch (e) {
+    try { localStorage.removeItem(ADMIN_KEY_STORE); } catch (err) {}
+    alert(e.message === 'forbidden' ? '암호가 맞지 않아 숨기지 못했습니다.' : '숨기지 못했습니다. 인터넷 연결을 확인하세요.');
+  }
+  refreshQA();
+}
 board.addEventListener('click', e => {
+  const h = e.target.closest('.hide');
+  if (h) { e.stopPropagation(); hideGroup(h, h.closest('.q').dataset.ids.split(',')); return; }
   const b = e.target.closest('.q'); if (!b) return;
   const ids = b.dataset.ids.split(',');
   const cur = ids.every(id => state[id] === 'done') ? 'done' : ids.some(id => state[id] === 'now') ? 'now' : '';

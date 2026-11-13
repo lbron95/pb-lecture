@@ -52,5 +52,13 @@
   const like = id => vote(id, 1);
   const unlike = id => vote(id, -1);
 
-  window.QNA = { list, add, like, unlike, demo: !API };
+  async function hide(ids, key) {
+    if (!API) {
+      demoWrite(demoRead().filter(x => !ids.includes(x.id)));
+      return;
+    }
+    await post({ action: 'hide', ids, key });
+  }
+
+  window.QNA = { list, add, like, unlike, hide, demo: !API };
 })();

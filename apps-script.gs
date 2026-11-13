@@ -71,6 +71,17 @@ function doPost(e) {
       }
       return json_({ ok: true, list: list_() });
     }
+    if (body.action === 'hide') {
+      // 발표자만: 스크립트 속성 ADMIN_KEY 와 같아야 숨깁니다.
+      const key = PropertiesService.getScriptProperties().getProperty('ADMIN_KEY');
+      if (!key || String(body.key || '') !== key) return json_({ ok: false, error: 'forbidden' });
+      const want = new Set((body.ids || []).map(String));
+      const ids = sh.getRange(2, 1, Math.max(sh.getLastRow() - 1, 1), 1).getValues();
+      for (let i = 0; i < ids.length; i++) {
+        if (want.has(String(ids[i][0]))) sh.getRange(i + 2, 5).setValue(true);
+      }
+      return json_({ ok: true, list: list_() });
+    }
     return json_({ ok: false, error: 'unknown_action' });
   } finally {
     lock.releaseLock();
