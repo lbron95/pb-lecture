@@ -59,12 +59,13 @@ function doPost(e) {
       sh.appendRow([id, new Date(), text, 0, false, '']);
       return json_({ ok: true, id: id, list: list_() });
     }
-    if (body.action === 'like') {
+    if (body.action === 'like' || body.action === 'unlike') {
+      const step = body.action === 'like' ? 1 : -1;
       const ids = sh.getRange(2, 1, Math.max(sh.getLastRow() - 1, 1), 1).getValues();
       for (let i = 0; i < ids.length; i++) {
         if (String(ids[i][0]) === String(body.id)) {
           const cell = sh.getRange(i + 2, 4);
-          cell.setValue((Number(cell.getValue()) || 0) + 1);
+          cell.setValue(Math.max((Number(cell.getValue()) || 0) + step, 0));
           break;
         }
       }

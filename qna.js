@@ -39,16 +39,18 @@
     return (await post({ action: 'add', text })).id;
   }
 
-  async function like(id) {
+  async function vote(id, step) {
     if (!API) {
       const l = demoRead();
       const q = l.find(x => x.id === id);
-      if (q) q.likes += 1;
+      if (q) q.likes = Math.max(q.likes + step, 0);
       demoWrite(l);
       return;
     }
-    await post({ action: 'like', id });
+    await post({ action: step > 0 ? 'like' : 'unlike', id });
   }
+  const like = id => vote(id, 1);
+  const unlike = id => vote(id, -1);
 
-  window.QNA = { list, add, like, demo: !API };
+  window.QNA = { list, add, like, unlike, demo: !API };
 })();

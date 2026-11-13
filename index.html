@@ -230,7 +230,7 @@ section{padding-block:28px}
 <a class="btn fab" href="#qna" id="fab">익명으로 질문하기</a>
 
 <script src="config.js?v=20261017"></script>
-<script src="qna.js?v=20261017"></script>
+<script src="qna.js?v=20261113"></script>
 <script>
 const $ = id => document.getElementById(id);
 const LIKED_KEY = 'pb-lecture-liked';
@@ -274,10 +274,11 @@ $('form').addEventListener('submit', async e => {
 });
 $('list').addEventListener('click', async e => {
   const b = e.target.closest('.like'); if (!b) return;
-  const id = b.dataset.id; if (liked.has(id)) return;
-  liked.add(id); try { localStorage.setItem(LIKED_KEY, JSON.stringify([...liked])); } catch (err) {}
-  const q = cache.find(x => x.id === id); if (q) q.likes++; render();
-  try { await QNA.like(id); } catch (err) {}
+  const id = b.dataset.id; const on = liked.has(id);
+  if (on) liked.delete(id); else liked.add(id);
+  try { localStorage.setItem(LIKED_KEY, JSON.stringify([...liked])); } catch (err) {}
+  const q = cache.find(x => x.id === id); if (q) q.likes = Math.max(q.likes + (on ? -1 : 1), 0); render();
+  try { await (on ? QNA.unlike(id) : QNA.like(id)); } catch (err) {}
 });
 document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => {
   sort = b.dataset.sort; document.querySelectorAll('.tabs button').forEach(x => x.setAttribute('aria-pressed', x === b)); render();
