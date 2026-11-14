@@ -97,7 +97,7 @@ header{padding-block:36px 28px;display:flex;flex-direction:column;gap:14px;borde
 .qlist{display:flex;flex-direction:column;gap:10px}
 .q{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start}
 .q .txt{overflow-wrap:anywhere;white-space:pre-wrap}
-.q .time{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:4px}
+.q .time{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--muted);margin-top:4px;font-variant-numeric:tabular-nums}
 .q .ans{grid-column:1/-1;background:var(--down-soft);border-radius:8px;padding:10px 12px;font-size:15px}
 .q .ans b{color:var(--down)}
 .like{width:56px;height:56px;border-radius:10px;border:1px solid var(--line);background:var(--paper);color:var(--muted);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font:inherit;cursor:pointer;line-height:1}
@@ -237,6 +237,7 @@ let sort = 'hot', cache = [];
 if (QNA.demo) $('demoNote').hidden = false;
 
 const esc = s => s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const hhmm = t => new Intl.DateTimeFormat('ko-KR', { timeZone: 'Asia/Seoul', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(new Date(t));
 const ago = t => { const m = Math.floor((Date.now() - t) / 60000); return m < 1 ? '방금' : m < 60 ? `${m}분 전` : m < 1440 ? `${Math.floor(m / 60)}시간 전` : `${Math.floor(m / 1440)}일 전`; };
 
 function render() {
@@ -244,7 +245,7 @@ function render() {
   $('qn').textContent = `질문 ${l.length}개`;
   $('list').innerHTML = l.length ? l.map(q => `
     <div class="q">
-      <div><p class="txt">${esc(q.text)}</p><p class="time">${ago(q.t)}</p></div>
+      <div><p class="txt">${esc(q.text)}</p><p class="time">${hhmm(q.t)}</p></div>
       <button type="button" class="like ${liked.has(q.id) ? 'on' : ''}" data-id="${esc(q.id)}" aria-label="공감 ${q.likes}개" ${liked.has(q.id) ? 'aria-pressed="true"' : ''}><span class="h">♥</span><span class="c">${q.likes}</span></button>
       ${q.answer ? `<div class="ans"><b>답변</b> ${esc(q.answer)}</div>` : ''}
     </div>`).join('') : '<div class="empty">아직 질문이 없습니다. 첫 질문을 남겨 주세요.</div>';

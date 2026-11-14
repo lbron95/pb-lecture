@@ -880,6 +880,11 @@ ul.bad li::before{background:var(--up)}
 .qa .q .grp{align-self:flex-start;display:inline-flex;align-items:center;background:var(--up);color:#fff;border-radius:999px;padding:6px 14px;font-size:16px;font-weight:700;line-height:1}
 .qa .q .sim{font-size:17px;color:var(--muted);line-height:1.4;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .qa .q .sim::before{content:"· "}
+/* 질문 시각 (2026-11-14) */
+.qa .q .at{font-family:var(--mono);font-size:17px;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums;line-height:1}
+.qa .q .at.first,.qa .q .sim i.first{color:var(--up)}
+.qa .q .sim i{font-style:normal;font-family:var(--mono);font-weight:600;font-variant-numeric:tabular-nums;margin-right:8px}
+.qa .q .sim.t::before{content:none}
 
 /* 아이폰 등에서 글꼴이 커져도 표가 넘치지 않게 */
 .paytable{justify-content:flex-start;flex:0 0 auto}
@@ -1783,6 +1788,7 @@ function qaSimilar(x, y) {
   const tpSpecific = [...x.tp].some(k => k !== '영업' && y.tp.has(k));
   return dice >= 0.42 || tpSpecific || (tp >= 1 && (dice >= 0.3 || tj >= 0.3));
 }
+const hhmm = t => new Intl.DateTimeFormat('ko-KR', { timeZone: 'Asia/Seoul', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(new Date(t));
 function groupQuestions(list) {
   const f = list.map(q => ({ q, bg: qaBigrams(q.text), tk: qaTokens(q.text), tp: qaTopics(q.text) }));
   const parent = f.map((_, i) => i);
@@ -1805,8 +1811,11 @@ async function refreshQA() {
   groups.sort((a, b) => order(a) - order(b) || b.size - a.size || b.likes - a.likes || a.t - b.t);
   document.getElementById('qaCount').textContent = `질문 ${list.length}개 · 묶음 ${groups.length}개`;
   board.innerHTML = groups.length ? groups.map(g => {
-    const more = g.items.slice(1, 3).map(q => `<span class="sim">${esc(q.text)}</span>`).join('');
-    return `<div class="q ${gState(g)}" role="button" tabindex="0" data-ids="${esc(g.items.map(q => q.id).join(','))}"><span class="hide" role="button" title="이 질문 숨기기">✕</span><span class="likes">${g.size > 1 ? g.size : g.likes}<small>${g.size > 1 ? '질문' : '공감'}</small></span><span class="body"><span class="txt">${esc(g.rep.text)}</span>${g.size > 1 ? `<span class="grp">비슷한 질문 ${g.size}개 · 공감 ${g.likes}</span>${more}` : ''}</span></div>`;
+    // 비슷한 질문 중 가장 먼저 올라온 질문의 시각을 빨간색으로 표시합니다.
+    const first = g.items.reduce((a, q) => q.t < a.t ? q : a, g.items[0]);
+    const mark = q => g.size > 1 && q === first ? ' first' : '';
+    const more = g.items.slice(1, 3).map(q => `<span class="sim t"><i class="${mark(q).trim()}">${hhmm(q.t)}</i>${esc(q.text)}</span>`).join('');
+    return `<div class="q ${gState(g)}" role="button" tabindex="0" data-ids="${esc(g.items.map(q => q.id).join(','))}"><span class="hide" role="button" title="이 질문 숨기기">✕</span><span class="likes">${g.size > 1 ? g.size : g.likes}<small>${g.size > 1 ? '질문' : '공감'}</small></span><span class="body"><span class="txt">${esc(g.rep.text)}</span><span class="at${mark(g.rep)}">${hhmm(g.rep.t)}</span>${g.size > 1 ? `<span class="grp">비슷한 질문 ${g.size}개 · 공감 ${g.likes} · 첫 질문 ${hhmm(first.t)}</span>${more}` : ''}</span></div>`;
   }).join('')
     : '<div class="empty">아직 질문이 없습니다. QR 코드로 들어와 첫 질문을 남겨 주세요.</div>';
 }
